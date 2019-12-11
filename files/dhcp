@@ -1,0 +1,72 @@
+
+config dnsmasq
+	option domainneeded '1'
+	option localise_queries '1'
+	option rebind_protection '1'
+	option rebind_localhost '1'
+	option local '/lan/'
+	option domain 'lan'
+	option expandhosts '1'
+	option authoritative '1'
+	option readethers '1'
+	option leasefile '/tmp/dhcp.leases'
+	option resolvfile '/tmp/resolv.conf.auto'
+	option nonwildcard '1'
+	option localservice '1'
+
+config dhcp 'lan'
+	option interface 'lan'
+	option start '100'
+	option limit '150'
+	option leasetime '12h'
+	option dhcpv6 'server'
+	option ra 'server'
+	option ra_management '1'
+	list dhcp_option '6,192.168.1.21'
+
+config dhcp 'wan'
+	option interface 'wan'
+	option ignore '1'
+
+config odhcpd 'odhcpd'
+	option maindhcp '0'
+	option leasefile '/tmp/hosts/odhcpd'
+	option leasetrigger '/usr/sbin/odhcpd-update'
+	option loglevel '4'
+
+config host
+	option name 'nuc'
+	option dns '1'
+	option mac 'C0:3F:D5:6B:54:31'
+	option ip '192.168.1.21'
+
+config host
+	option name 'LGwebOSTV'
+	option dns '1'
+	option mac '48:8D:36:83:55:DA'
+	option ip '192.168.1.17'
+
+config host
+	option name 'rockrobo'
+	option dns '1'
+	option mac '34:CE:00:E9:28:A5'
+	option ip '192.168.1.18'
+
+config host
+	option name 'PS4'
+	option dns '1'
+	option mac 'F8:46:1C:5F:15:44'
+	option ip '192.168.1.13'
+
+config domain
+	option name 'pi.hole'
+	option ip '192.168.1.21'
+
+config domain
+
+config host
+	option name 'rmpro'
+	option dns '1'
+	option mac '78:0F:77:63:53:39'
+	option ip '192.168.1.249'
+
