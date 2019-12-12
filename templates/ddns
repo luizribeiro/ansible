@@ -1,0 +1,17 @@
+
+config ddns 'global'
+	option ddns_dateformat '%F %R'
+	option ddns_loglines '250'
+	option upd_privateip '0'
+
+config service 'myddns_ipv4'
+	option interface 'wan'
+	option ip_source 'network'
+	option ip_network 'wan'
+	option service_name 'namecheap.com'
+	option enabled '1'
+	option lookup_host 'thepromisedlan.club'
+	option domain 'thepromisedlan.club'
+	option username '@'
+	option password '{{ namecheap_password }}'
+
