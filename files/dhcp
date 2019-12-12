@@ -62,11 +62,17 @@ config domain
 	option name 'pi.hole'
 	option ip '192.168.1.21'
 
-config domain
-
 config host
 	option name 'rmpro'
 	option dns '1'
 	option mac '78:0F:77:63:53:39'
 	option ip '192.168.1.249'
+
+config domain
+	option name 'router'
+	option ip '192.168.1.1'
+
+config domain
+	option name 'pihole'
+	option ip '192.168.1.21'
 
