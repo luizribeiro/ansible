@@ -12,6 +12,6 @@ config service 'myddns_ipv4'
 	option enabled '1'
 	option lookup_host 'thepromisedlan.club'
 	option domain 'thepromisedlan.club'
-	option username '@'
 	option password '{{ namecheap_password }}'
+	option username '*'
 
