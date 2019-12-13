@@ -76,3 +76,7 @@ config domain
 	option name 'pihole'
 	option ip '192.168.1.21'
 
+config domain
+	option name 'home'
+	option ip '192.168.1.21'
+
