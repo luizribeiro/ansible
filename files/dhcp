@@ -164,3 +164,18 @@ config host
 	option dns '1'
 	option mac '98:29:A6:C7:E6:4F'
 
+config host
+	option name 'bedroom-speaker'
+	option dns '1'
+	option mac '20:DF:B9:16:66:28'
+
+config host
+	option name 'guest-room-speaker'
+	option dns '1'
+	option mac '30:FD:38:B1:C1:0E'
+
+config host
+	option name 'philips-hue'
+	option dns '1'
+	option mac '00:17:88:77:7A:45'
+
