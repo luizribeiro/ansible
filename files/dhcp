@@ -182,3 +182,15 @@ config host
 	option dns '1'
 	option mac '30:35:AD:CC:3F:AC'
 
+config host
+	option name 'iot-pizza'
+	option dns '1'
+	option mac '68:FF:7B:5C:63:78'
+	option ip '192.168.2.105'
+
+config host
+	option name 'iot-popcorn'
+	option dns '1'
+	option mac '68:FF:7B:5C:42:B0'
+	option ip '192.168.2.106'
+
