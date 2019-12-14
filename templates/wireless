@@ -53,4 +53,5 @@ config wifi-iface
 	option key '{{ iot_wifi_key }}'
 	option network 'iot'
 	option isolate '1'
+	option ifname 'wlan-iot'
 
