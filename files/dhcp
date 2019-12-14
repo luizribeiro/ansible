@@ -10,8 +10,8 @@ config dnsmasq
 	option resolvfile '/tmp/resolv.conf.auto'
 	option nonwildcard '1'
 	option localservice '1'
-	option local '/thepromisedlan.club/'
-	option domain 'thepromisedlan.club'
+	option local '/thepromisedlan/'
+	option domain 'thepromisedlan'
 
 config dhcp 'lan'
 	option interface 'lan'
