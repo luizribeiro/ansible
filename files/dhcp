@@ -107,3 +107,9 @@ config host
 	option mac '5C:CF:7F:59:65:68'
 	option ip '192.168.2.103'
 
+config host
+	option name 'iot-august-connect'
+	option dns '1'
+	option mac 'B8:B7:F1:02:71:BD'
+	option ip '192.168.2.105'
+
