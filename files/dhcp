@@ -119,3 +119,8 @@ config host
 	option mac '18:B4:30:7E:0A:AD'
 	option ip '192.168.2.106'
 
+config host
+	option name 'chromecast-bedroom'
+	option dns '1'
+	option mac '48:D6:D5:36:56:E6'
+
