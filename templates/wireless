@@ -52,4 +52,5 @@ config wifi-iface
 	option encryption 'psk-mixed'
 	option key '{{ iot_wifi_key }}'
 	option network 'iot'
+	option isolate '1'
 
