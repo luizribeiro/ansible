@@ -159,3 +159,8 @@ config host
 	option dns '1'
 	option mac '9A:DE:84:93:7A:B2'
 
+config host
+	option name 'fossil-watch'
+	option dns '1'
+	option mac '98:29:A6:C7:E6:4F'
+
