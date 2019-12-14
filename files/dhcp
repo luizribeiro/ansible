@@ -177,3 +177,8 @@ config host
 	option dns '1'
 	option mac '00:17:88:77:7A:45'
 
+config host
+	option name 'grissom'
+	option dns '1'
+	option mac '30:35:AD:CC:3F:AC'
+
