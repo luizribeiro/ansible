@@ -40,7 +40,7 @@ config host
 	option ip '192.168.1.21'
 
 config host
-	option name 'LGwebOSTV'
+	option name 'living-room-tv'
 	option dns '1'
 	option mac '48:8D:36:83:55:DA'
 	option ip '192.168.1.17'
