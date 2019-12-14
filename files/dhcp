@@ -46,7 +46,7 @@ config host
 	option ip '192.168.1.17'
 
 config host
-	option name 'rockrobo'
+	option name 'iot-rockrobo'
 	option dns '1'
 	option mac '34:CE:00:E9:28:A5'
 	option ip '192.168.2.104'
@@ -62,7 +62,7 @@ config domain
 	option ip '192.168.1.21'
 
 config host
-	option name 'rmpro'
+	option name 'iot-rmpro'
 	option dns '1'
 	option mac '78:0F:77:63:53:39'
 	option ip '192.168.2.249'
@@ -90,19 +90,19 @@ config dhcp 'iot'
 	list dhcp_option '6,192.168.1.21'
 
 config host
-	option name 'bacon'
+	option name 'iot-bacon'
 	option dns '1'
 	option mac '68:FF:7B:5C:1D:E7'
 	option ip '192.168.2.101'
 
 config host
-	option name 'avocado'
+	option name 'iot-avocado'
 	option dns '1'
 	option mac '68:FF:7B:5C:23:3D'
 	option ip '192.168.2.102'
 
 config host
-	option name 'burrito'
+	option name 'iot-burrito'
 	option dns '1'
 	option mac '5C:CF:7F:59:65:68'
 	option ip '192.168.2.103'
