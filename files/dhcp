@@ -113,3 +113,9 @@ config host
 	option mac 'B8:B7:F1:02:71:BD'
 	option ip '192.168.2.105'
 
+config host
+	option name 'iot-nest'
+	option dns '1'
+	option mac '18:B4:30:7E:0A:AD'
+	option ip '192.168.2.106'
+
