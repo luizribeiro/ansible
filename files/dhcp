@@ -144,3 +144,8 @@ config host
 	option dns '1'
 	option mac '30:35:AD:AD:E3:0C'
 
+config host
+	option name 'google-home'
+	option dns '1'
+	option mac '48:D6:D5:7C:33:58'
+
