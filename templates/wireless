@@ -49,9 +49,9 @@ config wifi-iface
 	option mode 'ap'
 	option ssid 'IoT'
 	option wmm '0'
-	option encryption 'psk-mixed'
 	option key '{{ iot_wifi_key }}'
 	option network 'iot'
 	option isolate '1'
 	option ifname 'wlan-iot'
+	option encryption 'psk2'
 
