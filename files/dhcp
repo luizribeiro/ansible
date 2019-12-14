@@ -149,3 +149,8 @@ config host
 	option dns '1'
 	option mac '48:D6:D5:7C:33:58'
 
+config host
+	option name 'nintendo-switch'
+	option dns '1'
+	option mac 'DC:68:EB:61:65:A7'
+
