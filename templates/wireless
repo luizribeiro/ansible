@@ -24,7 +24,7 @@ config wifi-device 'radio1'
 	option htmode 'HT20'
 	option country 'US'
 	option legacy_rates '1'
-	option channel '6'
+	option channel '1'
 
 config wifi-iface 'default_radio1'
 	option device 'radio1'
