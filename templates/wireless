@@ -48,7 +48,6 @@ config wifi-iface
 	option device 'radio1'
 	option mode 'ap'
 	option ssid 'IoT'
-	option wmm '0'
 	option key '{{ iot_wifi_key }}'
 	option network 'iot'
 	option isolate '1'
