@@ -183,3 +183,18 @@ config rule
 	option dest_ip '192.168.1.21'
 	option dest_port '53'
 
+config rule
+	option src 'iot'
+	option target 'REJECT'
+	option name 'IoT-to-Router-SSH'
+	option proto 'tcp'
+	option dest_port '22'
+
+config rule
+	option enabled '1'
+	option src 'iot'
+	option name 'IoT-to-Router-HTTP'
+	option proto 'tcp'
+	option dest_port '80'
+	option target 'REJECT'
+
