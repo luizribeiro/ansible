@@ -7,24 +7,19 @@ config defaults
 
 config zone
 	option name 'lan'
-	list network 'lan'
 	option input 'ACCEPT'
 	option output 'ACCEPT'
 	option forward 'ACCEPT'
+	option network 'lan'
 
 config zone
 	option name 'wan'
-	list network 'wan'
-	list network 'wan6'
 	option input 'REJECT'
 	option output 'ACCEPT'
 	option forward 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
-
-config forwarding
-	option src 'lan'
-	option dest 'wan'
+	option network 'wan wan6'
 
 config rule
 	option name 'Allow-DHCP-Renew'
@@ -153,4 +148,28 @@ config redirect
 	option dest_ip '192.168.1.21'
 	option dest_port '22'
 	option name 'SSH'
+
+config zone
+	option name 'iot'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option network 'iot'
+	option forward 'ACCEPT'
+
+config forwarding
+	option dest 'wan'
+	option src 'iot'
+
+config forwarding
+	option dest 'wan'
+	option src 'lan'
+
+config rule
+	option enabled '1'
+	option target 'ACCEPT'
+	option name 'NUC-to-IoT'
+	option proto 'all'
+	option src 'lan'
+	option src_ip '192.168.1.21'
+	option dest 'iot'
 

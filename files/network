@@ -10,11 +10,11 @@ config globals 'globals'
 
 config interface 'lan'
 	option type 'bridge'
-	option ifname 'eth0.1'
 	option proto 'static'
 	option ipaddr '192.168.1.1'
 	option netmask '255.255.255.0'
 	option ip6assign '60'
+	option ifname 'eth0.1'
 
 config interface 'wan'
 	option ifname 'eth1.2'
@@ -40,4 +40,11 @@ config switch_vlan
 	option device 'switch0'
 	option vlan '2'
 	option ports '4 6t'
+
+config interface 'iot'
+	option proto 'static'
+	option ipaddr '192.168.2.1'
+	option netmask '255.255.255.0'
+	option type 'bridge'
+	option ip6assign '64'
 

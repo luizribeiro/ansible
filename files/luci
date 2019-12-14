@@ -44,3 +44,13 @@ config ifstate
 	option ifname 'eth1.2'
 	option bridge 'false'
 
+config ifstate
+	option interface 'lan'
+	option ifname 'eth0.1 radio0.network1 radio1.network1 radio1.network2'
+	option bridge 'true'
+
+config ifstate
+	option interface 'iot'
+	option ifname 'radio1.network2'
+	option bridge 'true'
+
