@@ -154,3 +154,8 @@ config host
 	option dns '1'
 	option mac 'DC:68:EB:61:65:A7'
 
+config host
+	option name 'iot-scale'
+	option dns '1'
+	option mac '9A:DE:84:93:7A:B2'
+
