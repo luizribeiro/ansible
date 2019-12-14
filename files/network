@@ -20,11 +20,15 @@ config interface 'wan'
 	option ifname 'eth1.2'
 	option proto 'dhcp'
 	option broadcast '1'
+	option peerdns '0'
+	option dns '8.8.8.8 8.8.4.4'
 
 config interface 'wan6'
 	option ifname 'eth1.2'
 	option proto 'dhcpv6'
 	option auto '0'
+	option peerdns '0'
+	option dns '2001:4860:4860::8888 2001:4860:4860::8844'
 
 config switch
 	option name 'switch0'
