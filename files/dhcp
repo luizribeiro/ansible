@@ -50,7 +50,7 @@ config host
 	option name 'rockrobo'
 	option dns '1'
 	option mac '34:CE:00:E9:28:A5'
-	option ip '192.168.1.18'
+	option ip '192.168.2.104'
 
 config host
 	option name 'PS4'
