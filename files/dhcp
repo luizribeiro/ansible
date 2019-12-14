@@ -88,6 +88,7 @@ config dhcp 'iot'
 	option dhcpv6 'server'
 	option ra 'server'
 	option ra_management '1'
+	list dhcp_option '6,192.168.1.21'
 
 config host
 	option name 'bacon'

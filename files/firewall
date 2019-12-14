@@ -173,3 +173,13 @@ config rule
 	option src_ip '192.168.1.21'
 	option dest 'iot'
 
+config rule
+	option enabled '1'
+	option target 'ACCEPT'
+	option src 'iot'
+	option name 'IoT-to-NUC-DNS'
+	option proto 'udp'
+	option dest 'lan'
+	option dest_ip '192.168.1.21'
+	option dest_port '53'
+
