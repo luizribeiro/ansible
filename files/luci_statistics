@@ -7,7 +7,7 @@ config statistics 'collectd'
 	option TypesDB '/usr/share/collectd/types.db'
 	option Interval '30'
 	option ReadThreads '2'
-	option Hostname 'OpenWrt'
+	option Hostname 'router'
 
 config statistics 'rrdtool'
 	option default_timespan '1hour'
