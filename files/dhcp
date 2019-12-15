@@ -199,3 +199,13 @@ config host
 	option dns '1'
 	option mac '40:CB:C0:9F:70:BC'
 
+config host
+	option name 'fb-macbook-pro'
+	option dns '1'
+	option mac 'F4:5C:89:B2:54:81'
+
+config host
+	option name 'iot-bathroom-scale'
+	option dns '1'
+	option mac '00:24:E4:79:80:AA'
+
