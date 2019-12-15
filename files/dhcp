@@ -194,3 +194,8 @@ config host
 	option mac '68:FF:7B:5C:42:B0'
 	option ip '192.168.2.106'
 
+config host
+	option name 'apple-watch'
+	option dns '1'
+	option mac '40:CB:C0:9F:70:BC'
+
