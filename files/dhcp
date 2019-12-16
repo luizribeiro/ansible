@@ -148,7 +148,7 @@ config host
 	option mac '48:D6:D5:7C:33:58'
 
 config host
-	option name 'nintendo-switch'
+	option name 'nintendo-switch-wifi'
 	option dns '1'
 	option mac 'DC:68:EB:61:65:A7'
 
@@ -208,4 +208,9 @@ config host
 	option name 'iot-bathroom-scale'
 	option dns '1'
 	option mac '00:24:E4:79:80:AA'
+
+config host
+	option name 'nintendo-switch-wired'
+	option dns '1'
+	option mac '00:0E:C6:D4:62:0F'
 
