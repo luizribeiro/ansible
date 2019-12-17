@@ -163,7 +163,7 @@ config host
 	option mac '98:29:A6:C7:E6:4F'
 
 config host
-	option name 'bedroom-speaker'
+	option name 'bedroom-speaker-old'
 	option dns '1'
 	option mac '20:DF:B9:16:66:28'
 
@@ -213,4 +213,19 @@ config host
 	option name 'nintendo-switch-wired'
 	option dns '1'
 	option mac '00:0E:C6:D4:62:0F'
+
+config host
+	option name 'chromecast-living-room'
+	option dns '1'
+	option mac '44:07:0B:4F:46:71'
+
+config host
+	option name 'entryway-speaker'
+	option dns '1'
+	option mac '00:F6:20:47:40:D5'
+
+config host
+	option name 'bedroom-speaker'
+	option dns '1'
+	option mac 'F0:EF:86:4D:D2:44'
 
