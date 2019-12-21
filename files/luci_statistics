@@ -169,3 +169,11 @@ config statistics 'collectd_thermal'
 config statistics 'collectd_uptime'
 	option enable '0'
 
+config statistics 'collectd_mqtt'
+	option enable '1'
+
+config collectd_mqtt_pub
+	option prefix 'collectd'
+	option pname 'router'
+	option host '192.168.1.21'
+
