@@ -167,7 +167,7 @@ config statistics 'collectd_thermal'
 	option IgnoreSelected '0'
 
 config statistics 'collectd_uptime'
-	option enable '1'
+	option enable '0'
 
 config statistics 'collectd_mqtt'
 	option enable '1'
