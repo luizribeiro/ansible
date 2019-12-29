@@ -149,6 +149,16 @@ config redirect
 	option dest_port '22'
 	option name 'SSH'
 
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'udp'
+	option src_dport '60001:60999'
+	option dest_ip '192.168.1.21'
+	option dest_dport '60001:60999'
+	option name 'mosh'
+
 config zone
 	option name 'iot'
 	option input 'ACCEPT'
