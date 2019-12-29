@@ -1,3 +1,5 @@
+# vim: set ft=uci:
+
 config agent
 	option agentaddress UDP:161,UDP6:161
 

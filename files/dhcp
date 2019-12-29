@@ -1,3 +1,4 @@
+# vim: set ft=uci:
 
 config dnsmasq
 	option localise_queries '1'

@@ -1,3 +1,4 @@
+# vim: set ft=uci:
 
 config system
 	option hostname 'router'

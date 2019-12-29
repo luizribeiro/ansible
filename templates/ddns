@@ -1,3 +1,4 @@
+# vim: set ft=uci:
 
 config ddns 'global'
 	option ddns_dateformat '%F %R'

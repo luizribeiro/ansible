@@ -1,3 +1,5 @@
+# vim: set ft=uci:
+
 # Server configuration
 config uhttpd main
 

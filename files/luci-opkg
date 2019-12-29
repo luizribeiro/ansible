@@ -1,3 +1,5 @@
+# vim: set ft=uci:
+
 config core main
 	option lang auto
 	option mediaurlbase /luci-static/bootstrap

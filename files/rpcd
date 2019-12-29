@@ -1,3 +1,5 @@
+# vim: set ft=uci:
+
 config rpcd
 	option socket /var/run/ubus.sock
 	option timeout 30

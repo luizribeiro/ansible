@@ -1,3 +1,4 @@
+# vim: set ft=uci:
 
 config wifi-device 'radio0'
 	option type 'mac80211'

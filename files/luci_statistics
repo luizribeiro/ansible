@@ -1,3 +1,4 @@
+# vim: set ft=uci:
 
 config statistics 'collectd'
 	option BaseDir '/var/run/collectd'
