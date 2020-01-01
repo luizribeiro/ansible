@@ -27,8 +27,8 @@
       register: monitrc
     - name: Setup monitrc.d
       copy:
-        src: ../etc/monitrc.d
-        dest: /etc/monitrc.d
+        src: ../etc/monitrc.d/
+        dest: /etc/monitrc.d/
         owner: root
         group: root
         mode: u+rw,g-rwx,o-rwx

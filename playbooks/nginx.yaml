@@ -24,8 +24,8 @@
       register: nginx_conf
     - name: Setup nginx/conf.d
       copy:
-        src: ../etc/nginx/conf.d
-        dest: /etc/nginx/conf.d
+        src: ../etc/nginx/conf.d/
+        dest: /etc/nginx/conf.d/
         owner: http
         mode: u+rw,g-rwx,o-rwx
         directory_mode: u+rwx,g-rwx,o-rwx
