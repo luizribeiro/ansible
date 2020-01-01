@@ -6,6 +6,7 @@
         name: collectd
         state: latest
         update_cache: yes
+      register: upgrade
     - name: Setup collectd.conf
       copy:
         src: ./etc/collectd.conf
@@ -13,10 +14,16 @@
         owner: root
         group: root
         mode: u+rw,g-rwx,o-rwx
+      register: collectd_conf
     - name: Check collectd config
       command: collectd -t
-    - name: Enable and restart collectd
+      when: collectd_conf.changed or upgrade.changed
+    - name: Enable collectd
       systemd:
         name: collectd
         enabled: yes
+    - name: Restart collectd
+      systemd:
+        name: collectd
         state: restarted
+      when: collectd_conf.changed or upgrade.changed
