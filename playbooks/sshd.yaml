@@ -1,0 +1,29 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install openssh
+      pacman:
+        name: openssh
+        state: latest
+        update_cache: yes
+      register: upgrade
+    - name: Setup sshd_config
+      template:
+        src: ../etc/ssh/sshd_config
+        dest: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: u+rw,g-rwx,o-rwx
+      register: config
+    - name: Check sshd_config
+      command: sshd -t
+      when: upgrade.changed or config.changed
+    - name: Enable sshd
+      systemd:
+        name: sshd
+        enabled: yes
+    - name: Restart sshd
+      systemd:
+        name: sshd
+        state: restarted
+      when: upgrade.changed or config.changed
