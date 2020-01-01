@@ -16,6 +16,7 @@
         name: monit
         state: latest
         update_cache: yes
+      register: upgrade
     - name: Setup monitrc
       template:
         src: ./etc/monitrc
@@ -23,6 +24,7 @@
         owner: root
         group: root
         mode: u+rw,g-rwx,o-rwx
+      register: monitrc
     - name: Setup monitrc.d
       copy:
         src: ./etc/monitrc.d
@@ -31,10 +33,16 @@
         group: root
         mode: u+rw,g-rwx,o-rwx
         directory_mode: u+rwx,g-rwx,o-rwx
+      register: monitrc_d
     - name: Check monit config
       command: monit -t
-    - name: Enable and restart monit
+      when: upgrade.changed or monitrc.changed or monitrc_d.changed
+    - name: Enable monit
       systemd:
         name: monit
         enabled: yes
+    - name: Restart monit
+      systemd:
+        name: monit
         state: restarted
+      when: upgrade.changed or monitrc.changed or monitrc_d.changed
