@@ -6,7 +6,22 @@
       aur:
         name: pi-hole-server
       register: pihole_upgrade
-    # TODO: import my own configuration files for pihole
+    - name: Setup pi-hole-server configuration
+      copy:
+        src: ../etc/pihole/
+        dest: /etc/pihole/
+        owner: pihole
+        mode: u+rw,g-rwx,o-rwx
+        directory_mode: u+rwx,g-rwx,o-rwx
+      register: pihole_config
+    - name: Setup dnsmasq configuration
+      copy:
+        src: ../etc/dnsmasq.d/
+        dest: /etc/dnsmasq.d/
+        owner: pihole
+        mode: u+rw,g-rwx,o-rwx
+        directory_mode: u+rwx,g-rwx,o-rwx
+      register: dnsmasq_config
     - name: Enable pihole-FTL
       systemd:
         name: pihole-FTL
@@ -15,7 +30,7 @@
       systemd:
         name: pihole-FTL
         state: restarted
-      when: pihole_upgrade.changed
+      when: pihole_upgrade.changed or pihole_config.changed or dnsmasq_config.changed
 
      # Setup PHP
     - name: Install PHP
