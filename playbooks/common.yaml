@@ -33,3 +33,33 @@
     - name: Enable ufw
       ufw:
         state: enabled
+    - name: Deny all traffic by default
+      ufw:
+        default: deny
+    - name: Allow all traffic from LAN
+      ufw:
+        rule: allow
+        from: 192.168.1.0/24
+    - name: Allow (limited) SSH traffic from anywhere
+      ufw:
+        rule: limit
+        port: '22'
+    - name: Allow HTTP traffic from anywhere
+      ufw:
+        rule: allow
+        port: '80'
+    - name: Allow HTTPS traffic from anywhere
+      ufw:
+        rule: allow
+        port: '443'
+    - name: Allow mosh traffic from anywhere
+      ufw:
+        rule: allow
+        port: 60000:60999
+        protocol: udp
+    - name: Allow DNS queries from IoT
+      ufw:
+        rule: allow
+        from: 192.168.2.0/24
+        port: '53'
+        protocol: udp
