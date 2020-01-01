@@ -1,0 +1,19 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install moquitto
+      pacman:
+        name: mosquitto
+        state: latest
+        update_cache: yes
+    - name: Setup mosquitto.conf
+      template:
+        src: ./etc/mosquitto/mosquitto.conf
+        dest: /etc/mosquitto/mosquitto.conf
+        owner: mosquitto
+        mode: u+rw,g-rwx,o-rwx
+    - name: Enable and restart mosquitto
+      systemd:
+        name: mosquitto
+        enabled: yes
+        state: restarted
