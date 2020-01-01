@@ -1,0 +1,25 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install sshguard
+      pacman:
+        name: sshguard
+        state: latest
+        update_cache: yes
+      register: upgrade
+    - name: Setup /etc/ufw/before.rules
+      template:
+        src: ../etc/ufw/before.rules
+        dest: /etc/ufw/before.rules
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+    - name: Enable sshguard
+      systemd:
+        name: sshguard
+        enabled: yes
+    - name: Restart sshguard
+      systemd:
+        name: sshguard
+        state: restarted
+      when: upgrade.changed
