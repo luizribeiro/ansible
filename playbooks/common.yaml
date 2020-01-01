@@ -1,7 +1,7 @@
 - hosts: nuc
   become: yes
   tasks:
-    - name: Install essential packages
+    - name: Install essential user packages
       pacman:
         name:
           - fzf
@@ -10,12 +10,15 @@
           - jq
           - mosh
           - neovim
-          - ntp
           - ripgrep
           - speedtest-cli
           - tmux
           - wget
           - zsh
+    - name: Install essential server packages
+      pacman:
+        name:
+          - ntp
     - name: Enable and start ntpd
       systemd:
         name: fail2ban
