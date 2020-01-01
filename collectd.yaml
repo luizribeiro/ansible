@@ -1,0 +1,22 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install collectd server
+      pacman:
+        name: collectd
+        state: latest
+        update_cache: yes
+    - name: Setup collectd.conf
+      copy:
+        src: ./etc/collectd.conf
+        dest: /etc/collectd.conf
+        owner: root
+        group: root
+        mode: u+rw,g-rwx,o-rwx
+    - name: Check collectd config
+      command: collectd -t
+    - name: Enable and restart collectd
+      systemd:
+        name: collectd
+        enabled: yes
+        state: restarted
