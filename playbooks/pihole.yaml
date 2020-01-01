@@ -5,7 +5,8 @@
       become_user: aur_builder
       aur:
         name: pi-hole-server
-      register: upgrade
+      register: pihole_upgrade
+    # TODO: import my own configuration files for pihole
     - name: Enable pihole-FTL
       systemd:
         name: pihole-FTL
@@ -14,6 +15,45 @@
       systemd:
         name: pihole-FTL
         state: restarted
-      when: upgrade.changed
-     # TODO: do remaining pihole web UI setup per https://wiki.archlinux.org/index.php/Pi-hole
-     # TODO: import my own configuration files for pihole
+      when: pihole_upgrade.changed
+
+     # Setup PHP
+    - name: Install PHP
+      pacman:
+        name:
+          - php
+          - php-sqlite
+        state: latest
+        update_cache: yes
+    - name: Enable PHP extensions
+      lineinfile:
+        dest: /etc/php/php.ini
+        regexp: "{{ item.regexp }}"
+        line: "{{ item.line }}"
+      with_items:
+        - { regexp: 'extension=pdo_sqlite', line: 'extension=pdo_sqlite' }
+        - { regexp: 'extension=sqlite3', line: 'extension=sqlite3' }
+        - { regexp: 'extension=sockets', line: 'extension=sockets' }
+
+    - name: Install PHP FastCGI Process Manager (FPM)
+      pacman:
+        name:
+          - php-fpm
+        state: latest
+        update_cache: yes
+      register: php_fpm_upgrade
+    - name: Enable sockets PHP extension
+      lineinfile:
+        dest: /etc/php/php-fpm.d/www.conf
+        regexp: 'listen ='
+        line: 'listen = /var/run/php-fpm/fpm-www.sock'
+      register: php_fpm_config
+    - name: Enable php-fpm
+      systemd:
+        name: php-fpm
+        enabled: yes
+    - name: Restart php-fpm
+      systemd:
+        name: php-fpm
+        state: restarted
+      when: php_fpm_upgrade.changed or php_fpm_config.changed
