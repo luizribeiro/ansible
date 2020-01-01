@@ -1,3 +1,4 @@
+- import_playbook: common.yaml
 - import_playbook: collectd.yaml
 - import_playbook: fail2ban.yaml
 - import_playbook: monit.yaml

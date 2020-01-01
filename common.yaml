@@ -1,0 +1,17 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install essential packages
+      pacman:
+        name:
+          - fzf
+          - htop
+          - iperf
+          - jq
+          - mosh
+          - neovim
+          - ripgrep
+          - speedtest-cli
+          - tmux
+          - wget
+          - zsh
