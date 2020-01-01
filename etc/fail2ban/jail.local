@@ -1,0 +1,10 @@
+[DEFAULT]
+banaction = ufw
+banaction_allports = ufw
+ignoreip = 127.0.0.1/8 ::1
+
+[nginx-http-auth]
+enabled = true
+
+[nginx-botsearch]
+enabled = true

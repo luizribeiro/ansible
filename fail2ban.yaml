@@ -1,0 +1,20 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install fail2ban
+      pacman:
+        name: fail2ban
+        state: latest
+        update_cache: yes
+    - name: Setup fail2ban settings
+      copy:
+        src: ./etc/fail2ban/jail.local
+        dest: /etc/fail2ban/jail.local
+        owner: root
+        group: root
+        mode: u+rw,g-rwx,o-rwx
+    - name: Enable and restart fail2ban
+      systemd:
+        name: fail2ban
+        enabled: yes
+        state: restarted
