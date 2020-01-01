@@ -3,6 +3,7 @@
 - import_playbook: playbooks/fail2ban.yaml
 - import_playbook: playbooks/monit.yaml
 - import_playbook: playbooks/mosquitto.yaml
+- import_playbook: playbooks/nginx.yaml
 - import_playbook: playbooks/pihole.yaml
 - import_playbook: playbooks/samba.yaml
 - import_playbook: playbooks/sshd.yaml
