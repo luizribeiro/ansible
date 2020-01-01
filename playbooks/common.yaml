@@ -19,8 +19,17 @@
       pacman:
         name:
           - ntp
+          - ufw
     - name: Enable and start ntpd
       systemd:
         name: ntpd
         enabled: yes
         state: started
+    - name: Enable and start ufw
+      systemd:
+        name: ufw
+        enabled: yes
+        state: started
+    - name: Enable ufw
+      ufw:
+        state: enabled
