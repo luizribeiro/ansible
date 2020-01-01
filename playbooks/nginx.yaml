@@ -7,6 +7,14 @@
         state: latest
         update_cache: yes
       register: nginx_upgrade
+    - name: Install certbot
+      pacman:
+        name:
+          - certbot-nginx
+          - certbot-systemd
+        state: latest
+        update_cache: yes
+      register: certbot_upgrade
     - name: Setup nginx.conf
       copy:
         src: ../etc/nginx/nginx.conf
