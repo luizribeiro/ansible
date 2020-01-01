@@ -1,6 +1,7 @@
 - import_playbook: playbooks/common.yaml
 - import_playbook: playbooks/collectd.yaml
 - import_playbook: playbooks/fail2ban.yaml
+- import_playbook: playbooks/goaccess.yaml
 - import_playbook: playbooks/monit.yaml
 - import_playbook: playbooks/mosquitto.yaml
 - import_playbook: playbooks/nginx.yaml

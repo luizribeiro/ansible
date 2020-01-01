@@ -1,0 +1,13 @@
+[Unit]
+Description=Goaccess Log Analysis - %i
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+Restart=always
+ExecStart=/usr/bin/goaccess -p /etc/goaccess/goaccess.conf
+
+[Install]
+WantedBy=multi-user.target
