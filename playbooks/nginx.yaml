@@ -30,6 +30,9 @@
         mode: u+rw,g-rwx,o-rwx
         directory_mode: u+rwx,g-rwx,o-rwx
       register: nginx_confd
+    - name: Check nginx config
+      command: nginx -t
+      when: nginx_upgrade.changed or nginx_conf.changed or nginx_confd.changed
     - name: Enable nginx
       systemd:
         name: nginx
