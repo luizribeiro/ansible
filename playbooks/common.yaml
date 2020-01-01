@@ -21,6 +21,6 @@
           - ntp
     - name: Enable and start ntpd
       systemd:
-        name: fail2ban
+        name: ntpd
         enabled: yes
         state: started
