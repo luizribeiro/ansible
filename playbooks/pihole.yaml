@@ -1,0 +1,19 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install pi-hole-server
+      become_user: aur_builder
+      aur:
+        name: pi-hole-server
+      register: upgrade
+    - name: Enable pihole-FTL
+      systemd:
+        name: pihole-FTL
+        enabled: yes
+    - name: Restart pihole-FTL
+      systemd:
+        name: pihole-FTL
+        state: restarted
+      when: upgrade.changed
+     # TODO: do remaining pihole web UI setup per https://wiki.archlinux.org/index.php/Pi-hole
+     # TODO: import my own configuration files for pihole
