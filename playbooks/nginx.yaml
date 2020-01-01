@@ -1,0 +1,25 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install nginx
+      pacman:
+        name: nginx
+        state: latest
+        update_cache: yes
+      register: nginx_upgrade
+    - name: Setup nginx.conf
+      copy:
+        src: ../etc/nginx/nginx.conf
+        dest: /etc/nginx/nginx.conf
+        owner: http
+        mode: u+rw,g-rwx,o-rwx
+      register: nginx_conf
+    - name: Enable nginx
+      systemd:
+        name: nginx
+        enabled: yes
+    - name: Restart nginx
+      systemd:
+        name: nginx
+        state: restarted
+      when: nginx_upgrade.changed or nginx_conf.changed
