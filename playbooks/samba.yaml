@@ -1,0 +1,38 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install Samba server
+      pacman:
+        name: samba
+        state: latest
+        update_cache: yes
+      register: upgrade
+    - name: Setup smb.conf
+      template:
+        src: ../etc/samba/smb.conf
+        dest: /etc/samba/smb.conf
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+      register: config
+    - name: Check samba config
+      command: testparm -s
+      when: upgrade.changed or config.changed
+    - name: Enable smbd
+      systemd:
+        name: smb
+        enabled: yes
+    - name: Enable nmbd
+      systemd:
+        name: nmb
+        enabled: yes
+    - name: Restart smbd
+      systemd:
+        name: smb
+        state: restarted
+      when: upgrade.changed or config.changed
+    - name: Restart nmbd
+      systemd:
+        name: nmb
+        state: restarted
+      when: upgrade.changed or config.changed
