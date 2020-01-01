@@ -30,6 +30,7 @@
         mode: u+rw,g-rwx,o-rwx
         directory_mode: u+rwx,g-rwx,o-rwx
       register: nginx_confd
+    # TODO: setup SSL certs wih certbot and enable certbot.timer
     - name: Enable nginx
       systemd:
         name: nginx
