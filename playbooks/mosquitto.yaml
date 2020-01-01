@@ -9,7 +9,7 @@
       register: upgrade
     - name: Setup mosquitto.conf
       template:
-        src: ./etc/mosquitto/mosquitto.conf
+        src: ../etc/mosquitto/mosquitto.conf
         dest: /etc/mosquitto/mosquitto.conf
         owner: mosquitto
         mode: u+rw,g-rwx,o-rwx

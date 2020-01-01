@@ -9,7 +9,7 @@
       register: upgrade
     - name: Setup fail2ban settings
       copy:
-        src: ./etc/fail2ban/jail.local
+        src: ../etc/fail2ban/jail.local
         dest: /etc/fail2ban/jail.local
         owner: root
         group: root

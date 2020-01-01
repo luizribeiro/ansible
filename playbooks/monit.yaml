@@ -19,7 +19,7 @@
       register: upgrade
     - name: Setup monitrc
       template:
-        src: ./etc/monitrc
+        src: ../etc/monitrc
         dest: /etc/monitrc
         owner: root
         group: root
@@ -27,7 +27,7 @@
       register: monitrc
     - name: Setup monitrc.d
       copy:
-        src: ./etc/monitrc.d
+        src: ../etc/monitrc.d
         dest: /etc/monitrc.d
         owner: root
         group: root

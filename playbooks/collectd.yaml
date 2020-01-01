@@ -9,7 +9,7 @@
       register: upgrade
     - name: Setup collectd.conf
       copy:
-        src: ./etc/collectd.conf
+        src: ../etc/collectd.conf
         dest: /etc/collectd.conf
         owner: root
         group: root
