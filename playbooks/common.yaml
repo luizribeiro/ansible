@@ -20,11 +20,15 @@
         name:
           - ntp
           - ufw
+
+    # NTP Setup
     - name: Enable and start ntpd
       systemd:
         name: ntpd
         enabled: yes
         state: started
+
+    # Firewall setup
     - name: Enable and start ufw
       systemd:
         name: ufw
@@ -63,3 +67,22 @@
         from: 192.168.2.0/24
         port: '53'
         protocol: udp
+
+    # AUR Setup
+    - name: 'Setup aur_builder user'
+      user:
+        name: aur_builder
+        group: wheel
+    - name: 'Allow aur_builder to sudo'
+      lineinfile:
+        path: /etc/sudoers.d/11-install-aur_builder
+        line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+        create: yes
+        validate: 'visudo -cf %s'
+    - name: 'Install yay'
+      aur:
+        name: yay
+        use: makepkg
+        skip_installed: true
+      become: yes
+      become_user: aur_builder
