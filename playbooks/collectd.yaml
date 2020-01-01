@@ -15,15 +15,16 @@
         group: root
         mode: u+rw,g-rwx,o-rwx
       register: collectd_conf
-    - name: Check collectd config
-      command: collectd -t
-      when: collectd_conf.changed or upgrade.changed
     - name: Enable collectd
       systemd:
         name: collectd
         enabled: yes
-    - name: Restart collectd
-      systemd:
-        name: collectd
-        state: restarted
+    - name: Check and restart collectd
+      block:
+        - name: Check collectd config
+          command: collectd -t
+        - name: Restart collectd
+          systemd:
+            name: collectd
+            state: restarted
       when: collectd_conf.changed or upgrade.changed

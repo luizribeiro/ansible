@@ -15,15 +15,16 @@
         group: root
         mode: u+rw,g-rwx,o-rwx
       register: config
-    - name: Check sshd_config
-      command: sshd -t
-      when: upgrade.changed or config.changed
     - name: Enable sshd
       systemd:
         name: sshd
         enabled: yes
-    - name: Restart sshd
-      systemd:
-        name: sshd
-        state: restarted
+    - name: Check and restart sshd
+      block:
+        - name: Check sshd_config
+          command: sshd -t
+        - name: Restart sshd
+          systemd:
+            name: sshd
+            state: restarted
       when: upgrade.changed or config.changed

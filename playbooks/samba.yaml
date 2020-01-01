@@ -15,9 +15,6 @@
         group: root
         mode: u=rw,g=r,o=r
       register: config
-    - name: Check samba config
-      command: testparm -s
-      when: upgrade.changed or config.changed
     - name: Enable smbd
       systemd:
         name: smb
@@ -26,13 +23,16 @@
       systemd:
         name: nmb
         enabled: yes
-    - name: Restart smbd
-      systemd:
-        name: smb
-        state: restarted
-      when: upgrade.changed or config.changed
-    - name: Restart nmbd
-      systemd:
-        name: nmb
-        state: restarted
+    - name: Check and restart samba
+      block:
+        - name: Check samba config
+          command: testparm -s
+        - name: Restart smbd
+          systemd:
+            name: smb
+            state: restarted
+        - name: Restart nmbd
+          systemd:
+            name: nmb
+            state: restarted
       when: upgrade.changed or config.changed
