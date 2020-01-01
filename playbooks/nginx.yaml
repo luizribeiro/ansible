@@ -29,6 +29,7 @@
         owner: http
         mode: u+rw,g-rwx,o-rwx
         directory_mode: u+rwx,g-rwx,o-rwx
+      register: nginx_confd
     - name: Enable nginx
       systemd:
         name: nginx
@@ -37,4 +38,4 @@
       systemd:
         name: nginx
         state: restarted
-      when: nginx_upgrade.changed or nginx_conf.changed
+      when: nginx_upgrade.changed or nginx_conf.changed or nginx_confd.changed
