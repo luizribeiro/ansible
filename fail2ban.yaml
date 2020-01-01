@@ -6,6 +6,7 @@
         name: fail2ban
         state: latest
         update_cache: yes
+      register: upgrade
     - name: Setup fail2ban settings
       copy:
         src: ./etc/fail2ban/jail.local
@@ -13,8 +14,13 @@
         owner: root
         group: root
         mode: u+rw,g-rwx,o-rwx
-    - name: Enable and restart fail2ban
+      register: config
+    - name: Enable fail2ban
       systemd:
         name: fail2ban
         enabled: yes
+    - name: Restart fail2ban
+      systemd:
+        name: fail2ban
         state: restarted
+      when: config.changed or upgrade.changed
