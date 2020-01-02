@@ -5,7 +5,7 @@
     update_cache: yes
   register: openssh_upgrade
 - name: Setup sshd_config
-  template:
+  copy:
     src: ../files/etc/sshd_config
     dest: /etc/ssh/sshd_config
     owner: root
