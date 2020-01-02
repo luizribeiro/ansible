@@ -21,6 +21,12 @@
       - sshfs
       - traceroute
     state: latest
+- name: Install man pages
+  pacman:
+    name:
+      - man-db
+      - man-pages
+    state: latest
 
 - include: ntp.yaml
 - include: firewall.yaml
