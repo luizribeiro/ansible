@@ -111,11 +111,6 @@ HostKeyAlgorithms ssh-rsa,rsa-sha2-256,rsa-sha2-512
 # Enable automatic removal of stale sockets when connecting
 StreamLocalBindUnlink yes
 
-# hass can access ssh locally so I can git push from my own home directory
-Match Address 127.0.0.1
-  AllowGroups sshusers hass
-  AllowUsers hass
-
 #	X11Forwarding no
 #	AllowTcpForwarding no
 #	PermitTTY no
