@@ -17,6 +17,13 @@
     mode: u=rw,g=r,o-rwx
     directory_mode: u=rwx,g=rx,o-rwx
   register: hass_config
+- name: Setup nginx for home-assistant
+  copy:
+    src: ../files/etc/nginx/conf.d/10-home.conf
+    dest: /etc/nginx/conf.d/10-home.conf
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
+  register: nginx_confd
 - name: Enable home-assistant
   systemd:
     name: home-assistant
