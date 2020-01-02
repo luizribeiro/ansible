@@ -3,16 +3,22 @@
     name:
       - fzf
       - htop
-      - iperf
       - jq
       - mosh
       - neovim
       - python-pynvim
       - ripgrep
-      - speedtest-cli
       - tmux
       - wget
       - zsh
+    state: latest
+- name: Install networking tools
+  pacman:
+    name:
+      - iperf
+      - nmap
+      - speedtest-cli
+      - traceroute
     state: latest
 
 - include: ntp.yaml
