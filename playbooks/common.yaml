@@ -10,6 +10,7 @@
           - jq
           - mosh
           - neovim
+          - python-pynvim
           - ripgrep
           - speedtest-cli
           - tmux
