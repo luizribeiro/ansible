@@ -2,7 +2,7 @@
   pacman:
     name: ntp
     state: present
-- name: Enable and start ntpd
+- name: ntpd is enabled and running
   systemd:
     name: ntpd
     enabled: yes

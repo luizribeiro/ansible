@@ -6,7 +6,7 @@
       # this should be a dependency of home-assistant. see FS#64963
       - python-aiohttp-cors
       - python-bluepy
-  register: hass_upgrade
+  notify: restart home-assistant
 - name: Setup home-assistant
   copy:
     src: files/var/lib/hass/
@@ -15,14 +15,16 @@
     group: hass
     mode: u=rw,g=r,o-rwx
     directory_mode: u=rwx,g=rx,o-rwx
-  register: hass_config
+    validate: 'hass -c %s --script check_config'
+  notify: restart home-assistant
 - name: Setup nginx for home-assistant
   copy:
     src: files/etc/nginx/conf.d/10-home.conf
     dest: /etc/nginx/conf.d/10-home.conf
     owner: http
     mode: u+rw,g-rwx,o-rwx
-  register: nginx_confd
+    # TODO: figure out a way of validating this config
+  notify: restart nginx
 - name: Setup home-assistant.service overrides
   copy:
     src: files/etc/systemd/system/home-assistant.service.d/
@@ -31,21 +33,11 @@
     group: root
     mode: u=rw,g=r,o=r
     directory_mode: u=rwx,g=rx,o=rx
-  register: home_assistant_service
-- name: Reload home-assistant.service
-  systemd:
-    daemon_reload: yes
-  when: home_assistant_service.changed
-- name: Enable home-assistant
+  notify:
+    - reload home-assistant.service
+    - restart home-assistant
+- name: home-assistant is enabled and running
   systemd:
     name: home-assistant
     enabled: yes
-- name: Check and restart home-assistant
-  block:
-    - name: Check home-assistant config
-      command: hass -c /var/lib/hass/ --script check_config
-    - name: Restart home-assistant
-      systemd:
-        name: home-assistant
-        state: restarted
-  when: hass_upgrade.changed or home_assistant_service.changed or hass_config.changed
+    state: started

@@ -1,0 +1,8 @@
+- name: restart pihole-FTL
+  systemd:
+    name: pihole-FTL
+    state: restarted
+- name: restart php-fpm
+  systemd:
+    name: php-fpm
+    state: restarted

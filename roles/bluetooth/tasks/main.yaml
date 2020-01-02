@@ -4,11 +4,8 @@
       - bluez
       - bluez-utils
     state: present
-- name: Enable bluetooth.service
+- name: bluetooth.service is enabled and running
   systemd:
     name: bluetooth
     enabled: yes
-- name: Start bluetooth.service
-  systemd:
-    name: bluetooth
     state: started

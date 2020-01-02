@@ -1,0 +1,11 @@
+- name: restart fail2ban
+  systemd:
+    name: fail2ban
+    state: restarted
+- name: reload goaccess.service
+  systemd:
+    daemon_reload: yes
+- name: restart goaccess
+  systemd:
+    name: goaccess
+    state: restarted

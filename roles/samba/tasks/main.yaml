@@ -2,7 +2,7 @@
   pacman:
     name: samba
     state: present
-  register: samba_upgrade
+  notify: restart samba
 - name: Setup smb.conf
   template:
     src: files/etc/samba/smb.conf
@@ -10,7 +10,8 @@
     owner: root
     group: root
     mode: u=rw,g=r,o=r
-  register: samba_config
+    validate: "testparm -s %s"
+  notify: restart samba
 - name: Create /home/public directory
   file:
     path: /home/public
@@ -18,24 +19,13 @@
     owner: nobody
     group: nobody
     mode: u=rwx,g=rx,o=rx
-- name: Enable smbd
+- name: smbd is enabled and running
   systemd:
     name: smb
     enabled: yes
-- name: Enable nmbd
+    state: started
+- name: nmbd is enabled and running
   systemd:
     name: nmb
     enabled: yes
-- name: Check and restart samba
-  block:
-    - name: Check samba config
-      command: testparm -s
-    - name: Restart smbd
-      systemd:
-        name: smb
-        state: restarted
-    - name: Restart nmbd
-      systemd:
-        name: nmb
-        state: restarted
-  when: samba_upgrade.changed or samba_config.changed
+    state: started

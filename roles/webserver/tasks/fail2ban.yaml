@@ -2,7 +2,7 @@
   pacman:
     name: fail2ban
     state: present
-  register: fail2ban_upgrade
+  notify: restart fail2ban
 - name: Setup fail2ban settings
   copy:
     src: files/etc/fail2ban/jail.local
@@ -10,13 +10,9 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-  register: fail2ban_config
-- name: Enable fail2ban
+  notify: restart fail2ban
+- name: fail2ban is enabled and running
   systemd:
     name: fail2ban
     enabled: yes
-- name: Restart fail2ban
-  systemd:
-    name: fail2ban
-    state: restarted
-  when: fail2ban_config.changed or fail2ban_upgrade.changed
+    state: started

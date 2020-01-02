@@ -3,7 +3,7 @@
     name: nginx
     # TODO: install apache-tools and setup htpasswd for host
     state: present
-  register: nginx_upgrade
+  notify: restart nginx
 - name: Install certbot
   pacman:
     name:
@@ -16,7 +16,8 @@
     dest: /etc/nginx/nginx.conf
     owner: http
     mode: u+rw,g-rwx,o-rwx
-  register: nginx_conf
+    validate: 'nginx -t -c %s'
+  notify: restart nginx
 - name: Setup nginx/conf.d
   copy:
     src: files/etc/nginx/conf.d/
@@ -24,7 +25,8 @@
     owner: http
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
-  register: nginx_confd
+    # TODO: find a way to validate nginx/conf.d
+  notify: restart nginx
 - name: Setup /srv/http
   copy:
     src: files/srv/http/
@@ -41,16 +43,8 @@
   ufw:
     rule: allow
     port: '443'
-- name: Enable nginx
+- name: nginx is enabled and running
   systemd:
     name: nginx
     enabled: yes
-- name: Check and restart nginx
-  block:
-    - name: Check nginx config
-      command: nginx -t
-    - name: Restart nginx
-      systemd:
-        name: nginx
-        state: restarted
-  when: nginx_upgrade.changed or nginx_conf.changed or nginx_confd.changed
+    state: started

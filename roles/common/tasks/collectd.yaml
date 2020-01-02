@@ -2,7 +2,7 @@
   pacman:
     name: collectd
     state: present
-  register: collectd_upgrade
+  notify: restart collectd
 - name: Setup collectd.conf
   copy:
     src: files/etc/collectd.conf
@@ -10,17 +10,10 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-  register: collectd_conf
-- name: Enable collectd
+    validate: 'collectd -t -C %s'
+  notify: restart collectd
+- name: collectd is enabled and running
   systemd:
     name: collectd
     enabled: yes
-- name: Check and restart collectd
-  block:
-    - name: Check collectd config
-      command: collectd -t
-    - name: Restart collectd
-      systemd:
-        name: collectd
-        state: restarted
-  when: collectd_conf.changed or collectd_upgrade.changed
+    state: started

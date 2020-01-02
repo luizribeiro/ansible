@@ -2,7 +2,7 @@
   pacman:
     name: openssh
     state: present
-  register: openssh_upgrade
+  notify: restart sshd
 - name: Setup sshd_config
   copy:
     src: files/etc/sshd_config
@@ -10,7 +10,8 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-  register: sshd_config
+    validate: 'sshd -tf %s'
+  notify: restart sshd
 - name: Allow (limited) SSH traffic from anywhere
   ufw:
     rule: limit
@@ -20,16 +21,8 @@
     rule: allow
     port: 60000:60999
     protocol: udp
-- name: Enable sshd
+- name: sshd is enabled and running
   systemd:
     name: sshd
     enabled: yes
-- name: Check and restart sshd
-  block:
-    - name: Check sshd_config
-      command: sshd -t
-    - name: Restart sshd
-      systemd:
-        name: sshd
-        state: restarted
-  when: openssh_upgrade.changed or sshd_config.changed
+    state: started

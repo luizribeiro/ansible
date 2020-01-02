@@ -1,0 +1,10 @@
+- name: restart samba
+  block:
+    - name: Restart smbd
+      systemd:
+        name: smb
+        state: restarted
+    - name: Restart nmbd
+      systemd:
+        name: nmb
+        state: restarted

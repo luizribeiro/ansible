@@ -2,14 +2,11 @@
   pacman:
     name: ufw
     state: present
-- name: Enable and start ufw
+- name: ufw is enabled and running
   systemd:
     name: ufw
     enabled: yes
     state: started
-- name: Enable ufw
-  ufw:
-    state: enabled
 - name: Deny all traffic by default
   ufw:
     default: deny

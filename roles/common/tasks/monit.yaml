@@ -2,7 +2,7 @@
   pacman:
     name: monit
     state: present
-  register: monit_upgrade
+  notify: restart monit
 - name: Setup monitrc
   template:
     src: files/etc/monitrc
@@ -10,7 +10,8 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-  register: monitrc
+    validate: 'monit -t -c %s'
+  notify: restart monit
 - name: Setup monitrc.d
   copy:
     src: files/etc/monitrc.d/
@@ -19,17 +20,10 @@
     group: root
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
-  register: monitrc_d
-- name: Enable monit
+    # TODO: figure out a way to validate this
+  notify: restart monit
+- name: monit is enabled and running
   systemd:
     name: monit
     enabled: yes
-- name: Check and restart monit
-  block:
-    - name: Check monit config
-      command: monit -t
-    - name: Restart monit
-      systemd:
-        name: monit
-        state: restarted
-  when: monit_upgrade.changed or monitrc.changed or monitrc_d.changed
+    state: started
