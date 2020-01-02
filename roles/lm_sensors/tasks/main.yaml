@@ -1,0 +1,14 @@
+- name: Install lm_sensors
+  pacman:
+    name: lm_sensors
+    state: present
+  notify:
+    - run sensors-detect
+    - restart lm-sensors
+  tags: packages
+- name: lm_sensors is enabled and running
+  systemd:
+    name: lm_sensors
+    enabled: yes
+    state: started
+  tags: systemctl

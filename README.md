@@ -6,7 +6,6 @@ $ ansible-playbook site.yaml
 
 ## TODOs
 
-* TODO: setup a `lm_sensors` role
 * TODO: setup all home assistant secrets
 * TODO: setup nginx secrets
 * TODO: setup nginx host config according to setup roles

@@ -8,5 +8,6 @@ galaxy_info:
     - name: ArchLinux
 
 dependencies:
-  - role: webserver
   - role: bluetooth
+  - role: lm_sensors
+  - role: webserver
