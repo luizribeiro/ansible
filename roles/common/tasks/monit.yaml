@@ -1,0 +1,36 @@
+- name: Install Monit server
+  pacman:
+    name: monit
+    state: latest
+    update_cache: yes
+  register: upgrade
+- name: Setup monitrc
+  template:
+    src: ../files/etc/monitrc
+    dest: /etc/monitrc
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+  register: monitrc
+- name: Setup monitrc.d
+  copy:
+    src: ../files/etc/monitrc.d/
+    dest: /etc/monitrc.d/
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  register: monitrc_d
+- name: Enable monit
+  systemd:
+    name: monit
+    enabled: yes
+- name: Check and restart monit
+  block:
+    - name: Check monit config
+      command: monit -t
+    - name: Restart monit
+      systemd:
+        name: monit
+        state: restarted
+  when: upgrade.changed or monitrc.changed or monitrc_d.changed

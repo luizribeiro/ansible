@@ -1,0 +1,97 @@
+- name: Install essential user packages
+  pacman:
+    name:
+      - fzf
+      - htop
+      - iperf
+      - jq
+      - mosh
+      - neovim
+      - python-pynvim
+      - ripgrep
+      - speedtest-cli
+      - tmux
+      - wget
+      - zsh
+- name: Install essential server packages
+  pacman:
+    name:
+      - ntp
+      - ufw
+- name: Install other utilities
+  pacman:
+    name:
+      - pacman-contrib
+
+# NTP Setup
+- name: Enable and start ntpd
+  systemd:
+    name: ntpd
+    enabled: yes
+    state: started
+
+# Firewall setup
+- name: Enable and start ufw
+  systemd:
+    name: ufw
+    enabled: yes
+    state: started
+- name: Enable ufw
+  ufw:
+    state: enabled
+- name: Deny all traffic by default
+  ufw:
+    default: deny
+- name: Allow all traffic from LAN
+  ufw:
+    rule: allow
+    from: 192.168.1.0/24
+- name: Allow (limited) SSH traffic from anywhere
+  ufw:
+    rule: limit
+    port: '22'
+- name: Allow HTTP traffic from anywhere
+  ufw:
+    rule: allow
+    port: '80'
+- name: Allow HTTPS traffic from anywhere
+  ufw:
+    rule: allow
+    port: '443'
+- name: Allow mosh traffic from anywhere
+  ufw:
+    rule: allow
+    port: 60000:60999
+    protocol: udp
+- name: Allow DNS queries from IoT
+  ufw:
+    rule: allow
+    from: 192.168.2.0/24
+    port: '53'
+    protocol: udp
+
+# AUR Setup
+- name: 'Setup aur_builder user'
+  user:
+    name: aur_builder
+    group: wheel
+- name: 'Allow aur_builder to sudo'
+  lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    validate: 'visudo -cf %s'
+- name: 'Install yay'
+  aur:
+    name: yay
+    use: makepkg
+    skip_installed: true
+  become: yes
+  become_user: aur_builder
+
+- name: Enable sshd
+  include: sshd.yaml
+- name: Enable sshguard
+  include: sshguard.yaml
+- name: Enable collectd
+  include: collectd.yaml
