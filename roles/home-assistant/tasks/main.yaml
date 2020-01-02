@@ -24,11 +24,23 @@
     owner: http
     mode: u+rw,g-rwx,o-rwx
   register: nginx_confd
+- name: Setup home-assistant.service overrides
+  copy:
+    src: ../files/etc/systemd/system/home-assistant.service.d/
+    dest: /etc/systemd/system/home-assistant.service.d/
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+    directory_mode: u=rwx,g=rx,o=rx
+  register: home_assistant_service
+- name: Reload home-assistant.service
+  systemd:
+    daemon_reload: yes
+  when: home_assistant_service.changed
 - name: Enable home-assistant
   systemd:
     name: home-assistant
     enabled: yes
-    # TODO: customize home-assistant.service so it sets up a pid file
 - name: Check and restart home-assistant
   block:
     - name: Check home-assistant config
@@ -37,4 +49,4 @@
       systemd:
         name: home-assistant
         state: restarted
-  when: hass_upgrade.changed or hass_config.changed
+  when: hass_upgrade.changed or home_assistant_service.changed or hass_config.changed
