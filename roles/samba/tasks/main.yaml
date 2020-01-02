@@ -1,0 +1,42 @@
+- name: Install Samba server
+  pacman:
+    name: samba
+    state: latest
+    update_cache: yes
+  register: upgrade
+- name: Setup smb.conf
+  template:
+    src: ../files/etc/samba/smb.conf
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  register: config
+- name: Create /home/public directory
+  file:
+    path: /home/public
+    state: directory
+    owner: nobody
+    group: nobody
+    mode: u=rwx,g=rx,o=rx
+- name: Enable smbd
+  systemd:
+    name: smb
+    enabled: yes
+- name: Enable nmbd
+  systemd:
+    name: nmb
+    enabled: yes
+- name: Check and restart samba
+  block:
+    - name: Check samba config
+      command: testparm -s
+    - name: Restart smbd
+      systemd:
+        name: smb
+        state: restarted
+    - name: Restart nmbd
+      systemd:
+        name: nmb
+        state: restarted
+  when: upgrade.changed or config.changed

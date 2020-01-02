@@ -3,4 +3,3 @@
 - import_playbook: playbooks/goaccess.yaml
 - import_playbook: playbooks/mosquitto.yaml
 - import_playbook: playbooks/nginx.yaml
-- import_playbook: playbooks/samba.yaml
