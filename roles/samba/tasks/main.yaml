@@ -2,7 +2,7 @@
   pacman:
     name: samba
     state: latest
-  register: upgrade
+  register: samba_upgrade
 - name: Setup smb.conf
   template:
     src: ../files/etc/samba/smb.conf
@@ -10,7 +10,7 @@
     owner: root
     group: root
     mode: u=rw,g=r,o=r
-  register: config
+  register: samba_config
 - name: Create /home/public directory
   file:
     path: /home/public
@@ -38,4 +38,4 @@
       systemd:
         name: nmb
         state: restarted
-  when: upgrade.changed or config.changed
+  when: samba_upgrade.changed or samba_config.changed
