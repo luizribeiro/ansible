@@ -1,11 +1,11 @@
 - name: Install fail2ban
   pacman:
     name: fail2ban
-    state: latest
+    state: present
   register: fail2ban_upgrade
 - name: Setup fail2ban settings
   copy:
-    src: ../files/etc/fail2ban/jail.local
+    src: files/etc/fail2ban/jail.local
     dest: /etc/fail2ban/jail.local
     owner: root
     group: root

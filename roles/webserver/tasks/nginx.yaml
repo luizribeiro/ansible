@@ -2,24 +2,24 @@
   pacman:
     name: nginx
     # TODO: install apache-tools and setup htpasswd for host
-    state: latest
+    state: present
   register: nginx_upgrade
 - name: Install certbot
   pacman:
     name:
       - certbot-nginx
       - certbot-systemd
-    state: latest
+    state: present
 - name: Setup nginx.conf
   copy:
-    src: ../files/etc/nginx/nginx.conf
+    src: files/etc/nginx/nginx.conf
     dest: /etc/nginx/nginx.conf
     owner: http
     mode: u+rw,g-rwx,o-rwx
   register: nginx_conf
 - name: Setup nginx/conf.d
   copy:
-    src: ../files/etc/nginx/conf.d/
+    src: files/etc/nginx/conf.d/
     dest: /etc/nginx/conf.d/
     owner: http
     mode: u+rw,g-rwx,o-rwx
@@ -27,7 +27,7 @@
   register: nginx_confd
 - name: Setup /srv/http
   copy:
-    src: ../files/srv/http/
+    src: files/srv/http/
     dest: /srv/http/
     owner: http
     mode: u+rw,g-rwx,o-rwx

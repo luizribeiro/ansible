@@ -1,11 +1,11 @@
 - name: Install goaccess server
   pacman:
     name: goaccess
-    state: latest
+    state: present
   register: goaccess_upgrade
 - name: Setup goaccess.conf
   copy:
-    src: ../files/etc/goaccess/goaccess.conf
+    src: files/etc/goaccess/goaccess.conf
     dest: /etc/goaccess/goaccess.conf
     owner: root
     group: root
@@ -13,7 +13,7 @@
   register: goaccess_conf
 - name: Setup goaccess.service
   copy:
-    src: ../files/etc/systemd/system/goaccess.service
+    src: files/etc/systemd/system/goaccess.service
     dest: /etc/systemd/system/goaccess.service
     owner: root
     group: root

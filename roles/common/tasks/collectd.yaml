@@ -1,11 +1,11 @@
 - name: Install collectd server
   pacman:
     name: collectd
-    state: latest
+    state: present
   register: collectd_upgrade
 - name: Setup collectd.conf
   copy:
-    src: ../files/etc/collectd.conf
+    src: files/etc/collectd.conf
     dest: /etc/collectd.conf
     owner: root
     group: root

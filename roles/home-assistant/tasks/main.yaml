@@ -1,6 +1,6 @@
 - name: Install home-assistant
   pacman:
-    state: latest
+    state: present
     name:
       - home-assistant
       # this should be a dependency of home-assistant. see FS#64963
@@ -9,7 +9,7 @@
   register: hass_upgrade
 - name: Setup home-assistant
   copy:
-    src: ../files/var/lib/hass/
+    src: files/var/lib/hass/
     dest: /var/lib/hass/
     owner: hass
     group: hass
@@ -18,14 +18,14 @@
   register: hass_config
 - name: Setup nginx for home-assistant
   copy:
-    src: ../files/etc/nginx/conf.d/10-home.conf
+    src: files/etc/nginx/conf.d/10-home.conf
     dest: /etc/nginx/conf.d/10-home.conf
     owner: http
     mode: u+rw,g-rwx,o-rwx
   register: nginx_confd
 - name: Setup home-assistant.service overrides
   copy:
-    src: ../files/etc/systemd/system/home-assistant.service.d/
+    src: files/etc/systemd/system/home-assistant.service.d/
     dest: /etc/systemd/system/home-assistant.service.d/
     owner: root
     group: root

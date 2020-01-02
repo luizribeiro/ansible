@@ -1,11 +1,11 @@
 - name: Install openssh
   pacman:
     name: openssh
-    state: latest
+    state: present
   register: openssh_upgrade
 - name: Setup sshd_config
   copy:
-    src: ../files/etc/sshd_config
+    src: files/etc/sshd_config
     dest: /etc/ssh/sshd_config
     owner: root
     group: root

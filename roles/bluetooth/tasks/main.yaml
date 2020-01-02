@@ -3,7 +3,7 @@
     name:
       - bluez
       - bluez-utils
-    state: latest
+    state: present
 - name: Enable bluetooth.service
   systemd:
     name: bluetooth

@@ -1,11 +1,11 @@
 - name: Install Monit server
   pacman:
     name: monit
-    state: latest
+    state: present
   register: monit_upgrade
 - name: Setup monitrc
   template:
-    src: ../files/etc/monitrc
+    src: files/etc/monitrc
     dest: /etc/monitrc
     owner: root
     group: root
@@ -13,7 +13,7 @@
   register: monitrc
 - name: Setup monitrc.d
   copy:
-    src: ../files/etc/monitrc.d/
+    src: files/etc/monitrc.d/
     dest: /etc/monitrc.d/
     owner: root
     group: root

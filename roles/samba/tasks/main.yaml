@@ -1,11 +1,11 @@
 - name: Install Samba server
   pacman:
     name: samba
-    state: latest
+    state: present
   register: samba_upgrade
 - name: Setup smb.conf
   template:
-    src: ../files/etc/samba/smb.conf
+    src: files/etc/samba/smb.conf
     dest: /etc/samba/smb.conf
     owner: root
     group: root

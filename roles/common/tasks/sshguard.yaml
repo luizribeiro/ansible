@@ -1,11 +1,11 @@
 - name: Install sshguard
   pacman:
     name: sshguard
-    state: latest
+    state: present
   register: sshguard_upgrade
 - name: Setup /etc/ufw/before.rules
   template:
-    src: ../files/etc/ufw/before.rules
+    src: files/etc/ufw/before.rules
     dest: /etc/ufw/before.rules
     owner: root
     group: root

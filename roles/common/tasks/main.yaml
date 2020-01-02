@@ -11,7 +11,7 @@
       - tmux
       - wget
       - zsh
-    state: latest
+    state: present
 - name: Install networking tools
   pacman:
     name:
@@ -20,13 +20,13 @@
       - speedtest-cli
       - sshfs
       - traceroute
-    state: latest
+    state: present
 - name: Install man pages
   pacman:
     name:
       - man-db
       - man-pages
-    state: latest
+    state: present
 
 - include: ntp.yaml
 - include: firewall.yaml

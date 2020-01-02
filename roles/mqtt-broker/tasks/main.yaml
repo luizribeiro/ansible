@@ -1,11 +1,11 @@
 - name: Install mosquitto
   pacman:
     name: mosquitto
-    state: latest
+    state: present
   register: mosquitto_upgrade
 - name: Setup mosquitto.conf
   template:
-    src: ../files/etc/mosquitto/mosquitto.conf
+    src: files/etc/mosquitto/mosquitto.conf
     dest: /etc/mosquitto/mosquitto.conf
     owner: mosquitto
     mode: u+rw,g-rwx,o-rwx

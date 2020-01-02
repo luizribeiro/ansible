@@ -1,11 +1,13 @@
 - name: Install pi-hole-server
+  become: yes
   become_user: aur_builder
   aur:
     name: pi-hole-server
+    skip_installed: yes
   register: pihole_upgrade
 - name: Setup pi-hole-server configuration
   copy:
-    src: ../files/etc/pihole/
+    src: files/etc/pihole/
     dest: /etc/pihole/
     owner: pihole
     mode: u+rw,g-rwx,o-rwx
@@ -13,7 +15,7 @@
   register: pihole_config
 - name: Setup dnsmasq configuration
   copy:
-    src: ../files/etc/dnsmasq.d/
+    src: files/etc/dnsmasq.d/
     dest: /etc/dnsmasq.d/
     owner: pihole
     mode: u+rw,g-rwx,o-rwx
@@ -41,7 +43,7 @@
     name:
       - php
       - php-sqlite
-    state: latest
+    state: present
 - name: Enable PHP extensions
   lineinfile:
     dest: /etc/php/php.ini
@@ -55,7 +57,7 @@
 - name: Install PHP FastCGI Process Manager (FPM)
   pacman:
     name: php-fpm
-    state: latest
+    state: present
   register: php_fpm_upgrade
 - name: Enable sockets PHP extension
   lineinfile:
