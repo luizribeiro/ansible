@@ -1,0 +1,22 @@
+- name: Install mosquitto
+  pacman:
+    name: mosquitto
+    state: latest
+    update_cache: yes
+  register: mosquitto_upgrade
+- name: Setup mosquitto.conf
+  template:
+    src: ../files/etc/mosquitto/mosquitto.conf
+    dest: /etc/mosquitto/mosquitto.conf
+    owner: mosquitto
+    mode: u+rw,g-rwx,o-rwx
+  register: mosquitto_config
+- name: Enable mosquitto
+  systemd:
+    name: mosquitto
+    enabled: yes
+- name: Restart mosquitto
+  systemd:
+    name: mosquitto
+    state: restarted
+  when: mosquitto_upgrade.changed or mosquitto_config.changed
