@@ -1,4 +1,1 @@
 - import_playbook: nuc.yaml
-- import_playbook: playbooks/fail2ban.yaml
-- import_playbook: playbooks/goaccess.yaml
-- import_playbook: playbooks/nginx.yaml

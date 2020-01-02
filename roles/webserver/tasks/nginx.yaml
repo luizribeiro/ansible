@@ -1,0 +1,50 @@
+- name: Install nginx
+  pacman:
+    name: nginx
+    state: latest
+    update_cache: yes
+  register: nginx_upgrade
+- name: Install certbot
+  pacman:
+    name:
+      - certbot-nginx
+      - certbot-systemd
+    state: latest
+    update_cache: yes
+  register: certbot_upgrade
+- name: Setup nginx.conf
+  copy:
+    src: ../files/etc/nginx/nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
+  register: nginx_conf
+- name: Setup nginx/conf.d
+  copy:
+    src: ../files/etc/nginx/conf.d/
+    dest: /etc/nginx/conf.d/
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  register: nginx_confd
+- name: Setup /srv/http
+  copy:
+    src: ../files/srv/http/
+    dest: /srv/http/
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+# TODO: setup SSL certs wih certbot and enable certbot.timer
+- name: Enable nginx
+  systemd:
+    name: nginx
+    enabled: yes
+- name: Check and restart nginx
+  block:
+    - name: Check nginx config
+      command: nginx -t
+    - name: Restart nginx
+      systemd:
+        name: nginx
+        state: restarted
+  when: nginx_upgrade.changed or nginx_conf.changed or nginx_confd.changed

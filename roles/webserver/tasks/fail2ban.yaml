@@ -1,0 +1,23 @@
+- name: Install fail2ban
+  pacman:
+    name: fail2ban
+    state: latest
+    update_cache: yes
+  register: fail2ban_upgrade
+- name: Setup fail2ban settings
+  copy:
+    src: ../files/etc/fail2ban/jail.local
+    dest: /etc/fail2ban/jail.local
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+  register: fail2ban_config
+- name: Enable fail2ban
+  systemd:
+    name: fail2ban
+    enabled: yes
+- name: Restart fail2ban
+  systemd:
+    name: fail2ban
+    state: restarted
+  when: fail2ban_config.changed or fail2ban_upgrade.changed

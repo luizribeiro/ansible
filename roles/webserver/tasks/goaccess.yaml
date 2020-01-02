@@ -1,0 +1,35 @@
+- name: Install goaccess server
+  pacman:
+    name: goaccess
+    state: latest
+    update_cache: yes
+  register: goaccess_upgrade
+- name: Setup goaccess.conf
+  copy:
+    src: ../files/etc/goaccess/goaccess.conf
+    dest: /etc/goaccess/goaccess.conf
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+  register: goaccess_conf
+- name: Setup goaccess.service
+  copy:
+    src: ../files/etc/systemd/system/goaccess.service
+    dest: /etc/systemd/system/goaccess.service
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+  register: goaccess_service
+- name: Reload goaccess.service
+  systemd:
+    daemon_reload: yes
+  when: goaccess_service.changed
+- name: Enable goaccess
+  systemd:
+    name: goaccess
+    enabled: yes
+- name: Restart goaccess
+  systemd:
+    name: goaccess
+    state: restarted
+  when: goaccess_conf.changed or goaccess_service.changed or goaccess_upgrade.changed
