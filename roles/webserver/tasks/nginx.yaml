@@ -1,6 +1,7 @@
 - name: Install nginx
   pacman:
     name: nginx
+    # TODO: install apache-tools and setup htpasswd for host
     state: latest
   register: nginx_upgrade
 - name: Install certbot
