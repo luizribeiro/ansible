@@ -3,7 +3,7 @@
     name: collectd
     state: latest
     update_cache: yes
-  register: upgrade
+  register: collectd_upgrade
 - name: Setup collectd.conf
   copy:
     src: ../files/etc/collectd.conf
@@ -24,4 +24,4 @@
       systemd:
         name: collectd
         state: restarted
-  when: collectd_conf.changed or upgrade.changed
+  when: collectd_conf.changed or collectd_upgrade.changed

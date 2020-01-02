@@ -3,7 +3,7 @@
     name: monit
     state: latest
     update_cache: yes
-  register: upgrade
+  register: monit_upgrade
 - name: Setup monitrc
   template:
     src: ../files/etc/monitrc
@@ -33,4 +33,4 @@
       systemd:
         name: monit
         state: restarted
-  when: upgrade.changed or monitrc.changed or monitrc_d.changed
+  when: monit_upgrade.changed or monitrc.changed or monitrc_d.changed

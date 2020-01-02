@@ -3,7 +3,7 @@
     name: sshguard
     state: latest
     update_cache: yes
-  register: upgrade
+  register: sshguard_upgrade
 - name: Setup /etc/ufw/before.rules
   template:
     src: ../files/etc/ufw/before.rules
@@ -19,4 +19,4 @@
   systemd:
     name: sshguard
     state: restarted
-  when: upgrade.changed
+  when: sshguard_upgrade.changed

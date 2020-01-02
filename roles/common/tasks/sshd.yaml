@@ -3,7 +3,7 @@
     name: openssh
     state: latest
     update_cache: yes
-  register: upgrade
+  register: openssh_upgrade
 - name: Setup sshd_config
   template:
     src: ../files/etc/sshd_config
@@ -11,7 +11,7 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-  register: config
+  register: sshd_config
 - name: Enable sshd
   systemd:
     name: sshd
@@ -24,4 +24,4 @@
       systemd:
         name: sshd
         state: restarted
-  when: upgrade.changed or config.changed
+  when: openssh_upgrade.changed or sshd_config.changed
