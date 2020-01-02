@@ -16,3 +16,4 @@
     - samba
     - mqtt-broker
     - webserver
+    - home-assistant
