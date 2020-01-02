@@ -19,6 +19,12 @@
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   register: dnsmasq_config
+- name: Allow DNS queries from IoT
+  ufw:
+    rule: allow
+    from: 192.168.2.0/24
+    port: '53'
+    protocol: udp
 - name: Enable pihole-FTL
   systemd:
     name: pihole-FTL

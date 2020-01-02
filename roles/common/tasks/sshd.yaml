@@ -12,6 +12,15 @@
     group: root
     mode: u+rw,g-rwx,o-rwx
   register: sshd_config
+- name: Allow (limited) SSH traffic from anywhere
+  ufw:
+    rule: limit
+    port: '22'
+- name: Allow mosh traffic from anywhere
+  ufw:
+    rule: allow
+    port: 60000:60999
+    protocol: udp
 - name: Enable sshd
   systemd:
     name: sshd

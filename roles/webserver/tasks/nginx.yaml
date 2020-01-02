@@ -35,6 +35,14 @@
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
 # TODO: setup SSL certs wih certbot and enable certbot.timer
+- name: Allow HTTP traffic from anywhere
+  ufw:
+    rule: allow
+    port: '80'
+- name: Allow HTTPS traffic from anywhere
+  ufw:
+    rule: allow
+    port: '443'
 - name: Enable nginx
   systemd:
     name: nginx
