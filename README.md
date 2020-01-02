@@ -6,7 +6,6 @@ $ ansible-playbook site.yaml
 
 ## TODOs
 
-* TODO: update hosts so I can run playbook remotely
 * TODO: setup a `lm_sensors` role
 * TODO: setup all home assistant secrets
 * TODO: setup nginx secrets
