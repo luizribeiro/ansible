@@ -3,7 +3,8 @@ Description=Goaccess Log Analysis - %i
 After=network.target
 
 [Service]
-Type=simple
+Type=forking
+PIDFile=/run/goaccess.pid
 User=root
 Group=root
 Restart=always
