@@ -1,3 +1,6 @@
 [submodule "library/ansible-aur"]
 	path = library/ansible-aur
 	url = https://github.com/kewlfft/ansible-aur
+[submodule "var/lib/hass"]
+	path = var/lib/hass
+	url = git@github.com:luizribeiro/hass-config.git
