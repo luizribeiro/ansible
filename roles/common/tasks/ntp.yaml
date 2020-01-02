@@ -2,8 +2,10 @@
   pacman:
     name: ntp
     state: present
+  tags: packages
 - name: ntpd is enabled and running
   systemd:
     name: ntpd
     enabled: yes
     state: started
+  tags: systemctl

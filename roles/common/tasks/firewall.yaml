@@ -2,15 +2,19 @@
   pacman:
     name: ufw
     state: present
+  tags: packages
 - name: ufw is enabled and running
   systemd:
     name: ufw
     enabled: yes
     state: started
+  tags: systemctl
 - name: Deny all traffic by default
   ufw:
     default: deny
+  tags: firewall
 - name: Allow all traffic from LAN
   ufw:
     rule: allow
     from: 192.168.1.0/24
+  tags: firewall

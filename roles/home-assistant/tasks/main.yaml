@@ -6,6 +6,7 @@
       # this should be a dependency of home-assistant. see FS#64963
       - python-aiohttp-cors
       - python-bluepy
+  tags: packages
 - name: Setup home-assistant
   copy:
     src: files/var/lib/hass/
@@ -16,6 +17,7 @@
     directory_mode: u=rwx,g=rx,o-rwx
     validate: 'hass -c %s --script check_config'
   notify: restart home-assistant
+  tags: configuration
 - name: Setup nginx for home-assistant
   copy:
     src: files/etc/nginx/conf.d/10-home.conf
@@ -24,6 +26,7 @@
     mode: u+rw,g-rwx,o-rwx
     # TODO: figure out a way of validating nginx/conf.d/10-home.conf
   notify: restart nginx
+  tags: configuration
 - name: Setup home-assistant.service overrides
   copy:
     src: files/etc/systemd/system/home-assistant.service.d/
@@ -35,8 +38,10 @@
   notify:
     - reload home-assistant.service
     - restart home-assistant
+  tags: configuration
 - name: home-assistant is enabled and running
   systemd:
     name: home-assistant
     enabled: yes
     state: started
+  tags: systemctl

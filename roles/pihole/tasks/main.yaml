@@ -4,6 +4,7 @@
   aur:
     name: pi-hole-server
     skip_installed: yes
+  tags: packages
 - name: Setup pi-hole-server configuration
   copy:
     src: files/etc/pihole/
@@ -12,6 +13,7 @@
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   notify: restart pihole-FTL
+  tags: configuration
 - name: Setup dnsmasq configuration
   copy:
     src: files/etc/dnsmasq.d/
@@ -20,17 +22,20 @@
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   notify: restart pihole-FTL
+  tags: configuration
 - name: Allow DNS queries from IoT
   ufw:
     rule: allow
     from: 192.168.2.0/24
     port: '53'
     protocol: udp
+  tags: firewall
 - name: pihole-FTL is enabled and running
   systemd:
     name: pihole-FTL
     enabled: yes
     state: started
+  tags: systemctl
 
  # Setup PHP
 - name: Install PHP
@@ -39,6 +44,7 @@
       - php
       - php-sqlite
     state: present
+  tags: packages
 - name: Enable PHP extensions
   lineinfile:
     dest: /etc/php/php.ini
@@ -49,20 +55,23 @@
     - { regexp: 'extension=sqlite3', line: 'extension=sqlite3' }
     - { regexp: 'extension=sockets', line: 'extension=sockets' }
   notify: restart php-fpm
+  tags: configuration
 
 - name: Install PHP FastCGI Process Manager (FPM)
   pacman:
     name: php-fpm
     state: present
-  notify: restart php-fpm
+  tags: packages
 - name: Enable sockets PHP extension
   lineinfile:
     dest: /etc/php/php-fpm.d/www.conf
     regexp: 'listen ='
     line: 'listen = /var/run/php-fpm/fpm-www.sock'
   notify: restart php-fpm
+  tags: configuration
 - name: php-fpm is enabled and running
   systemd:
     name: php-fpm
     enabled: yes
     state: started
+  tags: systemctl

@@ -2,6 +2,7 @@
   pacman:
     name: fail2ban
     state: present
+  tags: packages
 - name: Setup fail2ban settings
   copy:
     src: files/etc/fail2ban/jail.local
@@ -10,8 +11,10 @@
     group: root
     mode: u+rw,g-rwx,o-rwx
   notify: restart fail2ban
+  tags: configuration
 - name: fail2ban is enabled and running
   systemd:
     name: fail2ban
     enabled: yes
     state: started
+  tags: systemctl

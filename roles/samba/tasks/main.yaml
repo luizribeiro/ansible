@@ -2,6 +2,7 @@
   pacman:
     name: samba
     state: present
+  tags: packages
 - name: Setup smb.conf
   template:
     src: files/etc/samba/smb.conf
@@ -11,6 +12,7 @@
     mode: u=rw,g=r,o=r
     validate: "testparm -s %s"
   notify: restart samba
+  tags: configuration
 - name: Create /home/public directory
   file:
     path: /home/public
@@ -18,13 +20,16 @@
     owner: nobody
     group: nobody
     mode: u=rwx,g=rx,o=rx
+  tags: configuration
 - name: smbd is enabled and running
   systemd:
     name: smb
     enabled: yes
     state: started
+  tags: systemctl
 - name: nmbd is enabled and running
   systemd:
     name: nmb
     enabled: yes
     state: started
+  tags: systemctl

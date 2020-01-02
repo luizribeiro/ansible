@@ -2,6 +2,7 @@
   pacman:
     name: mosquitto
     state: present
+  tags: packages
 - name: Setup mosquitto.conf
   template:
     src: files/etc/mosquitto/mosquitto.conf
@@ -9,8 +10,10 @@
     owner: mosquitto
     mode: u+rw,g-rwx,o-rwx
   notify: restart mosquitto
+  tags: configuration
 - name: mosquitto is enabled and running
   systemd:
     name: mosquitto
     enabled: yes
     state: started
+  tags: systemctl

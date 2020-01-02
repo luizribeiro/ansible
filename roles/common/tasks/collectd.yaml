@@ -2,6 +2,7 @@
   pacman:
     name: collectd
     state: present
+  tags: packages
 - name: Setup collectd.conf
   copy:
     src: files/etc/collectd.conf
@@ -11,8 +12,10 @@
     mode: u+rw,g-rwx,o-rwx
     validate: 'collectd -t -C %s'
   notify: restart collectd
+  tags: configuration
 - name: collectd is enabled and running
   systemd:
     name: collectd
     enabled: yes
     state: started
+  tags: systemctl

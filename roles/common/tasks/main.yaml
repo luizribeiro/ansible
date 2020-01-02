@@ -12,6 +12,7 @@
       - wget
       - zsh
     state: present
+  tags: packages
 - name: Install networking tools
   pacman:
     name:
@@ -21,12 +22,14 @@
       - sshfs
       - traceroute
     state: present
+  tags: packages
 - name: Install man pages
   pacman:
     name:
       - man-db
       - man-pages
     state: present
+  tags: packages
 
 - include: ntp.yaml
 - include: firewall.yaml

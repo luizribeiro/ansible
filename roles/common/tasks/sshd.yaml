@@ -2,6 +2,7 @@
   pacman:
     name: openssh
     state: present
+  tags: packages
 - name: Setup sshd_config
   copy:
     src: files/etc/sshd_config
@@ -11,17 +12,21 @@
     mode: u+rw,g-rwx,o-rwx
     validate: 'sshd -tf %s'
   notify: restart sshd
+  tags: configuration
 - name: Allow (limited) SSH traffic from anywhere
   ufw:
     rule: limit
     port: '22'
+  tags: firewall
 - name: Allow mosh traffic from anywhere
   ufw:
     rule: allow
     port: 60000:60999
     protocol: udp
+  tags: firewall
 - name: sshd is enabled and running
   systemd:
     name: sshd
     enabled: yes
     state: started
+  tags: systemctl

@@ -3,12 +3,14 @@
     name: nginx
     # TODO: install apache-tools and setup htpasswd for host
     state: present
+  tags: packages
 - name: Install certbot
   pacman:
     name:
       - certbot-nginx
       - certbot-systemd
     state: present
+  tags: packages
 - name: Setup nginx.conf
   copy:
     src: files/etc/nginx/nginx.conf
@@ -17,6 +19,7 @@
     mode: u+rw,g-rwx,o-rwx
     validate: 'nginx -t -c %s'
   notify: restart nginx
+  tags: configuration
 - name: Setup nginx/conf.d
   copy:
     src: files/etc/nginx/conf.d/
@@ -26,6 +29,7 @@
     directory_mode: u+rwx,g-rwx,o-rwx
     # TODO: find a way to validate nginx/conf.d
   notify: restart nginx
+  tags: configuration
 - name: Setup /srv/http
   copy:
     src: files/srv/http/
@@ -33,17 +37,21 @@
     owner: http
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
+  tags: configuration
 # TODO: setup SSL certs wih certbot and enable certbot.timer
 - name: Allow HTTP traffic from anywhere
   ufw:
     rule: allow
     port: '80'
+  tags: firewall
 - name: Allow HTTPS traffic from anywhere
   ufw:
     rule: allow
     port: '443'
+  tags: firewall
 - name: nginx is enabled and running
   systemd:
     name: nginx
     enabled: yes
     state: started
+  tags: systemctl

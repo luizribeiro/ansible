@@ -2,6 +2,7 @@
   pacman:
     name: goaccess
     state: present
+  tags: packages
 - name: Setup goaccess.conf
   copy:
     src: files/etc/goaccess/goaccess.conf
@@ -10,6 +11,7 @@
     group: root
     mode: u+rw,g-rwx,o-rwx
   notify: restart goaccess
+  tags: configuration
 - name: Setup goaccess.service
   copy:
     src: files/etc/systemd/system/goaccess.service
@@ -20,8 +22,10 @@
   notify:
     - reload goaccess.service
     - restart goaccess
+  tags: configuration
 - name: goaccess is enabled and running
   systemd:
     name: goaccess
     enabled: yes
     state: started
+  tags: systemctl

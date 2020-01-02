@@ -2,6 +2,7 @@
   pacman:
     name: monit
     state: present
+  tags: packages
 - name: Setup monitrc
   template:
     src: files/etc/monitrc
@@ -11,6 +12,7 @@
     mode: u+rw,g-rwx,o-rwx
     validate: 'monit -t -c %s'
   notify: restart monit
+  tags: configuration
 - name: Setup monitrc.d
   copy:
     src: files/etc/monitrc.d/
@@ -21,8 +23,10 @@
     directory_mode: u+rwx,g-rwx,o-rwx
     # TODO: figure out a way to validate this
   notify: restart monit
+  tags: configuration
 - name: monit is enabled and running
   systemd:
     name: monit
     enabled: yes
     state: started
+  tags: systemctl

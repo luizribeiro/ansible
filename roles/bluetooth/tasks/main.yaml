@@ -4,8 +4,10 @@
       - bluez
       - bluez-utils
     state: present
+  tags: packages
 - name: bluetooth.service is enabled and running
   systemd:
     name: bluetooth
     enabled: yes
     state: started
+  tags: systemctl
