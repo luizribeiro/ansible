@@ -2,7 +2,6 @@
   pacman:
     name: collectd
     state: latest
-    update_cache: yes
   register: collectd_upgrade
 - name: Setup collectd.conf
   copy:

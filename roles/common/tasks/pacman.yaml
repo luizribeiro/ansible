@@ -1,7 +1,7 @@
 - name: Install pacman-contrib
   pacman:
-    name:
-      - pacman-contrib
+    name: pacman-contrib
+    state: latest
 - name: 'Setup aur_builder user'
   user:
     name: aur_builder

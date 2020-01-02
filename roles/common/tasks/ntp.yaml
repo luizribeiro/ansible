@@ -1,7 +1,7 @@
 - name: Install ntp
   pacman:
-    name:
-      - ntp
+    name: ntp
+    state: latest
 - name: Enable and start ntpd
   systemd:
     name: ntpd

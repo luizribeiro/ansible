@@ -2,7 +2,6 @@
   pacman:
     name: monit
     state: latest
-    update_cache: yes
   register: monit_upgrade
 - name: Setup monitrc
   template:

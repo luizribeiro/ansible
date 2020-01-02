@@ -2,7 +2,6 @@
   pacman:
     name: openssh
     state: latest
-    update_cache: yes
   register: openssh_upgrade
 - name: Setup sshd_config
   copy:

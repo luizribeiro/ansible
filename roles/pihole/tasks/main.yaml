@@ -42,7 +42,6 @@
       - php
       - php-sqlite
     state: latest
-    update_cache: yes
 - name: Enable PHP extensions
   lineinfile:
     dest: /etc/php/php.ini
@@ -55,10 +54,8 @@
 
 - name: Install PHP FastCGI Process Manager (FPM)
   pacman:
-    name:
-      - php-fpm
+    name: php-fpm
     state: latest
-    update_cache: yes
   register: php_fpm_upgrade
 - name: Enable sockets PHP extension
   lineinfile:

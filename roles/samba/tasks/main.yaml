@@ -2,7 +2,6 @@
   pacman:
     name: samba
     state: latest
-    update_cache: yes
   register: upgrade
 - name: Setup smb.conf
   template:

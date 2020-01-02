@@ -2,7 +2,6 @@
   pacman:
     name: sshguard
     state: latest
-    update_cache: yes
   register: sshguard_upgrade
 - name: Setup /etc/ufw/before.rules
   template:

@@ -13,6 +13,7 @@
       - tmux
       - wget
       - zsh
+    state: latest
 
 - include: ntp.yaml
 - include: firewall.yaml

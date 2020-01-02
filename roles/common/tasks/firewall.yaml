@@ -1,7 +1,7 @@
 - name: Install ufw
   pacman:
-    name:
-      - ufw
+    name: ufw
+    state: latest
 - name: Enable and start ufw
   systemd:
     name: ufw

@@ -2,7 +2,6 @@
   pacman:
     name: mosquitto
     state: latest
-    update_cache: yes
   register: mosquitto_upgrade
 - name: Setup mosquitto.conf
   template:

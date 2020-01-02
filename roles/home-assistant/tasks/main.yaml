@@ -1,12 +1,11 @@
 - name: Install home-assistant
   pacman:
+    state: latest
     name:
       - home-assistant
       # this should be a dependency of home-assistant. see FS#64963
       - python-aiohttp-cors
       - python-bluepy
-    state: latest
-    update_cache: yes
   register: hass_upgrade
 - name: Setup home-assistant
   copy:

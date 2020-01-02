@@ -2,7 +2,6 @@
   pacman:
     name: fail2ban
     state: latest
-    update_cache: yes
   register: fail2ban_upgrade
 - name: Setup fail2ban settings
   copy:

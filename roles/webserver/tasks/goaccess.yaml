@@ -2,7 +2,6 @@
   pacman:
     name: goaccess
     state: latest
-    update_cache: yes
   register: goaccess_upgrade
 - name: Setup goaccess.conf
   copy:
