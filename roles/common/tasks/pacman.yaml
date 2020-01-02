@@ -23,3 +23,10 @@
   become: yes
   become_user: aur_builder
   tags: packages
+- name: 'Install checkupdates+aur'
+  aur:
+    name: checkupdates+aur
+    skip_installed: true
+  become: yes
+  become_user: aur_builder
+  tags: packages
