@@ -1,5 +1,7 @@
 # luizribeiro's ansible settings
 
+[![Build Status](https://travis-ci.com/luizribeiro/ansible.svg?token=Y5WyECQyFrzmKkJLsCaK&branch=master)](https://travis-ci.com/luizribeiro/ansible)
+
 ```
 $ ansible-playbook site.yaml
 ```

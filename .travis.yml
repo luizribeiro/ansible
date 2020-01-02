@@ -1,0 +1,20 @@
+sudo: required
+dist: trusty
+
+language: python
+python: "3.6"
+
+branches:
+  only:
+    - master
+
+before_install:
+  - sudo apt-get update -qq
+
+install:
+  - pip install ansible
+  - pip install ansible-lint
+
+script:
+  - ansible-playbook site.yaml --syntax-check
+  - ansible-lint site.yaml
