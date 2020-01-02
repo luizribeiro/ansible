@@ -4,7 +4,6 @@
   aur:
     name: pi-hole-server
     skip_installed: yes
-  notify: restart pihole-FTL
 - name: Setup pi-hole-server configuration
   copy:
     src: files/etc/pihole/

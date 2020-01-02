@@ -2,7 +2,6 @@
   pacman:
     name: mosquitto
     state: present
-  notify: restart mosquitto
 - name: Setup mosquitto.conf
   template:
     src: files/etc/mosquitto/mosquitto.conf

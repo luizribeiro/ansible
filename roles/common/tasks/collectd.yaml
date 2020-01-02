@@ -2,7 +2,6 @@
   pacman:
     name: collectd
     state: present
-  notify: restart collectd
 - name: Setup collectd.conf
   copy:
     src: files/etc/collectd.conf

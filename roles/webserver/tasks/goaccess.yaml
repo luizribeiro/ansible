@@ -2,7 +2,6 @@
   pacman:
     name: goaccess
     state: present
-  notify: restart goaccess
 - name: Setup goaccess.conf
   copy:
     src: files/etc/goaccess/goaccess.conf

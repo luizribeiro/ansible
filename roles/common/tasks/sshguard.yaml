@@ -2,7 +2,6 @@
   pacman:
     name: sshguard
     state: present
-  notify: restart sshguard
 - name: Setup /etc/ufw/before.rules
   template:
     src: files/etc/ufw/before.rules

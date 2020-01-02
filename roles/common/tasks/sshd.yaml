@@ -2,7 +2,6 @@
   pacman:
     name: openssh
     state: present
-  notify: restart sshd
 - name: Setup sshd_config
   copy:
     src: files/etc/sshd_config

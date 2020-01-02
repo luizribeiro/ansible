@@ -3,7 +3,6 @@
     name: nginx
     # TODO: install apache-tools and setup htpasswd for host
     state: present
-  notify: restart nginx
 - name: Install certbot
   pacman:
     name:

@@ -2,7 +2,6 @@
   pacman:
     name: samba
     state: present
-  notify: restart samba
 - name: Setup smb.conf
   template:
     src: files/etc/samba/smb.conf

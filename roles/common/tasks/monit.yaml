@@ -2,7 +2,6 @@
   pacman:
     name: monit
     state: present
-  notify: restart monit
 - name: Setup monitrc
   template:
     src: files/etc/monitrc
