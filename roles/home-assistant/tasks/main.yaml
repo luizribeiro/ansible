@@ -4,7 +4,7 @@
       - home-assistant
       # this should be a dependency of home-assistant. see FS#64963
       - python-aiohttp-cors
-      # TODO: setup bluetooth
+      - python-bluepy
     state: latest
     update_cache: yes
   register: hass_upgrade
