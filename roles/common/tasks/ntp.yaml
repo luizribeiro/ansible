@@ -1,0 +1,9 @@
+- name: Install ntp
+  pacman:
+    name:
+      - ntp
+- name: Enable and start ntpd
+  systemd:
+    name: ntpd
+    enabled: yes
+    state: started

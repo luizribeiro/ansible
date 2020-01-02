@@ -1,0 +1,19 @@
+- name: Install ufw
+  pacman:
+    name:
+      - ufw
+- name: Enable and start ufw
+  systemd:
+    name: ufw
+    enabled: yes
+    state: started
+- name: Enable ufw
+  ufw:
+    state: enabled
+- name: Deny all traffic by default
+  ufw:
+    default: deny
+- name: Allow all traffic from LAN
+  ufw:
+    rule: allow
+    from: 192.168.1.0/24
