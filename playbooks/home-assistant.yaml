@@ -1,0 +1,36 @@
+- hosts: nuc
+  become: yes
+  tasks:
+    - name: Install home-assistant
+      pacman:
+        name:
+          - home-assistant
+          # this should be a dependency of home-assistant. see FS#64963
+          - python-aiohttp-cors
+          # TODO: setup bluetooth
+        state: latest
+        update_cache: yes
+      register: upgrade
+    - name: Setup home-assistant
+      copy:
+        src: ../var/lib/hass/
+        dest: /var/lib/hass/
+        owner: hass
+        group: hass
+        mode: u=rw,g=r,o-rwx
+        directory_mode: u=rwx,g=rx,o-rwx
+      register: config
+    - name: Enable home-assistant
+      systemd:
+        name: home-assistant
+        enabled: yes
+        # TODO: customize home-assistant.service so it sets up a pid file
+    - name: Check and restart home-assistant
+      block:
+        - name: Check home-assistant config
+          command: hass -c /var/lib/hass/ --script check_config
+        - name: Restart home-assistant
+          systemd:
+            name: home-assistant
+            state: restarted
+      when: upgrade.changed or config.changed
