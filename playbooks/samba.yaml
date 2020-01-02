@@ -15,6 +15,13 @@
         group: root
         mode: u=rw,g=r,o=r
       register: config
+    - name: Create /home/public directory
+      file:
+        path: /home/public
+        state: directory
+        owner: nobody
+        group: nobody
+        mode: u=rwx,g=rx,o=rx
     - name: Enable smbd
       systemd:
         name: smb
