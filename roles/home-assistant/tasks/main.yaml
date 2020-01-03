@@ -72,3 +72,13 @@
     enabled: yes
     state: started
   tags: systemctl
+- name: Setup monit config
+  copy:
+    src: files/etc/monitrc.d/
+    dest: /etc/monitrc.d/
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  notify: restart monit
+  tags: configuration
