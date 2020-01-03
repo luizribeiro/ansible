@@ -4,6 +4,9 @@
   become: yes
   roles:
     - role: common
+    - role: dev
+      vars:
+        dev_ansible_tools: yes
     - role: pihole
     - role: samba
     - role: mqtt-broker
