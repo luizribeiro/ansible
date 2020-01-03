@@ -6,6 +6,7 @@
   become: yes
   roles:
     - role: common
+    - role: luizribeiro
     - role: dev
       vars:
         dev_ansible_tools: yes
