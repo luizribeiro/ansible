@@ -46,7 +46,7 @@
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   tags: configuration
-# TODO: setup SSL certs wih certbot and enable certbot.timer
+# TODO: setup SSL certs wih certbot
 - name: Allow HTTP traffic from anywhere
   ufw:
     rule: allow
@@ -60,6 +60,12 @@
 - name: nginx is enabled and running
   systemd:
     name: nginx
+    enabled: yes
+    state: started
+  tags: systemctl
+- name: certbot is enabled and running
+  systemd:
+    name: certbot.timer
     enabled: yes
     state: started
   tags: systemctl
