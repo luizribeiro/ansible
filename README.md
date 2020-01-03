@@ -14,8 +14,11 @@ $ ansible-playbook site.yaml
 
 ## TODOs
 
-* TODO: replace sshguard with fail2ban
-* TODO: setup automated backups for home and hass
+* TODO: replace nuc.thepromisedlan.club with a dynamic hostname
 * TODO: check if I have to setup sshusers group myself
 * TODO: check if I have to setup sudo and wheels group myself
 * TODO: automatically setup my own user
+* TODO: setup automated backups for home and hass
+* TODO: replace sshguard with fail2ban
+* TODO: find a way to validate nginx conf.d files
+* TODO: find a way to validate monit conf.d files
