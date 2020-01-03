@@ -317,7 +317,7 @@ Monit
 }
 
 set mailserver smtp.mailgun.org port 587
-  username postmaster@mg.thepromisedlan.club password "{{ mailgun_password }}"
+  username postmaster@mg.thepromisedlan.club password "{{ secret_mailgun_password }}"
   using TLSV1 with timeout 30 seconds
 
 set alert luizribeiro@gmail.com
