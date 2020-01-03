@@ -37,41 +37,56 @@
     state: started
   tags: systemctl
 
- # Setup PHP
-- name: Install PHP
-  pacman:
-    name:
-      - php
-      - php-sqlite
-    state: present
-  tags: packages
-- name: Enable PHP extensions
-  lineinfile:
-    dest: /etc/php/php.ini
-    regexp: "{{ item.regexp }}"
-    line: "{{ item.line }}"
-  with_items:
-    - { regexp: 'extension=pdo_sqlite', line: 'extension=pdo_sqlite' }
-    - { regexp: 'extension=sqlite3', line: 'extension=sqlite3' }
-    - { regexp: 'extension=sockets', line: 'extension=sockets' }
-  notify: restart php-fpm
-  tags: configuration
+- name: Setup Web UI
+  when: "'webserver' in ansible_role_names"
+  block:
+    # Setup PHP
+    - name: Install PHP
+      pacman:
+        name:
+          - php
+          - php-sqlite
+        state: present
+      tags: packages
+    - name: Enable PHP extensions
+      lineinfile:
+        dest: /etc/php/php.ini
+        regexp: "{{ item.regexp }}"
+        line: "{{ item.line }}"
+      with_items:
+        - { regexp: 'extension=pdo_sqlite', line: 'extension=pdo_sqlite' }
+        - { regexp: 'extension=sqlite3', line: 'extension=sqlite3' }
+        - { regexp: 'extension=sockets', line: 'extension=sockets' }
+      notify: restart php-fpm
+      tags: configuration
 
-- name: Install PHP FastCGI Process Manager (FPM)
-  pacman:
-    name: php-fpm
-    state: present
-  tags: packages
-- name: Enable sockets PHP extension
-  lineinfile:
-    dest: /etc/php/php-fpm.d/www.conf
-    regexp: 'listen ='
-    line: 'listen = /var/run/php-fpm/fpm-www.sock'
-  notify: restart php-fpm
-  tags: configuration
-- name: php-fpm is enabled and running
-  systemd:
-    name: php-fpm
-    enabled: yes
-    state: started
-  tags: systemctl
+    # Setup php-fpm
+    - name: Install PHP FastCGI Process Manager (FPM)
+      pacman:
+        name: php-fpm
+        state: present
+      tags: packages
+    - name: Enable sockets PHP extension
+      lineinfile:
+        dest: /etc/php/php-fpm.d/www.conf
+        regexp: 'listen ='
+        line: 'listen = /var/run/php-fpm/fpm-www.sock'
+      notify: restart php-fpm
+      tags: configuration
+    - name: php-fpm is enabled and running
+      systemd:
+        name: php-fpm
+        enabled: yes
+        state: started
+      tags: systemctl
+
+    # Setup nginx
+    - name: Setup nginx
+      copy:
+        src: files/etc/nginx/conf.d/10-host.d/
+        dest: /etc/nginx/conf.d/10-host.d/
+        owner: http
+        mode: u+rw,g-rwx,o-rwx
+        directory_mode: u+rwx,g-rwx,o-rwx
+      notify: restart nginx
+      tags: configuration
