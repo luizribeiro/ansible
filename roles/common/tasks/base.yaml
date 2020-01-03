@@ -3,11 +3,7 @@
     state: link
     src: "/usr/share/zoneinfo/{{ timezone }}"
     dest: /etc/localtime
-  register: timezone_symlink
-  tags: configuration
-- name: "Re-generate /etc/adjtime"
-  command: hwclock --systohc
-  when: timezone_symlink.changed
+  notify: regenerate /etc/adjtime
   tags: configuration
 - name: "Ensure locale {{ locale }} is enabled"
   locale_gen:

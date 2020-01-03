@@ -10,3 +10,6 @@
   systemd:
     name: monit
     state: restarted
+
+- name: regenerate /etc/adjtime
+  command: hwclock --systohc
