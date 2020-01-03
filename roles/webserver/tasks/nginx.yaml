@@ -26,7 +26,7 @@
     password: "{{ secret_htpasswd_password }}"
     owner: http
     mode: u+rw,g-rwx,o-rwx
-  notify: restart nginx
+  notify: reload nginx
   tags: configuration
 - name: Setup nginx/conf.d
   copy:
@@ -36,7 +36,7 @@
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
     # TODO: find a way to validate nginx/conf.d
-  notify: restart nginx
+  notify: reload nginx
   tags: configuration
 - name: Setup /srv/http
   copy:
@@ -50,7 +50,7 @@
   shell: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d nuc.thepromisedlan.club"
   args:
     creates: /etc/letsencrypt/live/nuc.thepromisedlan.club/
-  notify: restart nginx
+  notify: reload nginx
   tags: configuration
 - name: Allow HTTP traffic from anywhere
   ufw:

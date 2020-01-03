@@ -38,5 +38,5 @@
     owner: http
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
-  notify: restart nginx
+  notify: reload nginx
   tags: configuration

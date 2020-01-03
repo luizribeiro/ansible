@@ -2,6 +2,10 @@
   systemd:
     name: nginx
     state: restarted
+- name: reload nginx
+  systemd:
+    name: nginx
+    state: reloaded
 - name: restart fail2ban
   systemd:
     name: fail2ban
