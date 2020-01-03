@@ -55,7 +55,7 @@
   notify: reload nginx
   tags: configuration
 - name: Setup SSL certificate
-  shell: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d home.thepromisedlan.club"
+  command: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d home.thepromisedlan.club"
   args:
     creates: /etc/letsencrypt/live/home.thepromisedlan.club/
   notify: reload nginx

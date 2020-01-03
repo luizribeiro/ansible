@@ -26,6 +26,7 @@
       git:
         repo: 'https://github.com/luizribeiro/dotfiles'
         dest: '~/.dotfiles'
+        version: 'HEAD'
       register: dotfiles
     - name: 'Setup github remote for pushing changes'
       git_config:
