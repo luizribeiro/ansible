@@ -1,7 +1,6 @@
 - name: Install nginx
   pacman:
     name: nginx
-    # TODO: install apache-tools and setup htpasswd for host
     state: present
   tags: packages
 - name: Install certbot
@@ -18,6 +17,15 @@
     owner: http
     mode: u+rw,g-rwx,o-rwx
     validate: 'nginx -t -c %s'
+  notify: restart nginx
+  tags: configuration
+- name: Setup nuc-htpasswd for nginx
+  htpasswd:
+    path: /etc/nginx/nuc-htpasswd
+    name: "{{ secret_htpasswd_user }}"
+    password: "{{ secret_htpasswd_password }}"
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
   notify: restart nginx
   tags: configuration
 - name: Setup nginx/conf.d
