@@ -1,0 +1,19 @@
+- name: "Timezone is {{ timezone }}"
+  file:
+    state: link
+    src: "/usr/share/zoneinfo/{{ timezone }}"
+    dest: /etc/localtime
+  register: timezone_symlink
+  tags: configuration
+- name: "Re-generate /etc/adjtime"
+  command: hwclock --systohc
+  when: timezone_symlink.changed
+  tags: configuration
+- name: "Ensure locale {{ locale }} is enabled"
+  locale_gen:
+    name: "{{ locale }}"
+    state: present
+- name: "Hostname is {{ inventory_hostname_short }}"
+  copy:
+    content: "{{ inventory_hostname_short }}\n"
+    dest: /etc/hostname
