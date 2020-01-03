@@ -16,6 +16,15 @@
     mode: u=rw,g-rwx,o-rwx
   notify: restart home-assistant
   tags: configuration
+- name: Setup webostv.conf for home-assistant
+  copy:
+    content: "{{ secret_home_assistant_webostv_conf }}"
+    dest: /var/lib/hass/webostv.conf
+    owner: hass
+    group: hass
+    mode: u=rw,g-rwx,o-rwx
+  notify: restart home-assistant
+  tags: configuration
 - name: Setup home-assistant configuration
   copy:
     src: files/var/lib/hass/
