@@ -1,0 +1,7 @@
+- name: 'Allow users in wheel group to use sudo'
+  lineinfile:
+    path: /etc/sudoers.d/00-wheel
+    line: '%wheel ALL=(ALL) ALL'
+    create: yes
+    validate: 'visudo -cf %s'
+  tags: configuration

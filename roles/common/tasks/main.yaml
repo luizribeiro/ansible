@@ -46,6 +46,7 @@
     mode: u=rwx,g=rx,o=rx
   tags: packages
 
+- include: users.yaml
 - include: ntp.yaml
 - include: firewall.yaml
 - include: pacman.yaml
