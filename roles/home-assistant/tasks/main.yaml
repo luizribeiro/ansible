@@ -25,6 +25,15 @@
     mode: u=rw,g-rwx,o-rwx
   notify: restart home-assistant
   tags: configuration
+- name: Setup service-account.json for home-assistant
+  copy:
+    content: "{{ secret_home_assistant_service_account_json }}"
+    dest: /var/lib/hass/service-account.json
+    owner: hass
+    group: hass
+    mode: u=rw,g-rwx,o-rwx
+  notify: restart home-assistant
+  tags: configuration
 - name: Setup home-assistant configuration
   copy:
     src: files/var/lib/hass/

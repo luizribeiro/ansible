@@ -14,7 +14,6 @@ $ ansible-playbook site.yaml
 
 ## TODOs
 
-* TODO: setup all home assistant secrets
 * TODO: setup nginx secrets
 * TODO: setup nginx host config according to setup roles
 * TODO: replace sshguard with fail2ban
