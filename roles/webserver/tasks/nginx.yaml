@@ -19,9 +19,9 @@
     validate: 'nginx -t -c %s'
   notify: restart nginx
   tags: configuration
-- name: Setup nuc-htpasswd for nginx
+- name: Setup htpasswd for nginx host
   htpasswd:
-    path: /etc/nginx/nuc-htpasswd
+    path: /etc/nginx/conf.d/10-host.d/htpasswd
     name: "{{ secret_htpasswd_user }}"
     password: "{{ secret_htpasswd_password }}"
     owner: http
