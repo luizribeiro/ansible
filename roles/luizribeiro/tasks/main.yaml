@@ -15,6 +15,8 @@
     state: present
     key: "{{ item }}"
   with_items: "{{ secret_luizribeiro_ssh_authorized_keys }}"
+  loop_control:
+    label: "{{ item.split(' ')[-1] }}"
   tags: configuration
 - name: 'Setup dotfiles'
   become: yes
