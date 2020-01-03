@@ -9,3 +9,10 @@
     append: yes
     expires: -1
   tags: configuration
+- name: 'Setup SSH Authorized Keys for {{ username }}'
+  authorized_key:
+    user: "{{ username }}"
+    state: present
+    key: "{{ item }}"
+  with_items: "{{ secret_luizribeiro_ssh_authorized_keys }}"
+  tags: configuration
