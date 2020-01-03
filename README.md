@@ -14,7 +14,6 @@ $ ansible-playbook site.yaml
 
 ## TODOs
 
-* TODO: setup nginx host config according to setup roles
 * TODO: setup monit settings according to roles
 * TODO: replace sshguard with fail2ban
 * TODO: setup automated backups for home and hass
