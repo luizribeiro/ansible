@@ -14,7 +14,6 @@ $ ansible-playbook site.yaml
 
 ## TODOs
 
-* TODO: automatically setup my own user
 * TODO: setup automated backups for home and hass
 * TODO: replace sshguard with fail2ban
 * TODO: find a way to validate nginx conf.d files
