@@ -54,6 +54,12 @@
     # TODO: figure out a way of validating nginx/conf.d/20-home.conf
   notify: restart nginx
   tags: configuration
+- name: Setup SSL certificate
+  shell: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d home.thepromisedlan.club"
+  args:
+    creates: /etc/letsencrypt/live/home.thepromisedlan.club/
+  notify: restart nginx
+  tags: configuration
 - name: Setup home-assistant.service overrides
   copy:
     src: files/etc/systemd/system/home-assistant.service.d/

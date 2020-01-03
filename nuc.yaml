@@ -1,4 +1,6 @@
 - hosts: nuc
+  vars:
+    letsencrypt_email: "luizribeiro@gmail.com"
   vars_files:
     - secrets.yaml
   become: yes

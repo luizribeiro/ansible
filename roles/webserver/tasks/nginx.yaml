@@ -46,7 +46,12 @@
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   tags: configuration
-# TODO: setup SSL certs wih certbot
+- name: Setup SSL certificate
+  shell: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d nuc.thepromisedlan.club"
+  args:
+    creates: /etc/letsencrypt/live/nuc.thepromisedlan.club/
+  notify: restart nginx
+  tags: configuration
 - name: Allow HTTP traffic from anywhere
   ufw:
     rule: allow
