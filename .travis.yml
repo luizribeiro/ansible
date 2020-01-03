@@ -16,5 +16,4 @@ install:
   - pip install ansible-lint
 
 script:
-  - ansible-playbook site.yaml --syntax-check
   - ansible-lint site.yaml
