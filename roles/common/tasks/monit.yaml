@@ -30,3 +30,13 @@
     enabled: yes
     state: started
   tags: systemctl
+- name: Setup monit web access on nginx
+  when: "'webserver' in ansible_role_names"
+  copy:
+    src: files/etc/nginx/conf.d/10-host.d/
+    dest: /etc/nginx/conf.d/10-host.d/
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  notify: restart nginx
+  tags: configuration
