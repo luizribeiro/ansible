@@ -5,3 +5,8 @@
     create: yes
     validate: 'visudo -cf %s'
   tags: configuration
+- name: 'Setup sshusers group'
+  group:
+    name: sshusers
+    state: present
+  tags: configuration

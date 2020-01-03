@@ -14,7 +14,6 @@ $ ansible-playbook site.yaml
 
 ## TODOs
 
-* TODO: check if I have to setup sshusers group myself
 * TODO: automatically setup my own user
 * TODO: setup automated backups for home and hass
 * TODO: replace sshguard with fail2ban
