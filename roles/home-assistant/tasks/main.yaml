@@ -7,7 +7,16 @@
       - python-aiohttp-cors
       - python-bluepy
   tags: packages
-- name: Setup home-assistant
+- name: Setup secrets.yaml for home-assistant
+  copy:
+    content: "{{ secret_home_assistant_secrets_yaml }}"
+    dest: /var/lib/hass/secrets.yaml
+    owner: hass
+    group: hass
+    mode: u=rw,g-rwx,o-rwx
+  notify: restart home-assistant
+  tags: configuration
+- name: Setup home-assistant configuration
   copy:
     src: files/var/lib/hass/
     dest: /var/lib/hass/
