@@ -51,12 +51,12 @@
     - name: Enable PHP extensions
       lineinfile:
         dest: /etc/php/php.ini
-        regexp: "{{ item.regexp }}"
-        line: "{{ item.line }}"
+        regexp: "extension={{ item }}"
+        line: "extension={{ item }}"
       with_items:
-        - { regexp: 'extension=pdo_sqlite', line: 'extension=pdo_sqlite' }
-        - { regexp: 'extension=sqlite3', line: 'extension=sqlite3' }
-        - { regexp: 'extension=sockets', line: 'extension=sockets' }
+        - pdo_sqlite
+        - sqlite3
+        - sockets
       notify: restart php-fpm
       tags: configuration
 
