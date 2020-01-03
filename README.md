@@ -14,7 +14,6 @@ $ ansible-playbook site.yaml
 
 ## TODOs
 
-* TODO: replace nuc.thepromisedlan.club with a dynamic hostname
 * TODO: check if I have to setup sshusers group myself
 * TODO: check if I have to setup sudo and wheels group myself
 * TODO: automatically setup my own user

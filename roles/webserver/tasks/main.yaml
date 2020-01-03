@@ -3,12 +3,11 @@
 - include: goaccess.yaml
 
 - name: Setup monit config
-  copy:
-    src: files/etc/monitrc.d/
-    dest: /etc/monitrc.d/
+  template:
+    src: templates/etc/monitrc.d/webserver.conf
+    dest: /etc/monitrc.d/webserver.conf
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-    directory_mode: u+rwx,g-rwx,o-rwx
   notify: restart monit
   tags: configuration

@@ -4,8 +4,8 @@
     state: present
   tags: packages
 - name: Setup goaccess.conf
-  copy:
-    src: files/etc/goaccess/goaccess.conf
+  template:
+    src: templates/etc/goaccess/goaccess.conf
     dest: /etc/goaccess/goaccess.conf
     owner: root
     group: root

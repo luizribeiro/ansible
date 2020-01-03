@@ -38,6 +38,14 @@
     # TODO: find a way to validate nginx/conf.d
   notify: reload nginx
   tags: configuration
+- name: Setup nginx/conf.d/10-host.conf
+  template:
+    src: templates/etc/nginx/conf.d/10-host.conf
+    dest: /etc/nginx/conf.d/10-host.conf
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
+  notify: reload nginx
+  tags: configuration
 - name: Setup /srv/http
   copy:
     src: files/srv/http/
@@ -47,9 +55,9 @@
     directory_mode: u+rwx,g-rwx,o-rwx
   tags: configuration
 - name: Setup SSL certificate
-  shell: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d nuc.thepromisedlan.club"
+  shell: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d {{ inventory_hostname }}"
   args:
-    creates: /etc/letsencrypt/live/nuc.thepromisedlan.club/
+    creates: "/etc/letsencrypt/live/{{ inventory_hostname }}/"
   notify: reload nginx
   tags: configuration
 - name: Allow HTTP traffic from anywhere
