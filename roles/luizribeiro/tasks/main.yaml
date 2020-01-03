@@ -27,14 +27,11 @@
         repo: 'https://github.com/luizribeiro/dotfiles'
         dest: '~/.dotfiles'
         version: 'HEAD'
-      register: dotfiles
+      notify: install dotfiles
     - name: 'Setup github remote for pushing changes'
       git_config:
         name: 'remote.github.url'
         value: 'git@github.com:luizribeiro/dotfiles.git'
         scope: local
         repo: '~/.dotfiles'
-    - name: 'Install dotfiles'
-      command: '~/.dotfiles/install.sh -A'
-      when: dotfiles.changed
   tags: configuration

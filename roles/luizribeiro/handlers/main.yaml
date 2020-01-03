@@ -1,0 +1,2 @@
+- name: install dotfiles
+  command: '~/.dotfiles/install.sh -A'
