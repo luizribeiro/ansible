@@ -47,11 +47,11 @@
   tags: configuration
 - name: Setup nginx for home-assistant
   copy:
-    src: files/etc/nginx/conf.d/10-home.conf
-    dest: /etc/nginx/conf.d/10-home.conf
+    src: files/etc/nginx/conf.d/20-home.conf
+    dest: /etc/nginx/conf.d/20-home.conf
     owner: http
     mode: u+rw,g-rwx,o-rwx
-    # TODO: figure out a way of validating nginx/conf.d/10-home.conf
+    # TODO: figure out a way of validating nginx/conf.d/20-home.conf
   notify: restart nginx
   tags: configuration
 - name: Setup home-assistant.service overrides
