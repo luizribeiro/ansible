@@ -3,9 +3,9 @@
     - secrets.yaml
   become: yes
   roles:
-    - common
-    - pihole
-    - samba
-    - mqtt-broker
-    - webserver
-    - home-assistant
+    - role: common
+    - role: pihole
+    - role: samba
+    - role: mqtt-broker
+    - role: webserver
+    - role: home-assistant
