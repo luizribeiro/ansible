@@ -4,3 +4,6 @@
 [submodule "var/lib/hass"]
 	path = roles/home-assistant/files/var/lib/hass
 	url = https://github.com/luizribeiro/hass-config
+[submodule "plugins/callback/anstomlog"]
+	path = plugins/callback/anstomlog
+	url = https://github.com/octplane/ansible_stdout_compact_logger
