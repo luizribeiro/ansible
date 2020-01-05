@@ -35,3 +35,6 @@
             upgrade: yes
             aur_only: yes
       tags: [ never, upgrade ]
+    - name: Reboot machine
+      reboot:
+      tags: [ never, reboot ]
