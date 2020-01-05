@@ -25,6 +25,13 @@
       tags: home-assistant
   tasks:
     - name: Upgrade all packages
-      aur:
-        upgrade: yes
+      block:
+        - name: Upgrade pacman packages
+          pacman:
+            update_cache: yes
+            upgrade: yes
+        - name: Upgrade AUR packages
+          aur:
+            upgrade: yes
+            aur_only: yes
       tags: [ never, upgrade ]
