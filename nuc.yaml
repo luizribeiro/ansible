@@ -6,12 +6,20 @@
   become: yes
   roles:
     - role: common
+      tags: common
     - role: luizribeiro
+      tags: luizribeiro
     - role: dev
       vars:
         dev_ansible_tools: yes
+      tags: dev
     - role: pihole
+      tags: pihole
     - role: samba
+      tags: samba
     - role: mqtt-broker
+      tags: mqtt-broker
     - role: webserver
+      tags: webserver
     - role: home-assistant
+      tags: home-assistant
