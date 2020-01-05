@@ -13,6 +13,14 @@ $ ansible-playbook site.yaml
 2. `ansible-vault create secrets.yaml`
 3. Setup `secrets.yaml` according to `example-secrets.yaml`
 
+## Upgrading all packages
+
+```
+$ ansible-playbook site.yaml --tags upgrade
+```
+
+Note that this does not restart all upgraded services yet.
+
 ## TODOs
 
 * TODO: setup automated backups for home and hass

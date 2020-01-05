@@ -23,3 +23,8 @@
       tags: webserver
     - role: home-assistant
       tags: home-assistant
+  tasks:
+    - name: Upgrade all packages
+      aur:
+        upgrade: yes
+      tags: [ never, upgrade ]
