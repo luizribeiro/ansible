@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/luizribeiro/ansible.svg?token=Y5WyECQyFrzmKkJLsCaK&branch=master)](https://travis-ci.com/luizribeiro/ansible)
 
 ```
+$ git submodule update --init
 $ ansible-playbook site.yaml
 ```
 
