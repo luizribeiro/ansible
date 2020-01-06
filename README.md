@@ -4,7 +4,7 @@
 
 ```
 $ git submodule update --init
-$ ansible-playbook openwrt.yaml
+$ ./openwrt.yaml
 ```
 
 ## Setting up secrets
