@@ -3,7 +3,7 @@
 	url = https://github.com/kewlfft/ansible-aur
 [submodule "var/lib/hass"]
 	path = roles/home-assistant/files/var/lib/hass
-	url = https://github.com/luizribeiro/hass-config
+	url = git@github.com:luizribeiro/hass-config.git
 [submodule "plugins/callback/anstomlog"]
 	path = plugins/callback/anstomlog
 	url = https://github.com/octplane/ansible_stdout_compact_logger
