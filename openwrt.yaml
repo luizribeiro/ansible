@@ -1,0 +1,5 @@
+- hosts: openwrt
+  vars_files:
+    - secrets.yaml
+  roles:
+    - role: base
