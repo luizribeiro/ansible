@@ -19,13 +19,11 @@
     dest: /etc/config/wireless
     owner: root
     group: root
-    mode: u=rw,g=r,o=r
-    directory_mode: u=rwx,g=rx,o=rx
+    mode: u=rw,g=,o=
 - name: Setup ddns
   template:
     src: templates/ddns
     dest: /etc/config/ddns
     owner: root
     group: root
-    mode: u=rw,g=r,o=r
-    directory_mode: u=rwx,g=rx,o=rx
+    mode: u=rw,g=,o=
