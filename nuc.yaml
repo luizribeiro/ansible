@@ -1,3 +1,5 @@
+#!/usr/bin/env ansible-playbook
+---
 - hosts: nuc
   vars:
     letsencrypt_email: "luizribeiro@gmail.com"
