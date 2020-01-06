@@ -1,11 +1,18 @@
 - name: Setup static configuration files
-  copy:
+  synchronize:
     src: files/
     dest: /etc/config/
+    archive: no
+    recursive: yes
+    times: yes
+    rsync_opts: -zz
+- name: /etc/config should be owned by root
+  file:
+    path: /etc/config/
+    state: directory
+    recurse: yes
     owner: root
     group: root
-    mode: u=rw,g=r,o=r
-    directory_mode: u=rwx,g=rx,o=rx
 - name: Setup wireless
   template:
     src: templates/wireless

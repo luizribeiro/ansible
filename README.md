@@ -17,7 +17,6 @@ $ ./openwrt.yaml
 
 * TODO: automatically install necessary packages
 * TODO: install rsync on server
-* TODO: move away from using copy tasks to using synchronize
 * TODO: move show-wifi-clients.sh to /usr/bin
 * TODO: enable services currently under /etc/rc.d
 * TODO: split config files into their own copy task (per service so we can restart them)
