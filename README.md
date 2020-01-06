@@ -27,3 +27,4 @@ Note that this does not restart all upgraded services yet.
 * TODO: replace sshguard with fail2ban
 * TODO: find a way to validate nginx conf.d files
 * TODO: find a way to validate monit conf.d files
+* TODO: restart services automatically upon upgrade
