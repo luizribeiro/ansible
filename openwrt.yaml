@@ -2,4 +2,4 @@
   vars_files:
     - secrets.yaml
   roles:
-    - role: base
+    - role: openwrt
