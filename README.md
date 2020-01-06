@@ -1,5 +1,7 @@
 # luizribeiro's openwrt settings
 
+[![Build Status](https://travis-ci.com/luizribeiro/ansible-openwrt.svg?branch=master)](https://travis-ci.com/luizribeiro/ansible-openwrt)
+
 ```
 $ git submodule update --init
 $ ansible-playbook openwrt.yaml
