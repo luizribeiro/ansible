@@ -21,3 +21,4 @@ $ ./openwrt.yaml
 * TODO: split config files into their own copy task (per service so we can restart them)
 * TODO: connect config files to handlers that restart services when needed
 * TODO: setup patches for MQTT on luci-app-statistics
+* TODO: tasks to check differences between local and remote files
