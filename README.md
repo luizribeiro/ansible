@@ -15,7 +15,6 @@ $ ./openwrt.yaml
 
 ## TODOs
 
-* TODO: automatically install necessary packages
 * TODO: move show-wifi-clients.sh to /usr/bin
 * TODO: enable services currently under /etc/rc.d
 * TODO: split config files into their own copy task (per service so we can restart them)
