@@ -30,3 +30,14 @@
     group: root
     mode: u=rw,g=,o=
   notify: reload config
+- name: Setup SSH authorized keys
+  lineinfile:
+    path: /etc/dropbear/authorized_keys
+    line: "{{ item }}"
+    state: present
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  with_items: "{{ ssh_authorized_keys }}"
+  loop_control:
+    label: "{{ item.split(' ')[-1] }}"
