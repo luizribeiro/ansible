@@ -1,0 +1,2 @@
+- name: reload config
+  command: reload_config

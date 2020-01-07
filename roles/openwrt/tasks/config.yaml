@@ -6,6 +6,7 @@
     recursive: yes
     times: yes
     rsync_opts: -zz
+  notify: reload config
 - name: /etc/config should be owned by root
   file:
     path: /etc/config/
@@ -20,6 +21,7 @@
     owner: root
     group: root
     mode: u=rw,g=,o=
+  notify: reload config
 - name: Setup ddns
   template:
     src: templates/etc/config/ddns
@@ -27,3 +29,4 @@
     owner: root
     group: root
     mode: u=rw,g=,o=
+  notify: reload config
