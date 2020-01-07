@@ -1,7 +1,3 @@
-- name: /etc/config/show-wifi-clients.sh should not exist
-  file:
-    path: /etc/config/show-wifi-clients.sh
-    state: absent
 - name: Setup show-wifi-clients script
   copy:
     src: files/usr/bin/show-wifi-clients
