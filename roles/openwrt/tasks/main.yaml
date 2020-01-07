@@ -1,4 +1,8 @@
 - include: packages.yaml
+  tags: packages
 - include: config.yaml
+  tags: configuration
 - include: utils.yaml
+  tags: packages
 - include: services.yaml
+  tags: systemctl
