@@ -1,6 +1,6 @@
 - name: Setup static configuration files
   synchronize:
-    src: files/
+    src: files/etc/config/
     dest: /etc/config/
     archive: no
     recursive: yes
@@ -15,14 +15,14 @@
     group: root
 - name: Setup wireless
   template:
-    src: templates/wireless
+    src: templates/etc/config/wireless
     dest: /etc/config/wireless
     owner: root
     group: root
     mode: u=rw,g=,o=
 - name: Setup ddns
   template:
-    src: templates/ddns
+    src: templates/etc/config/ddns
     dest: /etc/config/ddns
     owner: root
     group: root
