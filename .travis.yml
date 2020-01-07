@@ -8,7 +8,13 @@ branches:
   only:
     - master
 
+git:
+  # handle submodules ourselves so we use https instead of ssh on Travis
+  submodules: false
+
 before_install:
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init
   - sudo apt-get update -qq
 
 install:
