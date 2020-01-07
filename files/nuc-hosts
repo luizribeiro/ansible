@@ -1,0 +1,16 @@
+127.0.0.1 localhost.thepromisedlan localhost
+::1 localhost.thepromisedlan localhost
+
+192.168.1.21 nuc.thepromisedlan nuc pi.hole vacuum
+
+# LAN Hosts
+192.168.1.17 living-room-tv.thepromisedlan living-room-tv
+
+# IoT Hosts
+192.168.2.101 iot-avocado.thepromisedlan iot-avocado
+192.168.2.102 iot-bacon.thepromisedlan iot-bacon
+192.168.2.104 iot-rockrobo.thepromisedlan iot-rockrobo
+192.168.2.106 iot-popcorn.thepromisedlan iot-popcorn
+
+# External hosts all point to nuc
+192.168.1.21 home.thepromisedlan.club thepromisedlan.club

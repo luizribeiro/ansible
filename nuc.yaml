@@ -6,6 +6,15 @@
   vars_files:
     - secrets.yaml
   become: yes
+  pre_tasks:
+  - name: Setup /etc/hosts
+    template:
+      src: files/nuc-hosts
+      dest: /etc/hosts
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+    tags: configuration
   roles:
     - role: common
       tags: common
