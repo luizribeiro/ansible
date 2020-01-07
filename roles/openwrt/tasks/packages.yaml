@@ -8,6 +8,7 @@
     - python3-multiprocessing
     - python3-distutils
     - rsync
+    - shadow-usermod
 - name: Install collectd
   opkg:
     name: "{{ item }}"
