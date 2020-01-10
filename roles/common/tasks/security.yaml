@@ -1,0 +1,6 @@
+- name: Restrict access to kernel to logs
+  lineinfile:
+    path: /etc/sysctl.d/51-dmesg-restrict.conf
+    line: kernel.dmesg_restrict = 1
+    create: yes
+  tags: configuration
