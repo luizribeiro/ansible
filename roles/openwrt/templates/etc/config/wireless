@@ -33,7 +33,7 @@ config wifi-iface 'default_radio1'
 	option macaddr '62:38:e0:cc:12:69'
 	option encryption 'psk2'
 	option key '{{ wifi_key }}'
-	option ssid 'The Promised LAN'
+	option ssid 'The Promised LAN 2.4GHz'
 	option network 'lan'
 
 config wifi-device 'radio2'
