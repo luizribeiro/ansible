@@ -23,7 +23,6 @@ Note that this does not restart all upgraded services yet.
 
 ## TODOs
 
-* TODO: setup automated backups for home and hass
 * TODO: replace sshguard with fail2ban
 * TODO: find a way to validate nginx conf.d files
 * TODO: find a way to validate monit conf.d files
