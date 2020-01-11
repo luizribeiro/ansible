@@ -25,6 +25,11 @@
         dev_ansible_tools: yes
       tags: dev
     - role: backup
+      vars:
+        backup_paths:
+          - /etc
+          - /home
+          - /var/lib/hass
       tags: backup
     - role: pihole
       tags: pihole

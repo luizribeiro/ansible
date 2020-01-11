@@ -35,7 +35,7 @@
     job: >-
       RESTIC_REPOSITORY="{{ restic_backup_repo }}"
       RESTIC_PASSWORD="{{ secret_restic_password }}"
-      restic backup /home /etc /var/lib/hass
+      restic backup {{ backup_paths | join(" ") }}
     cron_file: backups
   tags: configuration
 - name: Only root should be able to read cron file
