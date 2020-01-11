@@ -24,6 +24,8 @@
       vars:
         dev_ansible_tools: yes
       tags: dev
+    - role: backup
+      tags: backup
     - role: pihole
       tags: pihole
     - role: samba

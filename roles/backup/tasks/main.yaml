@@ -1,0 +1,48 @@
+- name: Install backup software
+  pacman:
+    name:
+      - restic
+      - rclone
+    state: present
+  tags: packages
+- name: Setup rclone
+  template:
+    src: templates/rclone.conf
+    dest: /root/.config/rclone/rclone.conf
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  tags: configuration
+- name: Initialize backup repository
+  command: restic init
+  environment:
+    RESTIC_REPOSITORY: '{{ restic_backup_repo }}'
+    RESTIC_PASSWORD: '{{ secret_restic_password }}'
+  no_log: false
+  register: restic_init
+  changed_when: "'created restic repository' in restic_init.stdout"
+  failed_when:
+    - restic_init.rc != 0
+    - not 'already initialized' in restic_init.stderr
+  tags: configuration
+- name: Setup backups as a daily cron job
+  cron:
+    name: Backup /home
+    minute: "0"
+    hour: "4"
+    user: root
+    job: >-
+      RESTIC_REPOSITORY="{{ restic_backup_repo }}"
+      RESTIC_PASSWORD="{{ secret_restic_password }}"
+      restic backup /home /etc /var/lib/hass
+    cron_file: backups
+  tags: configuration
+- name: Only root should be able to read cron file
+  file:
+    path: /etc/cron.d/backups
+    state: file
+    owner: root
+    group: root
+    mode: u=rw,g-rwx,o-rwx
+  tags: configuration
