@@ -26,23 +26,25 @@
     - restic_init.rc != 0
     - not 'already initialized' in restic_init.stderr
   tags: configuration
-- name: Setup backups as a daily cron job
+- name: Setup backup script
+  template:
+    src: templates/backup.sh
+    dest: /root/backup.sh
+    owner: root
+    group: root
+    mode: u+rwx,g-rwx,o-rwx
+  tags: configuration
+- name: Old backup job is deleted
   cron:
     name: Backup /home
+    cron_file: backups
+    state: absent
+  tags: configuration
+- name: Setup backups as a daily cron job
+  cron:
+    name: Backup
     minute: "0"
     hour: "4"
     user: root
-    job: >-
-      RESTIC_REPOSITORY="{{ restic_backup_repo }}"
-      RESTIC_PASSWORD="{{ secret_restic_password }}"
-      restic backup {{ backup_paths | join(" ") }}
+    job: /root/backup.sh
     cron_file: backups
-  tags: configuration
-- name: Only root should be able to read cron file
-  file:
-    path: /etc/cron.d/backups
-    state: file
-    owner: root
-    group: root
-    mode: u=rw,g-rwx,o-rwx
-  tags: configuration
