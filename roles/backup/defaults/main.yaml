@@ -1,4 +1,3 @@
 backup_paths:
-  - /etc
   - /home
 restic_backup_repo: "rclone:wasabi:{{ secret_wasabi_bucket }}/{{ inventory_hostname }}"
