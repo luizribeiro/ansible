@@ -1,5 +1,2 @@
-[nuc]
-nuc.thepromisedlan.club
-
-[nuc:vars]
-ansible_python_interpreter=/usr/bin/python3
+[home]
+nuc.thepromisedlan.club ansible_python_interpreter=/usr/bin/python3

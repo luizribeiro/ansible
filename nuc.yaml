@@ -1,6 +1,6 @@
 #!/usr/bin/env ansible-playbook
 ---
-- hosts: nuc
+- hosts: nuc.thepromisedlan.club
   vars:
     letsencrypt_email: "luizribeiro@gmail.com"
   vars_files:
