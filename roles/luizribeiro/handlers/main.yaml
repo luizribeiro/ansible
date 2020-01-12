@@ -1,4 +1,4 @@
 - name: install dotfiles
   command: '~/.dotfiles/install.sh -A'
   become: yes
-  become_user: "{{ username }}"
+  become_user: "{{ luizribeiro_username }}"
