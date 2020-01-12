@@ -1,4 +1,5 @@
 username: luiz
+primary_group: users
 groups:
   - sshusers
   - wheel
