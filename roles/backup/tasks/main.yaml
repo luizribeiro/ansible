@@ -42,6 +42,7 @@
     user: root
     job: /root/backup.sh
     cron_file: backups
+  tags: configuration
 - name: Setup monit config
   copy:
     src: files/etc/monitrc.d/
