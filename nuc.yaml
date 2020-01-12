@@ -16,8 +16,8 @@
       mode: u=rw,g=r,o=r
     tags: configuration
   roles:
-    - role: common
-      tags: common
+    - role: server
+      tags: server
     - role: luizribeiro
       tags: luizribeiro
     - role: dev
