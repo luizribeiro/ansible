@@ -1,0 +1,12 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: grissom
+  vars_files:
+    - secrets.yaml
+  roles:
+    - role: luizribeiro
+      vars:
+        luizribeiro_primary_group: staff
+        luizribeiro_groups:
+          - admin
+      tags: luizribeiro
