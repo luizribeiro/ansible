@@ -1,1 +1,4 @@
 username: luiz
+groups:
+  - sshusers
+  - wheel

@@ -5,7 +5,7 @@
     update_password: on_create
     shell: /bin/zsh
     group: users
-    groups: wheel,sshusers
+    groups: "{{ groups | join(',') }}"
     append: yes
     expires: -1
   tags: configuration
