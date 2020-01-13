@@ -21,6 +21,14 @@ $ ansible-playbook site.yaml --tags upgrade
 
 Note that this does not restart all upgraded services yet.
 
+## OSX
+
+```
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ brew install ansible
+$ ./grissom.yaml
+```
+
 ## TODOs
 
 * TODO: replace sshguard with fail2ban
