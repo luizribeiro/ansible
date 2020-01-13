@@ -1,12 +1,13 @@
 #!/usr/bin/env ansible-playbook
 ---
-- hosts: grissom
+- hosts: macbook
   vars_files:
     - secrets.yaml
   roles:
     - role: luizribeiro
       vars:
-        luizribeiro_primary_group: staff
+        luizribeiro_username: luizribeiro
+        luizribeiro_primary_group: "{{ omit }}"
         luizribeiro_groups:
           - admin
       tags: luizribeiro
@@ -17,9 +18,7 @@
     - role: osx
       vars:
         osx_additional_casks:
-          - google-chrome
-          - mailspring
-          - steam
-          - stellarium
-          - whatsapp
+          - limechat
+          - quip
+          - slack
       tags: osx

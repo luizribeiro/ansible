@@ -6,6 +6,9 @@
       - pinentry-mac
     state: present
   tags: packages
+- name: Refresh sudo cache
+  command: "echo none"
+  become: yes
 - name: Install Homebrew Casks
   homebrew_cask:
     name: "{{ item }}"
@@ -13,7 +16,6 @@
   with_items:
     - alfred
     - dropbox
-    - google-chrome
     - gpg-suite
     - istat-menus
     - iterm2
