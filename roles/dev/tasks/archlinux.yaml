@@ -1,0 +1,10 @@
+- name: Install tools for ansible
+  pacman:
+    name:
+      - ansible
+      - ansible-lint
+      # this is required by ansible's htpasswd module
+      - python-passlib
+    state: present
+  when: dev_ansible_tools
+  tags: packages
