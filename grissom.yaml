@@ -13,3 +13,10 @@
     - role: dev
       vars:
         dev_ansible_tools: yes
+    - role: osx
+      vars:
+        osx_additional_casks:
+          - mailspring
+          - steam
+          - whatsapp
+          - stellarium

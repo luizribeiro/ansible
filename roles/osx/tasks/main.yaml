@@ -1,0 +1,39 @@
+- name: Install OSX tools
+  homebrew:
+    name:
+      - coreutils
+      - gpg
+      - pinentry-mac
+    state: present
+  tags: packages
+- name: Install Homebrew Casks
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - alfred
+    - dropbox
+    - google-chrome
+    - gpg-suite
+    - istat-menus
+    - iterm2
+    - monitorcontrol
+    - spotify
+  tags: packages
+- name: Install Additional Homebrew Casks
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ osx_additional_casks }}"
+  when: osx_additional_casks != None and (osx_additional_casks | length) > 0
+  tags: packages
+- name: Tap caskroom/fonts
+  homebrew_tap:
+    name: caskroom/fonts
+    state: present
+  tags: packages
+- name: Install Hack Nerd Font
+  homebrew_cask:
+    name: font-hack-nerd-font
+    state: present
+  tags: packages
