@@ -35,3 +35,5 @@
         scope: local
         repo: '~/.dotfiles'
   tags: configuration
+
+- include: packages.yaml

@@ -1,0 +1,22 @@
+- name: Install neovim
+  pacman:
+    name:
+      - neovim
+      - python-pynvim
+    state: present
+  tags: packages
+- name: Uninstall vim
+  pacman:
+    name: vim
+    state: absent
+    extra_args: --recursive
+  tags: packages
+- name: Link nvim as vim
+  file:
+    state: link
+    src: /usr/bin/nvim
+    dest: /usr/bin/vim
+    owner: root
+    group: root
+    mode: u=rwx,g=rx,o=rx
+  tags: packages

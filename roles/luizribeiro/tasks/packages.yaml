@@ -1,0 +1,15 @@
+- name: Install essential user packages
+  package:
+    name:
+      - fzf
+      - htop
+      - jq
+      - mosh
+      - ripgrep
+      - tmux
+      - wget
+      - zsh
+    state: present
+  tags: packages
+
+- include: "neovim-{{ ansible_distribution | lower }}.yaml"

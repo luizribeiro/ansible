@@ -1,20 +1,5 @@
 - include: base.yaml
 
-- name: Install essential user packages
-  pacman:
-    name:
-      - fzf
-      - htop
-      - jq
-      - mosh
-      - neovim
-      - python-pynvim
-      - ripgrep
-      - tmux
-      - wget
-      - zsh
-    state: present
-  tags: packages
 - name: Install networking tools
   pacman:
     name:
@@ -31,21 +16,6 @@
       - man-db
       - man-pages
     state: present
-  tags: packages
-- name: Uninstall vim
-  pacman:
-    name: vim
-    state: absent
-    extra_args: --recursive
-  tags: packages
-- name: Link nvim as vim
-  file:
-    state: link
-    src: /usr/bin/nvim
-    dest: /usr/bin/vim
-    owner: root
-    group: root
-    mode: u=rwx,g=rx,o=rx
   tags: packages
 
 - include: users.yaml

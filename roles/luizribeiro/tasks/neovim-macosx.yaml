@@ -1,0 +1,12 @@
+- name: Install neovim
+  homebrew:
+    name:
+      - neovim
+    state: present
+  tags: packages
+- name: Install pynvim
+  pip:
+    name:
+      - pynvim
+    state: present
+  tags: packages
