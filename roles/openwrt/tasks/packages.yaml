@@ -9,6 +9,7 @@
     - python3-distutils
     - rsync
     - shadow-usermod
+    - patch
 - name: Install collectd
   opkg:
     name: "{{ item }}"

@@ -15,5 +15,4 @@ $ ./openwrt.yaml
 
 ## TODOs
 
-* TODO: setup patches for MQTT on luci-app-statistics
 * TODO: tasks to check differences between local and remote files

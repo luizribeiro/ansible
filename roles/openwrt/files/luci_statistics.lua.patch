@@ -1,0 +1,21 @@
+--- luci_statistics.lua	2020-01-12 21:15:30.000000000 -0500
++++ luci_statistics.lua	2020-01-12 21:15:28.000000000 -0500
+@@ -54,7 +54,8 @@
+ 		tcpconns	= _("TCP Connections"),
+ 		thermal	= 	_("Thermal"),
+ 		unixsock	= _("UnixSock"),
+-		uptime		= _("Uptime")
++		uptime		= _("Uptime"),
++    mqtt      = _("MQTT")
+ 	}
+ 
+ 	-- our collectd menu
+@@ -63,7 +64,7 @@
+ 		general = { "apcups", "contextswitch", "cpu", "cpufreq", "df",
+ 			"disk", "email", "entropy", "exec", "irq", "load", "memory",
+ 			"nut", "processes", "sensors", "thermal", "uptime" },
+-		network = { "conntrack", "dns", "interface", "iptables",
++		network = { "conntrack", "dns", "interface", "iptables", "mqtt",
+ 			"netlink", "olsrd", "openvpn", "ping",
+ 			"splash_leases", "tcpconns", "iwinfo" }
+ 	}
