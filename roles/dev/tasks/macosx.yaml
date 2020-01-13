@@ -1,0 +1,16 @@
+- name: Install tools for ansible
+  homebrew:
+    name:
+      - ansible
+      - ansible-lint
+    state: present
+  when: dev_ansible_tools
+  tags: packages
+- name: Install ansible tool dependencies
+  pip:
+    name:
+      # this is required by ansible's htpasswd module
+      - passlib
+    state: present
+  when: dev_ansible_tools
+  tags: packages

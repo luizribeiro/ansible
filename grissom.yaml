@@ -10,3 +10,6 @@
         luizribeiro_groups:
           - admin
       tags: luizribeiro
+    - role: dev
+      vars:
+        dev_ansible_tools: yes
