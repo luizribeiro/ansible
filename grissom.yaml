@@ -13,6 +13,7 @@
     - role: dev
       vars:
         dev_ansible_tools: yes
+      tags: dev
     - role: osx
       vars:
         osx_additional_casks:
@@ -20,3 +21,4 @@
           - steam
           - whatsapp
           - stellarium
+      tags: osx
