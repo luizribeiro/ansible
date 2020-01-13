@@ -3,3 +3,6 @@ nuc.thepromisedlan.club ansible_python_interpreter=/usr/bin/python3
 
 [osx]
 grissom ansible_connection=local
+
+[osx:vars]
+ansible_python_interpreter=/usr/local/bin/python3
