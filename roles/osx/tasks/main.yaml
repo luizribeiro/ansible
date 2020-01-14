@@ -51,10 +51,11 @@
   command: mas install "{{ item.id|default(item) }}"
   with_items:
     - { id: 585829637, name: "Todoist" }
-  when: (item.id | string) not in mas_list.stdout
+  register: mas_install
+  changed_when: "'is already installed' not in mas_install.stdout"
 - name: Install additional MAS apps
   command: mas install "{{ item.id|default(item) }}"
   with_items: "{{ osx_additional_mas_apps }}"
-  when: >
-    osx_additional_mas_apps != None and (osx_additional_mas_apps | length) > 0
-    and (item.id | string) not in mas_list.stdout
+  when: osx_additional_mas_apps != None and (osx_additional_mas_apps | length) > 0
+  register: mas_install
+  changed_when: "'is already installed' not in mas_install.stdout"
