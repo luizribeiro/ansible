@@ -10,6 +10,8 @@
 - name: Refresh sudo cache
   command: "echo none"
   become: yes
+  check_mode: false
+  changed_when: false
 - name: Install Homebrew Casks
   homebrew_cask:
     name: "{{ item }}"
