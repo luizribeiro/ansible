@@ -22,4 +22,12 @@
           - steam
           - stellarium
           - whatsapp
+        osx_additional_mas_apps:
+          - { id: 1091189122, name: "Bear" }
+          - { id: 1153157709, name: "Speedtest" }
+          - { id: 1440801586, name: "Cascable Transfer" }
+          - { id: 1449412482, name: "Reeder" }
+          - { id: 497799835, name: "Xcode" }
+          - { id: 568052099, name: "AmpKit" }
+          - { id: 1116599239, name: "NordVPN IKE" }
       tags: osx
