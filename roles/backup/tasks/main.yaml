@@ -13,9 +13,11 @@
     group: "{{ backup_user_group }}"
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
+  become: yes
   tags: configuration
 - name: Initialize backup repository
   command: restic init
+  become: yes
   environment:
     RESTIC_REPOSITORY: '{{ restic_backup_repo }}'
     RESTIC_PASSWORD: '{{ secret_restic_password }}'
@@ -33,6 +35,7 @@
     owner: "{{ backup_user }}"
     group: "{{ backup_user_group }}"
     mode: u+rwx,g-rwx,o-rwx
+  become: yes
   tags: configuration
 - name: Setup backups as a daily cron job
   cron:
