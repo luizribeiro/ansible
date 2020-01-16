@@ -1,5 +1,5 @@
 - name: Install backup software
-  pacman:
+  package:
     name:
       - restic
       - rclone
@@ -51,5 +51,6 @@
     group: root
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
+  when: "'server' in ansible_role_names"
   notify: restart monit
   tags: configuration
