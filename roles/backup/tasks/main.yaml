@@ -5,6 +5,16 @@
       - rclone
     state: present
   tags: packages
+- name: Make sure config directory exists
+  file:
+    path: "{{ rclone_conf_path | dirname }}"
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user_group }}"
+    state: directory
+    mode: u+rwx,g-rwx,o-rwx
+    recurse: yes
+  become: yes
+  tags: configuration
 - name: Setup rclone
   template:
     src: templates/rclone.conf
