@@ -1,0 +1,12 @@
+- name: Setup local.backup LaunchAgent
+  copy:
+    src: files/local.backup.plist
+    dest: /Library/LaunchAgents/local.backup.plist
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user_group }}"
+    mode: u+rw,g-rwx,o-rwx
+  become: yes
+  tags: configuration
+- name: Load local.backup LaunchAgent
+  command: launchctl load /Library/LaunchAgents/local.backup.plist
+  become: yes
