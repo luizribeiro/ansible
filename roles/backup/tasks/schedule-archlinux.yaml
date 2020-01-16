@@ -1,0 +1,9 @@
+- name: Setup backups as a daily cron job
+  cron:
+    name: Backup
+    minute: "0"
+    hour: "4"
+    user: "{{ backup_user }}"
+    job: "{{ backup_script_path }}"
+    cron_file: backups
+  tags: configuration

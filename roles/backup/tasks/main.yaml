@@ -47,15 +47,7 @@
     mode: u+rwx,g-rwx,o-rwx
   become: yes
   tags: configuration
-- name: Setup backups as a daily cron job
-  cron:
-    name: Backup
-    minute: "0"
-    hour: "4"
-    user: "{{ backup_user }}"
-    job: "{{ backup_script_path }}"
-    cron_file: backups
-  tags: configuration
+- include: "schedule-{{ ansible_distribution | lower }}.yaml"
 - name: Setup monit config
   copy:
     src: files/etc/monitrc.d/
