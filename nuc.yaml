@@ -30,6 +30,8 @@
           - /etc
           - /home
           - /var/lib/hass
+        backup_excludes:
+          - /var/lib/hass/home-assistant_v2.db
       tags: backup
     - role: pihole
       tags: pihole
