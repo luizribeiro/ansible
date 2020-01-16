@@ -8,9 +8,9 @@
 - name: Setup rclone
   template:
     src: templates/rclone.conf
-    dest: /root/.config/rclone/rclone.conf
-    owner: root
-    group: root
+    dest: "{{ rclone_conf_path }}"
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user_group }}"
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   tags: configuration
@@ -29,9 +29,9 @@
 - name: Setup backup script
   template:
     src: templates/backup.sh
-    dest: /root/backup.sh
-    owner: root
-    group: root
+    dest: "{{ backup_script_path }}"
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user_group }}"
     mode: u+rwx,g-rwx,o-rwx
   tags: configuration
 - name: Setup backups as a daily cron job
@@ -39,16 +39,16 @@
     name: Backup
     minute: "0"
     hour: "4"
-    user: root
-    job: /root/backup.sh
+    user: "{{ backup_user }}"
+    job: "{{ backup_script_path }}"
     cron_file: backups
   tags: configuration
 - name: Setup monit config
   copy:
     src: files/etc/monitrc.d/
     dest: /etc/monitrc.d/
-    owner: root
-    group: root
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user_group }}"
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   when: "'server' in ansible_role_names"
