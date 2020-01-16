@@ -31,3 +31,22 @@
           - { id: 568052099, name: "AmpKit" }
           - { id: 1116599239, name: "NordVPN IKE" }
       tags: osx
+    - role: backup
+      vars:
+        backup_user: root
+        backup_user_group: wheel
+        rclone_conf_path: /var/root/.config/rclone/rclone.conf
+        backup_script_path: /var/root/backup.sh
+        backup_paths:
+          - /Users
+        backup_excludes:
+          # ncdu -X /var/root/backup-excludes.txt /Users
+          - /Users/**/.*
+          - /Users/**/Creative Cloud Files
+          - /Users/**/Dropbox
+          - /Users/**/Library
+          - /Users/Shared/Adobe
+          - /Users/Shared/Epic Games
+          - /Users/Shared/GOG.com
+          - /Users/luiz/Music
+          - /Users/luiz/Pictures
