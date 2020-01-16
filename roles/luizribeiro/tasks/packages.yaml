@@ -5,6 +5,7 @@
       - htop
       - jq
       - mosh
+      - ncdu
       - ripgrep
       - tldr
       - tmux
