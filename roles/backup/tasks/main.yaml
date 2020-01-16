@@ -25,6 +25,13 @@
     directory_mode: u+rwx,g-rwx,o-rwx
   become: yes
   tags: configuration
+- name: Setup excludes file
+  lineinfile:
+    path: "{{ backup_script_path | dirname }}/backup-excludes.txt"
+    line: "{{ item }}"
+    create: yes
+  become: yes
+  with_items: "{{ backup_excludes }}"
 - name: Initialize backup repository
   command: restic init
   become: yes
