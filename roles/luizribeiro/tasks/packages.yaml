@@ -6,6 +6,7 @@
       - jq
       - mosh
       - ripgrep
+      - tldr
       - tmux
       - wget
       - zsh
