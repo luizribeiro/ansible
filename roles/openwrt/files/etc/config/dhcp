@@ -127,11 +127,6 @@ config host
 	option mac '00:17:88:77:7A:45'
 
 config host
-	option name 'bedroom-speaker-old'
-	option dns '1'
-	option mac '20:DF:B9:16:66:28'
-
-config host
 	option name 'entryway-speaker'
 	option dns '1'
 	option mac '00:F6:20:47:40:D5'
@@ -195,11 +190,6 @@ config host
 	option name 'iot-bathroom-scale'
 	option dns '1'
 	option mac '00:24:E4:79:80:AA'
-
-config host
-	option name 'iot-scale'
-	option dns '1'
-	option mac '9A:DE:84:93:7A:B2'
 
 config host
 	option name 'iot-rockrobo'
