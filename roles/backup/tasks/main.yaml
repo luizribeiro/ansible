@@ -55,14 +55,23 @@
   become: yes
   tags: configuration
 - include: "schedule-{{ ansible_distribution | lower }}.yaml"
-- name: Setup monit config
-  copy:
-    src: files/etc/monitrc.d/
-    dest: /etc/monitrc.d/
-    owner: "{{ backup_user }}"
-    group: "{{ backup_user_group }}"
-    mode: u+rw,g-rwx,o-rwx
-    directory_mode: u+rwx,g-rwx,o-rwx
+- block:
+  - name: Setup backup-check script
+    template:
+      src: templates/backup-check.sh
+      dest: "{{ backup_script_path | dirname }}/backup-check.sh"
+      owner: "{{ backup_user }}"
+      group: "{{ backup_user_group }}"
+      mode: u+rwx,g-rwx,o-rwx
+    become: yes
+  - name: Setup monit config
+    copy:
+      src: files/etc/monitrc.d/
+      dest: /etc/monitrc.d/
+      owner: "{{ backup_user }}"
+      group: "{{ backup_user_group }}"
+      mode: u+rw,g-rwx,o-rwx
+      directory_mode: u+rwx,g-rwx,o-rwx
+    notify: restart monit
   when: "'server' in ansible_role_names"
-  notify: restart monit
   tags: configuration
