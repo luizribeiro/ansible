@@ -34,39 +34,22 @@ config odhcpd 'odhcpd'
 	option leasetrigger '/usr/sbin/odhcpd-update'
 	option loglevel '4'
 
-config host
-	option name 'nuc'
-	option dns '1'
-	option mac 'C0:3F:D5:6B:54:31'
-	option ip '192.168.1.21'
+config dhcp 'iot'
+	option interface 'iot'
+	option start '100'
+	option limit '150'
+	option leasetime '12h'
+	option dhcpv6 'server'
+	option ra 'server'
+	option ra_management '1'
+	list dhcp_option '6,192.168.1.21'
 
-config host
-	option name 'living-room-tv'
-	option dns '1'
-	option mac '48:8D:36:83:55:DA'
-	option ip '192.168.1.17'
-
-config host
-	option name 'iot-rockrobo'
-	option dns '1'
-	option mac '34:CE:00:E9:28:A5'
-	option ip '192.168.2.104'
-
-config host
-	option name 'ps4'
-	option dns '1'
-	option mac 'F8:46:1C:5F:15:44'
-	option ip '192.168.1.13'
+######################################################
+# Domains
 
 config domain
 	option name 'pi.hole'
 	option ip '192.168.1.21'
-
-config host
-	option name 'iot-rmpro'
-	option dns '1'
-	option mac '78:0F:77:63:53:39'
-	option ip '192.168.2.249'
 
 config domain
 	option name 'router'
@@ -80,15 +63,155 @@ config domain
 	option name 'home'
 	option ip '192.168.1.21'
 
-config dhcp 'iot'
-	option interface 'iot'
-	option start '100'
-	option limit '150'
-	option leasetime '12h'
-	option dhcpv6 'server'
-	option ra 'server'
-	option ra_management '1'
-	list dhcp_option '6,192.168.1.21'
+
+######################################################
+# Hosts for LAN computers
+
+config host
+	option name 'nuc'
+	option dns '1'
+	option mac 'C0:3F:D5:6B:54:31'
+	option ip '192.168.1.21'
+
+config host
+	option name 'macbook-air'
+	option dns '1'
+	option mac '30:35:AD:AD:E3:0C'
+
+config host
+	option name 'fb-macbook-pro'
+	option dns '1'
+	option mac 'F4:5C:89:B2:54:81'
+
+config host
+	option name 'grissom'
+	option dns '1'
+	option mac '30:35:AD:CC:3F:AC'
+
+config host
+	option name 'pixel3'
+	option dns '1'
+	option mac '3C:28:6D:00:0E:1A'
+
+config host
+	option name 'iphone'
+	option dns '1'
+	option mac 'F8:4E:73:68:C5:F3'
+
+
+######################################################
+# Hosts for LAN mobile devices
+
+config host
+	option name 'ipad'
+	option dns '1'
+	option mac '34:42:62:77:9D:1D'
+
+config host
+	option name 'fossil-watch'
+	option dns '1'
+	option mac '98:29:A6:C7:E6:4F'
+
+config host
+	option name 'apple-watch'
+	option dns '1'
+	option mac '40:CB:C0:9F:70:BC'
+
+
+######################################################
+# Hosts for IoT devices that connect to LAN
+
+config host
+	option name 'philips-hue'
+	option dns '1'
+	option mac '00:17:88:77:7A:45'
+
+config host
+	option name 'bedroom-speaker-old'
+	option dns '1'
+	option mac '20:DF:B9:16:66:28'
+
+config host
+	option name 'entryway-speaker'
+	option dns '1'
+	option mac '00:F6:20:47:40:D5'
+
+config host
+	option name 'bedroom-speaker'
+	option dns '1'
+	option mac 'F0:EF:86:4D:D2:44'
+
+config host
+	option name 'google-home'
+	option dns '1'
+	option mac '48:D6:D5:7C:33:58'
+
+config host
+	option name 'guest-room-speaker'
+	option dns '1'
+	option mac '30:FD:38:B1:C1:0E'
+
+
+######################################################
+# Hosts for LAN entertainment devices
+
+config host
+	option name 'living-room-tv'
+	option dns '1'
+	option mac '48:8D:36:83:55:DA'
+	option ip '192.168.1.17'
+
+config host
+	option name 'chromecast-living-room'
+	option dns '1'
+	option mac '44:07:0B:4F:46:71'
+
+config host
+	option name 'ps4'
+	option dns '1'
+	option mac 'F8:46:1C:5F:15:44'
+	option ip '192.168.1.13'
+
+config host
+	option name 'nintendo-switch-wired'
+	option dns '1'
+	option mac '00:0E:C6:D4:62:0F'
+
+config host
+	option name 'nintendo-switch-wifi'
+	option dns '1'
+	option mac 'DC:68:EB:61:65:A7'
+
+config host
+	option name 'chromecast-bedroom'
+	option dns '1'
+	option mac '48:D6:D5:36:56:E6'
+
+
+######################################################
+# Hosts for IoT devices
+
+config host
+	option name 'iot-bathroom-scale'
+	option dns '1'
+	option mac '00:24:E4:79:80:AA'
+
+config host
+	option name 'iot-scale'
+	option dns '1'
+	option mac '9A:DE:84:93:7A:B2'
+
+config host
+	option name 'iot-rockrobo'
+	option dns '1'
+	option mac '34:CE:00:E9:28:A5'
+	option ip '192.168.2.104'
+
+config host
+	option name 'iot-rmpro'
+	option dns '1'
+	option mac '78:0F:77:63:53:39'
+	option ip '192.168.2.249'
 
 config host
 	option name 'iot-avocado'
@@ -119,71 +242,6 @@ config host
 	option mac '18:B4:30:7E:0A:AD'
 
 config host
-	option name 'chromecast-bedroom'
-	option dns '1'
-	option mac '48:D6:D5:36:56:E6'
-
-config host
-	option name 'pixel3'
-	option dns '1'
-	option mac '3C:28:6D:00:0E:1A'
-
-config host
-	option name 'iphone'
-	option dns '1'
-	option mac 'F8:4E:73:68:C5:F3'
-
-config host
-	option name 'ipad'
-	option dns '1'
-	option mac '34:42:62:77:9D:1D'
-
-config host
-	option name 'macbook-air'
-	option dns '1'
-	option mac '30:35:AD:AD:E3:0C'
-
-config host
-	option name 'google-home'
-	option dns '1'
-	option mac '48:D6:D5:7C:33:58'
-
-config host
-	option name 'nintendo-switch-wifi'
-	option dns '1'
-	option mac 'DC:68:EB:61:65:A7'
-
-config host
-	option name 'iot-scale'
-	option dns '1'
-	option mac '9A:DE:84:93:7A:B2'
-
-config host
-	option name 'fossil-watch'
-	option dns '1'
-	option mac '98:29:A6:C7:E6:4F'
-
-config host
-	option name 'bedroom-speaker-old'
-	option dns '1'
-	option mac '20:DF:B9:16:66:28'
-
-config host
-	option name 'guest-room-speaker'
-	option dns '1'
-	option mac '30:FD:38:B1:C1:0E'
-
-config host
-	option name 'philips-hue'
-	option dns '1'
-	option mac '00:17:88:77:7A:45'
-
-config host
-	option name 'grissom'
-	option dns '1'
-	option mac '30:35:AD:CC:3F:AC'
-
-config host
 	option name 'iot-pizza'
 	option dns '1'
 	option mac '68:FF:7B:5C:63:78'
@@ -194,39 +252,4 @@ config host
 	option dns '1'
 	option mac '68:FF:7B:5C:42:B0'
 	option ip '192.168.2.106'
-
-config host
-	option name 'apple-watch'
-	option dns '1'
-	option mac '40:CB:C0:9F:70:BC'
-
-config host
-	option name 'fb-macbook-pro'
-	option dns '1'
-	option mac 'F4:5C:89:B2:54:81'
-
-config host
-	option name 'iot-bathroom-scale'
-	option dns '1'
-	option mac '00:24:E4:79:80:AA'
-
-config host
-	option name 'nintendo-switch-wired'
-	option dns '1'
-	option mac '00:0E:C6:D4:62:0F'
-
-config host
-	option name 'chromecast-living-room'
-	option dns '1'
-	option mac '44:07:0B:4F:46:71'
-
-config host
-	option name 'entryway-speaker'
-	option dns '1'
-	option mac '00:F6:20:47:40:D5'
-
-config host
-	option name 'bedroom-speaker'
-	option dns '1'
-	option mac 'F0:EF:86:4D:D2:44'
 
