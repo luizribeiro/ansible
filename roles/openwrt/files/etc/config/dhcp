@@ -131,7 +131,7 @@ config host
 config host
 	option name 'iphone'
 	option dns '1'
-	option mac '34:08:BC:DD:63:CB'
+	option mac 'F8:4E:73:68:C5:F3'
 
 config host
 	option name 'ipad'
