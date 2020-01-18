@@ -1,5 +1,7 @@
 # vim: set ft=uci:
 
+# general settings
+
 config statistics 'collectd'
 	option BaseDir '/var/run/collectd'
 	option Include '/etc/collectd/conf.d'
@@ -14,6 +16,8 @@ config statistics 'rrdtool'
 	option default_timespan '1hour'
 	option image_width '600'
 	option image_path '/tmp/rrdimg'
+
+# output plugins
 
 config statistics 'collectd_rrdtool'
 	option enable '1'
@@ -45,6 +49,16 @@ config statistics 'collectd_unixsock'
 	option enable '0'
 	option SocketFile '/var/run/collectd/query.sock'
 	option SocketGroup 'nogroup'
+
+config statistics 'collectd_mqtt'
+	option enable '1'
+
+config collectd_mqtt_pub
+	option prefix 'collectd'
+	option pname 'router'
+	option host '192.168.1.21'
+
+# input plugins
 
 config statistics 'collectd_apcups'
 	option enable '0'
@@ -169,12 +183,4 @@ config statistics 'collectd_thermal'
 
 config statistics 'collectd_uptime'
 	option enable '0'
-
-config statistics 'collectd_mqtt'
-	option enable '1'
-
-config collectd_mqtt_pub
-	option prefix 'collectd'
-	option pname 'router'
-	option host '192.168.1.21'
 
