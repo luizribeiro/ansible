@@ -6,10 +6,10 @@
   systemd:
     name: nginx
     state: reloaded
-- name: restart fail2ban
+- name: reload fail2ban
   systemd:
     name: fail2ban
-    state: restarted
+    state: reloaded
 - name: reload goaccess.service
   systemd:
     daemon_reload: yes

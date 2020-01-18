@@ -10,7 +10,7 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-  notify: restart fail2ban
+  notify: reload fail2ban
   tags: configuration
 - name: Setup fail2ban filter.d
   copy:
@@ -19,7 +19,7 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-  notify: restart fail2ban
+  notify: reload fail2ban
   tags: configuration
 - name: Setup fail2ban jail.local
   copy:
@@ -28,7 +28,7 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-  notify: restart fail2ban
+  notify: reload fail2ban
   tags: configuration
 - name: fail2ban is enabled and running
   systemd:
