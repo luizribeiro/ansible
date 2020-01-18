@@ -4,16 +4,3 @@
     dest: /usr/bin/stat-genconfig
   notify: reload config
   tags: packages
-- name: Patch luci_statistics.lua for MQTT support
-  patch:
-    src: files/luci_statistics.lua.patch
-    dest: /usr/lib/lua/luci/controller/luci_statistics/luci_statistics.lua
-  tags: packages
-- name: Setup luci_statistics/mqtt.lua
-  copy:
-    src: files/mqtt.lua
-    dest: /usr/lib/lua/luci/model/cbi/luci_statistics/mqtt.lua
-    owner: root
-    group: root
-    mode: u=rwx,g=r,o=r
-  tags: packages
