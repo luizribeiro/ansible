@@ -2,6 +2,9 @@
   systemd:
     name: pihole-FTL
     state: restarted
+- name: update pihole gravity
+  command: /usr/bin/pihole -g
+  become: yes
 - name: restart php-fpm
   systemd:
     name: php-fpm

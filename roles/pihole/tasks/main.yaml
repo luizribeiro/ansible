@@ -5,14 +5,26 @@
     name: pi-hole-server
     skip_installed: yes
   tags: packages
-- name: Setup pi-hole-server configuration
+- name: Setup pihole configuration
   copy:
-    src: files/etc/pihole/
-    dest: /etc/pihole/
+    src: files/etc/pihole/setupVars.conf
+    dest: /etc/pihole/setupVars.conf
     owner: pihole
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   notify: restart pihole-FTL
+  tags: configuration
+- name: Setup pihole lists
+  copy:
+    src: "files/etc/pihole/{{ item }}"
+    dest: "/etc/pihole/{{ item }}"
+    owner: pihole
+    mode: u+rw,g-rwx,o-rwx
+  with_items:
+    - adlists.list
+    - regex.list
+    - whitelist.txt
+  notify: update pihole gravity
   tags: configuration
 - name: Setup dnsmasq configuration
   copy:
