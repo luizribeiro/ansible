@@ -27,7 +27,7 @@ config wifi-device 'radio1'
 	option legacy_rates '1'
 	option channel '6'
 
-config wifi-iface 'default_radio1'
+config wifi-iface 'wifi_lan'
 	option device 'radio1'
 	option mode 'ap'
 	option macaddr '62:38:e0:cc:12:69'
@@ -45,7 +45,7 @@ config wifi-device 'radio2'
 	option country 'US'
 	option legacy_rates '1'
 
-config wifi-iface
+config wifi-iface 'wifi_iot'
 	option device 'radio1'
 	option mode 'ap'
 	option ssid 'IoT'
