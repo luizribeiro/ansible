@@ -3,7 +3,25 @@
     name: fail2ban
     state: present
   tags: packages
-- name: Setup fail2ban settings
+- name: Setup fail2ban filter.d
+  copy:
+    src: files/etc/fail2ban/filter.d/
+    dest: /etc/fail2ban/filter.d/
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+  notify: restart fail2ban
+  tags: configuration
+- name: Setup fail2ban filter.d
+  copy:
+    src: files/etc/fail2ban/filter.d/
+    dest: /etc/fail2ban/filter.d/
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+  notify: restart fail2ban
+  tags: configuration
+- name: Setup fail2ban jail.local
   copy:
     src: files/etc/fail2ban/jail.local
     dest: /etc/fail2ban/jail.local

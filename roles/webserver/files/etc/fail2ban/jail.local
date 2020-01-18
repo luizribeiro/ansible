@@ -8,3 +8,6 @@ enabled = true
 
 [nginx-botsearch]
 enabled = true
+
+[nginx-forbidden]
+enabled = true
