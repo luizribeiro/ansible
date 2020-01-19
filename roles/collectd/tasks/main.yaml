@@ -20,6 +20,10 @@
     state: started
   when: ansible_distribution == 'Archlinux'
   tags: systemctl
+- name: collectd is enabled and running
+  command: brew services start collectd
+  when: ansible_distribution == 'MacOSX'
+  tags: systemctl
 - name: Setup monit config
   copy:
     src: files/etc/monitrc.d/
