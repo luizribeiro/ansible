@@ -39,6 +39,7 @@
         backup_script_path: /var/root/backup.sh
         backup_paths:
           - /Users
+          - /usr/local/etc
         backup_excludes:
           # ncdu -X /var/root/backup-excludes.txt /Users
           - /Users/**/.*
