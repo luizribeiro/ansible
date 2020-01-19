@@ -2,5 +2,5 @@
   patch:
     src: files/stat-genconfig.patch
     dest: /usr/bin/stat-genconfig
-  notify: reload config
+  notify: reload luci-app-statistics
   tags: packages
