@@ -1,0 +1,1 @@
+collectd_conf_dir: "{{ '/usr/local/etc' if ansible_distribution == 'MacOSX' else '/etc' }}"
