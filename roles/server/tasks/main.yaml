@@ -26,5 +26,4 @@
 - include: sshd.yaml
 - include: sshguard.yaml
 - include: monit.yaml
-- include: collectd.yaml
 - include: security.yaml

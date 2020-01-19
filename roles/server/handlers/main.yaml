@@ -2,10 +2,6 @@
   systemd:
     name: sshd
     state: restarted
-- name: restart collectd
-  systemd:
-    name: collectd
-    state: restarted
 - name: restart monit
   systemd:
     name: monit

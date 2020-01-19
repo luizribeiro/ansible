@@ -18,6 +18,8 @@
   roles:
     - role: server
       tags: server
+    - role: collectd
+      tags: collectd
     - role: luizribeiro
       tags: luizribeiro
     - role: dev
