@@ -1,1 +1,3 @@
-collectd_conf_dir: "{{ '/usr/local/etc' if ansible_distribution == 'MacOSX' else '/etc' }}"
+collectd_path: "{{ '/usr/local' if ansible_distribution == 'MacOSX' else '/' }}"
+collectd_user: "{{ ansible_user_id if ansible_distribution == 'MacOSX' else 'root' }}"
+collectd_group: "{{ 'staff' if ansible_distribution == 'MacOSX' else 'root' }}"

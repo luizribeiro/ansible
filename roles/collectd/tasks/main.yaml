@@ -6,11 +6,11 @@
 - name: Setup collectd.conf
   copy:
     src: "files/etc/collectd-{{ ansible_distribution | lower }}.conf"
-    dest: "{{ collectd_conf_dir }}/collectd.conf"
-    owner: root
-    group: root
+    dest: "{{ collectd_path }}/etc/collectd.conf"
+    owner: "{{ collectd_user }}"
+    group: "{{ collectd_group }}"
     mode: u+rw,g-rwx,o-rwx
-    validate: 'collectd -t -C %s'
+    validate: "{{ collectd_path }}/sbin/collectd -t -C %s"
   notify: restart collectd
   tags: configuration
 - name: collectd is enabled and running
@@ -21,7 +21,7 @@
   when: ansible_distribution == 'Archlinux'
   tags: systemctl
 - name: collectd is enabled and running
-  command: brew services start collectd
+  command: brew services restart collectd
   when: ansible_distribution == 'MacOSX'
   tags: systemctl
 - name: Setup monit config
