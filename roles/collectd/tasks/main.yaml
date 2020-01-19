@@ -22,6 +22,7 @@
   tags: systemctl
 - name: collectd is enabled and running
   command: brew services restart collectd
+  become: yes
   when: ansible_distribution == 'MacOSX'
   tags: systemctl
 - name: Setup monit config
