@@ -7,6 +7,6 @@
     mode: u+rw,g-rwx,o-rwx
   become: yes
   tags: configuration
-- name: Load local.backup LaunchAgent
-  command: launchctl load /Library/LaunchAgents/local.backup.plist
+- name: Load and enable local.backup LaunchAgent
+  command: launchctl load -w /Library/LaunchAgents/local.backup.plist
   become: yes
