@@ -7,3 +7,6 @@
 [submodule "plugins/callback/anstomlog"]
 	path = plugins/callback/anstomlog
 	url = https://github.com/octplane/ansible_stdout_compact_logger
+[submodule "library/homebrew-services"]
+	path = library/homebrew-services
+	url = git@github.com:luizribeiro/ansible-homebrew-services.git
