@@ -6,11 +6,10 @@
     group: "{{ backup_user_group }}"
     mode: u+rw,g-rwx,o-rwx
   become: yes
-  notify: reload local.backup launch agent
   tags: configuration
-- name: Check if backup LaunchAgent is enabled
-  command: launchctl list
-  register: launchctl_list
-  changed_when: "'local.backup' not in launchctl_list.stdout"
-  notify: reload local.backup launch agent
+- name: local.backup Launch Agent is loaded
+  launchd:
+    name: local.backup
+    state: reloaded
+  become: yes
   tags: configuration
