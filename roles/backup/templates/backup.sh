@@ -18,7 +18,7 @@ DATE=$(command -v gdate date | head -1)
   echo
 
   echo ">>> $($DATE): Cleaning up old backups..."
-  restic forget --keep-daily 7 --keep-weekly 5 --keep-monthly 12
+  restic forget --keep-daily 7 --keep-weekly 5 --keep-monthly 12 --prune
   echo ">>> DONE"
   echo
 } 2>&1 | tee -a /var/log/backup.log
