@@ -44,11 +44,17 @@
         backup_excludes:
           # ncdu -X /var/root/backup-excludes.txt /Users
           - /Users/**/.*
-          - /Users/**/Creative Cloud Files
-          - /Users/**/Dropbox
           - /Users/**/Library
           - /Users/Shared/Adobe
           - /Users/Shared/Epic Games
           - /Users/Shared/GOG.com
           - /Users/luiz/Music
-          - /Users/luiz/Pictures
+          # these are backed up to Dropbox
+          - /Users/**/Dropbox
+          # these are backed up to Adobe Creative Cloud
+          - /Users/**/Creative Cloud Files
+          - /Users/luiz/Pictures/Lightroom Library.lrlibrary
+          # these are backed up to iCloud
+          - /Users/luiz/Pictures/Photos Library.photoslibrary
+          # I need to figure out if I have to back these up
+          - /Users/luiz/Pictures/nobackup
