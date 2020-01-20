@@ -1,7 +1,7 @@
 backup_paths:
   - /home
 backup_excludes:
-restic_backup_repo_prefix: "rclone:wasabi:{{ secret_wasabi_bucket }}"
+restic_backup_repo_prefix: "s3:https://{{ secret_wasabi_endpoint }}/{{ secret_wasabi_bucket }}"
 restic_backup_repo: "{{ restic_backup_repo_prefix }}/{{ inventory_hostname }}"
 backup_user: root
 backup_user_group: root

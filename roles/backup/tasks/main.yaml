@@ -1,28 +1,23 @@
 - name: Install backup software
   package:
-    name:
-      - restic
-      - rclone
+    name: restic
     state: present
   tags: packages
-- name: Make sure config directory exists
+- name: Uninstall rclone
+  package:
+    name: rclone
+    state: absent
+  tags: packages
+- name: rclone.conf does not exist
   file:
-    path: "{{ rclone_conf_path | dirname }}"
-    owner: "{{ backup_user }}"
-    group: "{{ backup_user_group }}"
-    state: directory
-    mode: u+rwx,g-rwx,o-rwx
-    recurse: yes
+    dest: "{{ rclone_conf_path }}"
+    state: absent
   become: yes
   tags: configuration
-- name: Setup rclone
-  template:
-    src: templates/rclone.conf
-    dest: "{{ rclone_conf_path }}"
-    owner: "{{ backup_user }}"
-    group: "{{ backup_user_group }}"
-    mode: u+rw,g-rwx,o-rwx
-    directory_mode: u+rwx,g-rwx,o-rwx
+- name: Config directory does not exist either
+  file:
+    path: "{{ rclone_conf_path | dirname }}"
+    state: absent
   become: yes
   tags: configuration
 - name: Setup excludes file
@@ -38,6 +33,8 @@
   environment:
     RESTIC_REPOSITORY: '{{ restic_backup_repo }}'
     RESTIC_PASSWORD: '{{ secret_restic_password }}'
+    AWS_ACCESS_KEY_ID: '{{ secret_wasabi_access_key }}'
+    AWS_SECRET_ACCESS_KEY: '{{ secret_wasabi_secret_key }}'
   no_log: false
   register: restic_init
   changed_when: "'created restic repository' in restic_init.stdout"

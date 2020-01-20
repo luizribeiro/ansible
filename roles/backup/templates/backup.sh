@@ -2,6 +2,8 @@
 
 export RESTIC_REPOSITORY="{{ restic_backup_repo }}"
 export RESTIC_PASSWORD="{{ secret_restic_password }}"
+export AWS_ACCESS_KEY_ID="{{ secret_wasabi_access_key }}"
+export AWS_SECRET_ACCESS_KEY="{{ secret_wasabi_secret_key }}"
 
 DATE=$(command -v gdate date | head -1)
 
