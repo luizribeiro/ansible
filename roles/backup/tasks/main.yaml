@@ -3,23 +3,6 @@
     name: restic
     state: present
   tags: packages
-- name: Uninstall rclone
-  package:
-    name: rclone
-    state: absent
-  tags: packages
-- name: rclone.conf does not exist
-  file:
-    dest: "{{ rclone_conf_path }}"
-    state: absent
-  become: yes
-  tags: configuration
-- name: Config directory does not exist either
-  file:
-    path: "{{ rclone_conf_path | dirname }}"
-    state: absent
-  become: yes
-  tags: configuration
 - name: Setup excludes file
   lineinfile:
     path: "{{ backup_script_path | dirname }}/backup-excludes.txt"
