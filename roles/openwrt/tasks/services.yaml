@@ -3,6 +3,11 @@
     name: collectd
     enabled: yes
     state: started
+- name: cron is enabled and running
+  openwrt_init:
+    name: cron
+    enabled: yes
+    state: started
 - name: ddns is enabled and running
   openwrt_init:
     name: ddns
