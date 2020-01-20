@@ -12,3 +12,8 @@ $ ./openwrt.yaml
 1. Add vault password to `vault_pass.gpg`
 2. `ansible-vault create secrets.yaml`
 3. Setup `secrets.yaml` according to `example-secrets.yaml`
+
+## TODOs
+
+* TODO: merge this repo into my ansible repo
+* TODO: enable nightly backups
