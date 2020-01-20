@@ -140,6 +140,8 @@ config statistics 'collectd_load'
 
 config statistics 'collectd_memory'
 	option enable '1'
+	option ValuesPercentage '1'
+	option ValuesAbsolute '1'
 
 config statistics 'collectd_netlink'
 	option enable '0'
