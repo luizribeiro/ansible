@@ -1,0 +1,3 @@
+- name: reload local.backup launch agent
+  command: launchctl load -w /Library/LaunchAgents/local.backup.plist
+  become: yes
