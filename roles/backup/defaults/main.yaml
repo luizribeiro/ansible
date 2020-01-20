@@ -5,5 +5,4 @@ restic_backup_repo_prefix: "s3:https://{{ secret_wasabi_endpoint }}/{{ secret_wa
 restic_backup_repo: "{{ restic_backup_repo_prefix }}/{{ inventory_hostname }}"
 backup_user: root
 backup_user_group: root
-rclone_conf_path: /root/.config/rclone/rclone.conf
 backup_script_path: /root/backup.sh

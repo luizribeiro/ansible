@@ -37,7 +37,6 @@
       vars:
         backup_user: root
         backup_user_group: wheel
-        rclone_conf_path: /var/root/.config/rclone/rclone.conf
         backup_script_path: /var/root/backup.sh
         backup_paths:
           - /Users
