@@ -18,6 +18,7 @@
     state: present
   with_items:
     - alfred
+    - amethyst
     - dropbox
     - gpg-suite
     - istat-menus
