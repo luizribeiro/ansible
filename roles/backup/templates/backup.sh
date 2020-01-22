@@ -9,6 +9,19 @@ DATE=$(command -v gdate date | head -1)
 
 {
   echo ">>> ===================================================================="
+  echo -n ">>> $($DATE): Waiting for connection..."
+  i="0"
+  while ! timeout 1 ping -c 1 -n 8.8.8.8 &> /dev/null
+  do
+    echo -n "."
+    i=$[$i+1]
+    if [[ $i -ge 20 ]]; then
+      echo " FAIL"
+      exit 1
+    fi
+  done
+  echo " DONE"
+
   echo -n ">>> $($DATE): Backing up..."
   restic backup --exclude-file backup-excludes.txt {{ backup_paths | join (" ") }}
   echo ">>> DONE"
