@@ -23,17 +23,17 @@ DATE=$(command -v gdate date | head -1)
   echo " DONE"
 
   echo -n ">>> $($DATE): Backing up..."
-  restic backup --exclude-file backup-excludes.txt {{ backup_paths | join (" ") }}
+  restic backup --exclude-file backup-excludes.txt {{ backup_paths | join (" ") }} || exit 1
   echo ">>> DONE"
   echo
 
   echo ">>> $($DATE): Checking backups..."
-  restic check
+  restic check || exit 1
   echo ">>> DONE"
   echo
 
   echo ">>> $($DATE): Cleaning up old backups..."
-  restic forget --keep-daily 7 --keep-weekly 5 --keep-monthly 12 --prune
+  restic forget --keep-daily 7 --keep-weekly 5 --keep-monthly 12 --prune || exit 1
   echo ">>> DONE"
   echo
 } 2>&1 | tee -a /var/log/backup.log
