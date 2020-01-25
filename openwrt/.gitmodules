@@ -1,0 +1,3 @@
+[submodule "plugins/callback/anstomlog"]
+	path = plugins/callback/anstomlog
+	url = https://github.com/octplane/ansible_stdout_compact_logger.git

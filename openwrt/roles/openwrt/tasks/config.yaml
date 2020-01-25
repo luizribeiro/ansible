@@ -1,0 +1,48 @@
+- name: Set root password
+  user:
+    name: root
+    password: "{{ root_password | password_hash('md5') }}"
+    update_password: always
+- name: Setup static configuration files
+  synchronize:
+    src: files/etc/config/
+    dest: /etc/config/
+    archive: no
+    recursive: yes
+    times: yes
+    rsync_opts: -zz
+  notify: reload config
+- name: /etc/config should be owned by root
+  file:
+    path: /etc/config/
+    state: directory
+    recurse: yes
+    owner: root
+    group: root
+- name: Setup wireless
+  template:
+    src: templates/etc/config/wireless
+    dest: /etc/config/wireless
+    owner: root
+    group: root
+    mode: u=rw,g=,o=
+  notify: reload config
+- name: Setup ddns
+  template:
+    src: templates/etc/config/ddns
+    dest: /etc/config/ddns
+    owner: root
+    group: root
+    mode: u=rw,g=,o=
+  notify: reload config
+- name: Setup SSH authorized keys
+  lineinfile:
+    path: /etc/dropbear/authorized_keys
+    line: "{{ item }}"
+    state: present
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  with_items: "{{ ssh_authorized_keys }}"
+  loop_control:
+    label: "{{ item.split(' ')[-1] }}"

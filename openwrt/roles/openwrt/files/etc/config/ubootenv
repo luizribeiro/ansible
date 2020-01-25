@@ -1,0 +1,8 @@
+# vim: set ft=uci:
+
+config ubootenv
+	option dev '/dev/mtd1'
+	option offset '0x0'
+	option envsize '0x20000'
+	option secsize '0x20000'
+

@@ -1,0 +1,7 @@
+- name: Setup show-wifi-clients script
+  copy:
+    src: files/usr/bin/show-wifi-clients
+    dest: /usr/bin/show-wifi-clients
+    owner: root
+    group: root
+    mode: u=rwx,g=,o=

@@ -1,0 +1,37 @@
+- name: Install necessary packages for Ansible
+  opkg:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python3-light
+    - python3-logging
+    - python3-multiprocessing
+    - python3-distutils
+    - rsync
+    - shadow-usermod
+    - patch
+- name: Install collectd
+  opkg:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - collectd
+    - collectd-mod-mqtt
+- name: Install utilities
+  opkg:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - htop
+    - iperf
+    - openssh-sftp-server
+- name: Install luci plugins
+  opkg:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - luci-app-ddns
+    - luci-app-firewall
+    - luci-app-statistics
+    - luci-mod-admin-full
+    - luci-theme-material

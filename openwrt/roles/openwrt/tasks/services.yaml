@@ -1,0 +1,35 @@
+- name: collectd is enabled and running
+  openwrt_init:
+    name: collectd
+    enabled: yes
+    state: started
+- name: cron is enabled and running
+  openwrt_init:
+    name: cron
+    enabled: yes
+    state: started
+- name: ddns is enabled and running
+  openwrt_init:
+    name: ddns
+    enabled: yes
+    state: started
+- name: dropbear is enabled and running
+  openwrt_init:
+    name: dropbear
+    enabled: yes
+    state: started
+- name: luci_statistics is enabled and running
+  openwrt_init:
+    name: luci_statistics
+    enabled: yes
+    state: started
+- name: firewall is enabled and running
+  openwrt_init:
+    name: firewall
+    enabled: yes
+    state: started
+- name: dnsmasq is enabled and running
+  openwrt_init:
+    name: dnsmasq
+    enabled: yes
+    state: started

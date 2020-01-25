@@ -1,0 +1,7 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: openwrt
+  vars_files:
+    - secrets.yaml
+  roles:
+    - role: openwrt
