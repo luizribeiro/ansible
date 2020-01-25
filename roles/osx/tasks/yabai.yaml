@@ -3,16 +3,21 @@
     name: koekeishiya/formulae
     state: present
   tags: packages
-- name: Install yabai
+- name: Install yabai and skhd
   homebrew:
-    name: yabai
+    name:
+      - yabai
+      - skhd
     state: present
   tags: packages
   notify: install yabai scripting addition
 - name: yabai is enabled and running
   homebrew_services:
-    name: yabai
+    name: "{{ item }}"
     state: started
+  with_items:
+    - yabai
+    - skhd
   tags: systemctl
 - name: Uninstall amethyst
   homebrew_cask:
