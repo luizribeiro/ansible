@@ -5,3 +5,13 @@
     - secrets.yaml
   roles:
     - role: openwrt
+    - role: backup
+      vars:
+        backup_paths:
+          - /
+        backup_excludes:
+          - /proc
+          - /sys
+          - /tmp
+          - /var
+        backup_cron_file: /etc/crontabs/root
