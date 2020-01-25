@@ -25,3 +25,4 @@ script:
   - ansible-lint site.yaml
   - ansible-lint macbook.yaml
   - ansible-lint grissom.yaml
+  - ansible-lint openwrt.yaml
