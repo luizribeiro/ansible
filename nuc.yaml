@@ -46,6 +46,23 @@
     - role: home-assistant
       tags: home-assistant
   tasks:
+    - name: Setup NUC check-vitals.sh script
+      copy:
+        src: files/check-vitals.sh
+        dest: /usr/sbin/check-vitals.sh
+        owner: root
+        group: root
+        mode: u+rwx,g-rwx,o-rwx
+      tags: scripts
+    - name: Setup NUC custom monit checks
+      copy:
+        src: files/etc/monitrc.d/nuc.conf
+        dest: /etc/monitrc.d/nuc.conf
+        owner: root
+        group: root
+        mode: u+rw,g-rwx,o-rwx
+      notify: restart monit
+      tags: configuration
     - name: Upgrade all packages
       block:
         - name: Upgrade pacman packages
