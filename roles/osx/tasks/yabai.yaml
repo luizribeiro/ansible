@@ -1,0 +1,16 @@
+- name: Tap koekeishiya/formulae
+  homebrew_tap:
+    name: koekeishiya/formulae
+    state: present
+  tags: packages
+- name: Install yabai
+  homebrew:
+    name: yabai
+    state: present
+  tags: packages
+  notify: install yabai scripting addition
+- name: yabai is enabled and running
+  homebrew_services:
+    name: yabai
+    state: started
+  tags: systemctl

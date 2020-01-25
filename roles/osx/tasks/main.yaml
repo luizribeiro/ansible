@@ -60,3 +60,4 @@
   when: osx_additional_mas_apps != None and (osx_additional_mas_apps | length) > 0
   register: mas_install
   changed_when: "'is already installed' not in mas_install.stdout"
+- include: yabai.yaml

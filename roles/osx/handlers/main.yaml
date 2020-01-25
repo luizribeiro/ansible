@@ -1,0 +1,5 @@
+- name: install yabai scripting addition
+  block:
+    - command: yabai --install-sa
+      become: yes
+    - command: killall Dock
