@@ -22,5 +22,5 @@
 - name: Uninstall amethyst
   homebrew_cask:
     name: amethyst
-    state: present
+    state: absent
   tags: packages
