@@ -19,8 +19,3 @@
     - yabai
     - skhd
   tags: systemctl
-- name: Uninstall amethyst
-  homebrew_cask:
-    name: amethyst
-    state: absent
-  tags: packages
