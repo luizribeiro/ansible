@@ -5,5 +5,5 @@
     hour: "4"
     user: "{{ backup_user }}"
     job: "{{ backup_script_path }}"
-    cron_file: backups
+    cron_file: "{{ backup_cron_file }}"
   tags: configuration

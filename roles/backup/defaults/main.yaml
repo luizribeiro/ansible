@@ -6,3 +6,4 @@ restic_backup_repo: "{{ restic_backup_repo_prefix }}/{{ inventory_hostname }}"
 backup_user: root
 backup_user_group: root
 backup_script_path: /root/backup.sh
+backup_cron_file: backups
