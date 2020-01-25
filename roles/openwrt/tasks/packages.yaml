@@ -35,3 +35,12 @@
     - luci-app-statistics
     - luci-mod-admin-full
     - luci-theme-material
+- name: Install base packages
+  opkg:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    # these are necessary for the backup scripts
+    - bash
+    - ca-certificates
+    - coreutils-timeout
