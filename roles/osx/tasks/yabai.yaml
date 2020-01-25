@@ -10,7 +10,7 @@
       - skhd
     state: present
   tags: packages
-  notify: install yabai scripting addition
+  notify: setup yabai
 - name: yabai is enabled and running
   homebrew_services:
     name: "{{ item }}"

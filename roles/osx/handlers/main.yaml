@@ -1,5 +1,7 @@
-- name: install yabai scripting addition
+- name: setup yabai
   block:
-    - command: yabai --install-sa
+    - name: Install yabai scripting addition
+      command: yabai --install-sa
       become: yes
-    - command: killall Dock
+    - name: Restart Dock.app
+      command: killall Dock
