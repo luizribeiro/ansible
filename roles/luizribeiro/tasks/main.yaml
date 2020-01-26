@@ -18,19 +18,20 @@
   loop_control:
     label: "{{ item.split(' ')[-1] }}"
   tags: configuration
-- name: Check if ~/.dotfiles exists
-  stat:
-    path: '~/.dotfiles'
-  register: dotfiles
 - name: 'Setup dotfiles'
   become: yes
   become_user: "{{ luizribeiro_username }}"
   block:
+    - name: Check if ~/.dotfiles exists
+      stat:
+        path: '~/.dotfiles'
+      register: dotfiles
     - name: 'Clone dotfiles git repo'
       git:
         repo: 'https://github.com/luizribeiro/dotfiles'
         dest: '~/.dotfiles'
         version: 'HEAD'
+      when: not dotfiles.stat.exists
       notify: install dotfiles
     - name: 'Setup github remote for pushing changes'
       git_config:
@@ -38,7 +39,7 @@
         value: 'git@github.com:luizribeiro/dotfiles.git'
         scope: local
         repo: '~/.dotfiles'
-  when: not dotfiles.stat.exists
+      when: not dotfiles.stat.exists
   tags: configuration
 
 - include: packages.yaml
