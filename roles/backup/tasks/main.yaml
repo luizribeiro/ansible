@@ -34,7 +34,8 @@
     mode: u+rwx,g-rwx,o-rwx
   become: yes
   tags: configuration
-- include: "schedule-{{ ansible_distribution | lower }}.yaml"
+- name: Setup backup schedule
+  include: "schedule-{{ ansible_distribution | lower }}.yaml"
 - block:
   - name: Setup backup-check script
     template:

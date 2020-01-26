@@ -14,4 +14,5 @@
     state: present
   tags: packages
 
-- include: "neovim-{{ ansible_distribution | lower }}.yaml"
+- name: Setup neovim
+  include: "neovim-{{ ansible_distribution | lower }}.yaml"

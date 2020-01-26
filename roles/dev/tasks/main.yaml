@@ -1,1 +1,2 @@
-- include: "{{ ansible_distribution | lower }}.yaml"
+- name: Setup ansible dev environment
+  include: "{{ ansible_distribution | lower }}.yaml"
