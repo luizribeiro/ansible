@@ -1,1 +1,7 @@
-schedule-archlinux.yaml
+- name: Setup backups as a daily cron job
+  cron:
+    name: Backup
+    minute: "0"
+    hour: "4"
+    job: "{{ backup_script_path }}"
+  tags: configuration

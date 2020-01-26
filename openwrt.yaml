@@ -14,4 +14,3 @@
           - /sys
           - /tmp
           - /var
-        backup_cron_file: /etc/crontabs/root
