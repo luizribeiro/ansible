@@ -11,7 +11,9 @@
     group: root
     mode: u=rw,g=r,o=r
     validate: "testparm -s %s"
-  notify: restart samba
+  notify:
+    - restart smbd
+    - restart nmbd
   tags: configuration
 - name: Create /home/public directory
   file:
