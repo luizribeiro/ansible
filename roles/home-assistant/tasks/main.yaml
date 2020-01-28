@@ -42,7 +42,8 @@
     group: hass
     mode: u=rw,g=r,o-rwx
     directory_mode: u=rwx,g=rx,o-rwx
-    validate: 'hass -c %s --script check_config'
+    # TODO: fix hass-config validation
+    #validate: 'hass -c %s --script check_config'
   notify: restart home-assistant
   tags: configuration
 - name: Setup nginx for home-assistant
