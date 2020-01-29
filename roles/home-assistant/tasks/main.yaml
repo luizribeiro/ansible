@@ -3,8 +3,6 @@
     state: present
     name:
       - home-assistant
-      # this should be a dependency of home-assistant. see FS#64963
-      - python-aiohttp-cors
       - python-bluepy
   tags: packages
 - name: Setup secrets.yaml for home-assistant
