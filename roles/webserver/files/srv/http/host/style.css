@@ -57,6 +57,6 @@ div.grid-item a div.container {
   vertical-align: middle;
 }
 
-a i.material-icons {
+a span.mdi {
   font-size: 12vmin;
 }
