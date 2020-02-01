@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ inventory_hostname }}</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <h1>
+      {{ inventory_hostname }}
+    </h1>
+    <div class="content">
+      <div class="grid">
+        {% if 'home-assistant' in ansible_role_names %}
+          <div class="grid-item">
+            <a href="https://home.thepromisedlan.club/">
+              <div class="container">
+                <i class="material-icons">home</i>
+                <div>home</div>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+        <div class="grid-item">
+          <a href="goaccess/">
+            <div class="container">
+              <i class="material-icons">show_chart</i>
+              <div>goaccess</div>
+            </div>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="monit/">
+            <div class="container">
+              <i class="material-icons">warning</i>
+              <div>monit</div>
+            </div>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="nginx_status/">
+            <div class="container">
+              <i class="material-icons">http</i>
+              <div>nginx</div>
+            </div>
+          </a>
+        </div>
+        {% if 'pihole' in ansible_role_names %}
+          <div class="grid-item">
+            <a href="pihole/">
+              <div class="container">
+                <i class="material-icons">block</i>
+                <div>pihole</div>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+        {% if 'home-assistant' in ansible_role_names %}
+          <div class="grid-item">
+            <a href="vacuum/">
+              <div class="container">
+                <i class="material-icons">delete_sweep</i>
+                <div>vacuum</div>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

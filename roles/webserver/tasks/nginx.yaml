@@ -54,6 +54,13 @@
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
   tags: configuration
+- name: Setup /srv/http/host/index.html
+  template:
+    src: templates/srv/http/host/index.html
+    dest: /srv/http/host/index.html
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
+  tags: configuration
 - name: Setup SSL certificate
   command: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d {{ inventory_hostname }}"
   args:
