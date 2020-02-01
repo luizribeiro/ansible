@@ -180,5 +180,5 @@ config statistics 'collectd_thermal'
 	option IgnoreSelected '0'
 
 config statistics 'collectd_uptime'
-	option enable '0'
+	option enable '1'
 

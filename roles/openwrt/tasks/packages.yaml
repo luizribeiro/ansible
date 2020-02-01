@@ -18,6 +18,7 @@
     - collectd
     - collectd-mod-df
     - collectd-mod-mqtt
+    - collectd-mod-uptime
 - name: Install utilities
   opkg:
     name: "{{ item }}"
