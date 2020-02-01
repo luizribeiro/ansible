@@ -67,6 +67,16 @@
             </a>
           </div>
         {% endif %}
+        {% if 'influxdb' in ansible_role_names %}
+          <div class="grid-item">
+            <a href="grafana/">
+              <div class="container">
+                <span class="mdi mdi-chart-areaspline"></span>
+                <div>grafana</div>
+              </div>
+            </a>
+          </div>
+        {% endif %}
       </div>
     </div>
   </body>
