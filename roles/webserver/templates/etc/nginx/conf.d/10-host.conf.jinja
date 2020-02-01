@@ -46,6 +46,15 @@ server {
 	}
 
   include /etc/nginx/conf.d/10-host.d/*.conf;
+
+  ###############################
+  # public directories
+  location ~ ^/~(.+?)(/.*)?$ {
+    alias /home/$1/www$2;
+    index index.html index.htm;
+    autoindex on;
+    auth_basic off;
+  }
 }
 
 server {
