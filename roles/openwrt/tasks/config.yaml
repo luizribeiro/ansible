@@ -21,7 +21,7 @@
     group: root
 - name: Setup wireless
   template:
-    src: templates/etc/config/wireless
+    src: templates/etc/config/wireless.jinja
     dest: /etc/config/wireless
     owner: root
     group: root
@@ -29,7 +29,7 @@
   notify: reload config
 - name: Setup ddns
   template:
-    src: templates/etc/config/ddns
+    src: templates/etc/config/ddns.jinja
     dest: /etc/config/ddns
     owner: root
     group: root

@@ -40,7 +40,7 @@
   tags: configuration
 - name: Setup nginx/conf.d/10-host.conf
   template:
-    src: templates/etc/nginx/conf.d/10-host.conf
+    src: templates/etc/nginx/conf.d/10-host.conf.jinja
     dest: /etc/nginx/conf.d/10-host.conf
     owner: http
     mode: u+rw,g-rwx,o-rwx
@@ -56,7 +56,7 @@
   tags: configuration
 - name: Setup /srv/http/host/index.html
   template:
-    src: templates/srv/http/host/index.html
+    src: templates/srv/http/host/index.html.jinja
     dest: /srv/http/host/index.html
     owner: http
     mode: u+rw,g-rwx,o-rwx

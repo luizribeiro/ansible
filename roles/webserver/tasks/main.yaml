@@ -4,7 +4,7 @@
 
 - name: Setup monit config
   template:
-    src: templates/etc/monitrc.d/webserver.conf
+    src: templates/etc/monitrc.d/webserver.conf.jinja
     dest: /etc/monitrc.d/webserver.conf
     owner: root
     group: root

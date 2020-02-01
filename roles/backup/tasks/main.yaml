@@ -27,7 +27,7 @@
   tags: configuration
 - name: Setup backup script
   template:
-    src: templates/backup.sh
+    src: templates/backup.sh.jinja
     dest: "{{ backup_script_path }}"
     owner: "{{ backup_user }}"
     group: "{{ backup_user_group }}"
@@ -39,7 +39,7 @@
 - block:
   - name: Setup backup-check script
     template:
-      src: templates/backup-check.sh
+      src: templates/backup-check.sh.jinja
       dest: "{{ backup_script_path | dirname }}/backup-check.sh"
       owner: "{{ backup_user }}"
       group: "{{ backup_user_group }}"

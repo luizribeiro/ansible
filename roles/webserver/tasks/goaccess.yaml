@@ -5,7 +5,7 @@
   tags: packages
 - name: Setup goaccess.conf
   template:
-    src: templates/etc/goaccess/goaccess.conf
+    src: templates/etc/goaccess/goaccess.conf.jinja
     dest: /etc/goaccess/goaccess.conf
     owner: root
     group: root

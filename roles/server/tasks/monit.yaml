@@ -5,7 +5,7 @@
   tags: packages
 - name: Setup monitrc
   template:
-    src: files/etc/monitrc
+    src: files/etc/monitrc.jinja
     dest: /etc/monitrc
     owner: root
     group: root
