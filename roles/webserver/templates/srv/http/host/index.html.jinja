@@ -14,16 +14,14 @@
     </h1>
     <div class="content">
       <div class="grid">
-        {% if 'home-assistant' in ansible_role_names %}
-          <div class="grid-item">
-            <a href="https://home.thepromisedlan.club/">
-              <div class="container">
-                <i class="material-icons">home</i>
-                <div>home</div>
-              </div>
-            </a>
-          </div>
-        {% endif %}
+        <div class="grid-item">
+          <a href="nginx_status/">
+            <div class="container">
+              <i class="material-icons">http</i>
+              <div>nginx</div>
+            </div>
+          </a>
+        </div>
         <div class="grid-item">
           <a href="goaccess/">
             <div class="container">
@@ -40,14 +38,6 @@
             </div>
           </a>
         </div>
-        <div class="grid-item">
-          <a href="nginx_status/">
-            <div class="container">
-              <i class="material-icons">http</i>
-              <div>nginx</div>
-            </div>
-          </a>
-        </div>
         {% if 'pihole' in ansible_role_names %}
           <div class="grid-item">
             <a href="pihole/">
@@ -59,6 +49,14 @@
           </div>
         {% endif %}
         {% if 'home-assistant' in ansible_role_names %}
+          <div class="grid-item">
+            <a href="https://home.thepromisedlan.club/">
+              <div class="container">
+                <i class="material-icons">home</i>
+                <div>home</div>
+              </div>
+            </a>
+          </div>
           <div class="grid-item">
             <a href="vacuum/">
               <div class="container">
