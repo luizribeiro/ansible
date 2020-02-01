@@ -44,6 +44,16 @@
     directory_mode: u=rwx,g=rx,o-rwx
   notify: restart grafana
   tags: configuration
+- name: Setup telegraf config
+  copy:
+    src: files/etc/telegraf/
+    dest: /etc/telegraf/
+    owner: telegraf
+    group: telegraf
+    mode: u=rw,g=r,o-rwx
+    directory_mode: u=rwx,g=rx,o-rwx
+  notify: restart telegraf
+  tags: configuration
 - name: Enable services
   systemd:
     name: "{{ item }}"

@@ -6,3 +6,7 @@
   systemd:
     name: grafana
     state: restarted
+- name: restart telegraf
+  systemd:
+    name: telegraf
+    state: restarted
