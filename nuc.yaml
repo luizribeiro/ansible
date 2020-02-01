@@ -43,6 +43,8 @@
       tags: mqtt-broker
     - role: webserver
       tags: webserver
+    - role: influxdb
+      tags: influxdb
     - role: home-assistant
       tags: home-assistant
   tasks:

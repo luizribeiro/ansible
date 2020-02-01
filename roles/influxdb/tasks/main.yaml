@@ -1,0 +1,70 @@
+- name: Install influxdb and grafana
+  pacman:
+    name:
+      - grafana
+      - influxdb
+      # required for ansible
+      - python-influxdb
+    state: present
+  tags: packages
+- name: Install telegraf
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: telegraf
+    skip_installed: yes
+  tags: packages
+- name: Setup influxdb config
+  copy:
+    src: files/etc/influxdb/influxdb.conf
+    dest: /etc/influxdb/influxdb.conf
+    owner: influxdb
+    group: influxdb
+    mode: u=rw,g=r,o-rwx
+    directory_mode: u=rwx,g=rx,o-rwx
+  notify: restart influxdb
+  tags: configuration
+- name: Setup grafana config
+  copy:
+    src: files/etc/grafana.ini
+    dest: /etc/grafana.ini
+    owner: grafana
+    group: grafana
+    mode: u=rw,g=r,o-rwx
+    directory_mode: u=rwx,g=rx,o-rwx
+  notify: restart grafana
+  tags: configuration
+- name: Setup grafana datasources
+  copy:
+    src: files/var/lib/grafana/conf/provisioning/
+    dest: /var/lib/grafana/conf/provisioning/
+    owner: grafana
+    group: grafana
+    mode: u=rw,g=r,o-rwx
+    directory_mode: u=rwx,g=rx,o-rwx
+  notify: restart grafana
+  tags: configuration
+- name: Enable services
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+  with_items:
+    - grafana
+    - influxdb
+    - telegraf
+  tags: systemctl
+- name: Setup web access through nginx reverse proxy
+  when: "'webserver' in ansible_role_names"
+  copy:
+    src: files/etc/nginx/conf.d/10-host.d/
+    dest: /etc/nginx/conf.d/10-host.d/
+    owner: http
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  notify: reload nginx
+  tags: configuration
+- name: Setup influxdb database
+  influxdb_database:
+    database_name: telegraf
+    state: present

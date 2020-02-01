@@ -1,0 +1,8 @@
+- name: restart influxdb
+  systemd:
+    name: influxdb
+    state: restarted
+- name: restart grafana
+  systemd:
+    name: grafana
+    state: restarted
