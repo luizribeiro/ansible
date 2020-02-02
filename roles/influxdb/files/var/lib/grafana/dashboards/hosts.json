@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
   "links": [],
   "panels": [
     {
@@ -525,7 +524,7 @@
         },
         {
           "alias": "Inactive",
-          "color": "#5794F2"
+          "color": "#FADE2A"
         },
         {
           "alias": "Wired",
@@ -851,7 +850,7 @@
         },
         {
           "alias": "Cached",
-          "color": "#5794F2"
+          "color": "#FADE2A"
         },
         {
           "alias": "Used",
@@ -1177,7 +1176,7 @@
         },
         {
           "alias": "Cached",
-          "color": "#5794F2"
+          "color": "#FADE2A"
         },
         {
           "alias": "Used",
@@ -2523,5 +2522,5 @@
   "timezone": "",
   "title": "Hosts",
   "uid": "Oq_Q8WUZz",
-  "version": 26
+  "version": 101
 }
