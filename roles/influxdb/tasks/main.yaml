@@ -54,6 +54,12 @@
     directory_mode: u=rwx,g=rx,o-rwx
   notify: restart telegraf
   tags: configuration
+- name: Allow telegraf user to read logs
+  user:
+    name: telegraf
+    groups: log
+    append: yes
+  tags: configuration
 - name: Enable services
   systemd:
     name: "{{ item }}"
