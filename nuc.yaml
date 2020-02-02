@@ -35,6 +35,7 @@
           - /var/lib/hass
           - /var/lib/grafana
         backup_excludes:
+          - /home/aur_builder
           - /var/lib/hass/home-assistant_v2.db
       tags: backup
     - role: pihole
