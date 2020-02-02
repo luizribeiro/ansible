@@ -34,10 +34,10 @@
     directory_mode: u=rwx,g=rx,o-rwx
   notify: restart grafana
   tags: configuration
-- name: Setup grafana datasources
+- name: Setup grafana datasources and dashboards
   copy:
-    src: files/var/lib/grafana/conf/provisioning/
-    dest: /var/lib/grafana/conf/provisioning/
+    src: files/var/lib/grafana/
+    dest: /var/lib/grafana/
     owner: grafana
     group: grafana
     mode: u=rw,g=r,o-rwx
