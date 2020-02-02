@@ -9,3 +9,10 @@ datasources:
   isDefault: true
   jsonData:
     timeInterval: "30s"
+
+datasources:
+- name: Home Assistant
+  type: influxdb
+  access: proxy
+  url: http://127.0.0.1:8086/
+  database: home-assistant
