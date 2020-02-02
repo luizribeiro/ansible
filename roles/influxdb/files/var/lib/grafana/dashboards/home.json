@@ -23,7 +23,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Telegraf",
       "decimals": 1,
       "fill": 1,
       "fillGradient": 10,
@@ -175,7 +175,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Telegraf",
       "decimals": 1,
       "fill": 1,
       "fillGradient": 10,
@@ -334,7 +334,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Telegraf",
       "decimals": 1,
       "fill": 1,
       "fillGradient": 10,
@@ -482,7 +482,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Telegraf",
       "fill": 6,
       "fillGradient": 5,
       "gridPos": {
@@ -808,7 +808,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Telegraf",
       "fill": 6,
       "fillGradient": 5,
       "gridPos": {
@@ -1134,7 +1134,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Telegraf",
       "fill": 6,
       "fillGradient": 5,
       "gridPos": {
@@ -2521,7 +2521,7 @@
     ]
   },
   "timezone": "",
-  "title": "Hosts",
+  "title": "Home",
   "uid": "Oq_Q8WUZz",
   "version": 26
 }
