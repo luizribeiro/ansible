@@ -87,3 +87,13 @@
   with_items:
     - telegraf
     - home-assistant
+- name: Setup monit config
+  copy:
+    src: files/etc/monitrc.d/influxdb.conf
+    dest: /etc/monitrc.d/influxdb.conf
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  notify: restart monit
+  tags: configuration
