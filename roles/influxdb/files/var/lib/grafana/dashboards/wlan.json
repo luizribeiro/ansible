@@ -98,6 +98,12 @@
               {
                 "params": [],
                 "type": "last"
+              },
+              {
+                "params": [
+                  "5"
+                ],
+                "type": "moving_average"
               }
             ]
           ],
@@ -245,6 +251,12 @@
               {
                 "params": [],
                 "type": "last"
+              },
+              {
+                "params": [
+                  "5"
+                ],
+                "type": "moving_average"
               }
             ]
           ],
@@ -392,6 +404,12 @@
               {
                 "params": [],
                 "type": "last"
+              },
+              {
+                "params": [
+                  "5"
+                ],
+                "type": "moving_average"
               }
             ]
           ],
@@ -1807,5 +1825,5 @@
   "timezone": "",
   "title": "WLAN",
   "uid": "VQgrenUZk",
-  "version": 4
+  "version": 5
 }
