@@ -31,7 +31,9 @@
         backup_paths:
           - /etc
           - /home
+          - /var/lib/grafana
           - /var/lib/hass
+          - /var/lib/grafana
         backup_excludes:
           - /var/lib/hass/home-assistant_v2.db
       tags: backup
