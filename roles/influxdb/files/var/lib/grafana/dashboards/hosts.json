@@ -509,7 +509,7 @@
       "options": {
         "dataLinks": []
       },
-      "percentage": false,
+      "percentage": true,
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -524,7 +524,7 @@
         },
         {
           "alias": "Inactive",
-          "color": "#FADE2A"
+          "color": "#5794F2"
         },
         {
           "alias": "Wired",
@@ -784,8 +784,8 @@
           "format": "decbytes",
           "label": "Memory",
           "logBase": 1,
-          "max": "16000000000",
-          "min": "0",
+          "max": "100",
+          "min": null,
           "show": true
         },
         {
@@ -835,7 +835,7 @@
       "options": {
         "dataLinks": []
       },
-      "percentage": false,
+      "percentage": true,
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -850,7 +850,7 @@
         },
         {
           "alias": "Cached",
-          "color": "#FADE2A"
+          "color": "#5794F2"
         },
         {
           "alias": "Used",
@@ -1110,7 +1110,7 @@
           "format": "decbytes",
           "label": "Memory",
           "logBase": 1,
-          "max": "8000000000",
+          "max": "100",
           "min": "0",
           "show": true
         },
@@ -1161,7 +1161,7 @@
       "options": {
         "dataLinks": []
       },
-      "percentage": false,
+      "percentage": true,
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1176,7 +1176,7 @@
         },
         {
           "alias": "Cached",
-          "color": "#FADE2A"
+          "color": "#5794F2"
         },
         {
           "alias": "Used",
@@ -1436,7 +1436,7 @@
           "format": "decbytes",
           "label": "Memory",
           "logBase": 1,
-          "max": "400000000",
+          "max": "100",
           "min": "0",
           "show": true
         },
@@ -2522,5 +2522,5 @@
   "timezone": "",
   "title": "Hosts",
   "uid": "Oq_Q8WUZz",
-  "version": 101
+  "version": 102
 }
