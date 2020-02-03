@@ -87,3 +87,10 @@
     directory_mode: u+rwx,g-rwx,o-rwx
   notify: restart monit
   tags: configuration
+- name: Allow users in log group to read Home Assistant logs
+  file:
+    path: /var/lib/hass/home-assistant.log
+    owner: hass
+    group: log
+    mode: u=rw,g=r,o-rwx
+  tags: configuration
