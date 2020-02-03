@@ -11,3 +11,6 @@ enabled = true
 
 [nginx-forbidden]
 enabled = true
+
+[home-assistant]
+enabled = true
