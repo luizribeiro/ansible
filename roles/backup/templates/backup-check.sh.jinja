@@ -32,7 +32,7 @@ export AWS_SECRET_ACCESS_KEY="{{ secret_wasabi_secret_key }}"
 
 echo "Checking backup for $HOSTNAME..."
 
-LAST_BACKUP_DATE=$(restic snapshots --last --json | jq --raw-output ".[0].time")
+LAST_BACKUP_DATE=$(restic snapshots --last --json | jq --raw-output ".[].time" | tail -1)
 LAST_BACKUP_TIMESTAMP=$(date -d "$LAST_BACKUP_DATE" +%s)
 CURRENT_TIMESTAMP=$(date +%s)
 SECONDS_SINCE_LAST_BACKUP=$((CURRENT_TIMESTAMP - LAST_BACKUP_TIMESTAMP))
