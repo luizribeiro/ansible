@@ -12,10 +12,10 @@
     mode: u+rw,g-rwx,o-rwx
   notify: reload fail2ban
   tags: configuration
-- name: Setup fail2ban filter.d
+- name: Setup fail2ban jail.d
   copy:
-    src: files/etc/fail2ban/filter.d/
-    dest: /etc/fail2ban/filter.d/
+    src: files/etc/fail2ban/jail.d/
+    dest: /etc/fail2ban/jail.d/
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
