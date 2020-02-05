@@ -97,3 +97,12 @@
     directory_mode: u+rwx,g-rwx,o-rwx
   notify: restart monit
   tags: configuration
+- name: Allow telegraf to run sudo for certain commands
+  copy:
+    src: files/etc/sudoers.d/10-telegraf
+    dest: /etc/sudoers.d/10-telegraf
+    owner: root
+    group: root
+    mode: u=r,g=r,o-rwx
+    validate: 'visudo -cf %s'
+  tags: configuration
