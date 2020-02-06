@@ -524,7 +524,7 @@
         },
         {
           "alias": "Inactive",
-          "color": "#5794F2"
+          "color": "#FADE2A"
         },
         {
           "alias": "Wired",
@@ -803,7 +803,9 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Cached": "yellow"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -850,7 +852,7 @@
         },
         {
           "alias": "Cached",
-          "color": "#5794F2"
+          "color": "#FADE2A"
         },
         {
           "alias": "Used",
@@ -1176,7 +1178,7 @@
         },
         {
           "alias": "Cached",
-          "color": "#5794F2"
+          "color": "#FADE2A"
         },
         {
           "alias": "Used",
@@ -2522,5 +2524,5 @@
   "timezone": "",
   "title": "Hosts",
   "uid": "hosts",
-  "version": 104
+  "version": 105
 }
