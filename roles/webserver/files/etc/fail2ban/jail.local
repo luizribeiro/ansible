@@ -1,6 +1,5 @@
 [DEFAULT]
-banaction = ufw
-banaction_allports = ufw
+chain = fail2ban
 ignoreip = 127.0.0.1/8 ::1
 
 [nginx-http-auth]
