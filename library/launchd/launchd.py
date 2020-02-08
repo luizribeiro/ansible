@@ -169,8 +169,9 @@ class Plist:
         ]
 
         for path in launchd_paths:
+            path = os.path.expanduser(path)
             try:
-                files = os.listdir(os.path.expanduser(path))
+                files = os.listdir(path)
             except OSError:
                 continue
 
