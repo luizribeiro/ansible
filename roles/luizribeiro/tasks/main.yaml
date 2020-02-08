@@ -26,5 +26,9 @@
   register: dotfiles
   changed_when: not dotfiles.stat.exists
   notify: clone dotfiles repo
+- name: Check if ~/.local/bin exists
+  file:
+    path: ~/.local/bin
+    state: directory
 
 - include: packages.yaml
