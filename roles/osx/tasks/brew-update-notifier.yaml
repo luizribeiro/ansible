@@ -1,0 +1,17 @@
+- name: Setup brew-update-notifier.sh
+  copy:
+    src: files/brew-update-notifier.sh
+    dest: ~/.local/bin/brew-update-notifier.sh
+    mode: u=rwx,g=rx,o=rx
+  tags: configuration
+- name: Setup local.brew-update-notifier LaunchAgent
+  copy:
+    src: files/local.brew-update-notifier.plist
+    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/local.brew-update-notifier.plist"
+    mode: u=rw,g=r,o=r
+  tags: configuration
+- name: local.brew-update-notifier Launch Agent is loaded
+  launchd:
+    name: local.brew-update-notifier
+    state: reloaded
+  tags: configuration

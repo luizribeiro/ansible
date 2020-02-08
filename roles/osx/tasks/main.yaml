@@ -5,6 +5,7 @@
       - gpg
       - mas
       - pinentry-mac
+      - terminal-notifier
     state: present
   tags: packages
 - name: Refresh sudo cache
@@ -60,3 +61,4 @@
   register: mas_install
   changed_when: "'is already installed' not in mas_install.stdout"
 - include: yabai.yaml
+- include: brew-update-notifier.yaml
