@@ -3,7 +3,7 @@
     name: cronie
     state: present
   tags: packages
-- name: ronie is enabled and running
+- name: cronie is enabled and running
   systemd:
     name: cronie
     enabled: yes
