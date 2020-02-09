@@ -17,3 +17,7 @@
   systemd:
     name: goaccess
     state: restarted
+- name: restart oauth2_proxy
+  systemd:
+    name: oauth2_proxy
+    state: restarted

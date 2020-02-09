@@ -1,0 +1,33 @@
+- name: Install oauth2_proxy
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: oauth2_proxy
+    skip_installed: yes
+  tags: packages
+- name: Setup oauth2_proxy.cfg
+  template:
+    src: templates/etc/oauth2_proxy.cfg.jinja
+    dest: /etc/oauth2_proxy.cfg
+    owner: oauth2_proxy
+    group: oauth2_proxy
+    mode: u=rw,g-rwx,o-rwx
+  notify: restart oauth2_proxy
+  tags: configuration
+- name: Setup oauth2_proxy_emails
+  lineinfile:
+    path: /etc/oauth2_proxy_emails
+    line: "{{ item }}"
+    create: yes
+    owner: oauth2_proxy
+    group: oauth2_proxy
+    mode: u=rw,g-rwx,o-rwx
+  with_items:
+    - luizribeiro@gmail.com
+  tags: configuration
+- name: oauth2_proxy is enabled and running
+  systemd:
+    name: oauth2_proxy
+    enabled: yes
+    state: started
+  tags: systemctl

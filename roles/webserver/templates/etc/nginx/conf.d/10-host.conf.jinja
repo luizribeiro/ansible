@@ -16,13 +16,41 @@ server {
   include /etc/letsencrypt/options-ssl-nginx.conf;
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-  auth_basic $authentication;
-  auth_basic_user_file /etc/nginx/conf.d/10-host.d/htpasswd;
+  auth_request /oauth2/auth;
+  error_page 401 /oauth2/sign_in;
 
 	location / {
     root /srv/http/host/;
     autoindex on;
 	}
+
+  ###############################
+  # oauth2_proxy
+  location /oauth2 {
+    proxy_pass http://127.0.0.1:4180;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Scheme $scheme;
+    proxy_set_header X-Auth-Request-Redirect $request_uri;
+  }
+
+  location = /oauth2/auth {
+    proxy_pass http://127.0.0.1:4180;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Scheme $scheme;
+    # nginx auth_request includes headers but not body
+    proxy_set_header Content-Length "";
+    proxy_pass_request_body off;
+  }
+
+  location ~ /oauth2/(sign_in|start|callback)$ {
+    proxy_pass http://127.0.0.1:4180;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Scheme $scheme;
+    auth_request off;
+  }
 
   ###############################
   # nginx status
@@ -53,7 +81,7 @@ server {
     alias /home/$1/www$2;
     index index.html index.htm;
     autoindex on;
-    auth_basic off;
+    auth_request off;
   }
 }
 
