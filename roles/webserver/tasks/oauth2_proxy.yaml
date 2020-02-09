@@ -22,9 +22,9 @@
     group: oauth2_proxy
     mode: u=rwx,g-rwx,o-rwx
   tags: configuration
-- name: Setup oauth2_proxy_emails
+- name: Setup oauth2_proxy/emails.txt
   lineinfile:
-    path: /etc/oauth2_proxy_emails
+    path: /etc/oauth2_proxy/emails.txt
     line: "{{ item }}"
     create: yes
     owner: oauth2_proxy
