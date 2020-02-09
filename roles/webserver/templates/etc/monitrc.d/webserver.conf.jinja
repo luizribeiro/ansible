@@ -17,6 +17,10 @@ check process fail2ban with pidfile /var/run/fail2ban/fail2ban.pid
   start program = "/usr/bin/systemctl start fail2ban"
   stop program = "/usr/bin/systemctl stop fail2ban"
 
+check process oauth2_proxy matching 'oauth2_proxy.*'
+  start program = "/usr/bin/systemctl start oauth2_proxy"
+  stop program = "/usr/bin/systemctl stop oauth2_proxy"
+
 check host {{ inventory_hostname }} with address {{ inventory_hostname }}
   if failed
     port 443
