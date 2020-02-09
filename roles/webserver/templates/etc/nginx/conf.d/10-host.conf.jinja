@@ -22,6 +22,11 @@ server {
     autoindex on;
 	}
 
+  location = /style.css {
+    allow all;
+    root /srv/http/host/;
+  }
+
   ###############################
   # oauth2_proxy
   location /oauth2 {

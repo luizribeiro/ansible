@@ -40,6 +40,10 @@ div.grid {
   font-size: 4vmin;
 }
 
+div.single-column {
+  grid-template-columns: 30vmin;
+}
+
 div.grid-item {
   height: 30vmin;
   background-color: #2a2a2a;
@@ -59,4 +63,9 @@ div.grid-item a div.container {
 
 a span.mdi {
   font-size: 12vmin;
+}
+
+div.grid-item form {
+  width: 100%;
+  height: 100%;
 }

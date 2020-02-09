@@ -1,0 +1,56 @@
+{% raw %}
+{{define "sign_in.html"}}
+{% endraw %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ inventory_hostname }}</title>
+    <link href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css
+" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width" />
+  </head>
+
+  <body>
+    <h1>
+      {{ inventory_hostname }}
+    </h1>
+    {% raw %}
+    <div class="content">
+      <div class="grid single-column">
+        <div class="grid-item">
+          <form id="signin-form" method="GET" action="{{.ProxyPrefix}}/start">
+            <input type="hidden" name="rd" value="{{.Redirect}}">
+            <a href="#" onclick="document.getElementById('signin-form').submit();">
+              <div class="container">
+                <span class="mdi mdi-facebook"></span>
+                <div>sign in</div>
+              </div>
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endraw %}
+    <script>
+      if (window.location.hash) {
+        (function() {
+          var inputs = document.getElementsByName('rd');
+          for (var i = 0; i < inputs.length; i++) {
+            // Add hash, but make sure it is only added once
+            var idx = inputs[i].value.indexOf('#');
+            if (idx >= 0) {
+              // Remove existing hash from URL
+              inputs[i].value = inputs[i].value.substr(0, idx);
+            }
+            inputs[i].value += window.location.hash;
+          }
+        })();
+      }
+    </script>
+  </body>
+</html>
+{% raw %}
+{{end}}
+{% endraw %}

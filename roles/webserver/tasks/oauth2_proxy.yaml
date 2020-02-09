@@ -14,6 +14,14 @@
     mode: u=rw,g-rwx,o-rwx
   notify: restart oauth2_proxy
   tags: configuration
+- name: Create /etc/oauth2_proxy directory
+  file:
+    path: /etc/oauth2_proxy
+    state: directory
+    owner: oauth2_proxy
+    group: oauth2_proxy
+    mode: u=rwx,g-rwx,o-rwx
+  tags: configuration
 - name: Setup oauth2_proxy_emails
   lineinfile:
     path: /etc/oauth2_proxy_emails
@@ -24,6 +32,24 @@
     mode: u=rw,g-rwx,o-rwx
   with_items:
     - luizribeiro@gmail.com
+  tags: configuration
+- name: Setup oauth2_proxy sign_in.html template
+  template:
+    src: templates/etc/oauth2_proxy/sign_in.html.jinja
+    dest: /etc/oauth2_proxy/sign_in.html
+    owner: oauth2_proxy
+    group: oauth2_proxy
+    mode: u=rw,g-rwx,o-rwx
+  notify: restart oauth2_proxy
+  tags: configuration
+- name: Setup oauth2_proxy error.html template
+  template:
+    src: templates/etc/oauth2_proxy/error.html.jinja
+    dest: /etc/oauth2_proxy/error.html
+    owner: oauth2_proxy
+    group: oauth2_proxy
+    mode: u=rw,g-rwx,o-rwx
+  notify: restart oauth2_proxy
   tags: configuration
 - name: oauth2_proxy is enabled and running
   systemd:
