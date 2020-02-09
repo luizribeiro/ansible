@@ -69,3 +69,23 @@ div.grid-item form {
   width: 100%;
   height: 100%;
 }
+
+div.error {
+  background-color: #2a2a2a;
+  display: inline-block;
+  width: 60vmin;
+  text-align: left;
+  padding: 3vmin;
+}
+
+div.error h2 {
+  color: #d62f60;
+  font-size: 2vmin;
+  margin-top: 0;
+}
+
+div.error p {
+  color: #bbbbbb;
+  font-size: 1.5vmin;
+  margin: 0;
+}
