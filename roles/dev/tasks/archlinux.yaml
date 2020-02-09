@@ -6,10 +6,3 @@
     state: present
   when: dev_ansible_tools
   tags: packages
-- name: Uninstall python-passlib
-  pacman:
-    name:
-      - python-passlib
-    state: absent
-  when: dev_ansible_tools
-  tags: packages

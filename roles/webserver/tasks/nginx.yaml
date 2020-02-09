@@ -19,11 +19,6 @@
     validate: 'nginx -t -c %s'
   notify: restart nginx
   tags: configuration
-- name: Remove unused htpasswd
-  file:
-    path: /etc/nginx/conf.d/10-host.d/htpasswd
-    state: absent
-  tags: configuration
 - name: Setup nginx/conf.d
   copy:
     src: files/etc/nginx/conf.d/
