@@ -19,14 +19,10 @@
     validate: 'nginx -t -c %s'
   notify: restart nginx
   tags: configuration
-- name: Setup htpasswd for nginx host
-  htpasswd:
+- name: Remove unused htpasswd
+  file:
     path: /etc/nginx/conf.d/10-host.d/htpasswd
-    name: "{{ secret_htpasswd_user }}"
-    password: "{{ secret_htpasswd_password }}"
-    owner: http
-    mode: u+rw,g-rwx,o-rwx
-  notify: reload nginx
+    state: absent
   tags: configuration
 - name: Setup nginx/conf.d
   copy:

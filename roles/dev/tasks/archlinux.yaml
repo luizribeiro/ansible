@@ -3,8 +3,13 @@
     name:
       - ansible
       - ansible-lint
-      # this is required by ansible's htpasswd module
-      - python-passlib
     state: present
+  when: dev_ansible_tools
+  tags: packages
+- name: Uninstall python-passlib
+  pacman:
+    name:
+      - python-passlib
+    state: absent
   when: dev_ansible_tools
   tags: packages

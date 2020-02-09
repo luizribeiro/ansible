@@ -6,11 +6,10 @@
     state: present
   when: dev_ansible_tools
   tags: packages
-- name: Install ansible tool dependencies
+- name: Uninstall passlib
   pip:
     name:
-      # this is required by ansible's htpasswd module
       - passlib
-    state: present
+    state: absent
   when: dev_ansible_tools
   tags: packages
