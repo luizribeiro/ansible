@@ -1,0 +1,18 @@
+- name: Setup clipboard-daemon.sh
+  copy:
+    src: files/clipboard-daemon.sh
+    dest: ~/.local/bin/clipboard-daemon.sh
+    mode: u=rwx,g=rx,o=rx
+  tags: configuration
+- name: Setup local.clipboard-daemon LaunchDaemon
+  copy:
+    src: files/local.clipboard-daemon.plist
+    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/local.clipboard-daemon.plist"
+    mode: u=rw,g=r,o=r
+  tags: configuration
+- name: local.clipboard-daemon Launch Daemon is enabled and started
+  launchd:
+    name: local.clipboard-daemon
+    enabled: true
+    state: started
+  tags: configuration

@@ -62,3 +62,4 @@
   changed_when: "'is already installed' not in mas_install.stdout"
 - include: yabai.yaml
 - include: brew-update-notifier.yaml
+- include: clipboard-daemon.yaml
