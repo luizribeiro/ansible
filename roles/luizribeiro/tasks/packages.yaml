@@ -11,6 +11,7 @@
       - tmux
       - wget
       - zsh
+      - "{{ 'netcat' if ansible_distribution == 'MacOSX' else 'gnu-netcat' }}"
     state: present
   tags: packages
 
