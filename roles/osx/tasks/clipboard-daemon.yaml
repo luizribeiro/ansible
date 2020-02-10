@@ -14,5 +14,5 @@
   launchd:
     name: local.clipboard-daemon
     enabled: true
-    state: started
+    state: restarted
   tags: configuration
