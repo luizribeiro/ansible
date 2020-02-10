@@ -25,7 +25,7 @@ check host {{ inventory_hostname }} with address {{ inventory_hostname }}
   if failed
     port 443
     with protocol https
-    and certificate valid > 30 days
+    and certificate valid > 14 days
     use ssl options {verify: enable}
     for 5 times within 15 cycles
   then alert
