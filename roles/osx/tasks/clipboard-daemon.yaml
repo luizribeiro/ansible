@@ -8,7 +8,8 @@
 - name: Setup local.clipboard-daemon LaunchDaemon
   copy:
     src: files/local.clipboard-daemon.plist
-    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/local.clipboard-daemon.plist"
+    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/\
+      local.clipboard-daemon.plist"
     mode: u=rw,g=r,o=r
   tags: configuration
 - name: local.clipboard-daemon Launch Daemon is enabled and started

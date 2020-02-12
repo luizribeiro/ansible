@@ -58,7 +58,9 @@
 - name: Install additional MAS apps
   command: mas install "{{ item.id|default(item) }}"
   with_items: "{{ osx_additional_mas_apps }}"
-  when: osx_additional_mas_apps != None and (osx_additional_mas_apps | length) > 0
+  when: >-
+    osx_additional_mas_apps != None
+    and (osx_additional_mas_apps | length) > 0
   register: mas_install
   changed_when: "'is already installed' not in mas_install.stdout"
 - include: yabai.yaml

@@ -2,7 +2,8 @@
 - name: "Create {{ luizribeiro_username }} user account"
   user:
     name: "{{ luizribeiro_username }}"
-    password: "{{ secret_luizribeiro_initial_password | password_hash('sha512') }}"
+    password: >-
+      {{ secret_luizribeiro_initial_password | password_hash('sha512') }}
     update_password: on_create
     shell: /bin/zsh
     group: "{{ luizribeiro_primary_group }}"

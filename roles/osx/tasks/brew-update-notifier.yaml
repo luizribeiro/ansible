@@ -8,7 +8,8 @@
 - name: Setup local.brew-update-notifier LaunchAgent
   copy:
     src: files/local.brew-update-notifier.plist
-    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/local.brew-update-notifier.plist"
+    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/\
+      local.brew-update-notifier.plist"
     mode: u=rw,g=r,o=r
   tags: configuration
 - name: local.brew-update-notifier Launch Agent is loaded

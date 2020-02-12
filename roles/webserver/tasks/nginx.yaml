@@ -54,7 +54,11 @@
     mode: u+rw,g-rwx,o-rwx
   tags: configuration
 - name: Setup SSL certificate
-  command: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d {{ inventory_hostname }}"
+  command: >-
+    certbot certonly -n --nginx
+    -m "{{ letsencrypt_email | mandatory }}"
+    --agree-tos
+    -d "{{ inventory_hostname }}"
   args:
     creates: "/etc/letsencrypt/live/{{ inventory_hostname }}/"
   notify: reload nginx
