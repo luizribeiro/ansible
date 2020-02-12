@@ -12,7 +12,7 @@
       - tmux
       - wget
       - zsh
-      - "{{ 'netcat' if ansible_distribution == 'MacOSX' else 'gnu-netcat' }}"
+      - "{{ 'netcat' if ansible_distribution == 'MacOSX' else 'nmap-netcat' }}"
     state: present
   tags: packages
 
