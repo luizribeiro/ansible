@@ -3,6 +3,15 @@
     name:
       - ansible
       - ansible-lint
+      - yamllint
     state: present
+  when: dev_ansible_tools
+  tags: packages
+- name: Install tools for ansible from AUR
+  aur:
+    name: molecule
+    skip_installed: true
+  become: yes
+  become_user: aur_builder
   when: dev_ansible_tools
   tags: packages
