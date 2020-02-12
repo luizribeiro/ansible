@@ -42,7 +42,7 @@
     mode: u=rw,g=r,o-rwx
     directory_mode: u=rwx,g=rx,o-rwx
     # TODO: fix hass-config validation
-    #validate: 'hass -c %s --script check_config'
+    # validate: 'hass -c %s --script check_config'
   notify: restart home-assistant
   tags: configuration
 - name: Setup nginx for home-assistant
@@ -55,7 +55,10 @@
   notify: reload nginx
   tags: configuration
 - name: Setup SSL certificate
-  command: "certbot certonly -n --nginx -m '{{ letsencrypt_email | mandatory }}' --agree-tos -d home.thepromisedlan.club"
+  command: >-
+    certbot certonly -n --nginx
+    -m '{{ letsencrypt_email | mandatory }}' --agree-tos
+    -d home.thepromisedlan.club
   args:
     creates: /etc/letsencrypt/live/home.thepromisedlan.club/
   notify: reload nginx
