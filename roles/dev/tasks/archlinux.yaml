@@ -3,6 +3,7 @@
     name:
       - ansible
       - ansible-lint
+      - prettier
       - yamllint
     state: present
   when: dev_ansible_tools

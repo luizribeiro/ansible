@@ -4,6 +4,7 @@
       - ansible
       - ansible-lint
       - molecule
+      - prettier
       - yamllint
     state: present
   when: dev_ansible_tools
