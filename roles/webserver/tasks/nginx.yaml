@@ -16,7 +16,7 @@
     dest: /etc/nginx/nginx.conf
     owner: http
     mode: u+rw,g-rwx,o-rwx
-    validate: 'nginx -t -c %s'
+    validate: "nginx -t -c %s"
   notify: restart nginx
   tags: configuration
 - name: Setup nginx/conf.d
@@ -61,12 +61,12 @@
 - name: Allow HTTP traffic from anywhere
   ufw:
     rule: allow
-    port: '80'
+    port: "80"
   tags: firewall
 - name: Allow HTTPS traffic from anywhere
   ufw:
     rule: allow
-    port: '443'
+    port: "443"
   tags: firewall
 - name: nginx is enabled and running
   systemd:

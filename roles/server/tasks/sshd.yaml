@@ -10,13 +10,13 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-    validate: 'sshd -tf %s'
+    validate: "sshd -tf %s"
   notify: restart sshd
   tags: configuration
 - name: Allow (limited) SSH traffic from anywhere
   ufw:
     rule: limit
-    port: '22'
+    port: "22"
   tags: firewall
 - name: Allow (limited) mosh traffic from anywhere
   ufw:

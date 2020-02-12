@@ -10,7 +10,7 @@
     owner: root
     group: root
     mode: u+rw,g-rwx,o-rwx
-    validate: 'monit -t -c %s'
+    validate: "monit -t -c %s"
   notify: restart monit
   tags: configuration
 - name: Setup monitrc.d

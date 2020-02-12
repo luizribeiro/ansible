@@ -14,10 +14,10 @@
   command: restic init
   become: yes
   environment:
-    RESTIC_REPOSITORY: '{{ restic_backup_repo }}'
-    RESTIC_PASSWORD: '{{ secret_restic_password }}'
-    AWS_ACCESS_KEY_ID: '{{ secret_wasabi_access_key }}'
-    AWS_SECRET_ACCESS_KEY: '{{ secret_wasabi_secret_key }}'
+    RESTIC_REPOSITORY: "{{ restic_backup_repo }}"
+    RESTIC_PASSWORD: "{{ secret_restic_password }}"
+    AWS_ACCESS_KEY_ID: "{{ secret_wasabi_access_key }}"
+    AWS_SECRET_ACCESS_KEY: "{{ secret_wasabi_secret_key }}"
   no_log: false
   register: restic_init
   changed_when: "'created restic repository' in restic_init.stdout"
@@ -37,22 +37,22 @@
 - name: Setup backup schedule
   include: "schedule-{{ ansible_distribution | lower }}.yaml"
 - block:
-  - name: Setup backup-check script
-    template:
-      src: templates/backup-check.sh.jinja
-      dest: "{{ backup_script_path | dirname }}/backup-check.sh"
-      owner: "{{ backup_user }}"
-      group: "{{ backup_user_group }}"
-      mode: u+rwx,g-rwx,o-rwx
-    become: yes
-  - name: Setup monit config
-    copy:
-      src: files/etc/monitrc.d/
-      dest: /etc/monitrc.d/
-      owner: "{{ backup_user }}"
-      group: "{{ backup_user_group }}"
-      mode: u+rw,g-rwx,o-rwx
-      directory_mode: u+rwx,g-rwx,o-rwx
-    notify: restart monit
+    - name: Setup backup-check script
+      template:
+        src: templates/backup-check.sh.jinja
+        dest: "{{ backup_script_path | dirname }}/backup-check.sh"
+        owner: "{{ backup_user }}"
+        group: "{{ backup_user_group }}"
+        mode: u+rwx,g-rwx,o-rwx
+      become: yes
+    - name: Setup monit config
+      copy:
+        src: files/etc/monitrc.d/
+        dest: /etc/monitrc.d/
+        owner: "{{ backup_user }}"
+        group: "{{ backup_user_group }}"
+        mode: u+rw,g-rwx,o-rwx
+        directory_mode: u+rwx,g-rwx,o-rwx
+      notify: restart monit
   when: "'server' in ansible_role_names"
   tags: configuration

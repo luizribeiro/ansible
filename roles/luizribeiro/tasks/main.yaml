@@ -1,4 +1,4 @@
-- name: 'Create {{ luizribeiro_username }} user account'
+- name: "Create {{ luizribeiro_username }} user account"
   user:
     name: "{{ luizribeiro_username }}"
     password: "{{ secret_luizribeiro_initial_password | password_hash('sha512') }}"
@@ -9,7 +9,7 @@
     append: yes
     expires: -1
   tags: configuration
-- name: 'Setup SSH Authorized Keys for {{ luizribeiro_username }}'
+- name: "Setup SSH Authorized Keys for {{ luizribeiro_username }}"
   authorized_key:
     user: "{{ luizribeiro_username }}"
     state: present
@@ -20,7 +20,7 @@
   tags: configuration
 - name: Check if ~/.dotfiles exists
   stat:
-    path: '~/.dotfiles'
+    path: "~/.dotfiles"
   become: yes
   become_user: "{{ luizribeiro_username }}"
   register: dotfiles

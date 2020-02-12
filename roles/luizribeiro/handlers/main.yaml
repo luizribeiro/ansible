@@ -1,8 +1,8 @@
 - name: clone dotfiles repo
   git:
-    repo: 'https://github.com/luizribeiro/dotfiles'
-    dest: '~/.dotfiles'
-    version: 'HEAD'
+    repo: "https://github.com/luizribeiro/dotfiles"
+    dest: "~/.dotfiles"
+    version: "HEAD"
   notify:
     - setup dotfiles github remote
     - install dotfiles
@@ -10,13 +10,13 @@
   become_user: "{{ luizribeiro_username }}"
 - name: setup dotfiles github remote
   git_config:
-    name: 'remote.origin.url'
-    value: 'git@github.com:luizribeiro/dotfiles.git'
+    name: "remote.origin.url"
+    value: "git@github.com:luizribeiro/dotfiles.git"
     scope: local
-    repo: '~/.dotfiles'
+    repo: "~/.dotfiles"
   become: yes
   become_user: "{{ luizribeiro_username }}"
 - name: install dotfiles
-  command: '~/.dotfiles/install.sh -A'
+  command: "~/.dotfiles/install.sh -A"
   become: yes
   become_user: "{{ luizribeiro_username }}"

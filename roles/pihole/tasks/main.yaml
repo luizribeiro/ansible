@@ -47,7 +47,7 @@
   ufw:
     rule: allow
     from: 192.168.2.0/24
-    port: '53'
+    port: "53"
     protocol: udp
   tags: firewall
 - name: pihole-FTL is enabled and running
@@ -89,8 +89,8 @@
     - name: Enable sockets PHP extension
       lineinfile:
         dest: /etc/php/php-fpm.d/www.conf
-        regexp: 'listen ='
-        line: 'listen = /var/run/php-fpm/fpm-www.sock'
+        regexp: "listen ="
+        line: "listen = /var/run/php-fpm/fpm-www.sock"
       notify: restart php-fpm
       tags: configuration
     - name: php-fpm is enabled and running

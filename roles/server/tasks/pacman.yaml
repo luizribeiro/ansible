@@ -3,19 +3,19 @@
     name: pacman-contrib
     state: present
   tags: packages
-- name: 'Setup aur_builder user'
+- name: "Setup aur_builder user"
   user:
     name: aur_builder
     group: wheel
   tags: configuration
-- name: 'Allow aur_builder to sudo'
+- name: "Allow aur_builder to sudo"
   lineinfile:
     path: /etc/sudoers.d/11-install-aur_builder
-    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
     create: yes
-    validate: 'visudo -cf %s'
+    validate: "visudo -cf %s"
   tags: configuration
-- name: 'Install yay'
+- name: "Install yay"
   aur:
     name: yay
     use: makepkg
@@ -23,7 +23,7 @@
   become: yes
   become_user: aur_builder
   tags: packages
-- name: 'Install checkupdates+aur'
+- name: "Install checkupdates+aur"
   aur:
     name: checkupdates+aur
     skip_installed: true

@@ -104,5 +104,5 @@
     owner: root
     group: root
     mode: u=r,g=r,o-rwx
-    validate: 'visudo -cf %s'
+    validate: "visudo -cf %s"
   tags: configuration
