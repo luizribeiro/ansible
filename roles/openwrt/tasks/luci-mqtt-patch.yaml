@@ -1,3 +1,4 @@
+---
 - name: Patch stat-genconfig for MQTT support on luci-app-statistics
   patch:
     src: files/stat-genconfig.patch

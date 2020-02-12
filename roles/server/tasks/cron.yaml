@@ -1,3 +1,4 @@
+---
 - name: Install cronie
   pacman:
     name: cronie

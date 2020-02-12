@@ -1,3 +1,4 @@
+---
 - include: packages.yaml
   tags: packages
 - include: luci-mqtt-patch.yaml

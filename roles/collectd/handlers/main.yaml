@@ -1,3 +1,4 @@
+---
 - name: restart collectd
   systemd:
     name: collectd

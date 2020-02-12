@@ -1,3 +1,4 @@
+---
 - name: Install Monit server
   pacman:
     name: monit

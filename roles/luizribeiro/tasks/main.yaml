@@ -1,3 +1,4 @@
+---
 - name: "Create {{ luizribeiro_username }} user account"
   user:
     name: "{{ luizribeiro_username }}"

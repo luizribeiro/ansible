@@ -1,3 +1,4 @@
+---
 - name: Tap koekeishiya/formulae
   homebrew_tap:
     name: koekeishiya/formulae

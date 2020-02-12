@@ -1,3 +1,4 @@
+---
 - name: Install Samba server
   pacman:
     name: samba

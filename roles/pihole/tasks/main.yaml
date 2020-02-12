@@ -1,3 +1,4 @@
+---
 - name: Install pi-hole-server
   become: yes
   become_user: aur_builder

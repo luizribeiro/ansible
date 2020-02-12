@@ -1,3 +1,4 @@
+---
 - name: Install nginx
   pacman:
     name: nginx

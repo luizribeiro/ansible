@@ -1,3 +1,4 @@
+---
 - name: collectd is enabled and running
   openwrt_init:
     name: collectd

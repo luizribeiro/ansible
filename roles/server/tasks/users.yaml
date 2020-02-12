@@ -1,3 +1,4 @@
+---
 - name: "Allow users in wheel group to use sudo"
   lineinfile:
     path: /etc/sudoers.d/00-wheel

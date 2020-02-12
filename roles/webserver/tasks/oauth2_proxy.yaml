@@ -1,3 +1,4 @@
+---
 - name: Install oauth2_proxy
   become: yes
   become_user: aur_builder

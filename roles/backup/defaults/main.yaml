@@ -1,3 +1,4 @@
+---
 backup_paths:
   - /home
 backup_excludes:

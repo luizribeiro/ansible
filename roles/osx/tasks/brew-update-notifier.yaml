@@ -1,3 +1,4 @@
+---
 - name: Setup brew-update-notifier.sh
   copy:
     src: files/brew-update-notifier.sh

@@ -1,3 +1,4 @@
+---
 - name: "Timezone is {{ timezone }}"
   file:
     state: link

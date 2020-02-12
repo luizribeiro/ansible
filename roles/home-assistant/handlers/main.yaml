@@ -1,3 +1,4 @@
+---
 - name: reload home-assistant.service
   systemd:
     daemon_reload: yes

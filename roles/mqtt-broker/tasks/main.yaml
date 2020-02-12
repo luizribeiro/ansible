@@ -1,3 +1,4 @@
+---
 - name: Install mosquitto
   pacman:
     name: mosquitto

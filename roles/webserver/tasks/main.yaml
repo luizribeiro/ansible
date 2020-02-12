@@ -1,3 +1,4 @@
+---
 - include: oauth2_proxy.yaml
 - include: nginx.yaml
 - include: fail2ban.yaml

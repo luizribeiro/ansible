@@ -1,3 +1,4 @@
+---
 - name: Install bluetooth packages
   pacman:
     name:

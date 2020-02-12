@@ -1,3 +1,4 @@
+---
 - name: Install backup software
   package:
     name: restic

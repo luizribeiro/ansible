@@ -1,3 +1,4 @@
+---
 - name: Install tools for ansible
   pacman:
     name:

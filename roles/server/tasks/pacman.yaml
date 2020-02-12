@@ -1,3 +1,4 @@
+---
 - name: Install pacman-contrib
   pacman:
     name: pacman-contrib

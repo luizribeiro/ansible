@@ -1,3 +1,4 @@
+---
 - name: Install fail2ban
   pacman:
     name: fail2ban

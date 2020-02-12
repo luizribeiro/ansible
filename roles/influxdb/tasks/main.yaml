@@ -1,3 +1,4 @@
+---
 - name: Install influxdb and grafana
   pacman:
     name:

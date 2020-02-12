@@ -1,3 +1,4 @@
+---
 - name: Install goaccess server
   pacman:
     name: goaccess

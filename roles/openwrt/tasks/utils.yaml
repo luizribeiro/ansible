@@ -1,3 +1,4 @@
+---
 - name: Setup show-wifi-clients script
   copy:
     src: files/usr/bin/show-wifi-clients

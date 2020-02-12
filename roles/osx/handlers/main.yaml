@@ -1,3 +1,4 @@
+---
 - name: setup yabai
   command: yabai --install-sa
   become: yes

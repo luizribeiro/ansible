@@ -1,3 +1,4 @@
+---
 - name: clone dotfiles repo
   git:
     repo: "https://github.com/luizribeiro/dotfiles"

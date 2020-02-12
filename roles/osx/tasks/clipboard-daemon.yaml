@@ -1,3 +1,4 @@
+---
 - name: Setup clipboard-daemon.sh
   copy:
     src: files/clipboard-daemon.sh

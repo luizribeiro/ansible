@@ -1,3 +1,4 @@
+---
 - name: Install home-assistant
   pacman:
     state: present

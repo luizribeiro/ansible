@@ -1,3 +1,4 @@
+---
 - name: detect hardware sensors
   command: sensors-detect --auto
 - name: restart lm-sensors
