@@ -13,7 +13,7 @@
     state: reloaded
 - name: reload goaccess.service
   systemd:
-    daemon_reload: yes
+    daemon_reload: true
 - name: restart goaccess
   systemd:
     name: goaccess

@@ -27,13 +27,13 @@
 - name: smbd is enabled and running
   systemd:
     name: smb
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl
 - name: nmbd is enabled and running
   systemd:
     name: nmb
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl
 - name: Setup monit config

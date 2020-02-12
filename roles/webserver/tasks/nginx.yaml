@@ -72,12 +72,12 @@
 - name: nginx is enabled and running
   systemd:
     name: nginx
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl
 - name: certbot is enabled and running
   systemd:
     name: certbot.timer
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl

@@ -15,6 +15,6 @@
 - name: sshguard is enabled and running
   systemd:
     name: sshguard
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl

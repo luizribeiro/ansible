@@ -10,6 +10,6 @@
 - name: lm_sensors is enabled and running
   systemd:
     name: lm_sensors
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl

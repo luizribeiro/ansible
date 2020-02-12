@@ -8,16 +8,16 @@
   synchronize:
     src: files/etc/config/
     dest: /etc/config/
-    archive: no
-    recursive: yes
-    times: yes
+    archive: false
+    recursive: true
+    times: true
     rsync_opts: -zz
   notify: reload config
 - name: /etc/config should be owned by root
   file:
     path: /etc/config/
     state: directory
-    recurse: yes
+    recurse: true
     owner: root
     group: root
 - name: Setup wireless

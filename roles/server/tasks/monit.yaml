@@ -28,7 +28,7 @@
 - name: monit is enabled and running
   systemd:
     name: monit
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl
 - name: Setup monit web access on nginx

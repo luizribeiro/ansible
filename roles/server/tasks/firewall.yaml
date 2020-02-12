@@ -7,7 +7,7 @@
 - name: ufw is enabled and running
   systemd:
     name: ufw
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl
 - name: Deny all traffic by default

@@ -7,7 +7,7 @@
     shell: /bin/zsh
     group: "{{ luizribeiro_primary_group }}"
     groups: "{{ luizribeiro_groups | join(',') }}"
-    append: yes
+    append: true
     expires: -1
   tags: configuration
 - name: "Setup SSH Authorized Keys for {{ luizribeiro_username }}"
@@ -22,7 +22,7 @@
 - name: Check if ~/.dotfiles exists
   stat:
     path: "~/.dotfiles"
-  become: yes
+  become: true
   become_user: "{{ luizribeiro_username }}"
   register: dotfiles
   changed_when: not dotfiles.stat.exists

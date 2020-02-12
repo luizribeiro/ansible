@@ -3,5 +3,5 @@
   lineinfile:
     path: /etc/sysctl.d/51-dmesg-restrict.conf
     line: kernel.dmesg_restrict = 1
-    create: yes
+    create: true
   tags: configuration

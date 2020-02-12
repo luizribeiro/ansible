@@ -1,10 +1,10 @@
 ---
 - name: Install pi-hole-server
-  become: yes
+  become: true
   become_user: aur_builder
   aur:
     name: pi-hole-server
-    skip_installed: yes
+    skip_installed: true
   tags: packages
 - name: Setup pihole configuration
   copy:
@@ -54,7 +54,7 @@
 - name: pihole-FTL is enabled and running
   systemd:
     name: pihole-FTL
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl
 
@@ -97,7 +97,7 @@
     - name: php-fpm is enabled and running
       systemd:
         name: php-fpm
-        enabled: yes
+        enabled: true
         state: started
       tags: systemctl
 

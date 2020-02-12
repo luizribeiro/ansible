@@ -5,7 +5,7 @@
     state: restarted
 - name: update pihole gravity
   command: /usr/bin/pihole -g
-  become: yes
+  become: true
 - name: restart php-fpm
   systemd:
     name: php-fpm

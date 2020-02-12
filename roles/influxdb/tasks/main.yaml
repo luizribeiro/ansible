@@ -9,11 +9,11 @@
     state: present
   tags: packages
 - name: Install telegraf
-  become: yes
+  become: true
   become_user: aur_builder
   aur:
     name: telegraf
-    skip_installed: yes
+    skip_installed: true
   tags: packages
 - name: Setup influxdb config
   copy:
@@ -59,12 +59,12 @@
   user:
     name: telegraf
     groups: log
-    append: yes
+    append: true
   tags: configuration
 - name: Enable services
   systemd:
     name: "{{ item }}"
-    enabled: yes
+    enabled: true
     state: started
   with_items:
     - grafana

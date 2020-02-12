@@ -11,7 +11,7 @@
   tags: packages
 - name: Refresh sudo cache
   command: "echo none"
-  become: yes
+  become: true
   check_mode: false
   changed_when: false
 - name: Install Homebrew Casks

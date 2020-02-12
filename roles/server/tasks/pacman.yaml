@@ -13,7 +13,7 @@
   lineinfile:
     path: /etc/sudoers.d/11-install-aur_builder
     line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
-    create: yes
+    create: true
     validate: "visudo -cf %s"
   tags: configuration
 - name: "Install yay"
@@ -21,13 +21,13 @@
     name: yay
     use: makepkg
     skip_installed: true
-  become: yes
+  become: true
   become_user: aur_builder
   tags: packages
 - name: "Install checkupdates+aur"
   aur:
     name: checkupdates+aur
     skip_installed: true
-  become: yes
+  become: true
   become_user: aur_builder
   tags: packages

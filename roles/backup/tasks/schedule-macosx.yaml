@@ -6,11 +6,11 @@
     owner: "{{ backup_user }}"
     group: "{{ backup_user_group }}"
     mode: u+rw,g-rwx,o-rwx
-  become: yes
+  become: true
   tags: configuration
 - name: local.backup Launch Agent is loaded
   launchd:
     name: local.backup
     state: reloaded
-  become: yes
+  become: true
   tags: configuration

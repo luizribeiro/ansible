@@ -34,6 +34,6 @@
 - name: fail2ban is enabled and running
   systemd:
     name: fail2ban
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl

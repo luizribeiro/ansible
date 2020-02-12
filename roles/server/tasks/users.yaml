@@ -3,7 +3,7 @@
   lineinfile:
     path: /etc/sudoers.d/00-wheel
     line: "%wheel ALL=(ALL) ALL"
-    create: yes
+    create: true
     validate: "visudo -cf %s"
   tags: configuration
 - name: "Setup sshusers group"

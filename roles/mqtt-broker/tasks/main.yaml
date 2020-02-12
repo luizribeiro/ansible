@@ -15,6 +15,6 @@
 - name: mosquitto is enabled and running
   systemd:
     name: mosquitto
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl

@@ -8,12 +8,12 @@
   lineinfile:
     path: "{{ backup_script_path | dirname }}/backup-excludes.txt"
     line: "{{ item }}"
-    create: yes
-  become: yes
+    create: true
+  become: true
   with_items: "{{ backup_excludes }}"
 - name: Initialize backup repository
   command: restic init
-  become: yes
+  become: true
   environment:
     RESTIC_REPOSITORY: "{{ restic_backup_repo }}"
     RESTIC_PASSWORD: "{{ secret_restic_password }}"
@@ -33,7 +33,7 @@
     owner: "{{ backup_user }}"
     group: "{{ backup_user_group }}"
     mode: u+rwx,g-rwx,o-rwx
-  become: yes
+  become: true
   tags: configuration
 - name: Setup backup schedule
   include: "schedule-{{ ansible_distribution | lower }}.yaml"
@@ -45,7 +45,7 @@
         owner: "{{ backup_user }}"
         group: "{{ backup_user_group }}"
         mode: u+rwx,g-rwx,o-rwx
-      become: yes
+      become: true
     - name: Setup monit config
       copy:
         src: files/etc/monitrc.d/

@@ -13,7 +13,7 @@
   aur:
     name: molecule
     skip_installed: true
-  become: yes
+  become: true
   become_user: aur_builder
   when: dev_ansible_tools
   tags: packages

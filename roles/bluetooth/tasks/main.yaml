@@ -9,7 +9,7 @@
 - name: bluetooth.service is enabled and running
   systemd:
     name: bluetooth
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl
 - name: Setup monit config

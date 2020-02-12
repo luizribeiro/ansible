@@ -1,7 +1,7 @@
 ---
 - name: reload home-assistant.service
   systemd:
-    daemon_reload: yes
+    daemon_reload: true
 - name: restart home-assistant
   systemd:
     name: home-assistant

@@ -1,7 +1,7 @@
 ---
 - name: setup yabai
   command: yabai --install-sa
-  become: yes
+  become: true
   notify: restart Dock.app
 - name: restart Dock.app
   command: killall Dock

@@ -1,2 +1,2 @@
 ---
-dev_ansible_tools: no
+dev_ansible_tools: false

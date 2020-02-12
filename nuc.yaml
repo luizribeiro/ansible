@@ -5,7 +5,7 @@
     letsencrypt_email: "luizribeiro@gmail.com"
   vars_files:
     - secrets.yaml
-  become: yes
+  become: true
   pre_tasks:
     - name: Setup /etc/hosts
       template:
@@ -24,7 +24,7 @@
       tags: luizribeiro
     - role: dev
       vars:
-        dev_ansible_tools: yes
+        dev_ansible_tools: true
       tags: dev
     - role: backup
       vars:
@@ -72,12 +72,12 @@
       block:
         - name: Upgrade pacman packages
           pacman:
-            update_cache: yes
-            upgrade: yes
+            update_cache: true
+            upgrade: true
         - name: Upgrade AUR packages
           aur:
-            upgrade: yes
-            aur_only: yes
+            upgrade: true
+            aur_only: true
       tags: [never, upgrade]
     - name: Reboot machine
       reboot:

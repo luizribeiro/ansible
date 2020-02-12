@@ -14,7 +14,7 @@
       tags: collectd
     - role: dev
       vars:
-        dev_ansible_tools: yes
+        dev_ansible_tools: true
       tags: dev
     - role: osx
       vars:

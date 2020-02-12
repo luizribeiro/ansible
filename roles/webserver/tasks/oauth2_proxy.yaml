@@ -1,10 +1,10 @@
 ---
 - name: Install oauth2_proxy
-  become: yes
+  become: true
   become_user: aur_builder
   aur:
     name: oauth2_proxy
-    skip_installed: yes
+    skip_installed: true
   tags: packages
 - name: Setup oauth2_proxy.cfg
   template:
@@ -27,7 +27,7 @@
   lineinfile:
     path: /etc/oauth2_proxy/emails.txt
     line: "{{ item }}"
-    create: yes
+    create: true
     owner: oauth2_proxy
     group: oauth2_proxy
     mode: u=rw,g-rwx,o-rwx
@@ -55,6 +55,6 @@
 - name: oauth2_proxy is enabled and running
   systemd:
     name: oauth2_proxy
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl

@@ -75,7 +75,7 @@
 - name: home-assistant is enabled and running
   systemd:
     name: home-assistant
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl
 - name: Setup monit config

@@ -7,6 +7,6 @@
 - name: cronie is enabled and running
   systemd:
     name: cronie
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl

@@ -27,6 +27,6 @@
 - name: goaccess is enabled and running
   systemd:
     name: goaccess
-    enabled: yes
+    enabled: true
     state: started
   tags: systemctl

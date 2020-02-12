@@ -7,7 +7,7 @@
   notify:
     - setup dotfiles github remote
     - install dotfiles
-  become: yes
+  become: true
   become_user: "{{ luizribeiro_username }}"
 - name: setup dotfiles github remote
   git_config:
@@ -15,9 +15,9 @@
     value: "git@github.com:luizribeiro/dotfiles.git"
     scope: local
     repo: "~/.dotfiles"
-  become: yes
+  become: true
   become_user: "{{ luizribeiro_username }}"
 - name: install dotfiles
   command: "~/.dotfiles/install.sh -A"
-  become: yes
+  become: true
   become_user: "{{ luizribeiro_username }}"
