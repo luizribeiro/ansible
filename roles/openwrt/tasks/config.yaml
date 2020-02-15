@@ -28,6 +28,14 @@
     group: root
     mode: u=rw,g=,o=
   notify: reload config
+- name: Setup collectd
+  copy:
+    src: files/etc/collectd.conf
+    dest: /etc/collectd.conf
+    owner: root
+    group: root
+    mode: u=rw,g=,o=
+  notify: restart collectd
 - name: Setup ddns
   template:
     src: templates/etc/config/ddns.jinja

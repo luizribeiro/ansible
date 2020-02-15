@@ -39,7 +39,6 @@ config qos
 config system
 	option init 'led'
 	option exec '/etc/init.d/log reload'
-	list affects 'luci_statistics'
 	list affects 'dhcp'
 
 config luci_splash
@@ -57,6 +56,6 @@ config samba
 config tinyproxy
 	option init 'tinyproxy'
 
-config luci_statistics
-	option init 'luci_statistics'
+config collectd
+	option init 'collectd'
 

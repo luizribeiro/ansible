@@ -19,11 +19,6 @@
     name: dropbear
     enabled: true
     state: started
-- name: luci_statistics is enabled and running
-  openwrt_init:
-    name: luci_statistics
-    enabled: true
-    state: started
 - name: firewall is enabled and running
   openwrt_init:
     name: firewall

@@ -1,7 +1,7 @@
 ---
 - name: reload config
   command: reload_config
-- name: reload luci-app-statistics
+- name: restart collectd
   openwrt_init:
-    name: luci_statistics
-    state: reloaded
+    name: collectd
+    state: restarted

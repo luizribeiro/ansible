@@ -1,7 +1,0 @@
----
-- name: Patch stat-genconfig for MQTT support on luci-app-statistics
-  patch:
-    src: files/stat-genconfig.patch
-    dest: /usr/bin/stat-genconfig
-  notify: reload luci-app-statistics
-  tags: packages
