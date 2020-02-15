@@ -18,6 +18,7 @@
   with_items:
     - collectd
     - collectd-mod-df
+    - collectd-mod-disk
     - collectd-mod-mqtt
     - collectd-mod-uptime
 - name: Install utilities
