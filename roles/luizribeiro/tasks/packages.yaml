@@ -7,12 +7,12 @@
       - jq
       - mosh
       - ncdu
+      - nmap
       - ripgrep
       - tldr
       - tmux
       - wget
       - zsh
-      - "{{ 'netcat' if ansible_distribution == 'MacOSX' else 'nmap-netcat' }}"
     state: present
   tags: packages
 

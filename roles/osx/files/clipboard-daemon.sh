@@ -2,6 +2,8 @@
 HOST=127.0.0.1
 PORT=52698
 
+NCAT=$(command -v ncat nc | head -1)
+
 while [ true ]; do
-    /usr/bin/nc -l ${HOST} ${PORT} | pbcopy
+    $NCAT -l ${HOST} ${PORT} | pbcopy
 done
