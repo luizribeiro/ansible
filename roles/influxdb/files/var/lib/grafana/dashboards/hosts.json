@@ -1600,6 +1600,12 @@
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [
+                  "* 8"
+                ],
+                "type": "math"
               }
             ]
           ],
@@ -1809,6 +1815,12 @@
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [
+                  "* 8"
+                ],
+                "type": "math"
               }
             ]
           ],
@@ -2018,6 +2030,12 @@
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [
+                  "* 8"
+                ],
+                "type": "math"
               }
             ]
           ],
@@ -2524,5 +2542,5 @@
   "timezone": "",
   "title": "Hosts",
   "uid": "hosts",
-  "version": 105
+  "version": 106
 }
