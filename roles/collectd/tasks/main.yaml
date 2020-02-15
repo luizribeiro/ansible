@@ -12,7 +12,9 @@
     group: "{{ collectd_group }}"
     mode: u+rw,g-rwx,o-rwx
     validate: "{{ collectd_path }}/sbin/collectd -t -C %s"
-  notify: restart collectd
+  notify:
+    - restart collectd on osx
+    - restart collectd on archlinux
   tags: configuration
 - name: collectd is enabled and running
   systemd:

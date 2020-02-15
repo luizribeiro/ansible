@@ -1,5 +1,12 @@
 ---
-- name: restart collectd
+- name: restart collectd on archlinux
   systemd:
     name: collectd
     state: restarted
+  when: ansible_distribution == 'Archlinux'
+- name: restart collectd on osx
+  homebrew_services:
+    name: collectd
+    state: restarted
+  become: true
+  when: ansible_distribution == 'MacOSX'
