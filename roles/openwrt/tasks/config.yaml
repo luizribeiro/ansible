@@ -55,3 +55,10 @@
   with_items: "{{ ssh_authorized_keys }}"
   loop_control:
     label: "{{ item.split(' ')[-1] }}"
+- name: Setup screen-256color terminfo
+  copy:
+    src: files/usr/share/terminfo/s/screen-256color
+    dest: /usr/share/terminfo/s/screen-256color
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
