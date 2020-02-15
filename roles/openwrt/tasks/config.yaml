@@ -35,6 +35,7 @@
     owner: root
     group: root
     mode: u=rw,g=,o=
+    validate: "/usr/sbin/collectd -t -C %s"
   notify: restart collectd
 - name: Setup ddns
   template:
