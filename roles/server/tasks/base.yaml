@@ -1,19 +1,4 @@
 ---
-- name: "Timezone is {{ timezone }}"
-  file:
-    state: link
-    src: "/usr/share/zoneinfo/{{ timezone }}"
-    dest: /etc/localtime
-  notify: regenerate /etc/adjtime
-  tags: configuration
-- name: "Ensure locale {{ locale }} is enabled"
-  locale_gen:
-    name: "{{ locale }}"
-    state: present
-- name: "Hostname is {{ inventory_hostname_short }}"
-  copy:
-    content: "{{ inventory_hostname_short }}\n"
-    dest: /etc/hostname
 - name: "systemd-networkd-wait-online.service is enabled"
   systemd:
     name: systemd-networkd-wait-online

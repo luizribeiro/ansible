@@ -15,6 +15,21 @@
         group: root
         mode: u=rw,g=r,o=r
       tags: configuration
+    - name: "Timezone is America/New_York"
+      file:
+        state: link
+        src: "/usr/share/zoneinfo/America/New_York"
+        dest: /etc/localtime
+      notify: regenerate /etc/adjtime
+      tags: configuration
+    - name: "Ensure locale en_US.UTF-8 is enabled"
+      locale_gen:
+        name: "en_US.UTF-8"
+        state: present
+    - name: "Hostname is nuc"
+      copy:
+        content: "nuc\n"
+        dest: /etc/hostname
   roles:
     - role: server
       tags: server
