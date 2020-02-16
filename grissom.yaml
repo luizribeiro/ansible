@@ -15,6 +15,7 @@
     - role: dev
       vars:
         dev_ansible_tools: true
+        dev_aws_tools: true
       tags: dev
     - role: osx
       vars:

@@ -10,3 +10,11 @@
     state: present
   when: dev_ansible_tools
   tags: packages
+- name: Install tools for AWS
+  homebrew:
+    name:
+      - awscli
+      - aws-shell
+    state: present
+  when: dev_aws_tools
+  tags: packages
