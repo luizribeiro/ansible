@@ -80,3 +80,7 @@
         state: absent
     - name: Clean up pacman cache
       shell: yes | pacman -Sccc
+    - name: Clean up yay cache
+      shell: yes | yay -Sccc --aur
+      become: true
+      become_user: aur_builder
