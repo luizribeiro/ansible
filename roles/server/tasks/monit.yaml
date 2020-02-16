@@ -25,6 +25,14 @@
     # TODO: figure out a way to validate this
   notify: restart monit
   tags: configuration
+- name: Create /var/monit directory
+  file:
+    path: /var/monit
+    state: directory
+    owner: root
+    group: root
+    mode: u=rwx,g=rx,o=rx
+  tags: configuration
 - name: monit is enabled and running
   systemd:
     name: monit
