@@ -1,6 +1,11 @@
 [home]
 nuc.thepromisedlan.club ansible_python_interpreter=/usr/bin/python3
 
+[ec2]
+
+[ec2:vars]
+ansible_python_interpreter=/usr/bin/python3
+
 [openwrt]
 router.thepromisedlan
 

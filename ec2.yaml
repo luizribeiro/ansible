@@ -1,0 +1,12 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: "{{ custom_hosts | default('ec2') }}"
+  remote_user: "{{ custom_remote_user | default('luiz') }}"
+  vars_files:
+    - secrets.yaml
+  become: true
+  roles:
+    - role: server
+      tags: server
+    - role: luizribeiro
+      tags: luizribeiro
