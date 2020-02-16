@@ -1,4 +1,8 @@
 ---
+- name: "Ensure locale en_US.UTF-8 is enabled"
+  locale_gen:
+    name: "en_US.UTF-8"
+    state: present
 - name: "systemd-networkd-wait-online.service is enabled"
   systemd:
     name: systemd-networkd-wait-online
