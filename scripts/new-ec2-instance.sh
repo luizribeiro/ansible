@@ -53,6 +53,10 @@
       reboot:
     - name: Wait for host to become reachable again
       wait_for_connection:
+    - name: Setup locale.gen
+      command: mv /etc/locale.gen.pacnew /etc/locale.gen
+      args:
+        removes: /etc/locale.gen.pacnew
 
 - import_playbook: ../ec2.yaml
   vars:
