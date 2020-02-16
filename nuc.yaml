@@ -79,17 +79,6 @@
         mode: u+rw,g-rwx,o-rwx
       notify: restart monit
       tags: configuration
-    - name: Upgrade all packages
-      block:
-        - name: Upgrade pacman packages
-          pacman:
-            update_cache: true
-            upgrade: true
-        - name: Upgrade AUR packages
-          aur:
-            upgrade: true
-            aur_only: true
-      tags: [never, upgrade]
     - name: Reboot machine
       reboot:
       tags: [never, reboot]
