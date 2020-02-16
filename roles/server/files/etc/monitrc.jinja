@@ -314,5 +314,9 @@ set mailserver smtp.mailgun.org port 587
 
 set alert luizribeiro@gmail.com
 
+check system {{ inventory_hostname_short }}
+  if loadavg (5min) > 2.0 then alert
+  if memory usage > 85% then alert
+  if cpu usage (user) > 60% then alert
+
 include /etc/monitrc.d/*
-#
