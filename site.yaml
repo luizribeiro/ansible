@@ -1,4 +1,5 @@
 #!/usr/bin/env ansible-playbook
 ---
+- import_playbook: ec2.yaml
 - import_playbook: nuc.yaml
 - import_playbook: openwrt.yaml
