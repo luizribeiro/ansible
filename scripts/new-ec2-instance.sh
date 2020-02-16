@@ -62,3 +62,19 @@
   vars:
     custom_hosts: launched
     custom_remote_user: arch
+
+- hosts: launched
+  remote_user: luiz
+  become: true
+  tasks:
+    - name: Kill all processes by arch user
+      shell: "pkill -9 -u `id -u arch`"
+    - name: Remove arch user
+      user:
+        name: arch
+        state: absent
+        remove: true
+    - name: Remove /home/arch
+      file:
+        path: /home/arch/
+        state: absent
