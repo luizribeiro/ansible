@@ -12,6 +12,13 @@
     group: root
     mode: u=rw,g=r,o=r
   tags: configuration
+- name: Setup sshguard pidfile
+  lineinfile:
+    dest: /etc/sshguard.conf
+    regexp: "PID_FILE=.*"
+    line: 'PID_FILE="/var/run/sshguard.pid"'
+  notify: restart sshguard
+  tags: configuration
 - name: sshguard is enabled and running
   systemd:
     name: sshguard

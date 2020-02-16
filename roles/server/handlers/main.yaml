@@ -7,6 +7,10 @@
   systemd:
     name: monit
     state: restarted
+- name: restart sshguard
+  systemd:
+    name: sshguard
+    state: restarted
 
 - name: regenerate /etc/adjtime
   command: hwclock --systohc
