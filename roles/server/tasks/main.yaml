@@ -21,10 +21,10 @@
 
 - include: users.yaml
 - include: ntp.yaml
-- include: firewall.yaml
 - include: cron.yaml
 - include: pacman.yaml
 - include: sshd.yaml
 - include: sshguard.yaml
 - include: monit.yaml
 - include: security.yaml
+- include: firewall.yaml
