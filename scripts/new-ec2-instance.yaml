@@ -10,7 +10,7 @@
     AWS_ACCESS_KEY: "{{ aws_access_key }}"
     AWS_SECRET_KEY: "{{ aws_secret_key }}"
   tasks:
-    - name: Create ec2 instance
+    - name: Create ec2 instances
       ec2:
         # from https://www.uplinklabs.net/projects/arch-linux-on-ec2/
         image: ami-0470431e11a734fd9
@@ -20,14 +20,14 @@
         count: "{{ count | default(1) }}"
         wait: true
       register: ec2
-    - name: Add instance to hosts file
+    - name: Add instances to hosts file
       lineinfile:
         path: ../hosts
         regexp: "{{ item.public_dns_name }}"
         line: "{{ item.public_dns_name }}"
         insertafter: "\\[ec2\\]"
       with_items: "{{ ec2.instances }}"
-    - name: Add new instance to launched in-memory launched hosts group
+    - name: Add new instances to launched in-memory launched hosts group
       add_host:
         hostname: "{{ item.public_dns_name }}"
         groupname: launched
