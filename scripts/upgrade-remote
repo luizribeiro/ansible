@@ -5,6 +5,8 @@
 - hosts: home,ec2
   vars_files:
     - ../secrets.yaml
+  vars:
+    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
   become: true
   tasks:
     - name: Upgrade pacman packages
