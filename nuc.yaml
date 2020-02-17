@@ -1,10 +1,11 @@
 #!/usr/bin/env ansible-playbook
 ---
 - hosts: nuc.thepromisedlan.club
-  vars:
-    letsencrypt_email: "luizribeiro@gmail.com"
   vars_files:
     - secrets.yaml
+  vars:
+    letsencrypt_email: "luizribeiro@gmail.com"
+    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
   become: true
   pre_tasks:
     - name: Setup /etc/hosts

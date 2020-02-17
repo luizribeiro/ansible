@@ -1,4 +1,4 @@
-#!/usr/bin/env ansible-playbook
+#!/usr/bin/env ansible-playbook --ask-become-pass
 ---
 - hosts: macbook
   vars_files:
