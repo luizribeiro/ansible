@@ -34,4 +34,3 @@ $ ./grissom.yaml
 * TODO: allow for collectd package on OSX to be built with MQTT support
 * TODO: find a way to validate nginx conf.d files
 * TODO: find a way to validate monit conf.d files
-* TODO: restart services automatically upon upgrade

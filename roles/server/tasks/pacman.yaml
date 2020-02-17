@@ -31,3 +31,24 @@
   become: true
   become_user: aur_builder
   tags: packages
+- name: Setup hooks directory for pacman
+  file:
+    path: /etc/pacman.d/hooks
+    state: directory
+    owner: root
+    group: root
+    mode: u=rwx,g=rx,o=rx
+- name: Setup script for restarting daemons
+  copy:
+    src: files/etc/pacman.d/hooks/99-restart-daemons.sh
+    dest: /etc/pacman.d/hooks/99-restart-daemons.sh
+    owner: root
+    group: root
+    mode: u=rwx,g=r,o=r
+- name: Setup pacman hook for restarting daemons
+  copy:
+    src: files/etc/pacman.d/hooks/99-restart-daemons.hook
+    dest: /etc/pacman.d/hooks/99-restart-daemons.hook
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
