@@ -36,7 +36,7 @@
   become: true
   tags: configuration
 - name: Setup backup schedule
-  include: "schedule-{{ ansible_distribution | lower }}.yaml"
+  include_tasks: "schedule-{{ ansible_distribution | lower }}.yaml"
 - block:
     - name: Setup backup-check script
       template:

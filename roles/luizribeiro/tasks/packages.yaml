@@ -17,4 +17,4 @@
   tags: packages
 
 - name: Setup neovim
-  include: "neovim-{{ ansible_distribution | lower }}.yaml"
+  include_tasks: "neovim-{{ ansible_distribution | lower }}.yaml"
