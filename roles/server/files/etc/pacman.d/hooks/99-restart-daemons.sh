@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 SERVICES=$(cat | sed 's!.*/!!')
 
 for service in $SERVICES; do
