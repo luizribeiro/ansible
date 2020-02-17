@@ -1,3 +1,16 @@
 #!/usr/bin/env /bin/bash
 # usage: ./scripts/hsh ping -c 5 8.8.8.8
-ansible home,ec2 -m shell -a "$*"
+#        ./scripts/hsh sudo ls /root
+
+if [[ "$1" == "sudo" ]]; then
+  CMD=""
+  for p in "${@:2}"; do
+    CMD="$CMD $p"
+  done
+  ARGS="--ask-become-pass --become"
+else
+  CMD="$*"
+  ARGS=""
+fi
+
+ansible home,ec2 $ARGS -m shell -a "$CMD"
