@@ -78,6 +78,10 @@
       file:
         path: /home/arch/
         state: absent
+    - name: Remove /etc/sudoers.d/90-cloud-init-users
+      file:
+        path: /etc/sudoers.d/90-cloud-init-users
+        state: absent
     - name: Clean up pacman cache
       shell: yes | pacman -Sccc
     - name: Clean up yay cache
