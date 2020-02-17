@@ -1,0 +1,2 @@
+#!/usr/bin/env /bin/bash
+ansible home,ec2 -m shell -a "$*"
