@@ -1,19 +1,33 @@
 #!/usr/bin/env ansible-playbook
 # vim: set ft=yaml.ansible:
 # usage: ./scripts/upgrade-remote.yaml
+#        ./scripts/upgrade-remote.yaml -l openwrt
 ---
-- hosts: home,ec2
+- hosts: home,ec2,openwrt
   vars_files:
     - ../secrets.yaml
   vars:
     ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
   become: true
   tasks:
-    - name: Upgrade pacman packages
-      pacman:
-        update_cache: true
-        upgrade: true
-    - name: Upgrade AUR packages
-      aur:
-        upgrade: true
-        aur_only: true
+    - block:
+        - name: Upgrade pacman packages
+          pacman:
+            update_cache: true
+            upgrade: true
+        - name: Upgrade AUR packages
+          aur:
+            upgrade: true
+            aur_only: true
+      when: ansible_distribution == 'Archlinux'
+    - block:
+        - name: Update opkg cache
+          command: opkg update
+        - name: Find opkg upgradable packages
+          shell: "opkg list-upgradable | cut -f 1 -d ' '"
+          register: upgradable
+          changed_when: (upgradable.stdout_lines | list | length) > 0
+        - name: Upgrade opkg packages
+          command: "opkg upgrade {{ item }}"
+          with_items: "{{ upgradable.stdout_lines | list }}"
+      when: ansible_distribution == 'OpenWrt'
