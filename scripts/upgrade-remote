@@ -3,7 +3,7 @@
 # usage: ./scripts/upgrade-remote.yaml
 #        ./scripts/upgrade-remote.yaml -l openwrt
 ---
-- hosts: home,ec2,openwrt
+- hosts: remote
   vars_files:
     - ../secrets.yaml
   vars:
