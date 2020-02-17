@@ -5,7 +5,7 @@ TERMINAL_NOTIFIER=$(command -v terminal-notifier)
 
 $BREW update > /dev/null 2>&1
 
-outdated=$($BREW outdated --quiet)
+outdated=$(($BREW outdated --quiet && $BREW cask outdated --quiet) | sort -u)
 pinned=$($BREW list --pinned)
 updatable=$(comm -1 -3 <(echo "$pinned") <(echo "$outdated"))
 
