@@ -4,7 +4,7 @@
     name: ufw
     state: present
   tags: packages
-- name: ufw is enabled and running
+- name: ufw daemon is enabled and running
   systemd:
     name: ufw
     enabled: true
@@ -14,8 +14,7 @@
   ufw:
     default: deny
   tags: firewall
-- name: Allow all traffic from LAN
-  ufw:
-    rule: allow
-    from: 192.168.1.0/24
-  tags: firewall
+- name: Include custom firewall rules
+  include_tasks: "firewall/{{ item }}.yaml"
+  when: ('firewall/' + item + '.yaml') is file
+  with_items: "{{ group_names }}"
