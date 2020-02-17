@@ -1,22 +1,23 @@
 [home]
-nuc.thepromisedlan.club ansible_python_interpreter=/usr/bin/python3
+nuc.thepromisedlan.club
 
 [ec2]
 ec2-3-20-233-241.us-east-2.compute.amazonaws.com
 
-[ec2:vars]
-ansible_python_interpreter=/usr/bin/python3
-
 [openwrt]
-router.thepromisedlan
-
-[openwrt:vars]
-ansible_user=root
-ansible_python_interpreter=/usr/bin/python3
+router.thepromisedlan ansible_user=root
 
 [osx]
 grissom
 macbook
+
+[remote:children]
+ec2
+home
+openwrt
+
+[remote:vars]
+ansible_python_interpreter=/usr/bin/python3
 
 [osx:vars]
 ansible_python_interpreter=/usr/local/bin/python3
