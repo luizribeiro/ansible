@@ -17,6 +17,7 @@
         instance_type: "{{ instance_type | default('t3a.nano') }}"
         region: us-east-2
         key_name: GPG
+        count: "{{ count | default(1) }}"
         wait: true
       register: ec2
     - name: Add instance to hosts file
