@@ -15,8 +15,9 @@ ansible_user=root
 ansible_python_interpreter=/usr/bin/python3
 
 [osx]
-grissom ansible_connection=local
-macbook ansible_connection=local
+grissom
+macbook
 
 [osx:vars]
 ansible_python_interpreter=/usr/local/bin/python3
+ansible_connection=local
