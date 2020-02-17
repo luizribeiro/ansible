@@ -9,11 +9,6 @@
       - terminal-notifier
     state: present
   tags: packages
-- name: Refresh sudo cache
-  command: "echo none"
-  become: true
-  check_mode: false
-  changed_when: false
 - name: Install Homebrew Casks
   homebrew_cask:
     name: "{{ item }}"

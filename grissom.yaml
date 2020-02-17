@@ -5,6 +5,12 @@
     - secrets.yaml
   vars:
     ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
+  pre_tasks:
+    - name: Refresh sudo cache
+      command: "echo none"
+      become: true
+      check_mode: false
+      changed_when: false
   roles:
     - role: luizribeiro
       vars:

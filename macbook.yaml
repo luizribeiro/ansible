@@ -3,6 +3,12 @@
 - hosts: macbook
   vars_files:
     - secrets.yaml
+  pre_tasks:
+    - name: Refresh sudo cache
+      command: "echo none"
+      become: true
+      check_mode: false
+      changed_when: false
   roles:
     - role: luizribeiro
       vars:
