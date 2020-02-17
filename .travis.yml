@@ -21,9 +21,12 @@ before_install:
 install:
   - pip install ansible
   - pip install ansible-lint
+  - pip install yamllint
 
 script:
   - ansible-lint site.yaml
   - ansible-lint macbook.yaml
   - ansible-lint grissom.yaml
   - ansible-lint openwrt.yaml
+  - ansible-lint ec2.yaml
+  - yamllint .
