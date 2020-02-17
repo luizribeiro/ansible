@@ -1,2 +1,3 @@
 #!/usr/bin/env /bin/bash
+# usage: ./scripts/hsh ping -c 5 8.8.8.8
 ansible home,ec2 -m shell -a "$*"

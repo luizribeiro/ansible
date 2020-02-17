@@ -1,4 +1,6 @@
 #!/usr/bin/env ansible-playbook
+# vim: set ft=yaml.ansible:
+# usage: ./scripts/upgrade-remote.yaml
 ---
 - hosts: home,ec2
   vars_files:

@@ -1,4 +1,5 @@
 #!/bin/sh
+# usage: ./scripts/restic <hostname> ...
 
 OLD_DIR="$(pwd)"
 cd "$(dirname "$0")" || exit 1

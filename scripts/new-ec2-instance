@@ -1,5 +1,7 @@
 #!/usr/bin/env ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook
+# vim: set ft=yaml.ansible:
 # TODO: figure out a way to fetch ssh host fingerprint to known_hosts
+# usage: ./scripts/new-ec2-instance -e instance_type=t2.micro -e count=5
 ---
 - hosts: localhost
   connection: local
