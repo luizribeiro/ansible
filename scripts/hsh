@@ -1,4 +1,4 @@
-#!/usr/bin/env /bin/bash
+#!/bin/env bash
 # usage: ./scripts/hsh ping -c 5 8.8.8.8
 #        ./scripts/hsh sudo ls /root
 
