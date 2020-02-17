@@ -4,16 +4,6 @@
     name: monit
     state: present
   tags: packages
-- name: Delete /etc/monitrc.d/system.conf
-  file:
-    path: /etc/monitrc.d/system.conf
-    state: absent
-  tags: configuration
-- name: Delete /etc/monitrc.d/network.conf
-  file:
-    path: /etc/monitrc.d/network.conf
-    state: absent
-  tags: configuration
 - name: Setup monitrc
   template:
     src: files/etc/monitrc.jinja
