@@ -6,6 +6,13 @@
   vars:
     ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
   pre_tasks:
+    - name: Check we are running on the right host
+      assert:
+        that:
+          - ansible_distribution == 'MacOSX'
+          - ansible_hostname == 'grissom'
+          - ansible_user == 'luiz'
+        quiet: true
     - name: Refresh sudo cache
       command: "echo none"
       become: true
