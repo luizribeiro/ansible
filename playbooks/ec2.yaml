@@ -1,9 +1,9 @@
-#!/usr/bin/env ansible-playbook
+#!/usr/bin/env ansible-playbook -i hosts
 ---
 - hosts: "{{ custom_hosts | default('ec2') }}"
   remote_user: "{{ custom_remote_user | default('luiz') }}"
   vars_files:
-    - secrets.yaml
+    - "{{ inventory_dir }}/secrets.yaml"
   vars:
     ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
   become: true

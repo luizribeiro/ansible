@@ -2,7 +2,7 @@
 ---
 - hosts: macbook
   vars_files:
-    - secrets.yaml
+    - "{{ inventory_dir }}/secrets.yaml"
   pre_tasks:
     - name: Refresh sudo cache
       command: "echo none"

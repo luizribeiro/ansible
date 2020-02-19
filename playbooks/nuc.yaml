@@ -2,7 +2,7 @@
 ---
 - hosts: nuc.thepromisedlan.club
   vars_files:
-    - secrets.yaml
+    - "{{ inventory_dir }}/secrets.yaml"
   vars:
     letsencrypt_email: "luizribeiro@gmail.com"
     ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
@@ -10,7 +10,7 @@
   pre_tasks:
     - name: Setup /etc/hosts
       template:
-        src: files/nuc-hosts
+        src: "{{ inventory_dir }}/files/nuc-hosts"
         dest: /etc/hosts
         owner: root
         group: root
@@ -65,7 +65,7 @@
   tasks:
     - name: Setup NUC check-vitals.sh script
       copy:
-        src: files/check-vitals.sh
+        src: "{{ inventory_dir }}/files/check-vitals.sh"
         dest: /usr/sbin/check-vitals.sh
         owner: root
         group: root
@@ -73,7 +73,7 @@
       tags: scripts
     - name: Setup NUC custom monit checks
       copy:
-        src: files/etc/monitrc.d/nuc.conf
+        src: "{{ inventory_dir }}/files/etc/monitrc.d/nuc.conf"
         dest: /etc/monitrc.d/nuc.conf
         owner: root
         group: root
