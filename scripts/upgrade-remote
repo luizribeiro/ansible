@@ -19,6 +19,8 @@
           aur:
             upgrade: true
             aur_only: true
+          become: true
+          become_user: aur_builder
       when: ansible_distribution == 'Archlinux'
     - block:
         - name: Update opkg cache
