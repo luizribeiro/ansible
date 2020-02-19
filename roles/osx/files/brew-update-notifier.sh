@@ -13,12 +13,12 @@ updatable=$(comm -1 -3 <(echo "$pinned") <(echo "$outdated"))
 if [ -n "$updatable" ] && [ -e "$TERMINAL_NOTIFIER" ]; then
   current_time=$(date +%s)
   if [ -f "$STATUS_FILE" ]; then
-    last_notif=$(stat -f "%Y" "$STATUS_FILE")
+    last_notif=$(stat -f "%m" "$STATUS_FILE")
   else
     last_notif=0
   fi
 
-  if (( last_notif < (current_time - (60 * 60 * 24)) )); then
+  if (( last_notif >= (current_time - (60 * 60 * 24)) )); then
     # limit to one notification per day
     exit
   fi
