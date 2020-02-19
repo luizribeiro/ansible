@@ -9,6 +9,7 @@
       assert:
         that:
           - ansible_distribution == 'MacOSX'
+        quiet: true
     - name: Update homebrew
       homebrew:
         update_homebrew: true
