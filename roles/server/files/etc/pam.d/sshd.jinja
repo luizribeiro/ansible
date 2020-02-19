@@ -1,0 +1,7 @@
+#%PAM-1.0
+auth      required  pam_securetty.so    # disable remote root
+auth      [success=done new_authtok_reqd=ok default=ignore] pam_yubico.so id={{ secret_yubico_client_id }} key={{ secret_yubico_client_key }} authfile=/etc/yubikey_mappings mode=client
+auth      required  pam_google_authenticator.so
+account   include   system-remote-login
+password  include   system-remote-login
+session   include   system-remote-login

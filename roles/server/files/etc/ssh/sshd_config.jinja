@@ -53,7 +53,12 @@ AuthorizedKeysFile	.ssh/authorized_keys
 #PermitEmptyPasswords no
 
 # Change to no to disable s/key passwords
+{% if ssh_require_2fac %}
+ChallengeResponseAuthentication yes
+AuthenticationMethods publickey,keyboard-interactive:pam
+{% else %}
 ChallengeResponseAuthentication no
+{% endif %}
 
 # Kerberos options
 #KerberosAuthentication no
