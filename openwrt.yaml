@@ -2,7 +2,7 @@
 ---
 - hosts: openwrt
   vars_files:
-    - "{{ inventory_dir }}/secrets.yaml"
+    - secrets.yaml
   roles:
     - role: openwrt
     - role: backup

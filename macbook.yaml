@@ -2,7 +2,7 @@
 ---
 - hosts: macbook
   vars_files:
-    - "{{ inventory_dir }}/secrets.yaml"
+    - secrets.yaml
   pre_tasks:
     - name: Check we are running on the right host
       assert:
