@@ -1,0 +1,22 @@
+#!/usr/bin/env ansible-playbook
+# vim: set ft=yaml.ansible:
+# usage: ./scripts/upgrade-remote.yaml
+#        ./scripts/upgrade-remote.yaml -l openwrt
+---
+- hosts: localhost
+  tasks:
+    - name: Check if running on macOS
+      assert:
+        that:
+          - ansible_distribution == 'MacOSX'
+    - name: Update homebrew
+      homebrew:
+        update_homebrew: true
+    - name: Upgrade homebrew packages
+      homebrew:
+        upgrade_all: true
+    - name: Upgrade homebrew casks
+      homebrew_cask:
+        upgrade_all: true
+    - name: Upgrade MAS apps
+      command: mas upgrade
