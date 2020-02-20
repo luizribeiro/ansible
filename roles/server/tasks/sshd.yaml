@@ -14,26 +14,34 @@
     validate: "sshd -tf %s"
   notify: restart sshd
   tags: configuration
-- name: Setup pam.d/ssh
-  template:
-    src: files/etc/pam.d/sshd.jinja
-    dest: /etc/pam.d/sshd
-    owner: root
-    group: root
-    mode: u=rw,g=r,o=r
+- name: Install openssh
+  block:
+    - name: Install pam modules for 2fac
+      pacman:
+        name:
+          - libpam-google-authenticator
+          - yubico-pam
+        state: present
+      tags: packages
+    - name: Setup pam.d/ssh
+      template:
+        src: files/etc/pam.d/sshd.jinja
+        dest: /etc/pam.d/sshd
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+      notify: restart sshd
+      tags: configuration
+    - name: Setup /etc/yubikey_mappings
+      copy:
+        src: files/etc/yubikey_mappings
+        dest: /etc/yubikey_mappings
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+      notify: restart sshd
+      tags: configuration
   when: ssh_require_2fac
-  notify: restart sshd
-  tags: configuration
-- name: Setup /etc/yubikey_mappings
-  copy:
-    src: files/etc/yubikey_mappings
-    dest: /etc/yubikey_mappings
-    owner: root
-    group: root
-    mode: u=rw,g=r,o=r
-  when: ssh_require_2fac
-  notify: restart sshd
-  tags: configuration
 - name: Allow (limited) SSH traffic from anywhere
   ufw:
     rule: limit
