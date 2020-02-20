@@ -20,6 +20,14 @@
   loop_control:
     label: "{{ item.split(' ')[-1] }}"
   tags: configuration
+- name: "Setup Google Authenticator"
+  copy:
+    dest: "~/.google_authenticator"
+    content: "{{ secret_google_authenticator }}\n\" TOTP_AUTH\n"
+    mode: u=r,g-rwx,o-rwx
+  become: true
+  become_user: "{{ luizribeiro_username }}"
+  when: luizribeiro_setup_google_authenticator
 - name: Check if ~/.dotfiles exists
   stat:
     path: "~/.dotfiles"

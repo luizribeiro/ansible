@@ -4,3 +4,4 @@ luizribeiro_primary_group: users
 luizribeiro_groups:
   - sshusers
   - wheel
+luizribeiro_setup_google_authenticator: false
