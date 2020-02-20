@@ -29,10 +29,14 @@
         dest: /etc/hostname
   roles:
     - role: server
+      vars:
+        ssh_require_2fac: true
       tags: server
     - role: collectd
       tags: collectd
     - role: luizribeiro
+      vars:
+        luizribeiro_setup_google_authenticator: true
       tags: luizribeiro
     - role: dev
       vars:
