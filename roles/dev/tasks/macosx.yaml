@@ -18,3 +18,35 @@
     state: present
   when: dev_aws_tools
   tags: packages
+- name: Install tools for qmk_firmware
+  block:
+    - name: Tap osx-cross
+      homebrew_tap:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - osx-cross/arm
+        - osx-cross/avr
+    - name: Install avr/arm compilers for qmk_firmware
+      homebrew:
+        name:
+          - arm-gcc-bin@8
+          - avr-gcc@8
+        state: installed
+    - name: Link arm-gcc for qmk_firmware
+      command: brew link --force arm-gcc-bin@
+      args:
+        creates: /usr/local/bin/arm-none-eabi-gcc
+    - name: Link avr-gcc for qmk_firmware
+      command: brew link --force avr-gcc@
+      args:
+        creates: /usr/local/bin/avr-gcc
+    - name: Install qmk_firmware flashing tools
+      homebrew:
+        name:
+          - avrdude
+          - dfu-programmer
+          - dfu-util
+        state: present
+  when: dev_qmk_firmware_tools
+  tags: packages

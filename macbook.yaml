@@ -26,6 +26,7 @@
     - role: dev
       vars:
         dev_ansible_tools: true
+        dev_qmk_firmware_tools: true
       tags: dev
     - role: osx
       vars:
