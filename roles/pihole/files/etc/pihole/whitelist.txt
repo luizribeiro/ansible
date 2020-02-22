@@ -1,3 +1,4 @@
 c.apple.com
 googleadservices.com
+graph.instagram.com
 www.googleadservices.com
