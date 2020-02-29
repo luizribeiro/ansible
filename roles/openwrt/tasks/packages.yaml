@@ -25,7 +25,6 @@
     - collectd-mod-load
     - collectd-mod-memory
     - collectd-mod-mqtt
-    - collectd-mod-rrdtool
     - collectd-mod-uptime
 - name: Install utilities
   opkg:
