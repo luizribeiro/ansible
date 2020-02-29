@@ -17,9 +17,15 @@
     state: present
   with_items:
     - collectd
+    - collectd-mod-cpu
     - collectd-mod-df
     - collectd-mod-disk
+    - collectd-mod-interface
+    - collectd-mod-iwinfo
+    - collectd-mod-load
+    - collectd-mod-memory
     - collectd-mod-mqtt
+    - collectd-mod-rrdtool
     - collectd-mod-uptime
 - name: Install utilities
   opkg:
