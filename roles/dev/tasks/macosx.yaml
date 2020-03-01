@@ -50,3 +50,10 @@
         state: present
   when: dev_qmk_firmware_tools
   tags: packages
+- name: Install tools for C/C++ development
+  homebrew:
+    name:
+      - clang-format
+    state: present
+  when: dev_cpp_tools
+  tags: packages
