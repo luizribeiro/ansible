@@ -10,6 +10,7 @@
     state: present
   when: dev_ansible_tools
   tags: packages
+
 - name: Install tools for AWS
   homebrew:
     name:
@@ -18,6 +19,7 @@
     state: present
   when: dev_aws_tools
   tags: packages
+
 - name: Install tools for qmk_firmware
   block:
     - name: Tap osx-cross
@@ -50,6 +52,7 @@
         state: present
   when: dev_qmk_firmware_tools
   tags: packages
+
 - name: Install tools for C/C++ development
   homebrew:
     name:
@@ -58,6 +61,7 @@
     state: present
   when: dev_cpp_tools
   tags: packages
+
 - name: Install tools for Python development
   homebrew:
     name:
