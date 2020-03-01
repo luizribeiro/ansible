@@ -54,6 +54,7 @@
   homebrew:
     name:
       - clang-format
+      - llvm
     state: present
   when: dev_cpp_tools
   tags: packages
