@@ -58,3 +58,10 @@
     state: present
   when: dev_cpp_tools
   tags: packages
+- name: Install tools for Python development
+  homebrew:
+    name:
+      - black
+    state: present
+  when: dev_python_tools
+  tags: packages
