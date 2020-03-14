@@ -38,6 +38,7 @@
     - role: osx
       vars:
         osx_additional_casks:
+          - discord
           - google-chrome
           - mailspring
           - steam
