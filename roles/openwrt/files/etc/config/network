@@ -36,6 +36,7 @@ config interface 'iot'
 	option ipaddr '192.168.2.1'
 	option netmask '255.255.255.0'
 	option type 'bridge'
+	option ip6assign '60'
 
 config switch
 	option name 'switch0'
