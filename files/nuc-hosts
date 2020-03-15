@@ -10,7 +10,8 @@
 192.168.2.101 iot-avocado.thepromisedlan iot-avocado
 192.168.2.102 iot-bacon.thepromisedlan iot-bacon
 192.168.2.104 iot-rockrobo.thepromisedlan iot-rockrobo
-192.168.2.106 iot-popcorn.thepromisedlan iot-popcorn
+192.168.2.105 iot-popcorn.thepromisedlan iot-popcorn
+192.168.2.106 iot-pizza.thepromisedlan iot-pizza
 192.168.2.249 iot-rmpro.thepromisedlan iot-rmpro
 
 # External hosts all point to nuc
