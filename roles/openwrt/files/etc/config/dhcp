@@ -146,6 +146,11 @@ config host
 	option dns '1'
 	option mac '30:FD:38:B1:C1:0E'
 
+config host
+  option name 'portal'
+	option dns '1'
+	option mac 'A4:0E:2B:0D:64:B5'
+
 
 ######################################################
 # Hosts for LAN entertainment devices
