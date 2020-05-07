@@ -1,14 +1,14 @@
 ---
-- name: Setup local.backup LaunchAgent
-  copy:
-    src: files/local.backup.plist
-    dest: /Library/LaunchAgents/local.backup.plist
+- name: Setup local.backup LaunchDaemon
+  template:
+    src: templates/local.backup.plist.jinja
+    dest: /Library/LaunchDaemons/local.backup.plist
     owner: "{{ backup_user }}"
     group: "{{ backup_user_group }}"
     mode: u+rw,g-rwx,o-rwx
   become: true
   tags: configuration
-- name: local.backup Launch Agent is loaded
+- name: local.backup Launch Daemon is loaded
   launchd:
     name: local.backup
     state: reloaded
