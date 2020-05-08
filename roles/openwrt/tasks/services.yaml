@@ -29,3 +29,8 @@
     name: dnsmasq
     enabled: true
     state: started
+- name: sqm is enabled and running
+  openwrt_init:
+    name: sqm
+    enabled: true
+    state: started

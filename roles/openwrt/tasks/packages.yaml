@@ -52,3 +52,7 @@
     - bash
     - ca-certificates
     - coreutils-timeout
+- name: Install SQM Bufferbloat packages
+  opkg:
+    name: luci-app-sqm
+    state: present
