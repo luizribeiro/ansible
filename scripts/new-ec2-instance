@@ -15,7 +15,8 @@
     - name: Create ec2 instances
       ec2:
         # from https://www.uplinklabs.net/projects/arch-linux-on-ec2/
-        image: ami-0470431e11a734fd9
+        # ebs hvm x86_64 stable us-east-2
+        image: ami-0dfef6137ada9bde4
         instance_type: "{{ instance_type | default('t3a.nano') }}"
         region: us-east-2
         key_name: GPG
