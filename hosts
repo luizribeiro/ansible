@@ -2,7 +2,6 @@
 nuc.thepromisedlan.club
 
 [ec2]
-18.222.99.139
 
 [openwrt]
 router.thepromisedlan ansible_user=root
