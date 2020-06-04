@@ -67,6 +67,7 @@
     custom_hosts: launched
     custom_remote_user: arch
 
+# TODO: find a way to make this part work with 2fac authentication
 - hosts: launched
   remote_user: luiz
   become: true
