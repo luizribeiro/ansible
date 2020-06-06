@@ -1,0 +1,30 @@
+---
+- hosts: launched
+  remote_user: luiz
+  become: true
+  vars_files:
+    - ../../secrets.yaml
+  vars:
+    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
+  tasks:
+    - name: Kill all processes by arch user
+      shell: "pkill -9 -u `id -u arch`"
+    - name: Remove arch user
+      user:
+        name: arch
+        state: absent
+        remove: true
+    - name: Remove /home/arch
+      file:
+        path: /home/arch/
+        state: absent
+    - name: Remove /etc/sudoers.d/90-cloud-init-users
+      file:
+        path: /etc/sudoers.d/90-cloud-init-users
+        state: absent
+    - name: Clean up pacman cache
+      shell: yes | pacman -Sccc
+    - name: Clean up yay cache
+      shell: yes | yay -Sccc --aur
+      become: true
+      become_user: aur_builder

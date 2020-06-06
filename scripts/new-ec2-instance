@@ -1,108 +1,17 @@
-#!/usr/bin/env ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook
-# vim: set ft=yaml.ansible:
-# TODO: figure out a way to fetch ssh host fingerprint to known_hosts
+#!/bin/bash
 # usage: ./scripts/new-ec2-instance -e instance_type=t2.micro -e count=5
----
-- hosts: localhost
-  connection: local
-  gather_facts: false
-  vars_files:
-    - ../secrets.yaml
-  environment:
-    AWS_ACCESS_KEY: "{{ aws_access_key }}"
-    AWS_SECRET_KEY: "{{ aws_secret_key }}"
-  tasks:
-    - name: Create ec2 instances
-      ec2:
-        # from https://www.uplinklabs.net/projects/arch-linux-on-ec2/
-        # ebs hvm x86_64 stable us-east-2
-        image: ami-0dfef6137ada9bde4
-        instance_type: "{{ instance_type | default('t3a.nano') }}"
-        region: us-east-2
-        key_name: GPG
-        count: "{{ count | default(1) }}"
-        wait: true
-      register: ec2
-    - name: Add instances to hosts file
-      lineinfile:
-        path: ../hosts
-        regexp: "{{ item.public_dns_name }}"
-        line: "{{ item.public_dns_name }}"
-        insertafter: "\\[ec2\\]"
-      with_items: "{{ ec2.instances }}"
-    - name: Add new instances to launched in-memory launched hosts group
-      add_host:
-        hostname: "{{ item.public_dns_name }}"
-        groupname: launched
-      with_items: "{{ ec2.instances }}"
 
-- hosts: launched
-  gather_facts: false
-  remote_user: arch
-  tasks:
-    - name: Wait for host to become reachable
-      wait_for_connection:
+set -eo pipefail
+OLD_DIR="$(pwd)"
+cd "$(dirname "$0")/.." || exit 1
+source ./scripts/src/common.sh
 
-- hosts: launched
-  remote_user: arch
-  vars_files:
-    - ../secrets.yaml
-  become: true
-  tasks:
-    - name: Upgrade system
-      pacman:
-        update_cache: true
-        upgrade: true
-    - name: Reboot machine
-      reboot:
-    - name: Wait for host to become reachable again
-      wait_for_connection:
-    - name: Remove locale.gen from the EC2 AMI
-      file:
-        path: /etc/locale.gen
-        state: absent
-    - name: Reinstall glibc so locale.gen contents are from Arch Linux
-      command: pacman -S --noconfirm glibc
-      args:
-        creates: /etc/locale.gen
+# TODO: figure out a way to fetch ssh host fingerprint to known_hosts
+export ANSIBLE_HOST_KEY_CHECKING=False
 
-- import_playbook: ../ec2.yaml
-  vars:
-    custom_hosts: launched
-    custom_remote_user: arch
-    custom_ssh_require_2fac: false
+ansible-playbook ./scripts/playbooks/create-ec2-instance.yaml "$@"
+ANSIBLE_INVENTORY=.launched_hosts ./scripts/initssh launched
+ansible-playbook -i .launched_hosts ./scripts/playbooks/finish-ec2-instance.yaml
+rm .launched_hosts
 
-- hosts: launched
-  remote_user: luiz
-  become: true
-  vars_files:
-    - ../secrets.yaml
-  vars:
-    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
-  tasks:
-    - name: Kill all processes by arch user
-      shell: "pkill -9 -u `id -u arch`"
-    - name: Remove arch user
-      user:
-        name: arch
-        state: absent
-        remove: true
-    - name: Remove /home/arch
-      file:
-        path: /home/arch/
-        state: absent
-    - name: Remove /etc/sudoers.d/90-cloud-init-users
-      file:
-        path: /etc/sudoers.d/90-cloud-init-users
-        state: absent
-    - name: Clean up pacman cache
-      shell: yes | pacman -Sccc
-    - name: Clean up yay cache
-      shell: yes | yay -Sccc --aur
-      become: true
-      become_user: aur_builder
-
-- import_playbook: ../ec2.yaml
-  vars:
-    custom_hosts: launched
-    custom_ssh_require_2fac: true
+cd "$OLD_DIR" || exit 1
