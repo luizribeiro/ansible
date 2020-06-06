@@ -1,0 +1,22 @@
+# vim: set ft=yaml.ansible:
+---
+- hosts: ec2
+  vars_files:
+    - ../../secrets.yaml
+  environment:
+    AWS_ACCESS_KEY: "{{ aws_access_key }}"
+    AWS_SECRET_KEY: "{{ aws_secret_key }}"
+  tasks:
+    - ec2_metadata_facts:
+    - name: Stop the instance
+      delegate_to: localhost
+      ec2:
+        instance_ids: "{{ ansible_ec2_instance_id }}"
+        region: "{{ ansible_ec2_placement_region }}"
+        state: stopped
+    - name: Remove instance from hosts file
+      delegate_to: localhost
+      lineinfile:
+        path: ../hosts
+        regexp: "{{ inventory_hostname }}"
+        state: absent

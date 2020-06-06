@@ -1,24 +1,23 @@
-#!/usr/bin/env ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook
-# vim: set ft=yaml.ansible:
-# usage: ./scripts/stop-ec2-instance -e h=18.222.99.139,18.222.99.138
----
-- hosts: "{{ h }}"
-  vars_files:
-    - ../secrets.yaml
-  environment:
-    AWS_ACCESS_KEY: "{{ aws_access_key }}"
-    AWS_SECRET_KEY: "{{ aws_secret_key }}"
-  tasks:
-    - ec2_metadata_facts:
-    - name: Stop the instance
-      delegate_to: localhost
-      ec2:
-        instance_ids: "{{ ansible_ec2_instance_id }}"
-        region: "{{ ansible_ec2_placement_region }}"
-        state: stopped
-    - name: Remove instance from hosts file
-      delegate_to: localhost
-      lineinfile:
-        path: ../hosts
-        regexp: "{{ inventory_hostname }}"
-        state: absent
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <hosts>"
+  exit 1
+fi
+
+set -eo pipefail
+OLD_DIR="$(pwd)"
+cd "$(dirname "$0")/.." || exit 1
+source ./scripts/src/common.sh
+
+HOSTS="$1"
+if [ "$(num_hosts "$HOSTS")" -eq "0" ]; then
+  echo "No hosts in inventory matched \"$HOSTS\""
+  cd "$OLD_DIR"
+  exit 1
+fi
+
+./scripts/initssh "$HOSTS"
+ansible-playbook ./scripts/playbooks/stop-ec2-instance.yaml -l "$HOSTS"
+
+cd "$OLD_DIR" || exit 1

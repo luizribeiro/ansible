@@ -14,6 +14,11 @@ list_hosts() {
   echo "${hosts[@]}"
 }
 
+num_hosts() {
+  local hosts=($(list_hosts "$1"))
+  echo "${#hosts}"
+}
+
 get_user() {
   local host="$1"
   ansible-inventory --list \
