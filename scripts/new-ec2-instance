@@ -10,6 +10,10 @@ source ./scripts/src/common.sh
 export ANSIBLE_HOST_KEY_CHECKING=False
 
 ansible-playbook ./scripts/playbooks/create-ec2-instance.yaml "$@"
+
+echo "All instances have been created successfully!"
+read -n 1 -r -s -p $'Press enter to continue...\n'
+
 ANSIBLE_INVENTORY=.launched_hosts ./scripts/initssh launched
 ansible-playbook -i .launched_hosts ./scripts/playbooks/finish-ec2-instance.yaml
 rm .launched_hosts
