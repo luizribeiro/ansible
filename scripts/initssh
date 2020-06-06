@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <hosts>"
+    exit 1
+fi
+
+source ./scripts/src/common.sh
+
+hosts=($(list_hosts "$1"))
+for host in "${hosts[@]}"; do
+  user=$(get_user "$host")
+  echo "Connecting to $host..."
+  ssh "$user@$host" echo -n
+done
