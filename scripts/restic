@@ -24,5 +24,3 @@ for arg in "${@:2}"; do
 done
 
 restic $RESTIC_ARGS
-
-cd "$OLD_DIR" || exit 1

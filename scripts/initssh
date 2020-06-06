@@ -17,5 +17,3 @@ for host in "${hosts[@]}"; do
   echo "Connecting to $host..."
   ssh "$user@$host" echo -n
 done
-
-cd "$OLD_DIR" || exit 1

@@ -13,11 +13,8 @@ source ./scripts/src/common.sh
 HOSTS="$1"
 if [ "$(num_hosts "$HOSTS")" -eq "0" ]; then
   echo "No hosts in inventory matched \"$HOSTS\""
-  cd "$OLD_DIR"
   exit 1
 fi
 
 ./scripts/initssh "$HOSTS"
 ansible-playbook ./scripts/playbooks/stop-ec2-instance.yaml -l "$HOSTS"
-
-cd "$OLD_DIR" || exit 1

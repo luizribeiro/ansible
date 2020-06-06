@@ -17,5 +17,3 @@ read -n 1 -r -s -p $'Press enter to continue...\n'
 ANSIBLE_INVENTORY=.launched_hosts ./scripts/initssh launched
 ansible-playbook -i .launched_hosts ./scripts/playbooks/finish-ec2-instance.yaml
 rm .launched_hosts
-
-cd "$OLD_DIR" || exit 1
