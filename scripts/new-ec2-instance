@@ -57,17 +57,21 @@
       reboot:
     - name: Wait for host to become reachable again
       wait_for_connection:
-    - name: Setup locale.gen
-      command: mv /etc/locale.gen.pacnew /etc/locale.gen
+    - name: Remove locale.gen from the EC2 AMI
+      file:
+        path: /etc/locale.gen
+        state: absent
+    - name: Reinstall glibc so locale.gen contents are from Arch Linux
+      command: pacman -S --noconfirm glibc
       args:
-        removes: /etc/locale.gen.pacnew
+        creates: /etc/locale.gen
 
 - import_playbook: ../ec2.yaml
   vars:
     custom_hosts: launched
     custom_remote_user: arch
+    custom_ssh_require_2fac: false
 
-# TODO: find a way to make this part work with 2fac authentication
 - hosts: launched
   remote_user: luiz
   become: true
@@ -97,3 +101,8 @@
       shell: yes | yay -Sccc --aur
       become: true
       become_user: aur_builder
+
+- import_playbook: ../ec2.yaml
+  vars:
+    custom_hosts: launched
+    custom_ssh_require_2fac: true

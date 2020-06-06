@@ -1,5 +1,4 @@
 ---
-# FIXME: make this work for AWS EC2
 - name: "Ensure locale en_US.UTF-8 is enabled"
   locale_gen:
     name: "en_US.UTF-8"

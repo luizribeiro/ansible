@@ -1,8 +1,8 @@
 #!/usr/bin/env ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook
 # vim: set ft=yaml.ansible:
-# usage: ./scripts/kill-ec2-instance -e hosts=18.222.99.139,18.222.99.138
+# usage: ./scripts/kill-ec2-instance -e h=18.222.99.139,18.222.99.138
 ---
-- hosts: "{{ hosts }}"
+- hosts: "{{ h }}"
   vars_files:
     - ../secrets.yaml
   environment:

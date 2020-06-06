@@ -10,7 +10,7 @@
   roles:
     - role: server
       vars:
-        ssh_require_2fac: true
+        ssh_require_2fac: "{{ custom_ssh_require_2fac | default(true) }}"
       tags: server
     - role: luizribeiro
       vars:
