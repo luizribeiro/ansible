@@ -5,6 +5,10 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
+set -eo pipefail
+OLD_DIR="$(pwd)"
+cd "$(dirname "$0")/.." || exit 1
+
 source ./scripts/src/common.sh
 
 hosts=($(list_hosts "$1"))
@@ -13,3 +17,5 @@ for host in "${hosts[@]}"; do
   echo "Connecting to $host..."
   ssh "$user@$host" echo -n
 done
+
+cd "$OLD_DIR" || exit 1
