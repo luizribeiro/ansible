@@ -17,6 +17,6 @@
     - name: Remove instance from hosts file
       delegate_to: localhost
       lineinfile:
-        path: ../hosts
+        path: ../../hosts
         regexp: "{{ inventory_hostname }}"
         state: absent
