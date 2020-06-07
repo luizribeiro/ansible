@@ -2,7 +2,6 @@
 nuc ansible_host=nuc.thepromisedlan.club
 
 [ec2]
-ec2-3-17-190-11.us-east-2.compute.amazonaws.com
 
 [openwrt]
 router ansible_host=router.thepromisedlan ansible_user=root
