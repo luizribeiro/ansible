@@ -4,7 +4,7 @@
   become_user: aur_builder
   aur:
     name: pi-hole-server
-    skip_installed: true
+    state: present
   tags: packages
 - name: Setup pihole configuration
   copy:

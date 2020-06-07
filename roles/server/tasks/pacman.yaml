@@ -20,14 +20,14 @@
   aur:
     name: yay
     use: makepkg
-    skip_installed: true
+    state: present
   become: true
   become_user: aur_builder
   tags: packages
 - name: "Install checkupdates+aur"
   aur:
     name: checkupdates+aur
-    skip_installed: true
+    state: present
   become: true
   become_user: aur_builder
   tags: packages

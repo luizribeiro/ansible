@@ -13,7 +13,7 @@
   become_user: aur_builder
   aur:
     name: telegraf
-    skip_installed: true
+    state: present
   tags: packages
 - name: Setup influxdb config
   copy:

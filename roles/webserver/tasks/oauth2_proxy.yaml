@@ -4,7 +4,7 @@
   become_user: aur_builder
   aur:
     name: oauth2_proxy
-    skip_installed: true
+    state: present
   tags: packages
 - name: Setup oauth2_proxy.cfg
   template:
