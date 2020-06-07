@@ -1,10 +1,10 @@
 [home]
-nuc.thepromisedlan.club
+nuc ansible_host=nuc.thepromisedlan.club
 
 [ec2]
 
 [openwrt]
-router.thepromisedlan ansible_user=root
+router ansible_host=router.thepromisedlan ansible_user=root
 
 [osx]
 grissom
