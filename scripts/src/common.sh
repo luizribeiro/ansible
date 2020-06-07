@@ -2,9 +2,9 @@ ANSIBLE_INVENTORY=$(ansible-inventory --list)
 
 list_hosts() {
   local group="$1"
-  local hosts=($(jq -r ".$group.hosts // [] | .[]" <<< $ANSIBLE_INVENTORY))
+  local hosts=($(echo "$ANSIBLE_INVENTORY" | jq -r ".$group.hosts // [] | .[]"))
   local children=($(
-    jq -r ".$group.children // [] | .[]" <<< $ANSIBLE_INVENTORY
+    echo "$ANSIBLE_INVENTORY" | jq -r ".$group.children // [] | .[]"
   ))
   for child in "${children[@]}"; do
     local children_hosts=($(list_hosts "$child"))
@@ -21,6 +21,6 @@ num_hosts() {
 
 get_user() {
   local host="$1"
-  ansible-inventory --list \
+  echo "$ANSIBLE_INVENTORY" \
     | jq -r "._meta.hostvars[\"$host\"].ansible_user // \"$USER\""
 }
