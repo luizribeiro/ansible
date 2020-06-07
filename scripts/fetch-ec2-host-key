@@ -1,0 +1,16 @@
+#!/bin/bash
+INSTANCE_ID="$1"
+HOST_KEY=""
+
+while [[ "$HOST_KEY" -eq "" ]]; do
+  sleep 5s
+  HOST_KEY=$(
+    aws ec2 get-console-output \
+      --instance-id "$INSTANCE_ID" \
+      --output text \
+      --latest \
+    | sed -n 's/\(ecdsa-sha2-nistp256 [^ ]*\).*/\1/p'
+  )
+done
+
+echo "$HOST_KEY"

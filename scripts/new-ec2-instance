@@ -6,9 +6,6 @@ OLD_DIR="$(pwd)"
 cd "$(dirname "$0")/.." || exit 1
 source ./scripts/src/common.sh
 
-# TODO: figure out a way to fetch ssh host fingerprint to known_hosts
-export ANSIBLE_HOST_KEY_CHECKING=False
-
 ansible-playbook ./scripts/playbooks/create-ec2-instance.yaml "$@"
 
 echo "All instances have been created successfully!"

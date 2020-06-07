@@ -1,0 +1,12 @@
+---
+- name: Get host fingerprints
+  local_action:
+    module: command
+    cmd: ../fetch-ec2-host-key {{ item.id }}
+  register: host_key
+- name: Add host fingerprint to known hosts
+  local_action:
+    module: known_hosts
+    key: "{{ item.public_dns_name }} {{ host_key.stdout }}"
+    name: "{{ item.public_dns_name }}"
+    state: present

@@ -31,7 +31,6 @@ $ ./grissom.yaml
 
 ## TODOs
 
-* TODO: fix EC2 instantiation
 * TODO: allow for collectd package on OSX to be built with MQTT support
 * TODO: find a way to validate nginx conf.d files
 * TODO: find a way to validate monit conf.d files
