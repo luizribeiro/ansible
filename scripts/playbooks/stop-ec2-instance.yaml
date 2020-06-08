@@ -20,3 +20,8 @@
         path: ../../hosts
         regexp: "{{ inventory_hostname }}"
         state: absent
+    - name: Remove host fingerprint
+      local_action:
+        module: known_hosts
+        name: "{{ ansible_ec2_public_hostname }}"
+        state: absent
