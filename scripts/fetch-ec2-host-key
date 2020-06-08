@@ -9,7 +9,7 @@ while [[ "$HOST_KEY" -eq "" ]]; do
       --instance-id "$INSTANCE_ID" \
       --output text \
       --latest \
-    | sed -n 's/\(ecdsa-sha2-nistp256 [^ ]*\).*/\1/p'
+    | sed -n 's/\(ssh-rsa AAAA[0-9A-Za-z+/=]*\)/\1/p'
   )
 done
 
