@@ -21,7 +21,7 @@ list_hosts() {
   ))
   local hosts=($(_list_hosts_impl "$1"))
 
-  if [[ "${all_hosts[@]}" =~ "${group}" ]]; then
+  if [[ " ${all_hosts[@]} " =~ " ${group} " ]]; then
     # group is actually a host, so add it to the list of hosts
     hosts=("${hosts[@]}" "$group")
   fi
