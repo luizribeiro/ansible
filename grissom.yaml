@@ -40,6 +40,7 @@
         osx_additional_casks:
           - discord
           - google-chrome
+          - itch
           - mailspring
           - steam
           - stellarium
