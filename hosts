@@ -1,5 +1,5 @@
 [home]
-nuc ansible_host=nuc.thepromisedlan.club
+nuc.thepromisedlan.club
 
 [ec2]
 
