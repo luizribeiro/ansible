@@ -34,3 +34,12 @@ $ ./grissom.yaml
 * TODO: allow for collectd package on OSX to be built with MQTT support
 * TODO: find a way to validate nginx conf.d files
 * TODO: find a way to validate monit conf.d files
+
+* From new MacBook Setup:
+  * Setup dark/light mode based on setting
+  * Automatically setup default browser
+  * Setup Alfred license key
+  * Setup Alfred preferences directory
+  * Setup Alfred hotkey
+  * Maybe setup gpg first thing somehow?
+  * Setup Karabiner or something that makes caps work as ctrl/escape
