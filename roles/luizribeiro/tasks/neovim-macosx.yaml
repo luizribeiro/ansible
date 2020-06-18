@@ -10,4 +10,5 @@
     name:
       - pynvim
     state: present
+    executable: pip3.8
   tags: packages
