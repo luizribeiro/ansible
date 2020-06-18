@@ -81,6 +81,11 @@ config host
 config host
 	option name 'fb-macbook-pro'
 	option dns '1'
+	option mac '3C:22:FB:4B:AF:4B'
+
+config host
+	option name 'fb-macbook-pro-old'
+	option dns '1'
 	option mac 'F4:5C:89:B2:54:81'
 
 config host
