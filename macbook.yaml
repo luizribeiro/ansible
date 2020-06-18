@@ -31,7 +31,6 @@
     - role: osx
       vars:
         osx_additional_casks:
-          - limechat
           - quip
           - slack
       tags: osx
