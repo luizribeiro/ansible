@@ -29,11 +29,17 @@
       with_items:
         - osx-cross/arm
         - osx-cross/avr
+    - name: Make /usr/local/bin owned by myself
+      file:
+        path: /usr/local/bin
+        state: directory
+        owner: "{{ ansible_user }}"
+      become: true
     - name: Install avr/arm compilers for qmk_firmware
       homebrew:
         name:
-          - arm-gcc-bin@8
-          - avr-gcc@8
+          - arm-gcc-bin
+          - avr-gcc
         state: installed
     - name: Link arm-gcc for qmk_firmware
       command: brew link --force arm-gcc-bin@
