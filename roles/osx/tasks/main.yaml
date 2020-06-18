@@ -15,6 +15,7 @@
     state: present
   with_items:
     - alfred
+    - authy
     - dropbox
     - gpg-suite
     - istat-menus
