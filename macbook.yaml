@@ -9,6 +9,7 @@
         that:
           - ansible_distribution == 'MacOSX'
           - ansible_user == 'luizribeiro'
+          - ansible_model is match("MacBook.*")
         quiet: true
     - name: Refresh sudo cache
       command: "echo none"
