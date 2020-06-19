@@ -1,0 +1,5 @@
+---
+- name: Install Karabiner-Elements
+  homebrew_cask:
+    name: karabiner-elements
+    state: present

@@ -60,6 +60,8 @@
     and (osx_additional_mas_apps | length) > 0
   register: mas_install
   changed_when: "'is already installed' not in mas_install.stdout"
+- include: macbook.yaml
+  when: ansible_model is match("MacBook.*")
 - include: yabai.yaml
 - include: brew-update-notifier.yaml
 - include: clipboard-daemon.yaml
