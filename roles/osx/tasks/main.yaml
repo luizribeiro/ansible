@@ -21,6 +21,7 @@
     - intel-power-gadget
     - istat-menus
     - iterm2
+    - lastpass
     - monitorcontrol
     - spotify
   tags: packages
