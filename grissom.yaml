@@ -10,6 +10,7 @@
       assert:
         that:
           - ansible_distribution == 'MacOSX'
+          - ansible_model is match("iMac.*")
           - ansible_hostname == 'grissom'
           - ansible_user == 'luiz'
         quiet: true
