@@ -35,4 +35,6 @@
           - gswitch
           - quip
           - slack
+        osx_additional_mas_apps:
+          - { id: 414030210, name: "LimeChat" }
       tags: osx
