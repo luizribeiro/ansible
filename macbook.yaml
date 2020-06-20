@@ -32,6 +32,7 @@
     - role: osx
       vars:
         osx_additional_casks:
+          - gswitch
           - quip
           - slack
       tags: osx
