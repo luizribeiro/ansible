@@ -37,4 +37,5 @@
           - slack
         osx_additional_mas_apps:
           - { id: 414030210, name: "LimeChat" }
+          - { id: 937984704, name: "Amphetamine" }
       tags: osx
