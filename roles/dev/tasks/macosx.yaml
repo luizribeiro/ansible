@@ -6,6 +6,7 @@
       - ansible-lint
       - molecule
       - prettier
+      - rsync
       - yamllint
     state: present
   when: dev_ansible_tools
