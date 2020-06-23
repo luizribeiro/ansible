@@ -5,3 +5,7 @@
   notify: restart Dock.app
 - name: restart Dock.app
   command: killall Dock
+- name: restart local.clipboard-daemon
+  launchd:
+    name: local.clipboard-daemon
+    state: restarted
