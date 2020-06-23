@@ -4,8 +4,9 @@
     name: karabiner-elements
     state: present
 - name: Detect Touch ID support
-  shell: pgrep ControlStrip
+  command: pgrep ControlStrip
   ignore_errors: true
+  changed_when: false
   register: touch_id_result
 - name: Enable Touch ID for sudo commands
   lineinfile:
@@ -13,4 +14,4 @@
     line: "auth       sufficient     pam_tid.so"
     insertbefore: "^auth       sufficient     pam_smartcard.so$"
   become: true
-  when: touch_id_result.rc == 0 and touch_id_result.stdout != ''
+  when: touch_id_result.rc == 0 and touch_id_result.stdout
