@@ -16,6 +16,12 @@
     create: true
     validate: "visudo -cf %s"
   tags: configuration
+- name: Enable colors in pacman
+  lineinfile:
+    dest: /etc/pacman.conf
+    regexp: "Color"
+    line: "Color"
+  tags: configuration
 - name: "Install yay"
   aur:
     name: yay
