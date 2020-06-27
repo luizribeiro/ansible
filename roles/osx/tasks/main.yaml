@@ -16,6 +16,7 @@
   with_items:
     - alfred
     - authy
+    - dash
     - dropbox
     - gpg-suite
     - intel-power-gadget
