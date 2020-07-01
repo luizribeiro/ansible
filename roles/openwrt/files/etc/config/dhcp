@@ -103,6 +103,11 @@ config host
 	option dns '1'
 	option mac 'F8:4E:73:68:C5:F3'
 
+config host
+  option name 'fb-lighthouse'
+	option dns '1'
+	option mac '20:4C:03:AB:E2:BA'
+
 
 ######################################################
 # Hosts for LAN mobile devices
