@@ -23,6 +23,13 @@ config interface 'wan6'
 	option peerdns '0'
 	option dns '2001:4860:4860::8888 2001:4860:4860::8844'
 
+config interface 'lte'
+	option ifname 'eth2'
+	option proto 'dhcp'
+	option broadcast '1'
+	option peerdns '0'
+	option dns '8.8.8.8 8.8.4.4'
+
 config interface 'lan'
 	option type 'bridge'
 	option proto 'static'

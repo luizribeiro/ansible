@@ -1,0 +1,15 @@
+---
+- name: Install packages for USB Tethering
+  opkg:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - kmod-nls-base
+    - kmod-usb-core
+    - kmod-usb-net
+    - kmod-usb-net-cdc-ether
+    - kmod-usb-net-rndis
+    - kmod-usb-ohci
+    - kmod-usb-uhci
+    - kmod-usb2
+    - usb-modeswitch

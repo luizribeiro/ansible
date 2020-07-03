@@ -7,3 +7,5 @@
   tags: packages
 - include: services.yaml
   tags: systemctl
+
+- include: wan-backup.yaml

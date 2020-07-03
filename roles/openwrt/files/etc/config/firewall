@@ -20,7 +20,7 @@ config zone
 	option forward 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
-	option network 'wan wan6'
+	option network 'wan wan6 lte'
 
 config rule
 	option name 'Allow-DHCP-Renew'
