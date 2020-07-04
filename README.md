@@ -43,3 +43,9 @@ $ ./grissom.yaml
   * Setup Alfred hotkey
   * Maybe setup gpg first thing somehow?
   * Setup Karabiner or something that makes caps work as ctrl/escape
+
+### LTE WAN Backup
+
+* https://openwrt.org/docs/guide-user/network/wan/smartphone.usb.tethering
+* https://openwrt.org/docs/guide-user/network/wan/multiwan/mwan3
+* https://doc.turris.cz/doc/en/howto/multiwan
