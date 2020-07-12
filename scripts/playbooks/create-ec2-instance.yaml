@@ -16,7 +16,7 @@
         # from https://www.uplinklabs.net/projects/arch-linux-on-ec2/
         # ebs hvm x86_64 stable us-east-2
         image: ami-0732f750b255470d2
-        instance_type: "{{ instance_type | default('t3.nano') }}"
+        instance_type: "{{ instance_type | default('t3.micro') }}"
         region: "{{ aws_region }}"
         key_name: GPG
         count: "{{ count | default(1) }}"
