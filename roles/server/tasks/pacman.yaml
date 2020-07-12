@@ -22,9 +22,9 @@
     regexp: "Color"
     line: "Color"
   tags: configuration
-- name: "Install yay"
+- name: "Install pikaur"
   aur:
-    name: yay
+    name: pikaur
     use: makepkg
     state: present
   become: true

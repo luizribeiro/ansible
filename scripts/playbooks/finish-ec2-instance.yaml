@@ -22,9 +22,7 @@
       file:
         path: /etc/sudoers.d/90-cloud-init-users
         state: absent
-    - name: Clean up pacman cache
-      shell: yes | pacman -Sccc
-    - name: Clean up yay cache
-      shell: yes | yay -Sccc --aur
+    - name: Clean up pikaur cache
+      shell: yes | pikaur -Sccc
       become: true
       become_user: aur_builder
