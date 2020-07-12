@@ -6,12 +6,6 @@ OLD_DIR="$(pwd)"
 cd "$(dirname "$0")/.." || exit 1
 source ./scripts/src/common.sh
 
-# Fallback to ansible's default linear strategy, since mitogen doesn't
-# support SSH retries. See https://github.com/dw/mitogen/issues/671
-export ANSIBLE_SSH_RETRIES=5
-export ANSIBLE_TIMEOUT=60
-export ANSIBLE_STRATEGY=linear
-
 ansible-playbook ./scripts/playbooks/create-ec2-instance.yaml "$@"
 
 echo "All instances have been created successfully!"
