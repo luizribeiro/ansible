@@ -72,6 +72,7 @@
           - /Users/Shared/Epic Games
           - /Users/Shared/GOG.com
           - /Users/luiz/Music
+          - /Users/*/VirtualBox VMs
           # these are backed up to Dropbox
           - /Users/**/Dropbox
           # these are backed up to Adobe Creative Cloud
