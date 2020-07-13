@@ -31,9 +31,15 @@ $ ./grissom.yaml
 
 ## TODOs
 
-* TODO: allow for collectd package on OSX to be built with MQTT support
-* TODO: find a way to validate nginx conf.d files
-* TODO: find a way to validate monit conf.d files
+* Refactor
+  * Break down server role
+  * Move monit into its own role
+
+* Automation
+  * Setup healthchecks.io and monit automatically with API
+
+* OSX:
+  * Allow for collectd package on OSX to be built with MQTT support
 
 * From new MacBook Setup:
   * Setup dark/light mode based on setting
@@ -43,3 +49,10 @@ $ ./grissom.yaml
   * Setup Alfred hotkey
   * Maybe setup gpg first thing somehow?
   * Setup Karabiner or something that makes caps work as ctrl/escape
+
+* Validation:
+  * Find a way to validate nginx conf.d files
+  * Find a way to validate monit conf.d files
+
+* Testing
+  * Add tests for roles and playbooks with molecule and vagrant
