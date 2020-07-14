@@ -5,6 +5,9 @@ dist: bionic
 language: python
 python: "3.7"
 
+env:
+  - VAGRANT_DEFAULT_PROVIDER=libvirt
+
 cache:
   directories:
     - /home/travis/.vagrant.d/boxes
@@ -23,11 +26,11 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  # install libvirt
+  # install libvrt & KVM
   - >-
     sudo apt-get update &&
-    sudo apt-get -y install libvirt-dev qemu-kvm libvirt-bin
-    ubuntu-vm-builder bridge-utils
+    sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin
+    libvirt-dev qemu-kvm qemu-utils ruby-dev
 
   # install vagrant
   - >-
