@@ -4,6 +4,7 @@
 
 ```
 $ git submodule update --init
+$ ansible-galaxy -r requirements.yml
 $ ansible-playbook site.yaml
 ```
 
