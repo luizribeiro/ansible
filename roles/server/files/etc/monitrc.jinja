@@ -308,11 +308,13 @@ Your faithful employee,
 Monit
 }
 
+{% if secret_mailgun_password is defined %}
 set mailserver smtp.mailgun.org port 587
   username postmaster@mg.thepromisedlan.club password "{{ secret_mailgun_password }}"
   using TLSV1 with timeout 30 seconds
 
 set alert luizribeiro@gmail.com
+{% endif %}
 
 check system {{ inventory_hostname_short }}
   if loadavg (5min) > 2.0 then alert
