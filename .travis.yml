@@ -3,7 +3,7 @@ sudo: required
 dist: bionic
 
 language: python
-python: "3.6"
+python: "3.7"
 
 cache:
   directories:
@@ -23,27 +23,40 @@ before_install:
   - sudo apt-get update -qq
 
 install:
+  # install libvirt
   - >-
     sudo apt-get update &&
     sudo apt-get -y install libvirt-dev qemu-kvm libvirt-bin
     ubuntu-vm-builder bridge-utils
+
+  # install vagrant
   - >-
     wget -nv
     https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
   - sudo dpkg -i vagrant_2.2.9_x86_64.deb
-  - vagrant plugin install vagrant-libvirt
-  - pip install ansible
-  - pip install ansible-lint yamllint
+  - sudo vagrant plugin install vagrant-libvirt
+
+  # install Python 3 for usage together with sudo
+  - sudo apt-get install python3.7
+  - curl -skL https://bootstrap.pypa.io/get-pip.py | sudo -H python3.7
+
+  # install ansible
+  - sudo pip3 install ansible
+
+  # install lint tools
+  - sudo pip3 install ansible-lint yamllint
+
+  # install molecule
   - sudo pip3 install molecule molecule-vagrant
 
 script:
   # run lint against all playbooks
-  - ansible-lint site.yaml
-  - ansible-lint macbook.yaml
-  - ansible-lint grissom.yaml
-  - ansible-lint openwrt.yaml
-  - ansible-lint ec2.yaml
-  - yamllint .
+  - sudo ansible-lint site.yaml
+  - sudo ansible-lint macbook.yaml
+  - sudo ansible-lint grissom.yaml
+  - sudo ansible-lint openwrt.yaml
+  - sudo ansible-lint ec2.yaml
+  - sudo yamllint .
 
   # test server role
   - cd roles/server/
