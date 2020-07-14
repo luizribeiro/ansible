@@ -47,7 +47,7 @@ install:
   - sudo pip3 install ansible-lint yamllint
 
   # install molecule
-  - sudo pip3 install molecule molecule-vagrant
+  - sudo pip3 install --ignore-installed molecule molecule-vagrant
 
 script:
   # run lint against all playbooks
