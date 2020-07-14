@@ -57,3 +57,7 @@ $ ./grissom.yaml
 
 * Testing
   * Add tests for roles and playbooks with molecule and vagrant
+
+* Fun stuff
+  * Setup port knocking
+  * Honeypots?
