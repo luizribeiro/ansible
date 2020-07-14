@@ -53,6 +53,9 @@ install:
   - sudo pip3 install --ignore-installed molecule molecule-vagrant
 
 script:
+  # install dependencies
+  - sudo ansible-galaxy install -r requirements.yml
+
   # run lint against all playbooks
   - sudo ansible-lint site.yaml
   - sudo ansible-lint macbook.yaml
@@ -60,9 +63,6 @@ script:
   - sudo ansible-lint openwrt.yaml
   - sudo ansible-lint ec2.yaml
   - sudo yamllint .
-
-  # install dependencies
-  - sudo ansible-galaxy install -r requirements.ym
 
   # test server role
   - cd roles/server/
