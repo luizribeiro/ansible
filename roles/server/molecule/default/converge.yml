@@ -3,10 +3,6 @@
   hosts: all
   become: true
   tasks:
-    - name: "Update pacman cache"
-      pacman:
-        update_cache: true
-      become: true
     - name: "Include server"
       include_role:
         name: "server"
