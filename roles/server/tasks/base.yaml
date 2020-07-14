@@ -7,3 +7,8 @@
   systemd:
     name: systemd-networkd-wait-online
     enabled: true
+- name: "base-devel should be installed"
+  pacman:
+    name: base-devel
+    state: present
+  tags: packages
