@@ -43,4 +43,4 @@ script:
 
   # test server role
   - cd roles/server/
-  - molecule test
+  - sudo molecule test
