@@ -20,6 +20,10 @@ before_install:
 
 install:
   - >-
+    sudo apt-get update &&
+    sudo apt-get -y install libvirt-dev qemu-kvm libvirt-bin
+    ubuntu-vm-builder bridge-utils
+  - >-
     wget -nv
     https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
   - sudo dpkg -i vagrant_2.2.9_x86_64.deb
