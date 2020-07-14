@@ -22,11 +22,18 @@ install:
   - pip install ansible
   - pip install ansible-lint
   - pip install yamllint
+  - pip install molecule
+  - pip install molecule-vagrant
 
 script:
+  # run lint against all playbooks
   - ansible-lint site.yaml
   - ansible-lint macbook.yaml
   - ansible-lint grissom.yaml
   - ansible-lint openwrt.yaml
   - ansible-lint ec2.yaml
   - yamllint .
+
+  # test server role
+  - cd roles/server/
+  - molecule test
