@@ -34,7 +34,7 @@ install:
   - vagrant plugin install vagrant-libvirt
   - pip install ansible
   - pip install ansible-lint yamllint
-  - sudo pip install molecule molecule-vagrant
+  - sudo pip3 install molecule molecule-vagrant
 
 script:
   # run lint against all playbooks
