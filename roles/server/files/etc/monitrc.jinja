@@ -296,7 +296,7 @@ set httpd port 2812 and
 #
 set mail-format {
   from: Monit <monit@thepromisedlan.club>
-  subject: Alert: $EVENT ($SERVICE @ $HOST)
+  subject: [$HOST] $SERVICE: $EVENT
   message: Event: $EVENT
 Service: $SERVICE
 Date: $DATE
