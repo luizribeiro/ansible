@@ -5,6 +5,10 @@ dist: bionic
 language: python
 python: "3.6"
 
+cache:
+  directories:
+    - /home/travis/.vagrant.d/boxes
+
 branches:
   only:
     - master
@@ -30,7 +34,7 @@ install:
   - vagrant plugin install vagrant-libvirt
   - pip install ansible
   - pip install ansible-lint yamllint
-  - pip install molecule molecule-vagrant
+  - sudo pip install molecule molecule-vagrant
 
 script:
   # run lint against all playbooks
