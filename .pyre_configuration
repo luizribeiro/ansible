@@ -1,0 +1,12 @@
+{
+  "source_directories": [
+    "."
+  ],
+  "search_path": [
+    ".venv/lib/python3.8/site-packages/"
+  ],
+  "ignore_all_errors": [
+    "roles/home-assistant/files/var/lib/hass/dependencies/spotcast/",
+    ".venv/"
+  ]
+}

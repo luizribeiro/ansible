@@ -1,3 +1,6 @@
+[requires]
+python_version = '3.8'
+
 [packages]
 ansible = "*"
 
@@ -5,6 +8,7 @@ ansible = "*"
 ansible-lint = "*"
 molecule = "*"
 molecule-vagrant = "*"
+pyre-check = "*"
 pytest = "*"
 testinfra = "*"
 yamllint = "*"

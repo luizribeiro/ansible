@@ -3,9 +3,10 @@ sudo: required
 dist: bionic
 
 language: python
-python: "3.7"
+python: "3.8"
 
 env:
+  - PIPENV_VENV_IN_PROJECT=1
   - VAGRANT_DEFAULT_PROVIDER=libvirt
 
 cache:
@@ -58,6 +59,9 @@ script:
   - sudo -H ansible-lint openwrt.yaml
   - sudo -H ansible-lint ec2.yaml
   - sudo -H yamllint .
+
+  # run python checks
+  - sudo -H pyre
 
   # test server role
   - cd roles/server/
