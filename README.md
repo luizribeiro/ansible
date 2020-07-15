@@ -4,6 +4,8 @@
 
 ```
 $ git submodule update --init
+$ pipenv install -d
+$ pipenv shell
 $ ansible-galaxy -r requirements.yml
 $ ansible-playbook site.yaml
 ```

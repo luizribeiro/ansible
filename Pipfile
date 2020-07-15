@@ -1,0 +1,10 @@
+[packages]
+ansible = "*"
+
+[dev-packages]
+ansible-lint = "*"
+molecule = "*"
+molecule-vagrant = "*"
+pytest = "*"
+testinfra = "*"
+yamllint = "*"

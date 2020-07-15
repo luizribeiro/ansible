@@ -5,6 +5,7 @@
       - ansible
       - ansible-lint
       - molecule
+      - pipenv
       - prettier
       - rsync
       - yamllint
@@ -84,6 +85,7 @@
   homebrew:
     name:
       - black
+      - pipenv
     state: present
   when: dev_python_tools
   tags: packages

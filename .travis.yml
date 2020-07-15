@@ -42,15 +42,10 @@ install:
   # install Python 3 for usage together with sudo
   - sudo apt-get install python3.7
   - curl -skL https://bootstrap.pypa.io/get-pip.py | sudo -H python3.7
+  - sudo -H pip3 install pipenv
 
-  # install ansible
-  - sudo -H pip3 install ansible
-
-  # install lint tools
-  - sudo -H pip3 install ansible-lint yamllint
-
-  # install molecule
-  - sudo -H pip3 install --ignore-installed molecule molecule-vagrant
+  # install all dependencies
+  - sudo -H pipenv install -d
 
 script:
   # install dependencies
