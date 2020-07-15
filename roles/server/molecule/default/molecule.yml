@@ -9,4 +9,9 @@ platforms:
 provisioner:
   name: ansible
 verifier:
-  name: ansible
+  name: testinfra
+  lint:
+    name: flake8
+  options:
+    # show which tests where executed in test output
+    v: 1
