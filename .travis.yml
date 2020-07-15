@@ -49,16 +49,16 @@ install:
 
 script:
   # install dependencies
-  - sudo ansible-galaxy install -r requirements.yml
+  - sudo -H ansible-galaxy install -r requirements.yml
 
   # run lint against all playbooks
-  - sudo ansible-lint site.yaml
-  - sudo ansible-lint macbook.yaml
-  - sudo ansible-lint grissom.yaml
-  - sudo ansible-lint openwrt.yaml
-  - sudo ansible-lint ec2.yaml
-  - sudo yamllint .
+  - sudo -H ansible-lint site.yaml
+  - sudo -H ansible-lint macbook.yaml
+  - sudo -H ansible-lint grissom.yaml
+  - sudo -H ansible-lint openwrt.yaml
+  - sudo -H ansible-lint ec2.yaml
+  - sudo -H yamllint .
 
   # test server role
   - cd roles/server/
-  - sudo molecule test
+  - sudo -H molecule test
