@@ -1,4 +1,17 @@
 ---
+- name: Check if watchman is installed
+  shell: command -v watchman >/dev/null 2>&1
+  register: is_watchman_installed
+  ignore_errors: true
+  changed_when: false
+  tags: packages
+- name: Install watchman
+  homebrew:
+    name:
+      - watchman
+  when: not is_watchman_installed
+  tags: packages
+
 - name: Install tools for ansible
   homebrew:
     name:
