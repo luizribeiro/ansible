@@ -6,3 +6,8 @@
     - name: "Include server"
       include_role:
         name: "server"
+    - name: "Add vagrant user to sshusers"
+      user:
+        name: vagrant
+        groups: sshusers
+        append: true
