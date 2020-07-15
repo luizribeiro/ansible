@@ -6,8 +6,9 @@ language: python
 python: "3.8"
 
 env:
-  - PIPENV_VENV_IN_PROJECT=1
-  - VAGRANT_DEFAULT_PROVIDER=libvirt
+  - >-
+    PIPENV_VENV_IN_PROJECT=1
+    VAGRANT_DEFAULT_PROVIDER=libvirt
 
 cache:
   directories:
