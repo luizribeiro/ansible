@@ -12,3 +12,4 @@ ignore: |
   spotcast
   secrets.yaml
   library
+  .venv

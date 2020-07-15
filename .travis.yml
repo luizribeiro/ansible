@@ -34,37 +34,32 @@ install:
     sudo apt-get update &&
     sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin
     libvirt-dev qemu-kvm qemu-utils ruby-dev
+  - sudo chmod -R a+rwx /var/run/libvirt
 
   # install vagrant
   - >-
     wget -nv
     https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
   - sudo dpkg -i vagrant_2.2.9_x86_64.deb
-  - sudo vagrant plugin install vagrant-libvirt
+  - vagrant plugin install vagrant-libvirt
 
-  # install Python 3 for usage together with sudo
-  - sudo apt-get install python3.7
-  - curl -skL https://bootstrap.pypa.io/get-pip.py | sudo -H python3.7
-  - sudo -H pip3 install pipenv
-
-  # install all dependencies
-  - sudo -H pipenv install -d
+  # setup project dependencies
+  - pip install pipenv
+  - pipenv install -d
+  - pipenv run ansible-galaxy install -r requirements.yml
 
 script:
-  # install dependencies
-  - sudo -H ansible-galaxy install -r requirements.yml
-
   # run lint against all playbooks
-  - sudo -H ansible-lint site.yaml
-  - sudo -H ansible-lint macbook.yaml
-  - sudo -H ansible-lint grissom.yaml
-  - sudo -H ansible-lint openwrt.yaml
-  - sudo -H ansible-lint ec2.yaml
-  - sudo -H yamllint .
+  - pipenv run ansible-lint site.yaml
+  - pipenv run ansible-lint macbook.yaml
+  - pipenv run ansible-lint grissom.yaml
+  - pipenv run ansible-lint openwrt.yaml
+  - pipenv run ansible-lint ec2.yaml
+  - pipenv run yamllint .
 
   # run python checks
-  - sudo -H pyre
+  - pipenv run pyre --noninteractive
 
   # test server role
   - cd roles/server/
-  - sudo -H molecule test
+  - pipenv run molecule test
