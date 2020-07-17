@@ -19,6 +19,12 @@ def test_monit_is_running_and_enabled(host: Host) -> None:
 
 def test_monit_config(host: Host) -> None:
     with host.sudo():
+        monitrc = host.file("/etc/monitrc")
+        assert monitrc.is_file
+        assert monitrc.user == "root"
+        assert monitrc.group == "root"
+        assert oct(monitrc.mode) == "0o700"
+
         output = host.run("monit -t -c /etc/monitrc")
         assert output.rc == 0
 
