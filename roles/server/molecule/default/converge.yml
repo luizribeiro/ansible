@@ -11,3 +11,9 @@
         name: vagrant
         groups: sshusers
         append: true
+    - name: "Disable ssh rate limiting for VM host"
+      ufw:
+        rule: allow
+        insert: 1
+        src: 192.168.121.1
+        port: 22
