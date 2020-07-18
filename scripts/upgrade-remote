@@ -8,6 +8,8 @@
     - ../secrets.yaml
   vars:
     ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
+  roles:
+    - kewlfft.aur
   become: true
   tasks:
     - block:
