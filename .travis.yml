@@ -5,12 +5,6 @@ dist: bionic
 language: python
 python: "3.8"
 
-env:
-  - >-
-    PIPENV_IGNORE_VIRTUALENVS=1
-    PIPENV_VENV_IN_PROJECT=1
-    VAGRANT_DEFAULT_PROVIDER=libvirt
-
 cache:
   bundler: true
   pip: true
@@ -28,6 +22,9 @@ git:
   submodules: false
 
 before_install:
+  - export PIPENV_IGNORE_VIRTUALENVS=1
+  - export PIPENV_VENV_IN_PROJECT=1
+  - export VAGRANT_DEFAULT_PROVIDER=libvirt
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init
   - sudo apt-get update -qq
