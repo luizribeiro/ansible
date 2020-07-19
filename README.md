@@ -54,12 +54,10 @@ $ ./grissom.yaml
   * Maybe setup gpg first thing somehow?
   * Setup Karabiner or something that makes caps work as ctrl/escape
 
-* Validation:
-  * Find a way to validate nginx conf.d files
-  * Find a way to validate monit conf.d files
-
-* Testing
-  * Add tests for roles and playbooks with molecule and vagrant
+* Testing:
+  * Add test coverage to webserver role (test nginx config)
+  * Add test coverage to pihole role
+  * Add test coverage to samba role
 
 * Fun stuff
   * Setup port knocking
