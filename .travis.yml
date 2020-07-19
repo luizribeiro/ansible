@@ -12,8 +12,12 @@ env:
     VAGRANT_DEFAULT_PROVIDER=libvirt
 
 cache:
+  bundler: true
+  pip: true
   directories:
-    - /home/travis/.vagrant.d/boxes
+    - $HOME/.cache
+    - $HOME/.vagrant.d/boxes
+    - $TRAVIS_BUILD_DIR/.venv
 
 branches:
   only:
