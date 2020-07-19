@@ -1,5 +1,6 @@
 import os
 
+from pyexpect import expect
 from testinfra.host import Host
 from testinfra.utils.ansible_runner import AnsibleRunner
 
@@ -13,20 +14,20 @@ def test_monit_is_installed(host: Host) -> None:
 
 def test_monit_is_running_and_enabled(host: Host) -> None:
     monit_service = host.service("monit")
-    assert monit_service.is_running
-    assert monit_service.is_enabled
+    expect(monit_service.is_running).is_true()
+    expect(monit_service.is_enabled).is_true()
 
 
 def test_monit_config(host: Host) -> None:
     with host.sudo():
         monitrc = host.file("/etc/monitrc")
-        assert monitrc.is_file
-        assert monitrc.user == "root"
-        assert monitrc.group == "root"
-        assert oct(monitrc.mode) == "0o700"
+        expect(monitrc.is_file).is_true()
+        expect(monitrc.user).equals("root")
+        expect(monitrc.group).equals("root")
+        expect(oct(monitrc.mode)).equals("0o700")
 
         output = host.run("monit -t -c /etc/monitrc")
-        assert output.rc == 0
+        expect(output.rc).equals(0)
 
 
 def test_firewall_drops_by_default(host: Host) -> None:
@@ -41,7 +42,7 @@ def test_firewall_drops_by_default(host: Host) -> None:
     ]
     with host.sudo():
         input_rules = host.iptables.rules("filter", "INPUT")
-    assert expected_input_rules == input_rules
+    expect(input_rules).equals(expected_input_rules)
 
 
 def test_firewall_input_rules_for_ssh_and_mosh(host: Host) -> None:
@@ -55,4 +56,4 @@ def test_firewall_input_rules_for_ssh_and_mosh(host: Host) -> None:
     }
     with host.sudo():
         input_rules = set(host.iptables.rules("filter", "ufw-user-input"))
-    assert expected_input_rules & input_rules == expected_input_rules
+    expect(expected_input_rules & input_rules).equals(expected_input_rules)
