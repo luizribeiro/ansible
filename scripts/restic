@@ -4,7 +4,7 @@
 OLD_DIR="$(pwd)"
 cd "$(dirname "$0")" || exit 1
 
-VAULT="$(ansible-vault view --vault-password-file ./vault_pass.sh ../secrets.yaml)"
+VAULT="$(ansible-vault view --vault-password-file ./vault_pass.sh ../group_vars/secrets.yaml)"
 secret() {
   echo "$VAULT" | grep "$1" | cut -f 2 -d ' ' | sed "s/['\"]//g"
 }
