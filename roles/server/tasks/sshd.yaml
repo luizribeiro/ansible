@@ -44,7 +44,10 @@
   when: ssh_require_2fac
 - name: Allow (limited) SSH traffic from anywhere
   ufw:
-    rule: limit
+    # if running on molecule tests, we just allow. this is because molecule
+    # tests end up creating lots of ssh connections and we don't want them to
+    # end up being rate limited by the firewall
+    rule: "{{ 'limit' if not is_test_environment else 'allow' }}"
     port: "22"
   tags: firewall
 - name: Allow (limited) mosh traffic from anywhere

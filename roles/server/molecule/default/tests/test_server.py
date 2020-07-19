@@ -43,13 +43,11 @@ def test_firewall_drops_by_default(host: Host) -> None:
 
         expected_input_rules = {
             "-N ufw-user-input",
-            "-A ufw-user-input -p tcp -m tcp --dport 22 -m conntrack"
-            + " --ctstate NEW -m recent --set --name DEFAULT"
-            + " --mask 255.255.255.255 --rsource",
-            "-A ufw-user-input -p tcp -m tcp --dport 22 -m conntrack"
-            + " --ctstate NEW -m recent --update --seconds 30 --hitcount 6"
-            + " --name DEFAULT --mask 255.255.255.255 --rsource -j ufw-user-limit",
-            "-A ufw-user-input -p tcp -m tcp --dport 22 -j ufw-user-limit-accept",
+            # always allow SSH connections on testing environment (not rate limited)
+            "-A ufw-user-input -p udp -m udp --dport 22 -j ACCEPT",
+            "-A ufw-user-input -p tcp -m tcp --dport 22 -j ACCEPT",
+            # mosh connections are still rate limited though
+            "-A ufw-user-input -p udp -m multiport --dports 60001:60999 -j ufw-user-limit-accept",
         }
         input_rules = set(host.iptables.rules("filter", "ufw-user-input"))
         assert expected_input_rules & input_rules == expected_input_rules

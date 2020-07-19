@@ -8,6 +8,10 @@ platforms:
     box: archlinux/archlinux
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      all:
+        is_test_environment: true
 verifier:
   name: testinfra
   lint:
