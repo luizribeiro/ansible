@@ -1,8 +1,6 @@
 #!/usr/bin/env ansible-playbook --ask-become-pass
 ---
 - hosts: macbook
-  vars_files:
-    - secrets.yaml
   pre_tasks:
     - name: Check we are running on the right host
       assert:

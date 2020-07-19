@@ -3,8 +3,6 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-  vars_files:
-    - ../../secrets.yaml
   vars:
     aws_region: us-east-2
   environment:
@@ -65,8 +63,6 @@
 
 - hosts: launched
   remote_user: arch
-  vars_files:
-    - ../../secrets.yaml
   become: true
   tasks:
     - name: Upgrade system

@@ -22,3 +22,9 @@ ansible_user=luiz
 [osx:vars]
 ansible_python_interpreter=/usr/local/bin/python3
 ansible_connection=local
+
+[secrets:children]
+ec2
+home
+openwrt
+osx

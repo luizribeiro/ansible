@@ -4,8 +4,6 @@
 #        ./scripts/upgrade-remote.yaml -l openwrt
 ---
 - hosts: remote
-  vars_files:
-    - ../secrets.yaml
   vars:
     ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
   roles:
