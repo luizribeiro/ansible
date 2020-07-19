@@ -14,8 +14,8 @@ $ ansible-playbook site.yaml
 ## Setting up secrets
 
 1. Add vault password to `vault_pass.gpg`
-2. `ansible-vault create secrets.yaml`
-3. Setup `secrets.yaml` according to `example-secrets.yaml`
+2. `ansible-vault create group_vars/secrets.yaml`
+3. Setup `group_vars/secrets.yaml` according to `group_vars/secrets.yaml.example`
 
 ## Upgrading all packages
 
