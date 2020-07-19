@@ -11,3 +11,9 @@
     name: sshusers
     state: present
   tags: configuration
+- name: "Current SSH user is part of sshusers group"
+  user:
+    name: "{{ ansible_ssh_user }}"
+    groups: sshusers
+    append: true
+  tags: configuration
