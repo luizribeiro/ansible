@@ -30,16 +30,18 @@ def test_monit_config(host: Host) -> None:
 
 
 def test_firewall_drops_by_default(host: Host) -> None:
+    expected_input_rules = [
+        "-P INPUT DROP",
+        "-A INPUT -j ufw-before-logging-input",
+        "-A INPUT -j ufw-before-input",
+        "-A INPUT -j ufw-after-input",
+        "-A INPUT -j ufw-after-logging-input",
+        "-A INPUT -j ufw-reject-input",
+        "-A INPUT -j ufw-track-input",
+    ]
     with host.sudo():
-        assert host.iptables.rules("filter", "INPUT") == [
-            "-P INPUT DROP",
-            "-A INPUT -j ufw-before-logging-input",
-            "-A INPUT -j ufw-before-input",
-            "-A INPUT -j ufw-after-input",
-            "-A INPUT -j ufw-after-logging-input",
-            "-A INPUT -j ufw-reject-input",
-            "-A INPUT -j ufw-track-input",
-        ]
+        input_rules = host.iptables.rules("filter", "INPUT")
+    assert expected_input_rules == input_rules
 
 
 def test_firewall_input_rules_for_ssh_and_mosh(host: Host) -> None:
