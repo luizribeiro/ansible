@@ -3,6 +3,7 @@ python_version = '3.8'
 
 [packages]
 ansible = "*"
+passlib = "1.7.2"
 
 [dev-packages]
 ansible-lint = "*"
