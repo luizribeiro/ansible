@@ -21,13 +21,14 @@ def test_monit_is_running_and_enabled(host: Host) -> None:
 def test_monit_config(host: Host) -> None:
     with host.sudo():
         monitrc = host.file("/etc/monitrc")
-        expect(monitrc.is_file).is_true()
-        expect(monitrc.user).equals("root")
-        expect(monitrc.group).equals("root")
-        expect(oct(monitrc.mode)).equals("0o700")
+    expect(monitrc.is_file).is_true()
+    expect(monitrc.user).equals("root")
+    expect(monitrc.group).equals("root")
+    expect(oct(monitrc.mode)).equals("0o700")
 
+    with host.sudo():
         output = host.run("monit -t -c /etc/monitrc")
-        expect(output.rc).equals(0)
+    expect(output.rc).equals(0)
 
 
 def test_firewall_drops_by_default(host: Host) -> None:
