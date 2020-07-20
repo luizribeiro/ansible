@@ -36,10 +36,6 @@
       vars:
         luizribeiro_setup_google_authenticator: true
       tags: luizribeiro
-    - role: dev
-      vars:
-        dev_ansible_tools: true
-      tags: dev
     - role: backup
       vars:
         backup_paths:

@@ -22,16 +22,6 @@
   when: not is_watchman_installed
   tags: packages
 
-- name: Uninstall tools for ansible (since I use them from Pipfile now)
-  homebrew:
-    name:
-      - molecule
-      - ansible-lint
-      - ansible
-    state: absent
-  when: dev_ansible_tools
-  tags: packages
-
 - name: Install tools for working with VMs
   homebrew_cask:
     name: "{{ item }}"
