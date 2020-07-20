@@ -2,16 +2,16 @@
 python_version = '3.8'
 
 [packages]
-ansible = "*"
+ansible = "2.9.10"
 passlib = "1.7.2"
 
 [dev-packages]
-ansible-lint = "*"
-molecule = "*"
-molecule-vagrant = "*"
+ansible-lint = "4.2.0"
+molecule = "3.0.6"
+molecule-vagrant = "0.3"
 pyexpect = "1.0.20"
-pyre-check = "*"
-pytest = "*"
-python-language-server = "*"
-testinfra = "*"
-yamllint = "*"
+pyre-check = "0.0.46"
+pytest = "5.4.3"
+python-language-server = "0.34.1"
+testinfra = "5.2.1"
+yamllint = "1.24.2"
