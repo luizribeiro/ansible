@@ -9,6 +9,7 @@
       - ncdu
       - nmap
       - ripgrep
+      - rsync
       - tldr
       - tmux
       - wget

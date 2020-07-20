@@ -4,6 +4,8 @@
     name:
       - git
       - shellcheck
+      - prettier
+      - yamllint
     state: present
   tags: packages
 
@@ -26,10 +28,6 @@
       - ansible
       - ansible-lint
       - molecule
-      - pipenv
-      - prettier
-      - rsync
-      - yamllint
     state: present
   when: dev_ansible_tools
   tags: packages
@@ -109,6 +107,7 @@
     name:
       - black
       - pipenv
+      - python@3.8
     state: present
   when: dev_python_tools
   tags: packages
