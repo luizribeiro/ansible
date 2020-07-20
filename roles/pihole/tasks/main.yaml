@@ -44,13 +44,6 @@
     directory_mode: u+rwx,g-rwx,o-rwx
   notify: restart pihole-FTL
   tags: configuration
-- name: Allow DNS queries from IoT
-  ufw:
-    rule: allow
-    from: 192.168.2.0/24
-    port: "53"
-    protocol: udp
-  tags: firewall
 - name: pihole-FTL is enabled and running
   systemd:
     name: pihole-FTL
