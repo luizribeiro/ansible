@@ -96,8 +96,10 @@
 - name: Install tools for C/C++ development
   homebrew:
     name:
+      - automake
       - clang-format
       - llvm
+      - pkg-config
     state: present
   when: dev_cpp_tools
   tags: packages
