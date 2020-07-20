@@ -38,6 +38,7 @@
     state: present
   with_items:
     - vagrant
+    - vagrant-manager
     - virtualbox
     - virtualbox-extension-pack
   when: dev_vm_tools
