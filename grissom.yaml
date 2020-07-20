@@ -29,6 +29,7 @@
     - role: dev
       vars:
         dev_ansible_tools: true
+        dev_csharp_tools: true
         dev_vm_tools: true
         dev_aws_tools: true
         dev_cpp_tools: true

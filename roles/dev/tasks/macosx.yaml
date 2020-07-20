@@ -112,3 +112,24 @@
     state: present
   when: dev_python_tools
   tags: packages
+
+- name: Install tools for C# development
+  block:
+    - name: Tap omnisharp/omnisharp-roslyn
+      homebrew_tap:
+        name: omnisharp/omnisharp-roslyn
+        state: present
+    - name: Install omnisharp
+      homebrew:
+        name: omnisharp-mono
+        state: installed
+    - name: Install tools for working with VMs
+      homebrew_cask:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - dotnet-sdk
+        - mono-mdk
+        - monogame
+  when: dev_csharp_tools
+  tags: packages

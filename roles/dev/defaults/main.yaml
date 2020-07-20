@@ -1,5 +1,6 @@
 ---
 dev_ansible_tools: false
+dev_csharp_tools: false
 dev_vm_tools: false
 dev_aws_tools: false
 dev_cpp_tools: false
