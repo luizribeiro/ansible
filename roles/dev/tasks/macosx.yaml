@@ -1,4 +1,12 @@
 ---
+- name: Install basic development tools
+  homebrew:
+    name:
+      - git
+      - shellcheck
+    state: present
+  tags: packages
+
 - name: Check if watchman is installed
   shell: command -v watchman >/dev/null 2>&1
   register: is_watchman_installed
