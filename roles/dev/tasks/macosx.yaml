@@ -22,13 +22,13 @@
   when: not is_watchman_installed
   tags: packages
 
-- name: Install tools for ansible
+- name: Uninstall tools for ansible (since I use them from Pipfile now)
   homebrew:
     name:
-      - ansible
-      - ansible-lint
       - molecule
-    state: present
+      - ansible-lint
+      - ansible
+    state: absent
   when: dev_ansible_tools
   tags: packages
 
