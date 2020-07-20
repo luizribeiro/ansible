@@ -1,5 +1,5 @@
 ---
-- name: Install tools for ansible
+- name: "Remove tools for ansible (since I'm installing them from Pipfile now)"
   pacman:
     name:
       - ansible
@@ -7,5 +7,5 @@
       - prettier
       - yamllint
     state: present
-  when: dev_ansible_tools
+    recurse: true
   tags: packages
