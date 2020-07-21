@@ -9,8 +9,8 @@ testinfra_hosts = AnsibleRunner(os.environ["MOLECULE_INVENTORY_FILE"]).get_hosts
 
 
 def test_pihole_is_installed(host: Host) -> None:
-    assert host.package("pi-hole-server").is_installed
-    assert host.package("pi-hole-ftl").is_installed
+    expect(host.package("pi-hole-server").is_installed).is_true()
+    expect(host.package("pi-hole-ftl").is_installed).is_true()
 
 
 def test_setupvars_conf_permissions(host: Host) -> None:
