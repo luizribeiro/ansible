@@ -18,3 +18,4 @@
   include_tasks: "firewall/{{ item }}.yaml"
   when: ('firewall/' + item + '.yaml') is file
   with_items: "{{ group_names }}"
+  tags: firewall

@@ -3,10 +3,8 @@
   ufw:
     rule: limit
     port: "22"
-  tags: firewall
 - name: Allow (limited) mosh traffic from anywhere
   ufw:
     rule: limit
     port: 60001:60999
     protocol: udp
-  tags: firewall
