@@ -11,10 +11,3 @@
     port: "53"
     protocol: udp
   tags: firewall
-- name: Allow DNS queries from IoT
-  ufw:
-    rule: allow
-    from: 192.168.2.0/24
-    port: "53"
-    protocol: udp
-  tags: firewall
