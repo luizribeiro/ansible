@@ -45,7 +45,7 @@ install:
   - vagrant plugin install vagrant-libvirt
 
   # setup project dependencies
-  - pip install pipenv
+  - pip install -Iv pipenv==2020.6.2
   - pipenv install -d
   - pipenv run ansible-galaxy install -r requirements.yml
 
