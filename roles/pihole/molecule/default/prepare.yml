@@ -12,5 +12,11 @@
         name: systemd-resolved
         enabled: false
         state: stopped
+    - name: Setup /etc/resolv.conf
+      copy:
+        dest: /etc/resolv.conf
+        content: |
+          nameserver 8.8.8.8
+          nameserver 8.8.4.4
     - name: "Reboot machine after upgrade"
       reboot:
