@@ -64,3 +64,7 @@ script:
   # test server role
   - cd roles/server/
   - pipenv run molecule test
+
+  # test pihole role
+  - cd ../roles/pihole/
+  - pipenv run molecule test
