@@ -4,6 +4,7 @@
     name: root
     password: "{{ root_password | password_hash('md5') }}"
     update_password: always
+  changed_when: false
 - name: Setup static configuration files
   synchronize:
     src: files/etc/config/
