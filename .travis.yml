@@ -5,6 +5,10 @@ dist: bionic
 language: python
 python: "3.8"
 
+env:
+  - ROLE_TO_TEST="server"
+  - ROLE_TO_TEST="pihole"
+
 cache:
   bundler: true
   pip: true
@@ -61,10 +65,6 @@ script:
   # run python checks
   - pipenv run pyre --noninteractive
 
-  # test server role
-  - cd roles/server/
-  - pipenv run molecule test
-
-  # test pihole role
-  - cd ../roles/pihole/
+  # test role
+  - cd "roles/$ROLE_TO_TEST/"
   - pipenv run molecule test
