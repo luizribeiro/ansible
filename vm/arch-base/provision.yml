@@ -1,0 +1,11 @@
+---
+- name: Provision arch-base VM
+  hosts: all
+  become: true
+  tasks:
+    - name: "Upgrade system"
+      pacman:
+        update_cache: true
+        upgrade: true
+    - name: "Reboot machine after upgrade"
+      reboot:

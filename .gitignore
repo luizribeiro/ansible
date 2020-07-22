@@ -3,3 +3,5 @@ secrets.yaml
 .launched_hosts
 .venv
 .pyre
+.vagrant
+package.box
