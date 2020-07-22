@@ -11,17 +11,9 @@
     src: files/etc/pihole/setupVars.conf
     dest: /etc/pihole/setupVars.conf
     owner: pihole
-    mode: u+rw,g-rwx,o-rwx
-    directory_mode: u+rwx,g-rwx,o-rwx
+    mode: u=rw,g=r,o=r
+    directory_mode: u=rwx,g=rx,o=rx
   notify: restart pihole-FTL
-  tags: configuration
-- name: Allow http user to read pihole configuration
-  acl:
-    path: /etc/pihole/setupVars.conf
-    entity: http
-    etype: user
-    permissions: r
-    state: present
   tags: configuration
 - name: Setup pihole lists
   copy:

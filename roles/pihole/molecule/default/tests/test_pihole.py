@@ -19,10 +19,4 @@ def test_setupvars_conf_permissions(host: Host) -> None:
     expect(setupvars_conf.is_file).is_true()
     expect(setupvars_conf.user).equals("pihole")
     expect(setupvars_conf.group).equals("pihole")
-    expect(oct(setupvars_conf.mode)).equals("0o640")
-
-
-def test_setupvars_conf_can_be_read_by_http_user(host: Host) -> None:
-    with host.sudo():
-        getfacl = host.run("getfacl /etc/pihole/setupVars.conf")
-    expect(getfacl.stdout.split("\n")).to_contain("user:http:r--")
+    expect(oct(setupvars_conf.mode)).equals("0o644")
