@@ -14,3 +14,8 @@
       vars:
         ssh_require_2fac: false
     - role: luizribeiro
+      vars:
+        luizribeiro_groups:
+          - sshusers
+          - uucp
+          - wheel
