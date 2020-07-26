@@ -1,0 +1,16 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: alarm
+  vars:
+    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
+  become: true
+  pre_tasks:
+    - name: "Hostname is alarm"
+      copy:
+        content: "alarm\n"
+        dest: /etc/hostname
+  roles:
+    - role: server
+      vars:
+        ssh_require_2fac: false
+    - role: luizribeiro
