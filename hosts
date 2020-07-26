@@ -11,6 +11,9 @@ router.thepromisedlan ansible_user=root
 grissom
 macbook
 
+[nuc]
+nuc.thepromisedlan.club
+
 [remote:children]
 ec2
 home
