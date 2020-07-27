@@ -19,3 +19,8 @@
           - sshusers
           - uucp
           - wheel
+  tasks:
+    - name: Install pipenv
+      package:
+        name: python-pipenv
+        state: present
