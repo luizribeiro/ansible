@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0e14fc44e01ac3888f5b90573bfb4f08698c326f5c7476af09e00469dd9ec218"
+            "sha256": "8aeb68467a7ca2b70441abe6fb94490250a8d5079a6b83390d5ddba4bb89de67"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -597,12 +597,12 @@
         },
         "pyre-check": {
             "hashes": [
-                "sha256:6563bb13bb004273d153296e8c3909dfe5deaac4d9079881cbc7b87f7d4209d2",
-                "sha256:65870c096a6451494d416fa4cec5894130e125ee54920e0485235801ce871bee",
-                "sha256:b5c1c0ab40a1e6f27683f5ff3ba14bb2cbb5df75b7759cb5e704268577188659"
+                "sha256:2bf97fa0aa4a932d1ce03aa24a4999a6b8e5c89f15eca52e773efb6a1f7f8520",
+                "sha256:ad251e363a8707f462d34f3b0898b8e0e3b3bec64522eb9e38f85bf872218668",
+                "sha256:cf33487283c9f0bf582e07026ed4ae0e0fadb4b50e429edcfc0a60632cb28fe0"
             ],
             "index": "pypi",
-            "version": "==0.0.51"
+            "version": "==0.0.52"
         },
         "pyre-extensions": {
             "hashes": [
