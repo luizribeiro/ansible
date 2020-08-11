@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8aeb68467a7ca2b70441abe6fb94490250a8d5079a6b83390d5ddba4bb89de67"
+            "sha256": "7116337954b2e6a039f00774737572699577c1e9d51c0bc832dae6d8961290fe"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,10 +18,10 @@
     "default": {
         "ansible": {
             "hashes": [
-                "sha256:88f9d033ece7fd51eca3abb4f02e13b63c924b97f9705a997d5a711c0cf42ab1"
+                "sha256:7e95ddf719190b068fafc7d7c7877c218054cc5da4f6d9d794faf7bc66dab774"
             ],
             "index": "pypi",
-            "version": "==2.9.11"
+            "version": "==2.9.12"
         },
         "cffi": {
             "hashes": [
@@ -167,10 +167,10 @@
     "develop": {
         "ansible": {
             "hashes": [
-                "sha256:88f9d033ece7fd51eca3abb4f02e13b63c924b97f9705a997d5a711c0cf42ab1"
+                "sha256:7e95ddf719190b068fafc7d7c7877c218054cc5da4f6d9d794faf7bc66dab774"
             ],
             "index": "pypi",
-            "version": "==2.9.11"
+            "version": "==2.9.12"
         },
         "ansible-lint": {
             "hashes": [
@@ -199,6 +199,7 @@
                 "sha256:0258f143f3de96b7c14f762c770f5fc56ccd72f8a1857a451c1cd9a655d9ac89",
                 "sha256:0b0069c752ec14172c5f78208f1863d7ad6755a6fae6fe76ec2c80d13be41e42",
                 "sha256:19a4b72a6ae5bb467fea018b825f0a7d917789bcfe893e53f15c92805d187294",
+                "sha256:436a487dec749bca7e6e72498a75a5fa2433bda13bac91d023e18df9089ae0b8",
                 "sha256:5432dd7b34107ae8ed6c10a71b4397f1c853bd39a4d6ffa7e35f40584cffd161",
                 "sha256:6305557019906466fc42dbc53b46da004e72fd7a551c044a827e572c82191752",
                 "sha256:69361315039878c0680be456640f8705d76cb4a3a3fe1e057e0f261b74be4b31",
@@ -393,10 +394,10 @@
         },
         "libcst": {
             "hashes": [
-                "sha256:484fc3bf0b9b15773349548a466a36b137fbd94705fac8cdf25734fd8261fa17",
-                "sha256:d514cd36e8da5e1444ec693b65a4b6751781af02496f9a2442c8590eb0d321fc"
+                "sha256:b5185c84f0e4a38409aac59f53a71741bec8c1b1159c874996b3266daafe63e5",
+                "sha256:ca1744d9344f51c2c9226d0472a5a3096f8b39e4fe38441ebc2ba26babd00688"
             ],
-            "version": "==0.3.8"
+            "version": "==0.3.9"
         },
         "markupsafe": {
             "hashes": [
