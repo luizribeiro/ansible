@@ -24,3 +24,7 @@
       package:
         name: python-pipenv
         state: present
+    - name: Install cython
+      package:
+        name: cython
+        state: present
