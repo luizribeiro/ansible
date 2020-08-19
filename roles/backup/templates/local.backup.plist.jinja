@@ -8,9 +8,12 @@
   <string>{{ backup_user }}</string>
   <key>WorkingDirectory</key>
   <string>/var/root</string>
+  <key>Program</key>
+  <string>/usr/bin/caffeinate</string>
   <key>ProgramArguments</key>
   <array>
-   <string>./backup.sh</string>
+    <string>-im</string>
+    <string>./backup.sh</string>
   </array>
   <key>EnvironmentVariables</key>
   <dict>
