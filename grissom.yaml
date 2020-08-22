@@ -34,6 +34,7 @@
         dev_cpp_tools: true
         dev_python_tools: true
         dev_qmk_firmware_tools: true
+        dev_hardware_tools: true
       tags: dev
     - role: osx
       vars:

@@ -123,3 +123,12 @@
         - monogame
   when: dev_csharp_tools
   tags: packages
+
+- name: Install tools for hardware
+  homebrew:
+    name:
+      - minicom
+      - platformio
+    state: present
+  when: dev_hardware_tools
+  tags: packages

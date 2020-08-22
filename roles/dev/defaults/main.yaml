@@ -5,3 +5,4 @@ dev_aws_tools: false
 dev_cpp_tools: false
 dev_python_tools: false
 dev_qmk_firmware_tools: false
+dev_hardware_tools: false
