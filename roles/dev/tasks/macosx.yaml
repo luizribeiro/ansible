@@ -141,5 +141,7 @@
     - autodesk-fusion360
     - blender
     - openscad
+    - preform
+    - prusaslicer
   when: dev_3d_printing_tools
   tags: packages
