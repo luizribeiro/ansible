@@ -133,6 +133,16 @@
   when: dev_hardware_tools
   tags: packages
 
+- name: Install tools for PCB design
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - eagle
+    - fritzing
+  when: dev_hardware_tools
+  tags: packages
+
 - name: Install tools for 3D printing
   homebrew_cask:
     name: "{{ item }}"
