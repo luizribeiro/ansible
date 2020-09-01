@@ -2,7 +2,7 @@
 python_version = '3.8'
 
 [packages]
-ansible = "2.9.12"
+ansible = "2.9.13"
 passlib = "1.7.2"
 
 [dev-packages]
