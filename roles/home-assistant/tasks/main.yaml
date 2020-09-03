@@ -6,6 +6,13 @@
       - home-assistant
       - python-bluepy
   tags: packages
+- name: Install home-assistant dependencies from AUR
+  become: true
+  become_user: aur_builder
+  aur:
+    name: python-pychromecast
+    state: present
+  tags: packages
 - name: Setup secrets.yaml for home-assistant
   copy:
     content: "{{ secret_home_assistant_secrets_yaml }}"
