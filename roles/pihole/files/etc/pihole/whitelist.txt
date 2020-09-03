@@ -4,3 +4,4 @@ googleadservices.com
 graph.instagram.com
 www.googleadservices.com
 *.amazon-adsystem.com
+analytics.twitter.com
