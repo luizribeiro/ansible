@@ -150,6 +150,7 @@
   with_items:
     - autodesk-fusion360
     - blender
+    - meshmixer
     - openscad
     - preform
     - prusaslicer
