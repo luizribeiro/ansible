@@ -258,3 +258,8 @@ config host
 	option mac '68:FF:7B:5C:42:B0'
 	option ip '192.168.2.106'
 
+config host
+	option name 'iot-huzzah'
+	option dns '1'
+	option mac 'EC:FA:BC:C1:13:4F'
+
