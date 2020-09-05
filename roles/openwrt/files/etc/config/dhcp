@@ -267,4 +267,5 @@ config host
 	option name 'iot-mariner'
 	option dns '1'
 	option mac 'B8:27:EB:5E:4E:52'
+	option ip '192.168.2.240'
 
