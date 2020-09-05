@@ -6,3 +6,41 @@
   become: true
   roles:
     - role: luizribeiro
+  post_tasks:
+    - name: Enable USB driver for gadget modes
+      lineinfile:
+        path: /boot/config.txt
+        line: "dtoverlay=dwc2"
+    - name: Enable dwc2 kernel module
+      lineinfile:
+        path: /boot/cmdline.txt
+        backrefs: true
+        regexp: '(^.+rootwait(\s+(?!modules-load=dwc2)[\w=/\-\.]+)*)\s*$'
+        line: '\1 modules-load=dwc2'
+        state: present
+    - name: Setup container file
+      command: dd bs=1M if=/dev/zero of=/piusb.bin count=2048
+      args:
+        creates: /piusb.bin
+      notify: Setup partition on container file
+    - name: Create mount point for container file
+      file:
+        name: /mnt/usb_share
+        state: directory
+    - name: Mount container file
+      lineinfile:
+        path: /etc/fstab
+        line: "/piusb.bin /mnt/usb_share vfat users,umask=000 0 2"
+      notify: Reload fstab
+    - name: Setup /etc/rc.local
+      template:
+        src: files/iot-mariner-rc.local
+        dest: /etc/rc.local
+        owner: root
+        group: root
+        mode: u=rwx,g=rx,o=rx
+  handlers:
+    - name: Setup partition on container file
+      command: mkdosfs /piusb.bin -F 32 -I
+    - name: Reload fstab
+      command: mount -a
