@@ -53,3 +53,5 @@
       command: mkdosfs /piusb.bin -F 32 -I
     - name: Reload fstab
       command: mount -a
+      args:
+        warn: false
