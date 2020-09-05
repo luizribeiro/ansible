@@ -32,6 +32,15 @@
         path: /etc/fstab
         line: "/piusb.bin /mnt/usb_share vfat users,umask=000 0 2"
       notify: Reload fstab
+    - name: Create mount point for NUC network share
+      file:
+        name: /mnt/nuc
+        state: directory
+    - name: Mount NUC network share
+      lineinfile:
+        path: /etc/fstab
+        line: //nuc/public /mnt/nuc cifs guest,_netdev 0 0
+      notify: Reload fstab
     - name: Setup /etc/rc.local
       template:
         src: files/iot-mariner-rc.local
