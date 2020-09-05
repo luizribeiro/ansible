@@ -5,3 +5,14 @@
     from: 192.168.2.0/24
     port: "53"
     protocol: udp
+- name: Allow Samba access queries from iot-mariner
+  ufw:
+    rule: allow
+    from: 192.168.2.240
+    port: "{{ item.port }}"
+    protocol: "{{ item.protocol }}"
+  with_items:
+    - { port: 137, protocol: "udp" }
+    - { port: 138, protocol: "udp" }
+    - { port: 139, protocol: "tcp" }
+    - { port: 145, protocol: "tcp" }
