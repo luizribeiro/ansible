@@ -33,3 +33,9 @@
           command: "opkg upgrade {{ item }}"
           with_items: "{{ upgradable.stdout_lines | list }}"
       when: ansible_distribution == 'OpenWrt'
+    - block:
+        - name: Upgrade apt packages
+          apt:
+            update_cache: true
+            upgrade: full
+      when: ansible_distribution == 'Debian'
