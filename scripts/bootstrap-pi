@@ -1,0 +1,25 @@
+#!/usr/bin/env ansible-playbook
+# Usage: ./scripts/bootstrap-pi -l iot-mariner -e playbook=iot-mariner.yaml
+---
+- hosts: pi
+  vars:
+    ansible_user: pi
+    ansible_password: raspberry
+  become: true
+  tasks:
+    - name: Set timezone to America/New_York
+      timezone:
+        name: America/New_York
+    - name: Set hostname
+      copy:
+        content: "{{ inventory_hostname }}\n"
+        dest: /etc/hostname
+    - name: Upgrade system
+      apt:
+        update_cache: true
+        upgrade: full
+
+- import_playbook: ../{{ playbook }}
+  vars:
+    ansible_user: pi
+    ansible_password: raspberry

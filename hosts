@@ -14,10 +14,19 @@ macbook
 [nuc]
 nuc.thepromisedlan.club
 
+[iot]
+iot-mariner
+
+[pi]
+iot-mariner
+
 [remote:children]
 ec2
 home
 openwrt
+
+[home:children]
+iot
 
 [remote:vars]
 ansible_python_interpreter=/usr/bin/python3
