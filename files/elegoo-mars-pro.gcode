@@ -107,14 +107,14 @@ M8029 C0     ; 0: Back to Z (0,0,0) position, that is, the position of the
 ;   0: If set to 0, the default does not turn
 ;   -1: keep on
 ;   -2: Open when the file is printed, closed when not printing
-M8030 I-1
+M8030 I-2
 
 ; Mainboard cooling fan MB_Fan control
 ;   0: If set to 0, the default does not turn
 ;   1: 1:0 Once exposed, the fan 2 will turn, no exposure, the fan will stop LED
 ;  -1:<0 keeps on
 ;  -2: Open when the file is printed, closed when not printing
-M8030 T-1
+M8030 T-2
 
 ; LED Light Control
 ;   4: Once the image is output, the LED turns on, the image is turned off, and
