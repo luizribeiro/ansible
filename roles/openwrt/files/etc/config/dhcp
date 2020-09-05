@@ -263,3 +263,8 @@ config host
 	option dns '1'
 	option mac 'EC:FA:BC:C1:13:4F'
 
+config host
+	option name 'iot-mariner'
+	option dns '1'
+	option mac 'B8:27:EB:5E:4E:52'
+
