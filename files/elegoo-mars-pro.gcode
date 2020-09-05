@@ -154,7 +154,7 @@ M8085 I5000
 ; Screensaver time
 ; How long does it take to enter the screen saver interface, the unit is
 ; seconds, when it is 0, it means that the screen saver is disabled.
-M8085 T5
+M8085 T0
 
 ; External Drive Settings
 ;   I: Settling time of the direction signal to the high level of the pulse
