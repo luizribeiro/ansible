@@ -2,8 +2,10 @@
 ---
 - hosts: iot-mariner
   become: true
-  tasks:
+  pre_tasks:
     - name: Enable USB driver for gadget modes
       lineinfile:
         path: /boot/config.txt
         line: "dtoverlay=dwc2"
+  roles:
+    - role: luizribeiro

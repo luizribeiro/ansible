@@ -18,8 +18,40 @@
       apt:
         update_cache: true
         upgrade: full
+    - name: Create sshusers group
+      group:
+        name: sshusers
+        state: present
+    - name: Create wheel group
+      group:
+        name: wheel
+        state: present
+    - name: "Allow users in wheel group to use sudo"
+      lineinfile:
+        path: /etc/sudoers.d/00-wheel
+        line: "%wheel ALL=(ALL) ALL"
+        create: true
+        validate: "visudo -cf %s"
 
 - import_playbook: ../{{ playbook }}
   vars:
     ansible_user: pi
     ansible_password: raspberry
+
+- hosts: pi
+  remote_user: luiz
+  become: true
+  vars:
+    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
+  tasks:
+    - name: Kill all processes by pi user
+      shell: "pkill -9 -u `id -u pi`"
+    - name: Remove pi user
+      user:
+        name: pi
+        state: absent
+        remove: true
+    - name: Remove /home/pi
+      file:
+        path: /home/pi/
+        state: absent

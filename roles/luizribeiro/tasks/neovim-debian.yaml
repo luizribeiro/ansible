@@ -1,0 +1,8 @@
+---
+- name: Install neovim
+  apt:
+    name:
+      - neovim
+      - python3-neovim
+    state: present
+  tags: packages
