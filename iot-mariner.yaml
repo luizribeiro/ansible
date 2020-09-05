@@ -1,11 +1,8 @@
 #!/usr/bin/env ansible-playbook
 ---
 - hosts: iot-mariner
+  vars:
+    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
   become: true
-  pre_tasks:
-    - name: Enable USB driver for gadget modes
-      lineinfile:
-        path: /boot/config.txt
-        line: "dtoverlay=dwc2"
   roles:
     - role: luizribeiro

@@ -33,6 +33,30 @@ $ brew install ansible
 $ ./grissom.yaml
 ```
 
+## Bootstrapping a Raspberry Pi
+
+1. Unmount the SD card: `diskutil unmountDisk /dev/diskN`
+2. Copy the image: `sudo dd bs=1m if=path_of_our_image.img of=/dev/rdiskN; sync` (note that it is `rdisk`)
+3. `touch /Volumes/boot/ssh` to enable ssh access
+4. Add the following to `/Volumes/boot/wpa_supplicant.conf`:
+
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+ ssid="<Name of your wireless LAN>"
+ psk="<Password for your wireless LAN>"
+}
+```
+
+Unmount the SD card, connect the Pi to the network and run this to bootstrap it:
+
+```
+$ ./scripts/bootstrap-pi -l iot-mariner -e playbook=iot-mariner.yaml
+```
+
 ## TODOs
 
 * Refactor

@@ -5,6 +5,8 @@
   vars:
     ansible_user: pi
     ansible_password: raspberry
+    # we assume this is running on a trusted network
+    ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
   become: true
   tasks:
     - name: Set timezone to America/New_York
@@ -55,3 +57,5 @@
       file:
         path: /home/pi/
         state: absent
+    - name: Reboot machine
+      reboot:
