@@ -213,6 +213,7 @@ config rule
 	option name 'IoT-Mariner-to-NUC'
 	option enabled '1'
 	option target 'ACCEPT'
+	option proto 'all'
 	option src 'iot'
 	option src_ip '192.168.2.240'
 	option dest 'lan'
