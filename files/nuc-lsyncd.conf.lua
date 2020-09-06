@@ -6,11 +6,10 @@ settings {
 
 sync {
   default.rsyncssh,
-  source="/home/public/iot-mariner/",
-  host="iot-mariner",
-  targetdir="/mnt/usb_share/",
+  source = "/home/public/iot-mariner/",
+  host = "lsync@iot-mariner",
+  targetdir = "/mnt/usb_share/",
   ssh = {
     identityFile = "/etc/lsyncd/id_rsa",
-    options = "-l lsync",
   },
 }
