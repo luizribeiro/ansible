@@ -48,6 +48,13 @@
         owner: root
         group: root
         mode: u=rwx,g=rx,o=rx
+    - name: Create lsync user account
+      user:
+        name: lsync
+        groups: sshusers
+        append: true
+        expires: -1
+      tags: configuration
   handlers:
     - name: Setup partition on container file
       command: mkdosfs /piusb.bin -F 32 -I
