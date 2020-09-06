@@ -9,6 +9,12 @@ sync {
   source = "/home/public/iot-mariner/",
   host = "lsync@iot-mariner",
   targetdir = "/mnt/usb_share/",
+  exclude = {
+    '*.bak',
+    '*.tmp',
+    '.DS_Store',
+    '._*',
+  },
   ssh = {
     identityFile = "/etc/lsyncd/id_rsa",
   },

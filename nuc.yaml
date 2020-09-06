@@ -83,15 +83,6 @@
         name: lsyncd
         state: present
       tags: packages
-    - name: Setup lsyncd configuration
-      copy:
-        src: files/nuc-lsyncd.conf.lua
-        dest: /etc/lsyncd/lsyncd.conf.lua
-        mode: u=rw,g-rwx,o-rwx
-        owner: root
-        group: root
-        directory_mode: u=rwx,g-rwx,o-rwx
-      tags: configuration
     - name: Setup SSH keypair for lsyncd
       openssh_keypair:
         path: /etc/lsyncd/id_rsa
@@ -100,6 +91,16 @@
         group: root
       register: lsyncd_ssh_key
       notify: Update lsyncd public SSH key
+      tags: configuration
+    - name: Setup lsyncd configuration
+      copy:
+        src: files/nuc-lsyncd.conf.lua
+        dest: /etc/lsyncd/lsyncd.conf.lua
+        mode: u=rw,g-rwx,o-rwx
+        owner: root
+        group: root
+        directory_mode: u=rwx,g-rwx,o-rwx
+      notify: Restart lsyncd
       tags: configuration
     - name: lsyncd is enabled and running
       systemd:
@@ -119,3 +120,7 @@
         user: lsync
         state: present
         key: "{{ lsyncd_ssh_key.public_key }}"
+    - name: Restart lsyncd
+      systemd:
+        name: lsyncd
+        state: restarted
