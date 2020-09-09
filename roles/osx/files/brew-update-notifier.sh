@@ -6,7 +6,7 @@ STATUS_FILE="$HOME/.local/.brew-last-notified"
 
 $BREW update > /dev/null 2>&1
 
-outdated=$( ($BREW outdated --quiet && $BREW cask outdated --quiet) | sort -u)
+outdated=$( ($BREW outdated --quiet && $BREW outdated --cask --quiet) | sort -u)
 pinned=$($BREW list --pinned)
 updatable=$(comm -1 -3 <(echo "$pinned") <(echo "$outdated"))
 
