@@ -14,8 +14,15 @@
         name: America/New_York
     - name: Set hostname
       copy:
-        content: "{{ inventory_hostname }}\n"
+        content: "{{ inventory_hostname_short }}\n"
         dest: /etc/hostname
+    - name: Update /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        backrefs: true
+        regexp: '^127.0.1.1\s+([a-z.]+)$'
+        line: "127.0.1.1 {{ inventory_hostname_short }}"
+        state: present
     - name: Upgrade system
       apt:
         update_cache: true
