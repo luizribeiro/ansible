@@ -1,0 +1,20 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: pistem.local
+  vars:
+    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
+  become: true
+  roles:
+    - role: luizribeiro
+  post_tasks:
+    - name: Enable USB driver for gadget modes
+      lineinfile:
+        path: /boot/config.txt
+        line: "dtoverlay=dwc2"
+    - name: Enable dwc2 kernel module
+      lineinfile:
+        path: /boot/cmdline.txt
+        backrefs: true
+        regexp: (^.+rootwait(\s+(?!modules-load=dwc2,g_ether)[\w=/\-\.]+)*)\s*$
+        line: '\1 modules-load=dwc2,g_ether'
+        state: present

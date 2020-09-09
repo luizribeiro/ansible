@@ -19,6 +19,7 @@ iot-mariner
 
 [pi]
 iot-mariner
+pistem.local
 
 [remote:children]
 ec2
@@ -41,3 +42,4 @@ ec2
 home
 openwrt
 osx
+pi
