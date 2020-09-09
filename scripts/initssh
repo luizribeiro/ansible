@@ -16,5 +16,5 @@ for host in "${hosts[@]}"; do
   ansible_host=$(get_host "$host")
   user=$(get_user "$host")
   echo "Connecting to $ansible_host as $user..."
-  ssh "$user@$ansible_host" echo -n
+  ssh "$user@$ansible_host" echo -n || echo "$ansible_host is unavailable"
 done
