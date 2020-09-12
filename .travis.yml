@@ -56,11 +56,7 @@ before_script:
 
 script:
   # run lint against all playbooks
-  - poetry run ansible-lint site.yaml
-  - poetry run ansible-lint macbook.yaml
-  - poetry run ansible-lint grissom.yaml
-  - poetry run ansible-lint openwrt.yaml
-  - poetry run ansible-lint ec2.yaml
+  - poetry run ansible-lint
   - poetry run yamllint .
 
   # run python checks

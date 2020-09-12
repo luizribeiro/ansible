@@ -5,7 +5,8 @@
     AWS_ACCESS_KEY: "{{ aws_access_key }}"
     AWS_SECRET_KEY: "{{ aws_secret_key }}"
   tasks:
-    - ec2_metadata_facts:
+    - name: Collect ec2 metadata facts
+      ec2_metadata_facts:
     - name: Stop the instance
       delegate_to: localhost
       ec2:
@@ -19,7 +20,7 @@
         regexp: "{{ inventory_hostname }}"
         state: absent
     - name: Remove host fingerprint
-      local_action:
-        module: known_hosts
+      known_hosts:
         name: "{{ ansible_ec2_public_hostname }}"
         state: absent
+      delegate_to: localhost
