@@ -26,8 +26,6 @@ git:
   submodules: false
 
 before_install:
-  - export PIPENV_IGNORE_VIRTUALENVS=1
-  - export PIPENV_VENV_IN_PROJECT=1
   - export VAGRANT_DEFAULT_PROVIDER=libvirt
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init
@@ -49,22 +47,25 @@ install:
   - vagrant plugin install vagrant-libvirt
 
   # setup project dependencies
-  - pip install -Iv pipenv==2020.6.2
-  - pipenv install -d
-  - pipenv run ansible-galaxy install -r requirements.yml
+  - pip install poetry
+  - poetry install
+  - poetry run ansible-galaxy install -r requirements.yml
+
+before_script:
+  - sed -i "s#.venv#$(poetry env info --path)#g" .pyre_configuration
 
 script:
   # run lint against all playbooks
-  - pipenv run ansible-lint site.yaml
-  - pipenv run ansible-lint macbook.yaml
-  - pipenv run ansible-lint grissom.yaml
-  - pipenv run ansible-lint openwrt.yaml
-  - pipenv run ansible-lint ec2.yaml
-  - pipenv run yamllint .
+  - poetry run ansible-lint site.yaml
+  - poetry run ansible-lint macbook.yaml
+  - poetry run ansible-lint grissom.yaml
+  - poetry run ansible-lint openwrt.yaml
+  - poetry run ansible-lint ec2.yaml
+  - poetry run yamllint .
 
   # run python checks
-  - pipenv run pyre --noninteractive
+  - poetry run pyre --noninteractive
 
   # test role
   - cd "roles/$ROLE_TO_TEST/"
-  - pipenv run molecule test
+  - poetry run molecule test
