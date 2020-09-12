@@ -51,9 +51,6 @@ install:
   - poetry install
   - poetry run ansible-galaxy install -r requirements.yml
 
-before_script:
-  - sed -i "s#.venv#$(poetry env info --path)#g" .pyre_configuration
-
 script:
   # run lint against all playbooks
   - poetry run ansible-lint
