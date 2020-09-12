@@ -98,6 +98,7 @@
     name:
       - black
       - pipenv
+      - poetry
       - python@3.8
     state: present
   when: dev_python_tools
