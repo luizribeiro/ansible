@@ -84,6 +84,11 @@ config host
 	option mac '30:35:AD:AD:E3:0C'
 
 config host
+  option name 'macbook-pro'
+	option dns '1'
+	option mac '14:7D:DA:5E:64:8F'
+
+config host
 	option name 'fb-macbook-pro'
 	option dns '1'
 	option mac '3C:22:FB:4B:AF:4B'
