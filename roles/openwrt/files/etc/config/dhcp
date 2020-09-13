@@ -74,7 +74,7 @@ config host
 	option ip '192.168.1.21'
 
 config host
-  option name 'alarm'
+  option name 'labmate'
 	option dns '1'
 	option mac 'B8:27:EB:A3:7C:2D'
 
