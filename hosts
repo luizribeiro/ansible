@@ -1,5 +1,5 @@
 [home]
-alarm
+labmate
 nuc.thepromisedlan.club
 
 [ec2]
@@ -19,6 +19,7 @@ iot-mariner
 
 [pi]
 iot-mariner
+labmate
 pistem.local
 
 [remote:children]
