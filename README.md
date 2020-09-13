@@ -80,9 +80,4 @@ $ ./scripts/bootstrap-pi -l iot-mariner -e playbook=iot-mariner.yaml
 
 * Testing:
   * Add test coverage to webserver role (test nginx config)
-  * Add test coverage to pihole role
   * Add test coverage to samba role
-
-* Fun stuff
-  * Setup port knocking
-  * Honeypots?
