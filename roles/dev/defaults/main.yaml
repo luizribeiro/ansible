@@ -4,6 +4,7 @@ dev_vm_tools: false
 dev_aws_tools: false
 dev_cpp_tools: false
 dev_python_tools: false
+dev_javascript_tools: false
 dev_qmk_firmware_tools: false
 dev_hardware_tools: false
 dev_3d_printing_tools: false

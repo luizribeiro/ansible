@@ -33,6 +33,7 @@
         dev_aws_tools: true
         dev_cpp_tools: true
         dev_python_tools: true
+        dev_javascript_tools: true
         dev_qmk_firmware_tools: true
         dev_hardware_tools: true
         dev_3d_printing_tools: true

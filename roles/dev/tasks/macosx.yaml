@@ -104,6 +104,16 @@
   when: dev_python_tools
   tags: packages
 
+- name: Install tools for JavaScript development
+  homebrew:
+    name:
+      - flow
+      - prettier
+      - yarn
+    state: present
+  when: dev_javascript_tools
+  tags: packages
+
 - name: Install tools for C# development
   block:
     - name: Tap omnisharp/omnisharp-roslyn
