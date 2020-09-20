@@ -3,8 +3,9 @@
   homebrew:
     name:
       - git
-      - shellcheck
+      - pre-commit
       - prettier
+      - shellcheck
       - yamllint
     state: present
   tags: packages
