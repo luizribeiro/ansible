@@ -579,7 +579,7 @@ description = "A performant type checker for Python"
 name = "pyre-check"
 optional = false
 python-versions = ">=3.6"
-version = "0.0.52"
+version = "0.0.56"
 
 [package.dependencies]
 dataclasses = "*"
@@ -939,7 +939,7 @@ pathspec = ">=0.5.3"
 pyyaml = "*"
 
 [metadata]
-content-hash = "07dec8b70a19d9ace62725bf5c83bedf02d62fb92fefafc1eb1169125def49ba"
+content-hash = "cf91e43c3901602953e2d4502917fb4803c48e99a2923b01e92772eaafe7afd1"
 lock-version = "1.0"
 python-versions = "^3.8"
 
@@ -1244,9 +1244,9 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 pyre-check = [
-    {file = "pyre-check-0.0.52.tar.gz", hash = "sha256:cf33487283c9f0bf582e07026ed4ae0e0fadb4b50e429edcfc0a60632cb28fe0"},
-    {file = "pyre_check-0.0.52-py3-none-macosx_10_11_x86_64.whl", hash = "sha256:ad251e363a8707f462d34f3b0898b8e0e3b3bec64522eb9e38f85bf872218668"},
-    {file = "pyre_check-0.0.52-py3-none-manylinux1_x86_64.whl", hash = "sha256:2bf97fa0aa4a932d1ce03aa24a4999a6b8e5c89f15eca52e773efb6a1f7f8520"},
+    {file = "pyre-check-0.0.56.tar.gz", hash = "sha256:e750f5b007f038b3766d43acdd4c53af733a096c9d39f9c4505a5c79a07b6cbf"},
+    {file = "pyre_check-0.0.56-py3-none-macosx_10_11_x86_64.whl", hash = "sha256:7f1e4903da2bdf64dde847be041b66335d127b6d52bb7b230b962b74f561719f"},
+    {file = "pyre_check-0.0.56-py3-none-manylinux1_x86_64.whl", hash = "sha256:c0e89d9f14a77b4b3b23ad74b36269d4580c8ca25786d7f5c892829be1aba877"},
 ]
 pyre-extensions = [
     {file = "pyre-extensions-0.0.18.tar.gz", hash = "sha256:60e0411e91ecbeaf1fd5d8851ffce42baf6a74ec7ccd01db545c7a97f15aac30"},
