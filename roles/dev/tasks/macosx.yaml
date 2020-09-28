@@ -83,6 +83,15 @@
   when: dev_qmk_firmware_tools
   tags: packages
 
+- name: Install tools for blogging
+  homebrew:
+    name:
+      - go
+      - hugo
+    state: present
+  when: dev_blogging_tools
+  tags: packages
+
 - name: Install tools for C/C++ development
   homebrew:
     name:

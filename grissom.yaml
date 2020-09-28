@@ -28,6 +28,7 @@
       tags: collectd
     - role: dev
       vars:
+        dev_blogging_tools: true
         dev_csharp_tools: true
         dev_vm_tools: true
         dev_aws_tools: true
