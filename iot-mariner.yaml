@@ -37,6 +37,10 @@
         path: /etc/fstab
         line: "/piusb.bin /mnt/usb_share vfat users,umask=000 0 2"
       notify: Reload fstab
+    - name: Create sync directory within /mnt/usb_share
+      file:
+        name: /mnt/usb_share/sync
+        state: directory
     - name: Setup /etc/rc.local
       template:
         src: files/iot-mariner-rc.local
