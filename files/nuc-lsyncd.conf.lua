@@ -8,7 +8,7 @@ sync {
   default.rsyncssh,
   source = "/home/public/iot-mariner/",
   host = "lsync@iot-mariner",
-  targetdir = "/mnt/usb_share/",
+  targetdir = "/mnt/usb_share/sync/",
   exclude = {
     '*.bak',
     '*.tmp',
