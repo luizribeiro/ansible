@@ -81,9 +81,12 @@
       pip:
         name: poetry
         executable: pip3
-    - name: Install dh-virtualenv
+    - name: Install Debian packaging utilities
       package:
-        name: dh-virtualenv
+        name:
+          - devscripts
+          - dh-virtualenv
+          - lintian
         state: present
 
   handlers:
