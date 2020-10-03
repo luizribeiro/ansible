@@ -81,6 +81,10 @@
       pip:
         name: poetry
         executable: pip3
+    - name: Install dh-virtualenv
+      package:
+        name: dh-virtualenv
+        state: present
 
   handlers:
     - name: Setup partition on container file
