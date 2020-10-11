@@ -35,7 +35,8 @@
     - name: Mount container file
       lineinfile:
         path: /etc/fstab
-        line: "/piusb.bin /mnt/usb_share vfat users,umask=000 0 2"
+        regexp: "^/piusb.bin"
+        line: "/piusb.bin /mnt/usb_share vfat users,gid=mariner,umask=002 0 2"
       notify: Reload fstab
     - name: Create sync directory within /mnt/usb_share
       file:
