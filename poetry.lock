@@ -1,17 +1,17 @@
 [[package]]
 name = "ansible"
-version = "2.10.0"
+version = "2.10.1"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
 
 [package.dependencies]
-ansible-base = ">=2.10.1,<2.11"
+ansible-base = ">=2.10.2,<2.11"
 
 [[package]]
 name = "ansible-base"
-version = "2.10.1"
+version = "2.10.2"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
@@ -935,14 +935,14 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "d0d22303d5140dcc178f31a37a80ede279abb96aed10f7047b9a042f61c468a7"
+content-hash = "60f7cbf89247de3c21a6fdb14c8f7523db8d03c8012f2961448a95baf93bb190"
 
 [metadata.files]
 ansible = [
-    {file = "ansible-2.10.0.tar.gz", hash = "sha256:3aadd662ac3f04e46054c99cfe533a92ba33d97982f19e49f01dbe137f31d346"},
+    {file = "ansible-2.10.1.tar.gz", hash = "sha256:75708c67e2ac926cea42856af72cbc9494bf8008197652f9609089f7b4c2515a"},
 ]
 ansible-base = [
-    {file = "ansible-base-2.10.1.tar.gz", hash = "sha256:72c062ccdcec627542c8305ca7050cbdc651585a3fa27e3f536f82a27b5e0557"},
+    {file = "ansible-base-2.10.2.tar.gz", hash = "sha256:c79fe108e13b286bad21734208624aaef9dabb49bb4211b13bc96d88829e22ab"},
 ]
 ansible-lint = [
     {file = "ansible-lint-4.3.5.tar.gz", hash = "sha256:bec230cf5fcc4d976246d4170da3ae289715f99185529ca8bba4b3c173035656"},
@@ -1321,6 +1321,7 @@ rich = [
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:5254af7d8bdf4d5484c089f929cb7f5bafa59b4f01d4f48adda4be41e6d29f99"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-win32.whl", hash = "sha256:74161d827407f4db9072011adcfb825b5258a5ccb3d2cd518dd6c9edea9e30f1"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-win_amd64.whl", hash = "sha256:058a1cc3df2a8aecc12f983a48bda99315cebf55a3b3a5463e37bb599b05727b"},
+    {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:b4b0d31f2052b3f9f9b5327024dc629a253a83d8649d4734ca7f35b60ec3e9e5"},
     {file = "ruamel.yaml.clib-0.2.2.tar.gz", hash = "sha256:2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"},
 ]
 selinux = [
