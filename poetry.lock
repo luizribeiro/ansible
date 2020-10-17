@@ -242,18 +242,6 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "fasteners"
-version = "0.15"
-description = "A python package that provides useful locks."
-category = "dev"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-monotonic = ">=0.1"
-six = "*"
-
-[[package]]
 name = "idna"
 version = "2.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -336,14 +324,13 @@ python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
 
 [[package]]
 name = "molecule"
-version = "3.0.8"
+version = "3.1.2"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-ansible = ">=2.8"
 cerberus = ">=1.3.1"
 click = ">=7.0"
 click-completion = ">=0.5.1"
@@ -351,10 +338,10 @@ click-help-colors = ">=0.6"
 colorama = ">=0.3.9"
 cookiecutter = ">=1.6.0,<1.7.1 || >1.7.1"
 Jinja2 = ">=2.10.1"
+packaging = "*"
 paramiko = ">=2.5.0,<3"
 pexpect = ">=4.6.0,<5"
 pluggy = ">=0.7.1,<1.0"
-python-gilt = ">=1.2.1,<2"
 PyYAML = ">=5.1,<6"
 selinux = {version = "*", markers = "sys_platform == \"linux\""}
 sh = ">=1.13.1,<1.14"
@@ -363,10 +350,13 @@ tree-format = ">=0.1.2"
 yamllint = ">=1.15.0,<2"
 
 [package.extras]
-docker = ["docker (>=2.0.0)"]
+ansible = ["ansible (>=2.10)"]
+ansible_base = ["ansible-base (>=2.10)"]
+docker = ["molecule-docker"]
 docs = ["simplejson", "sphinx", "sphinx-ansible-theme (>=0.2.2)"]
 lint = ["ansible-lint (>=4.2.0,<5)", "flake8 (>=3.6.0)", "pre-commit (>=1.21.0)", "yamllint (>=1.15.0)"]
-test = ["ansi2html", "coverage (<5)", "mock (>=3.0.5,<4)", "packaging", "pytest-cov (>=2.7.1,<3)", "pytest-helpers-namespace (>=2019.1.8,<2020)", "pytest-html (>=1.21.0)", "pytest-mock (>=1.10.4,<2)", "pytest-verbose-parametrize (>=1.7.0,<2)", "pytest-plus", "pytest-xdist (>=1.29.0,<2)", "pytest (>=5.4.0,<5.5)", "testinfra (>=3.4.0)"]
+podman = ["molecule-podman"]
+test = ["ansible (>=2.9)", "ansi2html", "coverage (<5)", "mock (>=3.0.5)", "pytest-cov (>=2.7.1)", "pytest-helpers-namespace (>=2019.1.8)", "pytest-html (>=1.21.0)", "pytest-mock (>=1.10.4)", "pytest-verbose-parametrize (>=1.7.0)", "pytest-plus", "pytest-xdist (>=1.29.0)", "pytest (>=5.4.0)", "testinfra (>=3.4.0)"]
 windows = ["pywinrm"]
 
 [[package]]
@@ -386,14 +376,6 @@ selinux = "*"
 
 [package.extras]
 test = ["ansi2html", "coverage (>=4.4,<5)", "flake8 (>=3.6.0,<4)", "mock (>=3.0.5,<4)", "pytest (>=4.6.3,<5)", "pytest-cov (>=2.7.1,<3)", "pytest-helpers-namespace (>=2019.1.8,<2020)", "pytest-html", "pytest-mock (>=1.10.4,<2)", "pytest-verbose-parametrize (>=1.7.0,<2)", "pytest-xdist (>=1.29.0,<2)", "pytest-dependency"]
-
-[[package]]
-name = "monotonic"
-version = "1.5"
-description = "An implementation of time.monotonic() for Python 2 & < 3.3"
-category = "dev"
-optional = false
-python-versions = "*"
 
 [[package]]
 name = "mypy-extensions"
@@ -634,24 +616,6 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
 [package.dependencies]
 six = ">=1.5"
-
-[[package]]
-name = "python-gilt"
-version = "1.2.3"
-description = "gilt - A GIT layering tool."
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-click = "*"
-colorama = "*"
-fasteners = "*"
-PyYAML = "*"
-sh = "*"
-
-[package.extras]
-test = ["black (19.10b0)", "flake8", "hacking", "pep517", "pytest", "pytest-cov", "pytest-helpers-namespace", "pytest-mock", "twine"]
 
 [[package]]
 name = "python-jsonrpc-server"
@@ -935,7 +899,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "60f7cbf89247de3c21a6fdb14c8f7523db8d03c8012f2961448a95baf93bb190"
+content-hash = "97294bd4e630afddd74edfcebc44301c1fbf71959f63f03eb647c0c4e09b781c"
 
 [metadata.files]
 ansible = [
@@ -1069,10 +1033,6 @@ distro = [
     {file = "distro-1.5.0-py2.py3-none-any.whl", hash = "sha256:df74eed763e18d10d0da624258524ae80486432cd17392d9c3d96f5e83cd2799"},
     {file = "distro-1.5.0.tar.gz", hash = "sha256:0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92"},
 ]
-fasteners = [
-    {file = "fasteners-0.15-py2.py3-none-any.whl", hash = "sha256:007e4d2b2d4a10093f67e932e5166722d2eab83b77724156e92ad013c6226574"},
-    {file = "fasteners-0.15.tar.gz", hash = "sha256:3a176da6b70df9bb88498e1a18a9e4a8579ed5b9141207762368a1017bf8f5ef"},
-]
 idna = [
     {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
     {file = "idna-2.10.tar.gz", hash = "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"},
@@ -1133,16 +1093,12 @@ markupsafe = [
     {file = "MarkupSafe-1.1.1.tar.gz", hash = "sha256:29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"},
 ]
 molecule = [
-    {file = "molecule-3.0.8-py3-none-any.whl", hash = "sha256:6fb202099ff52bc427c6bd8f46f13b49b3d5812daa6880960a0fd0562e8a9be6"},
-    {file = "molecule-3.0.8.tar.gz", hash = "sha256:42d0c661b52074b00a620466df367ddab9c3682875e6d685bfc93487ef0479cc"},
+    {file = "molecule-3.1.2-py3-none-any.whl", hash = "sha256:e5d7b76c0c0bf6968830a369b4bf7bce5658270b33830d1091262472643d9adf"},
+    {file = "molecule-3.1.2.tar.gz", hash = "sha256:24e9dfe8f64742c95bb6f4ab93dff1999407a165d9b3c84c65273bd9af4b5e3f"},
 ]
 molecule-vagrant = [
     {file = "molecule-vagrant-0.3.tar.gz", hash = "sha256:94b9aec5b1c7b499f549539bdd8d73c74afcce0a20776efd82f3f4ebae40ca98"},
     {file = "molecule_vagrant-0.3-py2.py3-none-any.whl", hash = "sha256:5fcacbb9544e2736ce206a01c72f25cf74cbfe147df1722930d0373d87499907"},
-]
-monotonic = [
-    {file = "monotonic-1.5-py2.py3-none-any.whl", hash = "sha256:552a91f381532e33cbd07c6a2655a21908088962bb8fa7239ecbcc6ad1140cc7"},
-    {file = "monotonic-1.5.tar.gz", hash = "sha256:23953d55076df038541e648a53676fb24980f7a1be290cdda21300b3bc21dfb0"},
 ]
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
@@ -1254,9 +1210,6 @@ python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
     {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
 ]
-python-gilt = [
-    {file = "python_gilt-1.2.3-py2.py3-none-any.whl", hash = "sha256:e220ea2e7e190ee06dbfa5fafe87967858b4ac0cf53f3072fa6ece4664a42082"},
-]
 python-jsonrpc-server = [
     {file = "python-jsonrpc-server-0.4.0.tar.gz", hash = "sha256:62c543e541f101ec5b57dc654efc212d2c2e3ea47ff6f54b2e7dcb36ecf20595"},
     {file = "python_jsonrpc_server-0.4.0-py3-none-any.whl", hash = "sha256:e5a908ff182e620aac07db5f57887eeb0afe33993008f57dc1b85b594cea250c"},
@@ -1321,6 +1274,7 @@ rich = [
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:5254af7d8bdf4d5484c089f929cb7f5bafa59b4f01d4f48adda4be41e6d29f99"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-win32.whl", hash = "sha256:74161d827407f4db9072011adcfb825b5258a5ccb3d2cd518dd6c9edea9e30f1"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-win_amd64.whl", hash = "sha256:058a1cc3df2a8aecc12f983a48bda99315cebf55a3b3a5463e37bb599b05727b"},
+    {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:c6ac7e45367b1317e56f1461719c853fd6825226f45b835df7436bb04031fd8a"},
     {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:b4b0d31f2052b3f9f9b5327024dc629a253a83d8649d4734ca7f35b60ec3e9e5"},
     {file = "ruamel.yaml.clib-0.2.2.tar.gz", hash = "sha256:2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"},
 ]
