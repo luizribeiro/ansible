@@ -14,10 +14,10 @@
         group: root
         mode: u=rw,g=r,o=r
       tags: configuration
-    - name: "Timezone is America/New_York"
+    - name: "Timezone is America/Chicago"
       file:
         state: link
-        src: "/usr/share/zoneinfo/America/New_York"
+        src: "/usr/share/zoneinfo/America/Chicago"
         dest: /etc/localtime
       notify: regenerate /etc/adjtime
       tags: configuration

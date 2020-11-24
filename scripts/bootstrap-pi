@@ -9,9 +9,9 @@
     ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
   become: true
   tasks:
-    - name: Set timezone to America/New_York
+    - name: Set timezone to America/Chicago
       timezone:
-        name: America/New_York
+        name: America/Chicago
     - name: Set hostname
       copy:
         content: "{{ inventory_hostname_short }}\n"
