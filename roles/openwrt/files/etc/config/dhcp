@@ -142,12 +142,17 @@ config host
 	option mac '00:17:88:77:7A:45'
 
 config host
-	option name 'entryway-speaker'
+	option name 'corridor-speaker'
 	option dns '1'
 	option mac '00:F6:20:47:40:D5'
 
 config host
-	option name 'bedroom-speaker'
+  option name 'bedroom-speaker'
+	option dns '1'
+	option mac '20:DF:B9:9E:EA:80'
+
+config host
+	option name 'office-speaker'
 	option dns '1'
 	option mac 'F0:EF:86:4D:D2:44'
 
@@ -177,15 +182,25 @@ config host
 	option ip '192.168.1.17'
 
 config host
+  option name 'bedroom-tv'
+	option dns '1'
+	option mac '4C:C9:5E:0A:85:9E'
+
+config host
 	option name 'chromecast-living-room'
 	option dns '1'
-	option mac '44:07:0B:4F:46:71'
+	option mac '14:C1:4E:77:26:AB'
 
 config host
 	option name 'ps4'
 	option dns '1'
 	option mac 'F8:46:1C:5F:15:44'
 	option ip '192.168.1.13'
+
+config host
+	option name 'ps5'
+	option dns '1'
+	option mac '78:C8:81:72:42:A4'
 
 config host
 	option name 'nintendo-switch-wired'
@@ -199,6 +214,11 @@ config host
 
 config host
 	option name 'chromecast-bedroom'
+	option dns '1'
+	option mac '44:07:0B:4F:46:71'
+
+config host
+	option name 'chromecast-guest-bedroom'
 	option dns '1'
 	option mac '48:D6:D5:36:56:E6'
 
