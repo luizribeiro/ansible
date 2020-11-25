@@ -3,6 +3,9 @@
 
 192.168.1.21 nuc.thepromisedlan nuc pi.hole vacuum
 
+# Network equipment
+192.168.100.1 modem.thepromisedlan modem
+
 # LAN Hosts
 192.168.1.17 living-room-tv.thepromisedlan living-room-tv
 

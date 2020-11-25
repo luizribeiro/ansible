@@ -133,6 +133,11 @@ config host
 	option mac '34:42:62:77:9D:1D'
 
 config host
+	option name 'remarkable'
+	option dns '1'
+	option mac 'D4:12:43:D5:93:32'
+
+config host
 	option name 'fossil-watch'
 	option dns '1'
 	option mac '98:29:A6:C7:E6:4F'
