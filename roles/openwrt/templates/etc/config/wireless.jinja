@@ -27,6 +27,8 @@ config wifi-device 'radio2'
 	option legacy_rates '1'
 
 config wifi-iface 'wifi_lan'
+  # eero is responsible for this SSID through a bridge now
+	option disabled '1'
 	option device 'radio0'
 	option mode 'ap'
 	option macaddr '62:38:e0:cc:12:6a'
