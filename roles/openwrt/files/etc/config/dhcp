@@ -65,6 +65,16 @@ config domain
 
 
 ######################################################
+# Hosts for network equipment
+
+config host
+	option name 'eero'
+	option dns '1'
+	option mac '6C:AE:F6:BE:AC:B2'
+	option ip '192.168.1.2'
+
+
+######################################################
 # Hosts for LAN computers
 
 config host
