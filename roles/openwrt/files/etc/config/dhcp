@@ -130,7 +130,7 @@ config host
 config host
 	option name 'apple-watch'
 	option dns '1'
-	option mac '40:CB:C0:9F:70:BC'
+	option mac '42:97:13:0A:87:7A'
 
 
 ######################################################
