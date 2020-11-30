@@ -293,6 +293,11 @@ config host
 	option ip '192.168.2.105'
 
 config host
+	option name 'iot-leviton-dimmer'
+	option dns '1'
+	option mac '00:07:A6:19:0E:EA'
+
+config host
 	option name 'iot-popcorn'
 	option dns '1'
 	option mac '68:FF:7B:5C:42:B0'
