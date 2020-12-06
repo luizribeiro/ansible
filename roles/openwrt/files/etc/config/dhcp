@@ -157,7 +157,7 @@ config host
 	option mac '00:17:88:77:7A:45'
 
 config host
-	option name 'corridor-speaker'
+	option name 'kitchen-speaker'
 	option dns '1'
 	option mac '00:F6:20:47:40:D5'
 
