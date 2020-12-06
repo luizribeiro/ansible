@@ -186,6 +186,12 @@ config host
 	option dns '1'
 	option mac 'A4:0E:2B:0D:64:B5'
 
+config host
+	# no idea why this can't connect to IoT network. leaving it here for now
+	option name 'iot-opengarage'
+	option dns '1'
+	option mac 'B4:E6:2D:6A:02:11'
+
 
 ######################################################
 # Hosts for LAN entertainment devices
