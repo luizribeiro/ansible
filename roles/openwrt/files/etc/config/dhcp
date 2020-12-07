@@ -192,6 +192,11 @@ config host
 	option mac 'A4:0E:2B:0D:64:B5'
 
 config host
+  option name 'portal-2'
+	option dns '1'
+	option mac 'A4:0E:2B:3F:88:70'
+
+config host
 	# no idea why this can't connect to IoT network. leaving it here for now
 	option name 'iot-opengarage'
 	option dns '1'
