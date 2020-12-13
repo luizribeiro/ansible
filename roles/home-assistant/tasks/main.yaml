@@ -40,6 +40,11 @@
     mode: u=rw,g-rwx,o-rwx
   notify: restart home-assistant
   tags: configuration
+- name: Setup udev rules
+  copy:
+    src: files/etc/udev/rules.d/99-hass-usb.rules
+    dest: /etc/udev/rules.d/99-hass-usb.rules
+  tags: configuration
 - name: Setup home-assistant configuration
   copy:
     src: files/var/lib/hass/
@@ -104,4 +109,11 @@
     owner: hass
     group: log
     mode: u=rw,g=r,o-rwx
+  tags: configuration
+- name: Add hass user to uucp group
+  user:
+    name: hass
+    groups:
+      - uucp
+    append: true
   tags: configuration
