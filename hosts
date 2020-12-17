@@ -21,6 +21,7 @@ iot-mariner
 iot-mariner
 labmate
 pistem.local
+husky
 
 [remote:children]
 ec2

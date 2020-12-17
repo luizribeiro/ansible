@@ -1,0 +1,12 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: husky
+  vars:
+    ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
+  become: true
+  roles:
+    - role: luizribeiro
+      vars:
+        luizribeiro_groups:
+          - sshusers
+          - wheel
