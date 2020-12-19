@@ -10,3 +10,6 @@
         luizribeiro_groups:
           - sshusers
           - wheel
+    - role: dev
+      vars:
+        dev_python_tools: true
