@@ -29,3 +29,14 @@
     executable: pip3
   when: dev_python_tools
   tags: packages
+
+- name: Install tools for C/C++ development
+  package:
+    name:
+      - automake
+      - clang-format-9
+      - clangd-9
+      - pkg-config
+    state: present
+  when: dev_cpp_tools
+  tags: packages

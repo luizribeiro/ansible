@@ -13,4 +13,5 @@
           - wheel
     - role: dev
       vars:
+        dev_cpp_tools: true
         dev_python_tools: true
