@@ -8,6 +8,7 @@
     - role: luizribeiro
       vars:
         luizribeiro_groups:
+          - dialout
           - sshusers
           - wheel
     - role: dev
