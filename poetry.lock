@@ -242,16 +242,18 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "fasteners"
-version = "0.15"
-description = "A python package that provides useful locks."
+name = "enrich"
+version = "1.2.6"
+description = "enrich"
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.dependencies]
-monotonic = ">=0.1"
-six = "*"
+rich = ">=9.5.1"
+
+[package.extras]
+test = ["mock (>=3.0.5)", "pytest-cov (>=2.7.1)", "pytest-mock (>=3.3.1)", "pytest-plus", "pytest-xdist (>=1.29.0)", "pytest (>=5.4.0)"]
 
 [[package]]
 name = "idna"
@@ -336,37 +338,37 @@ python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
 
 [[package]]
 name = "molecule"
-version = "3.0.8"
+version = "3.2.1"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-ansible = ">=2.8"
 cerberus = ">=1.3.1"
-click = ">=7.0"
+click = ">=7.0,<8.0"
 click-completion = ">=0.5.1"
 click-help-colors = ">=0.6"
-colorama = ">=0.3.9"
 cookiecutter = ">=1.6.0,<1.7.1 || >1.7.1"
+enrich = ">=1.2.5"
 Jinja2 = ">=2.10.1"
+packaging = "*"
 paramiko = ">=2.5.0,<3"
-pexpect = ">=4.6.0,<5"
 pluggy = ">=0.7.1,<1.0"
-python-gilt = ">=1.2.1,<2"
 PyYAML = ">=5.1,<6"
+rich = ">=9.5.1"
 selinux = {version = "*", markers = "sys_platform == \"linux\" or sys_platform == \"linux2\""}
-sh = ">=1.13.1,<1.14"
-tabulate = ">=0.8.4"
-tree-format = ">=0.1.2"
+subprocess-tee = ">=0.2.0"
 yamllint = ">=1.15.0,<2"
 
 [package.extras]
-docker = ["docker (>=2.0.0)"]
+ansible = ["ansible (>=2.10)"]
+ansible_base = ["ansible-base (>=2.10)"]
+docker = ["molecule-docker"]
 docs = ["simplejson", "sphinx", "sphinx-ansible-theme (>=0.2.2)"]
 lint = ["ansible-lint (>=4.2.0,<5)", "flake8 (>=3.6.0)", "pre-commit (>=1.21.0)", "yamllint (>=1.15.0)"]
-test = ["ansi2html", "coverage (<5)", "mock (>=3.0.5,<4)", "packaging", "pytest-cov (>=2.7.1,<3)", "pytest-helpers-namespace (>=2019.1.8,<2020)", "pytest-html (>=1.21.0)", "pytest-mock (>=1.10.4,<2)", "pytest-verbose-parametrize (>=1.7.0,<2)", "pytest-plus", "pytest-xdist (>=1.29.0,<2)", "pytest (>=5.4.0,<5.5)", "testinfra (>=3.4.0)"]
+podman = ["molecule-podman"]
+test = ["ansi2html (>=1.6.0)", "pexpect (>=4.8.0,<5)", "pytest-cov (>=2.10.1)", "pytest-helpers-namespace (>=2019.1.8)", "pytest-html (>=3.0.0)", "pytest-mock (>=3.3.1)", "pytest-plus (>=0.2)", "pytest-testinfra (>=6.1.0)", "pytest-verbose-parametrize (>=1.7.0)", "pytest-xdist (>=2.1.0)", "pytest (>=6.1.2)"]
 windows = ["pywinrm"]
 
 [[package]]
@@ -386,14 +388,6 @@ selinux = "*"
 
 [package.extras]
 test = ["ansi2html", "coverage (>=4.4,<5)", "flake8 (>=3.6.0,<4)", "mock (>=3.0.5,<4)", "pytest (>=4.6.3,<5)", "pytest-cov (>=2.7.1,<3)", "pytest-helpers-namespace (>=2019.1.8,<2020)", "pytest-html", "pytest-mock (>=1.10.4,<2)", "pytest-verbose-parametrize (>=1.7.0,<2)", "pytest-xdist (>=1.29.0,<2)", "pytest-dependency"]
-
-[[package]]
-name = "monotonic"
-version = "1.5"
-description = "An implementation of time.monotonic() for Python 2 & < 3.3"
-category = "dev"
-optional = false
-python-versions = "*"
 
 [[package]]
 name = "mypy-extensions"
@@ -468,17 +462,6 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
-name = "pexpect"
-version = "4.8.0"
-description = "Pexpect allows easy control of interactive console applications."
-category = "dev"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-ptyprocess = ">=0.5"
-
-[[package]]
 name = "pluggy"
 version = "0.13.1"
 description = "plugin and hook calling mechanisms for python"
@@ -507,14 +490,6 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [package.extras]
 test = ["ipaddress", "mock", "unittest2", "enum34", "pywin32", "wmi"]
-
-[[package]]
-name = "ptyprocess"
-version = "0.6.0"
-description = "Run a subprocess in a pseudo terminal"
-category = "dev"
-optional = false
-python-versions = "*"
 
 [[package]]
 name = "py"
@@ -637,24 +612,6 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 six = ">=1.5"
 
 [[package]]
-name = "python-gilt"
-version = "1.2.3"
-description = "gilt - A GIT layering tool."
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-click = "*"
-colorama = "*"
-fasteners = "*"
-PyYAML = "*"
-sh = "*"
-
-[package.extras]
-test = ["black (==19.10b0)", "flake8", "hacking", "pep517", "pytest", "pytest-cov", "pytest-helpers-namespace", "pytest-mock", "twine"]
-
-[[package]]
 name = "python-jsonrpc-server"
 version = "0.4.0"
 description = "JSON RPC 2.0 server library"
@@ -752,7 +709,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "rich"
-version = "6.1.2"
+version = "9.5.1"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 category = "dev"
 optional = false
@@ -802,14 +759,6 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 distro = ">=1.3.0"
 
 [[package]]
-name = "sh"
-version = "1.13.1"
-description = "Python subprocess replacement"
-category = "dev"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "shellingham"
 version = "1.3.2"
 description = "Tool to Detect Surrounding Shell"
@@ -826,15 +775,16 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
-name = "tabulate"
-version = "0.8.7"
-description = "Pretty-print tabular data"
+name = "subprocess-tee"
+version = "0.2.0"
+description = "subprocess-tee"
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.extras]
-widechars = ["wcwidth"]
+rich = ["enrich (>=9.5.1)"]
+test = ["enrich (>=1.2.5)", "mock (>=3.0.5)", "pytest-cov (>=2.7.1)", "pytest-plus", "pytest-xdist (>=1.29.0)", "pytest (>=6.1.0)"]
 
 [[package]]
 name = "testinfra"
@@ -868,17 +818,6 @@ description = "Python Library for Tom's Obvious, Minimal Language"
 category = "dev"
 optional = false
 python-versions = "*"
-
-[[package]]
-name = "tree-format"
-version = "0.1.2"
-description = ""
-category = "dev"
-optional = false
-python-versions = "*"
-
-[package.extras]
-dev = ["pytest (>=2.7.1)", "testtools (>=1.8.0)"]
 
 [[package]]
 name = "typing-extensions"
@@ -936,7 +875,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "798a1f221c945100f00ee85ebbc476c182c362a8e95e5566d835d0bf8618bd9a"
+content-hash = "1a7cc500ab400648c9abca97015c44b336e334914b2648206bd3325f85fd1b81"
 
 [metadata.files]
 ansible = [
@@ -1070,9 +1009,9 @@ distro = [
     {file = "distro-1.5.0-py2.py3-none-any.whl", hash = "sha256:df74eed763e18d10d0da624258524ae80486432cd17392d9c3d96f5e83cd2799"},
     {file = "distro-1.5.0.tar.gz", hash = "sha256:0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92"},
 ]
-fasteners = [
-    {file = "fasteners-0.15-py2.py3-none-any.whl", hash = "sha256:007e4d2b2d4a10093f67e932e5166722d2eab83b77724156e92ad013c6226574"},
-    {file = "fasteners-0.15.tar.gz", hash = "sha256:3a176da6b70df9bb88498e1a18a9e4a8579ed5b9141207762368a1017bf8f5ef"},
+enrich = [
+    {file = "enrich-1.2.6-py3-none-any.whl", hash = "sha256:ed0b3ac33495cc95f1ccafaf6c7ec0a0fcabb20f7f7a90121f37eb83a85bf82b"},
+    {file = "enrich-1.2.6.tar.gz", hash = "sha256:0e99ff57d87f7b5def0ca79917e88fb9351aa0d52e228ee38bff7cd858315fe4"},
 ]
 idna = [
     {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
@@ -1134,16 +1073,12 @@ markupsafe = [
     {file = "MarkupSafe-1.1.1.tar.gz", hash = "sha256:29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"},
 ]
 molecule = [
-    {file = "molecule-3.0.8-py3-none-any.whl", hash = "sha256:6fb202099ff52bc427c6bd8f46f13b49b3d5812daa6880960a0fd0562e8a9be6"},
-    {file = "molecule-3.0.8.tar.gz", hash = "sha256:42d0c661b52074b00a620466df367ddab9c3682875e6d685bfc93487ef0479cc"},
+    {file = "molecule-3.2.1-py3-none-any.whl", hash = "sha256:d50432022de0f38b652de7f4f7b9c3edc8116e84aee36be0aede29c2560d42bc"},
+    {file = "molecule-3.2.1.tar.gz", hash = "sha256:b85e078fe24c53022ac14e406a11088bd3e1dc388d94dfbee5fe6aa5f5dff584"},
 ]
 molecule-vagrant = [
     {file = "molecule-vagrant-0.3.tar.gz", hash = "sha256:94b9aec5b1c7b499f549539bdd8d73c74afcce0a20776efd82f3f4ebae40ca98"},
     {file = "molecule_vagrant-0.3-py2.py3-none-any.whl", hash = "sha256:5fcacbb9544e2736ce206a01c72f25cf74cbfe147df1722930d0373d87499907"},
-]
-monotonic = [
-    {file = "monotonic-1.5-py2.py3-none-any.whl", hash = "sha256:552a91f381532e33cbd07c6a2655a21908088962bb8fa7239ecbcc6ad1140cc7"},
-    {file = "monotonic-1.5.tar.gz", hash = "sha256:23953d55076df038541e648a53676fb24980f7a1be290cdda21300b3bc21dfb0"},
 ]
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
@@ -1169,10 +1104,6 @@ pathspec = [
     {file = "pathspec-0.8.0-py2.py3-none-any.whl", hash = "sha256:7d91249d21749788d07a2d0f94147accd8f845507400749ea19c1ec9054a12b0"},
     {file = "pathspec-0.8.0.tar.gz", hash = "sha256:da45173eb3a6f2a5a487efba21f050af2b41948be6ab52b6a1e3ff22bb8b7061"},
 ]
-pexpect = [
-    {file = "pexpect-4.8.0-py2.py3-none-any.whl", hash = "sha256:0b48a55dcb3c05f3329815901ea4fc1537514d6ba867a152b581d69ae3710937"},
-    {file = "pexpect-4.8.0.tar.gz", hash = "sha256:fc65a43959d153d0114afe13997d439c22823a27cefceb5ff35c2178c6784c0c"},
-]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
@@ -1193,10 +1124,6 @@ psutil = [
     {file = "psutil-5.7.2-cp38-cp38-win32.whl", hash = "sha256:10512b46c95b02842c225f58fa00385c08fa00c68bac7da2d9a58ebe2c517498"},
     {file = "psutil-5.7.2-cp38-cp38-win_amd64.whl", hash = "sha256:68d36986ded5dac7c2dcd42f2682af1db80d4bce3faa126a6145c1637e1b559f"},
     {file = "psutil-5.7.2.tar.gz", hash = "sha256:90990af1c3c67195c44c9a889184f84f5b2320dce3ee3acbd054e3ba0b4a7beb"},
-]
-ptyprocess = [
-    {file = "ptyprocess-0.6.0-py2.py3-none-any.whl", hash = "sha256:d7cc528d76e76342423ca640335bd3633420dc1366f258cb31d05e865ef5ca1f"},
-    {file = "ptyprocess-0.6.0.tar.gz", hash = "sha256:923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0"},
 ]
 py = [
     {file = "py-1.9.0-py2.py3-none-any.whl", hash = "sha256:366389d1db726cd2fcfc79732e75410e5fe4d31db13692115529d34069a043c2"},
@@ -1255,9 +1182,6 @@ python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
     {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
 ]
-python-gilt = [
-    {file = "python_gilt-1.2.3-py2.py3-none-any.whl", hash = "sha256:e220ea2e7e190ee06dbfa5fafe87967858b4ac0cf53f3072fa6ece4664a42082"},
-]
 python-jsonrpc-server = [
     {file = "python-jsonrpc-server-0.4.0.tar.gz", hash = "sha256:62c543e541f101ec5b57dc654efc212d2c2e3ea47ff6f54b2e7dcb36ecf20595"},
     {file = "python_jsonrpc_server-0.4.0-py3-none-any.whl", hash = "sha256:e5a908ff182e620aac07db5f57887eeb0afe33993008f57dc1b85b594cea250c"},
@@ -1286,6 +1210,8 @@ pyyaml = [
     {file = "PyYAML-5.3.1-cp37-cp37m-win_amd64.whl", hash = "sha256:73f099454b799e05e5ab51423c7bcf361c58d3206fa7b0d555426b1f4d9a3eaf"},
     {file = "PyYAML-5.3.1-cp38-cp38-win32.whl", hash = "sha256:06a0d7ba600ce0b2d2fe2e78453a470b5a6e000a985dd4a4e54e436cc36b0e97"},
     {file = "PyYAML-5.3.1-cp38-cp38-win_amd64.whl", hash = "sha256:95f71d2af0ff4227885f7a6605c37fd53d3a106fcab511b8860ecca9fcf400ee"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win32.whl", hash = "sha256:ad9c67312c84def58f3c04504727ca879cb0013b2517c85a9a253f0cb6380c0a"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:6034f55dab5fea9e53f436aa68fa3ace2634918e8b5994d82f3621c04ff5ed2e"},
     {file = "PyYAML-5.3.1.tar.gz", hash = "sha256:b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"},
 ]
 requests = [
@@ -1293,8 +1219,8 @@ requests = [
     {file = "requests-2.24.0.tar.gz", hash = "sha256:b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"},
 ]
 rich = [
-    {file = "rich-6.1.2-py3-none-any.whl", hash = "sha256:8555f056e76ee5dacecd9059e8f016abb85d3043274db6500b5f865b467005a2"},
-    {file = "rich-6.1.2.tar.gz", hash = "sha256:b316b5e8b167cd562d4315cf6c80399c253df444143e2053f593372bb2056ea4"},
+    {file = "rich-9.5.1-py3-none-any.whl", hash = "sha256:0f4359df97670c1981599690458c4c9ede02c56f59ae3a648b7154cdba21b0cc"},
+    {file = "rich-9.5.1.tar.gz", hash = "sha256:8b937e2d2c4ff9dcfda8a5910a8cd384bd30f50ec92346d616f62065c662df5f"},
 ]
 "ruamel.yaml" = [
     {file = "ruamel.yaml-0.16.12-py2.py3-none-any.whl", hash = "sha256:012b9470a0ea06e4e44e99e7920277edf6b46eee0232a04487ea73a7386340a5"},
@@ -1308,31 +1234,34 @@ rich = [
     {file = "ruamel.yaml.clib-0.2.2-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:73b3d43e04cc4b228fa6fa5d796409ece6fcb53a6c270eb2048109cbcbc3b9c2"},
     {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-macosx_10_6_intel.whl", hash = "sha256:53b9dd1abd70e257a6e32f934ebc482dac5edb8c93e23deb663eac724c30b026"},
     {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:839dd72545ef7ba78fd2aa1a5dd07b33696adf3e68fae7f31327161c1093001b"},
+    {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-manylinux2014_aarch64.whl", hash = "sha256:1236df55e0f73cd138c0eca074ee086136c3f16a97c2ac719032c050f7e0622f"},
     {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-win32.whl", hash = "sha256:b1e981fe1aff1fd11627f531524826a4dcc1f26c726235a52fcb62ded27d150f"},
     {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-win_amd64.whl", hash = "sha256:4e52c96ca66de04be42ea2278012a2342d89f5e82b4512fb6fb7134e377e2e62"},
     {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:a873e4d4954f865dcb60bdc4914af7eaae48fb56b60ed6daa1d6251c72f5337c"},
     {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:ab845f1f51f7eb750a78937be9f79baea4a42c7960f5a94dde34e69f3cce1988"},
+    {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:2fd336a5c6415c82e2deb40d08c222087febe0aebe520f4d21910629018ab0f3"},
     {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-win32.whl", hash = "sha256:e9f7d1d8c26a6a12c23421061f9022bb62704e38211fe375c645485f38df34a2"},
     {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-win_amd64.whl", hash = "sha256:2602e91bd5c1b874d6f93d3086f9830f3e907c543c7672cf293a97c3fabdcd91"},
     {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:44c7b0498c39f27795224438f1a6be6c5352f82cb887bc33d962c3a3acc00df6"},
     {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:8e8fd0a22c9d92af3a34f91e8a2594eeb35cba90ab643c5e0e643567dc8be43e"},
+    {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:75f0ee6839532e52a3a53f80ce64925ed4aed697dd3fa890c4c918f3304bd4f4"},
     {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-win32.whl", hash = "sha256:464e66a04e740d754170be5e740657a3b3b6d2bcc567f0c3437879a6e6087ff6"},
     {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-win_amd64.whl", hash = "sha256:52ae5739e4b5d6317b52f5b040b1b6639e8af68a5b8fd606a8b08658fbd0cab5"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:4df5019e7783d14b79217ad9c56edf1ba7485d614ad5a385d1b3c768635c81c0"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:5254af7d8bdf4d5484c089f929cb7f5bafa59b4f01d4f48adda4be41e6d29f99"},
+    {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:8be05be57dc5c7b4a0b24edcaa2f7275866d9c907725226cdde46da09367d923"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-win32.whl", hash = "sha256:74161d827407f4db9072011adcfb825b5258a5ccb3d2cd518dd6c9edea9e30f1"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-win_amd64.whl", hash = "sha256:058a1cc3df2a8aecc12f983a48bda99315cebf55a3b3a5463e37bb599b05727b"},
     {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:c6ac7e45367b1317e56f1461719c853fd6825226f45b835df7436bb04031fd8a"},
     {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:b4b0d31f2052b3f9f9b5327024dc629a253a83d8649d4734ca7f35b60ec3e9e5"},
+    {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:1f8c0a4577c0e6c99d208de5c4d3fd8aceed9574bb154d7a2b21c16bb924154c"},
+    {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-win32.whl", hash = "sha256:46d6d20815064e8bb023ea8628cfb7402c0f0e83de2c2227a88097e239a7dffd"},
+    {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-win_amd64.whl", hash = "sha256:6c0a5dc52fc74eb87c67374a4e554d4761fd42a4d01390b7e868b30d21f4b8bb"},
     {file = "ruamel.yaml.clib-0.2.2.tar.gz", hash = "sha256:2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"},
 ]
 selinux = [
     {file = "selinux-0.2.1-py2.py3-none-any.whl", hash = "sha256:820adcf1b4451c9cc7759848797703263ba0eb6a4cad76d73548a9e0d57b7926"},
     {file = "selinux-0.2.1.tar.gz", hash = "sha256:d435f514e834e3fdc0941f6a29d086b80b2ea51b28112aee6254bd104ee42a74"},
-]
-sh = [
-    {file = "sh-1.13.1-py2.py3-none-any.whl", hash = "sha256:6f792e45b45d039b423081558904981e8ab49572b0c38009fcc65feaab06bcda"},
-    {file = "sh-1.13.1.tar.gz", hash = "sha256:97a3d2205e3c6a842d87ebbc9ae93acae5a352b1bc4609b428d0fd5bb9e286a3"},
 ]
 shellingham = [
     {file = "shellingham-1.3.2-py2.py3-none-any.whl", hash = "sha256:7f6206ae169dc1a03af8a138681b3f962ae61cc93ade84d0585cca3aaf770044"},
@@ -1342,9 +1271,9 @@ six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
     {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},
 ]
-tabulate = [
-    {file = "tabulate-0.8.7-py3-none-any.whl", hash = "sha256:ac64cb76d53b1231d364babcd72abbb16855adac7de6665122f97b593f1eb2ba"},
-    {file = "tabulate-0.8.7.tar.gz", hash = "sha256:db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"},
+subprocess-tee = [
+    {file = "subprocess-tee-0.2.0.tar.gz", hash = "sha256:8374dfdb1bd6e64278afa67be41f13772b677ae768b523550060fe41d8274faa"},
+    {file = "subprocess_tee-0.2.0-py3-none-any.whl", hash = "sha256:f748b5a998f70de1fe2ff5b4d3e28f8671149cb33a3ff90537db26b90122881d"},
 ]
 testinfra = [
     {file = "testinfra-5.3.1-py3-none-any.whl", hash = "sha256:9d3a01fb787253df76ac4ab46d18a84d4b01be877ed1b5812e590dcf480a627e"},
@@ -1357,10 +1286,6 @@ text-unidecode = [
 toml = [
     {file = "toml-0.10.1-py2.py3-none-any.whl", hash = "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"},
     {file = "toml-0.10.1.tar.gz", hash = "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"},
-]
-tree-format = [
-    {file = "tree-format-0.1.2.tar.gz", hash = "sha256:a538523aa78ae7a4b10003b04f3e1b37708e0e089d99c9d3b9e1c71384c9a7f9"},
-    {file = "tree_format-0.1.2-py2-none-any.whl", hash = "sha256:b5056228dbedde1fb81b79f71fb0c23c98e9d365230df9b29af76e8d8003de11"},
 ]
 typing-extensions = [
     {file = "typing_extensions-3.7.4.3-py2-none-any.whl", hash = "sha256:dafc7639cde7f1b6e1acc0f457842a83e722ccca8eef5270af2d74792619a89f"},
