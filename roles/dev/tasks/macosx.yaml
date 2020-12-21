@@ -96,6 +96,7 @@
   homebrew:
     name:
       - automake
+      - ccls
       - clang-format
       - llvm
       - pkg-config
