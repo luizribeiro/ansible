@@ -207,6 +207,10 @@ config host
 	option dns '1'
 	option mac 'B4:E6:2D:6A:02:11'
 
+config host
+  option name 'peloton'
+	option mac 'AC:04:0B:45:17:76'
+
 
 ######################################################
 # Hosts for LAN entertainment devices
