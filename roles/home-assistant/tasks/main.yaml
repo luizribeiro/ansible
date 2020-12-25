@@ -51,7 +51,7 @@
     dest: /var/lib/hass/
     owner: hass
     group: hass
-    mode: u=rw,g=r,o-rwx
+    mode: o-rwx
     directory_mode: u=rwx,g=rx,o-rwx
     # TODO: fix hass-config validation
     # validate: 'hass -c %s --script check_config'
