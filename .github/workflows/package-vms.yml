@@ -1,0 +1,22 @@
+---
+name: Build VMs and upload to cloud
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install Python dependecies
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: install -d
+      - name: Test
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: run test # Run custom `test` command defined in the `[scripts]` block of Pipfile

@@ -12,3 +12,8 @@
     name: base-devel
     state: present
   tags: packages
+- name: "systemd-homed.service is enabled"
+  systemd:
+    name: systemd-homed
+    enabled: true
+  tags: configuration
