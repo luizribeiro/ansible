@@ -339,3 +339,16 @@ config host
 	option mac 'B8:27:EB:5E:4E:52'
 	option ip '192.168.2.240'
 
+
+######################################################
+# ESPHome nodes on IoT network
+
+config host
+	option name 'blinds'
+	option dns '1'
+	option mac '8C:AA:B5:1B:57:B7'
+
+config host
+	option name 'office'
+	option dns '1'
+	option mac '8C:AA:B5:1B:3F:DD'
