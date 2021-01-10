@@ -13,7 +13,7 @@ passlib = "1.7.4"
 
 [tool.poetry.dev-dependencies]
 ansible-lint = "4.3.7"
-molecule = "3.2.1"
+molecule = "3.2.2"
 molecule-vagrant = "0.3"
 pyexpect = "1.0.21"
 pyre-check = "0.0.58"
