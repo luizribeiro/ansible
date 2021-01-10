@@ -3,9 +3,15 @@
   hosts: all
   become: true
   tasks:
-    - name: "Upgrade system"
+    - name: "Upgrade pacman packages"
       pacman:
         update_cache: true
         upgrade: true
+      when: ansible_distribution == 'Archlinux'
+    - name: "Upgrade apt packages"
+      apt:
+        update_cache: true
+        upgrade: full
+      when: ansible_distribution == 'Debian'
     - name: "Reboot machine after upgrade"
       reboot:

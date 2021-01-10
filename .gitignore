@@ -5,3 +5,4 @@ secrets.yaml
 .pyre
 .vagrant
 package.box
+__pycache__

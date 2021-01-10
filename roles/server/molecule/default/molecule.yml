@@ -4,8 +4,10 @@ dependency:
 driver:
   name: vagrant
 platforms:
-  - name: instance
+  - name: archlinux
     box: archlinux/archlinux
+  - name: debian
+    box: debian/buster64
 provisioner:
   name: ansible
   inventory:
