@@ -3,12 +3,12 @@
     "."
   ],
   "search_path": [
-    ".venv/lib/python3.8/site-packages/"
+    { "site-package": "pyexpect" },
+    { "site-package": "testinfra" }
   ],
-  "ignore_all_errors": [
-    ".venv/",
-    "library/",
-    "plugins/",
-    "roles/home-assistant/files/var/lib/hass/dependencies/spotcast/"
+  "exclude": [
+    ".*\/library\/.*",
+    ".*\/plugins\/.*",
+    ".*\/files\/.*"
   ]
 }

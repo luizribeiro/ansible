@@ -15,7 +15,6 @@ cache:
   directories:
     - $HOME/.cache
     - $HOME/.vagrant.d/boxes
-    - $TRAVIS_BUILD_DIR/.venv
 
 branches:
   only:
@@ -38,7 +37,6 @@ install:
     sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin
     libvirt-dev qemu-kvm qemu-utils ruby-dev
   - sudo chmod -R a+rwx /var/run/libvirt
-
   # install vagrant
   - >-
     wget -nv
@@ -51,21 +49,13 @@ install:
   - poetry install -vv
   - poetry run ansible-galaxy install -r requirements.yml
 
-before_script:
-  # for some reason poetry is still setting up the venv somewhere else
-  # despite the settings on poetry.toml
-  - sed -i "/.venv\\/lib\\//d" .pyre_configuration
-  - sed -i "s#.venv#$(poetry env info --path)#g" .pyre_configuration
-
 script:
   # run lint against all playbooks
   - poetry run ansible-lint
   - poetry run yamllint .
 
   # run python checks
-  - >-
-    poetry run pyre --noninteractive
-    --search-path "$(poetry env info --path)/lib/"python*/site-packages
+  - poetry run pyre --noninteractive
 
   # test role
   - cd "roles/$ROLE_TO_TEST/"
