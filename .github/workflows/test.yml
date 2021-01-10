@@ -5,7 +5,8 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # vagrant and virtualization is only available on macos
+    runs-on: macos-latest
     strategy:
       max-parallel: 4
       matrix:
