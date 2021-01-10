@@ -35,5 +35,5 @@ jobs:
 
       - name: Run molecule tests
         run: |
-          cd ${{ matrix.role-to-test }}
+          cd roles/${{ matrix.role-to-test }}/
           poetry run molecule test
