@@ -4,10 +4,11 @@ dependency:
 driver:
   name: vagrant
 platforms:
+  # FIXME: for some reason debian is failing to reboot during prepare playbook
+  # - name: debian
+  #   box: debian/buster64
   - name: archlinux
     box: archlinux/archlinux
-  - name: debian
-    box: debian/buster64
 provisioner:
   name: ansible
   inventory:
