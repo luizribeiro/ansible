@@ -338,7 +338,7 @@ python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
 
 [[package]]
 name = "molecule"
-version = "3.2.1"
+version = "3.2.2"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
@@ -890,7 +890,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "1288c369b38db0e11ad12e84fdd21e02437d6b67c22ac14f5a538853690fc8ef"
+content-hash = "cd47a56b2fc4c06bc3bcb4100473afd71db91a6bd67ecad7736f0797897d7e24"
 
 [metadata.files]
 ansible = [
@@ -1088,8 +1088,8 @@ markupsafe = [
     {file = "MarkupSafe-1.1.1.tar.gz", hash = "sha256:29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"},
 ]
 molecule = [
-    {file = "molecule-3.2.1-py3-none-any.whl", hash = "sha256:d50432022de0f38b652de7f4f7b9c3edc8116e84aee36be0aede29c2560d42bc"},
-    {file = "molecule-3.2.1.tar.gz", hash = "sha256:b85e078fe24c53022ac14e406a11088bd3e1dc388d94dfbee5fe6aa5f5dff584"},
+    {file = "molecule-3.2.2-py3-none-any.whl", hash = "sha256:d96ef3f895250f16142ed51591558d54a67a1546e05ccff386be0320de44973c"},
+    {file = "molecule-3.2.2.tar.gz", hash = "sha256:9e360073598d45ec86036d84084fc6493dfc4270fd7600ee9ebe0ce03a0af6e5"},
 ]
 molecule-vagrant = [
     {file = "molecule-vagrant-0.3.tar.gz", hash = "sha256:94b9aec5b1c7b499f549539bdd8d73c74afcce0a20776efd82f3f4ebae40ca98"},
