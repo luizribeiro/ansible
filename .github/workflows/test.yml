@@ -28,7 +28,7 @@ jobs:
       - name: Run Ansible Lint against playbooks
         run: poetry run ansible-lint
       - name: Run YAML Lint
-        run: poetry run yamllint .
+        run: poetry run yamllint -f github .
 
       - name: Run Python static analysis checks
         run: poetry run pyre --noninteractive
