@@ -1,6 +1,6 @@
 ---
 - name: Install ufw
-  pacman:
+  package:
     name: ufw
     state: present
   tags: packages

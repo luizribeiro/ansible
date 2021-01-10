@@ -1,12 +1,20 @@
 ---
 - name: Install ntp
-  pacman:
+  package:
     name: ntp
     state: present
   tags: packages
 - name: ntpd is enabled and running
   systemd:
-    name: ntpd
+    name: "{{ 'ntpd' if ansible_distribution == 'Archlinux' else 'ntp' }}"
     enabled: true
     state: started
+  tags: systemctl
+
+- name: Disable systemd-timesyncd on Debian
+  systemd:
+    name: systemd-timesyncd
+    enabled: false
+    state: stopped
+  when: ansible_distribution == 'Debian'
   tags: systemctl

@@ -11,9 +11,11 @@
   pacman:
     name: base-devel
     state: present
+  when: ansible_distribution == 'Archlinux'
   tags: packages
 - name: "systemd-homed.service is enabled"
   systemd:
     name: systemd-homed
     enabled: true
+  when: ansible_distribution == 'Archlinux'
   tags: configuration

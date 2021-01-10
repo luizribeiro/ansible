@@ -5,6 +5,9 @@
     ansible_become_password: "{{ secret_luizribeiro_initial_password }}"
   become: true
   roles:
+    - role: server
+      vars:
+        ssh_require_2fac: false
     - role: luizribeiro
       vars:
         luizribeiro_groups:

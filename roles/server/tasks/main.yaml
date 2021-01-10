@@ -2,7 +2,7 @@
 - include: base.yaml
 
 - name: Install networking tools
-  pacman:
+  package:
     name:
       - iperf
       - nmap
@@ -11,22 +11,32 @@
       - traceroute
     state: present
   tags: packages
-- name: Install man pages
-  pacman:
+- name: Install man db
+  package:
     name:
       - man-db
+    state: present
+  tags: packages
+- name: Install man pages
+  package:
+    name:
       - man-pages
     state: present
+  when: ansible_distribution == 'Archlinux'
   tags: packages
 
 - include: users.yaml
 - include: ntp.yaml
 - include: firewall.yaml
 - include: cron.yaml
+  when: ansible_distribution == 'Archlinux'
 - include: pacman.yaml
+  when: ansible_distribution == 'Archlinux'
 - include: sshd.yaml
 - include: sshguard.yaml
+  when: ansible_distribution == 'Archlinux'
 - include: monit.yaml
+  when: ansible_distribution == 'Archlinux'
 - include: security.yaml
 
 - name: Firewall is enabled

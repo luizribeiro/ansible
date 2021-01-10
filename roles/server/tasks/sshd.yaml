@@ -1,7 +1,12 @@
 ---
 - name: Install openssh
-  pacman:
-    name: openssh
+  package:
+    name: >-
+      {{
+        'openssh'
+        if ansible_distribution == 'Archlinux'
+        else 'openssh-server'
+      }}
     state: present
   tags: packages
 - name: Setup sshd_config
@@ -14,13 +19,23 @@
     validate: "sshd -tf %s"
   notify: restart sshd
   tags: configuration
-- name: Install openssh
+- name: Setup 2fac for pam
   block:
+    - name: Check we are running on Arch Linux
+      # TODO: test this stuff under Debian. mostly confirm pam.d setup is okay
+      assert:
+        that:
+          - ansible_distribution == 'Archlinux'
     - name: Install pam modules for 2fac
-      pacman:
+      package:
         name:
           - libpam-google-authenticator
-          - yubico-pam
+          - >-
+            {{
+              'yubico-pam'
+              if ansible_distribution == 'Archlinux'
+              else 'libpam-yubico'
+            }}
         state: present
       tags: packages
     - name: Setup pam.d/ssh
