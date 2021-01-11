@@ -373,21 +373,20 @@ windows = ["pywinrm"]
 
 [[package]]
 name = "molecule-vagrant"
-version = "0.3"
+version = "0.6.1"
 description = "Vagrant Molecule Plugin :: run molecule tests using Vagrant"
 category = "dev"
 optional = false
-python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+python-versions = ">=3.6"
 
 [package.dependencies]
-ansible = ">=2.9.5"
-molecule = ">=3.0.2"
-python-vagrant = "*"
+molecule = ">=3.2.0a0"
 pyyaml = ">=5.1,<6"
 selinux = "*"
 
 [package.extras]
-test = ["ansi2html", "coverage (>=4.4,<5)", "flake8 (>=3.6.0,<4)", "mock (>=3.0.5,<4)", "pytest (>=4.6.3,<5)", "pytest-cov (>=2.7.1,<3)", "pytest-helpers-namespace (>=2019.1.8,<2020)", "pytest-html", "pytest-mock (>=1.10.4,<2)", "pytest-verbose-parametrize (>=1.7.0,<2)", "pytest-xdist (>=1.29.0,<2)", "pytest-dependency"]
+ansible = ["ansible", "python-vagrant"]
+test = ["molecule"]
 
 [[package]]
 name = "mypy-extensions"
@@ -681,14 +680,6 @@ text-unidecode = ">=1.3"
 unidecode = ["Unidecode (>=1.1.1)"]
 
 [[package]]
-name = "python-vagrant"
-version = "0.5.15"
-description = "Python bindings for interacting with Vagrant virtual machines."
-category = "dev"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "pywatchman"
 version = "1.4.1"
 description = "Watchman client for python"
@@ -890,7 +881,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "cd47a56b2fc4c06bc3bcb4100473afd71db91a6bd67ecad7736f0797897d7e24"
+content-hash = "cf30dfe2afc1aa2b5fa4a8ddc41f089dc760b0bcbf3568e62bb6f52954d88eb4"
 
 [metadata.files]
 ansible = [
@@ -1092,8 +1083,8 @@ molecule = [
     {file = "molecule-3.2.2.tar.gz", hash = "sha256:9e360073598d45ec86036d84084fc6493dfc4270fd7600ee9ebe0ce03a0af6e5"},
 ]
 molecule-vagrant = [
-    {file = "molecule-vagrant-0.3.tar.gz", hash = "sha256:94b9aec5b1c7b499f549539bdd8d73c74afcce0a20776efd82f3f4ebae40ca98"},
-    {file = "molecule_vagrant-0.3-py2.py3-none-any.whl", hash = "sha256:5fcacbb9544e2736ce206a01c72f25cf74cbfe147df1722930d0373d87499907"},
+    {file = "molecule-vagrant-0.6.1.tar.gz", hash = "sha256:69fb95b06e0fb54687cf2be587adb5ec31b44952c35f1dfc605bc367438dbe5f"},
+    {file = "molecule_vagrant-0.6.1-py3-none-any.whl", hash = "sha256:eb32d0e8b8d1def6af2589fbdadc2d982a3cba306cdd0a5ed06506ed8c2a3125"},
 ]
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
@@ -1226,9 +1217,6 @@ python-language-server = [
 ]
 python-slugify = [
     {file = "python-slugify-4.0.1.tar.gz", hash = "sha256:69a517766e00c1268e5bbfc0d010a0a8508de0b18d30ad5a1ff357f8ae724270"},
-]
-python-vagrant = [
-    {file = "python-vagrant-0.5.15.tar.gz", hash = "sha256:af9a8a9802d382d45dbea96aa3cfbe77c6e6ad65b3fe7b7c799d41ab988179c6"},
 ]
 pywatchman = [
     {file = "pywatchman-1.4.1.tar.gz", hash = "sha256:d0047eb275deafb0011eda0a1a815fbd9742478c3d2b5ad6956d300e447dc2f9"},
