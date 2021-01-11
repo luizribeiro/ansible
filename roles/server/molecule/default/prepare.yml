@@ -11,8 +11,7 @@
     - name: "Upgrade apt packages"
       apt:
         update_cache: true
-        # FIXME: for some reason debian reboot fails if packages are upgraded
-        # upgrade: full
+        upgrade: full
       when: ansible_distribution == 'Debian'
     - name: "Reboot machine after upgrade"
       reboot:

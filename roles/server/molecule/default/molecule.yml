@@ -5,7 +5,7 @@ driver:
   name: vagrant
 platforms:
   - name: debian
-    box: debian/buster64
+    box: generic/debian10
   - name: archlinux
     box: archlinux/archlinux
 provisioner:
