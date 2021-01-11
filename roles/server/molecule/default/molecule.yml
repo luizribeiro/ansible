@@ -4,9 +4,8 @@ dependency:
 driver:
   name: vagrant
 platforms:
-  # FIXME: the tests are checking for monit, while debian doesn't install monit
-  # - name: debian
-  #   box: debian/buster64
+  - name: debian
+    box: debian/buster64
   - name: archlinux
     box: archlinux/archlinux
 provisioner:
