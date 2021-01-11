@@ -1,6 +1,6 @@
 # luizribeiro's ansible settings
 
-![Test](https://github.com/luizribeiro/ansible/workflows/Test/badge.svg)
+![CI](https://github.com/luizribeiro/ansible/workflows/CI/badge.svg)
 [![Dependency Status](https://img.shields.io/librariesio/release/github/luizribeiro/ansible)](https://libraries.io/github/luizribeiro/ansible)
 
 ```
