@@ -89,6 +89,7 @@
     - telegraf
     - home-assistant
 - name: Setup monit config
+  when: "'monit' in ansible_role_names"
   copy:
     src: files/etc/monitrc.d/influxdb.conf
     dest: /etc/monitrc.d/influxdb.conf

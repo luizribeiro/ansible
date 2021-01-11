@@ -19,6 +19,7 @@
     state: started
   tags: systemctl
 - name: Setup monit config
+  when: "'monit' in ansible_role_names"
   copy:
     src: files/etc/monitrc.d/
     dest: /etc/monitrc.d/
@@ -26,6 +27,5 @@
     group: root
     mode: u+rw,g-rwx,o-rwx
     directory_mode: u+rwx,g-rwx,o-rwx
-  when: "'server' in ansible_role_names"
   notify: restart monit
   tags: configuration

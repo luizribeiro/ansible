@@ -5,6 +5,7 @@
 - include: goaccess.yaml
 
 - name: Setup monit config
+  when: "'monit' in ansible_role_names"
   template:
     src: templates/etc/monitrc.d/webserver.conf.jinja
     dest: /etc/monitrc.d/webserver.conf

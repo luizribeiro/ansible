@@ -33,8 +33,6 @@
 - include: sshd.yaml
 - include: sshguard.yaml
   when: ansible_distribution == 'Archlinux'
-- include: monit.yaml
-  when: ansible_distribution == 'Archlinux'
 - include: security.yaml
 
 - name: Firewall is enabled

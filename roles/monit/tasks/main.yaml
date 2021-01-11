@@ -1,6 +1,6 @@
 ---
 - name: Install Monit server
-  pacman:
+  package:
     name: monit
     state: present
   tags: packages

@@ -98,6 +98,7 @@
       tags: configuration
 
 - name: Setup monit config
+  when: "'monit' in ansible_role_names"
   copy:
     src: files/etc/monitrc.d/
     dest: /etc/monitrc.d/

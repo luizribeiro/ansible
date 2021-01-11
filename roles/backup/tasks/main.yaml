@@ -55,5 +55,5 @@
         mode: u+rw,g-rwx,o-rwx
         directory_mode: u+rwx,g-rwx,o-rwx
       notify: restart monit
-  when: "'server' in ansible_role_names"
+  when: "'monit' in ansible_role_names"
   tags: configuration

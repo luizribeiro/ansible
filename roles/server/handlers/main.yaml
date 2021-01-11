@@ -3,10 +3,6 @@
   systemd:
     name: sshd
     state: restarted
-- name: restart monit
-  systemd:
-    name: monit
-    state: restarted
 - name: restart sshguard
   systemd:
     name: sshguard
