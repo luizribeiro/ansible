@@ -4,14 +4,9 @@ name: Test
 on: [push]
 
 jobs:
-  build:
+  setup-venv:
     # vagrant and virtualization is only available on macos
     runs-on: macos-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        role-to-test: [pihole, server]
-
     steps:
       - uses: actions/checkout@v2
         with:
@@ -19,10 +14,22 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: "3.8"
-      - uses: abatilo/actions-poetry@v2.1.0
+      - uses: syphar/restore-virtualenv@v1
+        id: venv-cache
 
+      - uses: abatilo/actions-poetry@v2.1.0
+        if: steps.setup-venv.outputs.cache-hit != 'true'
       - name: Install Python dependencies
         run: poetry install -vv
+        if: steps.setup-venv.outputs.cache-hit != 'true'
+
+  lint:
+    runs-on: macos-latest
+    needs: setup-venv
+    steps:
+      - uses: syphar/restore-virtualenv@v1
+        id: venv-cache
+
       - name: Install Ansible Galaxy requirements
         run: poetry run ansible-galaxy install -r requirements.yml
 
@@ -34,6 +41,18 @@ jobs:
       - name: Run Python static analysis checks
         run: poetry run pyre --noninteractive
 
+  molecule-tests:
+    needs: setup-venv
+    strategy:
+      max-parallel: 4
+      matrix:
+        role-to-test: [pihole, server]
+    steps:
+      - uses: syphar/restore-virtualenv@v1
+        id: venv-cache
+
+      - name: Install Ansible Galaxy requirements
+        run: poetry run ansible-galaxy install -r requirements.yml
       - name: Run molecule tests
         run: |
           cd roles/${{ matrix.role-to-test }}/
