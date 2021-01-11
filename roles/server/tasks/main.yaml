@@ -30,8 +30,6 @@
 - include: firewall.yaml
 - include: cron.yaml
   when: ansible_distribution == 'Archlinux'
-- include: pacman.yaml
-  when: ansible_distribution == 'Archlinux'
 - include: sshd.yaml
 - include: sshguard.yaml
   when: ansible_distribution == 'Archlinux'

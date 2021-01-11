@@ -26,6 +26,7 @@
         content: "nuc\n"
         dest: /etc/hostname
   roles:
+    - role: archlinux-base
     - role: server
       vars:
         ssh_require_2fac: true
