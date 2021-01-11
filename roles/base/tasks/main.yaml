@@ -4,3 +4,14 @@
     - files:
         - "{{ ansible_distribution | lower }}.yaml"
       skip: true
+- name: Setup monit config
+  when: "'monit' in ansible_role_names"
+  copy:
+    src: "files/etc/monitrc.d/{{ ansible_distribution | lower }}.conf"
+    dest: /etc/monitrc.d/
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  notify: restart monit
+  tags: configuration
