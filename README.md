@@ -1,6 +1,6 @@
 # luizribeiro's ansible settings
 
-[![Build Status](https://travis-ci.com/luizribeiro/ansible.svg?token=Y5WyECQyFrzmKkJLsCaK&branch=master)](https://travis-ci.com/luizribeiro/ansible)
+![Test](https://github.com/luizribeiro/ansible/workflows/Test/badge.svg)
 [![Dependency Status](https://img.shields.io/librariesio/release/github/luizribeiro/ansible)](https://libraries.io/github/luizribeiro/ansible)
 
 ```
