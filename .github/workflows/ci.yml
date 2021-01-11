@@ -42,6 +42,7 @@ jobs:
         run: poetry run pyre --noninteractive
 
   molecule-tests:
+    runs-on: macos-latest
     needs: setup-venv
     strategy:
       max-parallel: 4
