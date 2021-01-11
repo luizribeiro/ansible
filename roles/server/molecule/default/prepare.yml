@@ -8,10 +8,11 @@
         update_cache: true
         upgrade: true
       when: ansible_distribution == 'Archlinux'
-    - name: "Upgrade apt packages"
-      apt:
-        update_cache: true
-        upgrade: full
-      when: ansible_distribution == 'Debian'
+    # FIXME: for some reason debian reboot fails if packages are upgraded
+    # - name: "Upgrade apt packages"
+    #   apt:
+    #     update_cache: true
+    #     upgrade: full
+    #   when: ansible_distribution == 'Debian'
     - name: "Reboot machine after upgrade"
       reboot:
