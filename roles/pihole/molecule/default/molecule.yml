@@ -6,6 +6,8 @@ driver:
 platforms:
   - name: instance
     box: archlinux/archlinux
+    memory: 1024
+    cpus: 2
 provisioner:
   name: ansible
   inventory:
