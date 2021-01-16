@@ -1,1 +1,7 @@
 ---
+- name: Install basic development tools
+  pacman:
+    name:
+      - act
+    state: present
+  tags: packages
