@@ -1,6 +1,6 @@
 ---
 - name: Install basic development tools
-  pacman:
+  aur:
     name:
       - act
     state: present
