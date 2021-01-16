@@ -2,6 +2,7 @@
 - name: Install basic development tools
   homebrew:
     name:
+      - act
       - git
       - pre-commit
       - prettier
