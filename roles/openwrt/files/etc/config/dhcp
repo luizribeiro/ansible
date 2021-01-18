@@ -109,11 +109,6 @@ config host
 	option mac '30:35:AD:CC:3F:AC'
 
 config host
-	option name 'husky'
-	option dns '1'
-	option mac 'DC:A6:32:D2:FE:6A'
-
-config host
 	option name 'pixel3'
 	option dns '1'
 	option mac '3C:28:6D:00:0E:1A'
@@ -127,6 +122,20 @@ config host
   option name 'fb-lighthouse'
 	option dns '1'
 	option mac '20:4C:03:AB:E2:BA'
+
+
+######################################################
+# Hosts for lab devices
+
+config host
+	option name 'husky'
+	option dns '1'
+	option mac 'DC:A6:32:D2:FE:6A'
+
+config host
+	option name 'oscilloscope'
+	option dns '1'
+	option mac '00:0A:35:00:01:22'
 
 
 ######################################################
