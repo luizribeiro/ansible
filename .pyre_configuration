@@ -2,10 +2,6 @@
   "source_directories": [
     "."
   ],
-  "search_path": [
-    { "site-package": "pyexpect" },
-    { "site-package": "testinfra" }
-  ],
   "exclude": [
     ".*\/library\/.*",
     ".*\/plugins\/.*",
