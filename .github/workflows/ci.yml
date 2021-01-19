@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: "3.8"
-      - uses: syphar/restore-virtualenv@v1
+      - uses: syphar/restore-virtualenv@v1.1
         id: venv-cache
 
       - uses: abatilo/actions-poetry@v2.1.0
@@ -33,7 +33,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: "3.8"
-      - uses: syphar/restore-virtualenv@v1
+      - uses: syphar/restore-virtualenv@v1.1
         id: venv-cache
 
       - name: Install Ansible Galaxy requirements
@@ -61,7 +61,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: "3.8"
-      - uses: syphar/restore-virtualenv@v1
+      - uses: syphar/restore-virtualenv@v1.1
         id: venv-cache
 
       - name: Install Ansible Galaxy requirements
