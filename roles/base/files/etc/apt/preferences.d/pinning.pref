@@ -1,0 +1,17 @@
+Package: *
+Pin: release n=buster
+Pin-Priority: 900
+
+Package: *
+Pin: release n=bullseye
+Pin-Priority: 400
+
+# Specific packages pinned to bullseye (testing)
+
+Package: fzf
+Pin: release n=bullseye
+Pin-Priority: 1000
+
+Package: *neovim* *nvim*
+Pin: release n=bullseye
+Pin-Priority: 1000

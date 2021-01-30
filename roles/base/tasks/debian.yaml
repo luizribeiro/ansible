@@ -1,0 +1,20 @@
+---
+- name: Setup apt pinning
+  copy:
+    src: files/etc/apt/preferences.d/pinning.pref
+    dest: /etc/apt/preferences.d/pinning.pref
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+- name: Setup Raspbian apt repositories
+  apt_repository:
+    repo: >-
+      deb http://raspbian.raspberrypi.org/raspbian/ {{ repo }}
+      main contrib non-free rpi
+    state: present
+  with_items:
+    - buster
+    - bullseye
+  loop_control:
+    loop_var: repo
+  notify: apt update
