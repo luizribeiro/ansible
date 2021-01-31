@@ -40,3 +40,12 @@
     state: present
   when: dev_cpp_tools
   tags: packages
+
+- name: Install ccls
+  community.general.snap:
+    name: ccls
+    state: present
+    classic: true
+    channel: latest/edge
+  when: dev_cpp_tools
+  tags: packages
