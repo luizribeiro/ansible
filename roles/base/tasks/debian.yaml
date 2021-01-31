@@ -18,3 +18,8 @@
   loop_control:
     loop_var: repo
   notify: apt update
+- name: Install snapd
+  apt:
+    name: snapd
+    state: present
+  tags: packages
