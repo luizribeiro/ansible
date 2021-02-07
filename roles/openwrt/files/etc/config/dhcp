@@ -133,9 +133,14 @@ config host
 	option mac 'DC:A6:32:D2:FE:6A'
 
 config host
-	option name 'oscilloscope'
+	option name 'oscilloscope-wired'
 	option dns '1'
 	option mac '00:0A:35:00:01:22'
+
+config host
+	option name 'oscilloscope-wifi'
+	option dns '1'
+	option mac '98:48:27:A6:9C:19'
 
 
 ######################################################
