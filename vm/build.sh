@@ -3,7 +3,7 @@
 cd "$(dirname "$0")" || exit 1
 
 VM="$1"
-AVAILABLE_VMS=$(ls -d ./*/ | sed -E 's#\./([a-z-]+)//#\1#g')
+AVAILABLE_VMS=$(ls -d */ | sed -E 's#/##g')
 
 usage() {
   echo "Usage: $0 <vm>"
@@ -21,5 +21,13 @@ if [[ ! " ${AVAILABLE_VMS[@]} " =~ " ${VM} " ]]; then
 fi
 
 for vm in $AVAILABLE_VMS; do
-  echo $vm
+  cd "$vm"
+	vagrant destroy --force
+	vagrant up
+	vagrant package
+  vagrant cloud publish \
+    --release --force \
+    "luizribeiro/$vm" \
+    "$(date +"%Y.%m.%d")" \
+    virtualbox package.box
 done
