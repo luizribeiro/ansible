@@ -1,0 +1,19 @@
+---
+- name: Provision debian10-base VM
+  hosts: all
+  become: true
+  tasks:
+    - name: "Setup grub device path"
+      # this is required so grub-pc upgrades work on the VM, since during
+      # upgrade it prompts for a path to install grub on
+      debconf:
+        name: grub-pc
+        question: grub-pc/install_devices
+        value: /dev/sda
+        vtype: string
+    - name: "Upgrade apt packages"
+      apt:
+        update_cache: true
+        upgrade: full
+    - name: "Reboot machine after upgrade"
+      reboot:

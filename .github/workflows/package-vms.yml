@@ -31,7 +31,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        vm: [arch-base]
+        vm: [arch-base, debian10-base]
     steps:
       - name: Setup Vagrant Cloud token
         env:
