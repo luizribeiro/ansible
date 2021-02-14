@@ -5,7 +5,7 @@ driver:
   name: vagrant
 platforms:
   - name: instance
-    box: archlinux/archlinux
+    box: luizribeiro/arch-base
     memory: 1024
     cpus: 2
 provisioner:

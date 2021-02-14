@@ -5,7 +5,7 @@ driver:
   name: vagrant
 platforms:
   - name: archlinux
-    box: archlinux/archlinux
+    box: luizribeiro/arch-base
 provisioner:
   name: ansible
   inventory:

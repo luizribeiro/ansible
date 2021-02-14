@@ -5,9 +5,9 @@ driver:
   name: vagrant
 platforms:
   - name: debian
-    box: generic/debian10
+    box: luizribeiro/debian10-base
   - name: archlinux
-    box: archlinux/archlinux
+    box: luizribeiro/arch-base
 provisioner:
   name: ansible
   inventory:
