@@ -1,5 +1,11 @@
+# vim: set ft=yaml:
+---
+exclude_paths:
+  # this file is actually a list of tasks, so it causes a parse error
+  - scripts/playbooks/setup-ec2-host-keys.yaml
+
 skip_list:
-  - 'role-name'
-  - 'risky-file-permissions'
-  - 'git-latest'
-  - 'meta-no-info'
+  - "role-name"
+  - "risky-file-permissions"
+  - "git-latest"
+  - "meta-no-info"
