@@ -1,7 +1,6 @@
 # luizribeiro's ansible settings
 
 ![CI](https://github.com/luizribeiro/ansible/workflows/CI/badge.svg)
-[![Dependency Status](https://img.shields.io/librariesio/release/github/luizribeiro/ansible)](https://libraries.io/github/luizribeiro/ansible)
 
 ```
 $ git submodule update --init
