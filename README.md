@@ -59,10 +59,6 @@ $ ./scripts/bootstrap-pi -l iot-mariner -e playbook=iot-mariner.yaml
 
 ## TODOs
 
-* Refactor
-  * Break down server role
-  * Move monit into its own role
-
 * Automation
   * Setup healthchecks.io and monit automatically with API
 
