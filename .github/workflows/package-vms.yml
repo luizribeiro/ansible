@@ -33,6 +33,15 @@ jobs:
       matrix:
         vm: [arch-base, debian10-base]
     steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - uses: syphar/restore-virtualenv@v1.1
+        id: venv-cache
+
       - name: Setup Vagrant Cloud token
         env:
           VAGRANT_CLOUD_TOKEN: ${{ secrets.VAGRANT_CLOUD_TOKEN }}
