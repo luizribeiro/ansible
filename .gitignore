@@ -6,3 +6,4 @@ secrets.yaml
 .vagrant
 package.box
 __pycache__
+.cache

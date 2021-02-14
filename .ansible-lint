@@ -1,5 +1,5 @@
 skip_list:
-  - '106'
-  - '208'
-  - '401'
-  - '701'
+  - 'role-name'
+  - 'risky-file-permissions'
+  - 'git-latest'
+  - 'meta-no-info'
