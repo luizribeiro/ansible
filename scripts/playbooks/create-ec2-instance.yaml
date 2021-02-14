@@ -51,7 +51,18 @@
         state: restarted
         wait: true
     - name: Setup SSH host fingerprints
-      include_tasks: ./setup-ec2-host-keys.yaml
+      block:
+        - name: Get host fingerprints
+          command: ../fetch-ec2-host-key {{ item.id }}
+          changed_when: true
+          delegate_to: localhost
+          register: host_key
+        - name: Add host fingerprint to known hosts
+          known_hosts:
+            key: "{{ item.public_dns_name }} {{ host_key.stdout }}"
+            name: "{{ item.public_dns_name }}"
+            state: present
+          delegate_to: localhost
       with_items: "{{ ec2.instances }}"
 
 - hosts: launched
