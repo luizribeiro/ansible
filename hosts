@@ -8,8 +8,8 @@ nuc.thepromisedlan.club
 router.thepromisedlan ansible_user=root
 
 [osx]
-grissom
-macbook
+grissom ansible_user=luiz
+macbook ansible_user=luizribeiro
 
 [nuc]
 nuc.thepromisedlan.club
