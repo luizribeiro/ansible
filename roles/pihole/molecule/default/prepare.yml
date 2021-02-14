@@ -3,10 +3,6 @@
   hosts: all
   become: true
   tasks:
-    - name: "Upgrade system"
-      pacman:
-        update_cache: true
-        upgrade: true
     - name: Disable systemd-resolved
       systemd:
         name: systemd-resolved
@@ -18,5 +14,3 @@
         content: |
           nameserver 8.8.8.8
           nameserver 8.8.4.4
-    - name: "Reboot machine after upgrade"
-      reboot:
