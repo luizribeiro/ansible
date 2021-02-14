@@ -6,17 +6,38 @@ on:
     - cron: "0 8 * * *"
 
 jobs:
-  build:
-    name: Create Release
-    runs-on: ubuntu-latest
+  setup-venv:
+    # vagrant and virtualization is only available on macos
+    runs-on: macos-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - name: Install Python dependecies
-        uses: VaultVulp/action-pipenv@v2.0.1
+      - uses: actions/checkout@v2
         with:
-          command: install -d
-      - name: Test
-        uses: VaultVulp/action-pipenv@v2.0.1
+          submodules: "recursive"
+      - uses: actions/setup-python@v2
         with:
-          command: run test
+          python-version: "3.8"
+      - uses: syphar/restore-virtualenv@v1.1
+        id: venv-cache
+
+      - uses: abatilo/actions-poetry@v2.1.0
+        if: steps.setup-venv.outputs.cache-hit != 'true'
+      - name: Install Python dependencies
+        run: poetry install -vv
+        if: steps.setup-venv.outputs.cache-hit != 'true'
+
+  build:
+    runs-on: macos-latest
+    needs: setup-venv
+    strategy:
+      max-parallel: 4
+      matrix:
+        vm: [arch-base]
+    steps:
+      - name: Setup Vagrant Cloud token
+        env:
+          VAGRANT_CLOUD_TOKEN: ${{ secrets.VAGRANT_CLOUD_TOKEN }}
+        run: vagrant cloud auth login --token "$VAGRANT_CLOUD_TOKEN"
+      - name: Build and upload VM to Vagrant Cloud
+        run: |
+          cd vm/
+          ./build.sh ${{ matrix.vm }}
