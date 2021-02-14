@@ -20,14 +20,12 @@ if [[ ! ${AVAILABLE_VMS[@]} =~ (^|[[:space:]])${VM}($|[[:space:]]) ]]; then
   usage
 fi
 
-for vm in $AVAILABLE_VMS; do
-  cd "$vm"
-	vagrant destroy --force
-	vagrant up
-	vagrant package
-  vagrant cloud publish \
-    --release --force \
-    "luizribeiro/$vm" \
-    "$(date +"%Y.%m.%d")" \
-    virtualbox package.box
-done
+cd "$VM"
+vagrant destroy --force
+vagrant up
+vagrant package
+vagrant cloud publish \
+  --release --force \
+  "luizribeiro/$VM" \
+  "$(date +"%Y.%m.%d")" \
+  virtualbox package.box
