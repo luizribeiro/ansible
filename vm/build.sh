@@ -16,7 +16,7 @@ usage() {
   exit 1
 }
 
-if [[ ! " ${AVAILABLE_VMS[@]} " =~ " ${VM} " ]]; then
+if [[ ! ${AVAILABLE_VMS[@]} =~ (^|[[:space:]])${VM}($|[[:space:]]) ]]; then
   usage
 fi
 
