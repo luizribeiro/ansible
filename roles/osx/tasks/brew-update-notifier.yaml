@@ -13,7 +13,7 @@
     mode: u=rw,g=r,o=r
   tags: configuration
 - name: local.brew-update-notifier Launch Agent is loaded
-  launchd:
+  community.general.launchd:
     name: local.brew-update-notifier
     state: reloaded
   tags: configuration

@@ -6,6 +6,6 @@
 - name: restart Dock.app
   command: killall Dock
 - name: restart local.clipboard-daemon
-  launchd:
+  community.general.launchd:
     name: local.clipboard-daemon
     state: restarted

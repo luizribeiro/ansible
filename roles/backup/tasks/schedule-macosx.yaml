@@ -9,7 +9,7 @@
   become: true
   tags: configuration
 - name: local.backup Launch Daemon is loaded
-  launchd:
+  community.general.launchd:
     name: local.backup
     state: reloaded
   become: true

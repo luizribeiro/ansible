@@ -15,7 +15,7 @@
   notify: restart local.clipboard-daemon
   tags: configuration
 - name: local.clipboard-daemon Launch Daemon is enabled and started
-  launchd:
+  community.general.launchd:
     name: local.clipboard-daemon
     enabled: true
     state: started
