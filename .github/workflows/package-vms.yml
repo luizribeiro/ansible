@@ -42,8 +42,6 @@ jobs:
       - uses: syphar/restore-virtualenv@v1.1
         id: venv-cache
 
-      - name: Disable vault_pass.sh
-        run: sed -e '/vault_password_file/ s/^#*/#/' -i '' ansible.cfg
       - name: Setup Vagrant Cloud token
         env:
           VAGRANT_CLOUD_TOKEN: ${{ secrets.VAGRANT_CLOUD_TOKEN }}
