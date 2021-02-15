@@ -34,6 +34,7 @@
     - role: monit
     - role: collectd
       tags: collectd
+    - role: docker
     - role: luizribeiro
       vars:
         luizribeiro_setup_google_authenticator: true
