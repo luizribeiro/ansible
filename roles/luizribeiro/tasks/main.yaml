@@ -7,6 +7,7 @@
     update_password: on_create
     shell: /bin/zsh
     group: "{{ luizribeiro_primary_group }}"
+    # TODO: split this between groups and additional groups
     groups: "{{ luizribeiro_groups | join(',') }}"
     append: true
     expires: -1

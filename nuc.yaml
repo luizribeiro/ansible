@@ -37,6 +37,10 @@
     - role: luizribeiro
       vars:
         luizribeiro_setup_google_authenticator: true
+        luizribeiro_groups:
+          - docker
+          - sshusers
+          - wheel
       tags: luizribeiro
     - role: dev
     - role: backup
