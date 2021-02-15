@@ -26,6 +26,7 @@
       assert:
         that:
           - ansible_distribution == 'Archlinux'
+        quiet: true
     - name: Install pam modules for 2fac
       package:
         name:
