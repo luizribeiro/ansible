@@ -8,3 +8,12 @@
     name: docker
     enabled: true
     state: started
+- name: Setup Docker monit config
+  when: "'monit' in ansible_role_names"
+  template:
+    src: files/etc/monitrc.d/docker.conf
+    dest: /etc/monitrc.d/docker.conf
+    owner: root
+    group: root
+    mode: u+rw,g-rwx,o-rwx
+  notify: restart monit
