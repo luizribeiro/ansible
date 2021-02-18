@@ -14,7 +14,7 @@ passlib = "1.7.4"
 [tool.poetry.dev-dependencies]
 # see https://github.com/ansible-community/ansible-lint/issues/1354 for what is
 # preventing from upgrading ansible-lint to 5.0.0
-ansible-lint = "4.3.7"
+ansible-lint = "5.0.1"
 molecule = "3.2.3"
 molecule-vagrant = "0.6.1"
 python-vagrant = "0.5.15"
