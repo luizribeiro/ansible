@@ -5,6 +5,7 @@
   "exclude": [
     ".*\/library\/.*",
     ".*\/plugins\/.*",
-    ".*\/files\/.*"
+    ".*\/files\/.*",
+    ".*\/\\.cache\/.*"
   ]
 }
