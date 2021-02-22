@@ -15,3 +15,4 @@ ignore: |
   secrets.yaml
   library
   .venv
+  .cache
