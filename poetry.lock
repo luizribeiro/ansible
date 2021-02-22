@@ -19,7 +19,7 @@ ansible-base = ">=2.10.5,<2.11"
 
 [[package]]
 name = "ansible-base"
-version = "2.10.5"
+version = "2.10.6"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
@@ -33,17 +33,24 @@ PyYAML = "*"
 
 [[package]]
 name = "ansible-lint"
-version = "4.3.7"
+version = "5.0.2"
 description = "Checks playbooks for practices and behaviour that could potentially be improved"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-ansible = ">=2.8"
+enrich = ">=1.2.6"
+packaging = "*"
 pyyaml = "*"
-rich = "*"
+rich = ">=9.5.1"
 "ruamel.yaml" = {version = ">=0.15.37,<1", markers = "python_version >= \"3.7\""}
+wcmatch = ">=7.0"
+
+[package.extras]
+community = ["ansible (>=2.10)"]
+core = ["ansible-base (>=2.10)"]
+yamllint = ["yamllint (>=1.25.0)"]
 
 [[package]]
 name = "appnope"
@@ -120,6 +127,14 @@ python-versions = "*"
 
 [package.dependencies]
 chardet = ">=3.0.2"
+
+[[package]]
+name = "bracex"
+version = "2.1.1"
+description = "Bash style brace expander."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "cerberus"
@@ -243,7 +258,7 @@ six = ">=1.10"
 
 [[package]]
 name = "cryptography"
-version = "3.4.5"
+version = "3.4.6"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
 category = "main"
 optional = false
@@ -1061,7 +1076,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "rich"
-version = "9.10.0"
+version = "9.11.1"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 category = "dev"
 optional = false
@@ -1128,14 +1143,18 @@ python-versions = "!=3.0,!=3.1,!=3.2,!=3.3,>=2.6"
 
 [[package]]
 name = "singledispatch"
-version = "3.4.0.3"
-description = "This library brings functools.singledispatch from Python 3.4 to Python 2.6-3.3."
+version = "3.6.0"
+description = "Backport functools.singledispatch from Python 3.4 to Python 2.6-3.3."
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=2.6"
 
 [package.dependencies]
 six = "*"
+
+[package.extras]
+docs = ["sphinx", "jaraco.packaging (>=8.2)", "rst.linker (>=1.9)"]
+testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "pytest-black (>=0.3.7)", "unittest2"]
 
 [[package]]
 name = "six"
@@ -1257,6 +1276,17 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
+name = "wcmatch"
+version = "8.1.1"
+description = "Wildcard/glob file name matcher."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+bracex = ">=2.1.1"
+
+[[package]]
 name = "wcwidth"
 version = "0.2.5"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -1299,7 +1329,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "464e4067db850e8382ae58a3ca02f1ea36cc1a2f5ac996f4952e81c32c9e77d4"
+content-hash = "aa9e81935a637ac237fc83e090169fd06618554e46dc211c34269e06d253c0d9"
 
 [metadata.files]
 aniso8601 = [
@@ -1310,11 +1340,11 @@ ansible = [
     {file = "ansible-2.10.7.tar.gz", hash = "sha256:9ff024500116d53c460cb09ea92e3c9404119f100d1d1ff0de69a9dafca561d5"},
 ]
 ansible-base = [
-    {file = "ansible-base-2.10.5.tar.gz", hash = "sha256:33ae323923b841f3d822f355380ce7c92610440362efeed67b4b39db41e555af"},
+    {file = "ansible-base-2.10.6.tar.gz", hash = "sha256:c6b3bc3dc83ee510357cb7afc8c557c05ce38f6b40e9bc9dab13551b2944dfd4"},
 ]
 ansible-lint = [
-    {file = "ansible-lint-4.3.7.tar.gz", hash = "sha256:1012fc3f5c4c0c58eece515860f19c34c5088faa5be412eec6fae5b45bda9c4f"},
-    {file = "ansible_lint-4.3.7-py2.py3-none-any.whl", hash = "sha256:300e841f690b556a08d44902d6414283dc101079b27909e3a892f1cf1d10d7ff"},
+    {file = "ansible-lint-5.0.2.tar.gz", hash = "sha256:be0b7f2aa368cd33da38dfc8d7d4b26c166ea3b6db9770eeab97530533258f8e"},
+    {file = "ansible_lint-5.0.2-py3-none-any.whl", hash = "sha256:41a139ac50f9f60e92711b84f4be584aaf3e5d726004751640058423ef6af0c4"},
 ]
 appnope = [
     {file = "appnope-0.1.2-py2.py3-none-any.whl", hash = "sha256:93aa393e9d6c54c5cd570ccadd8edad61ea0c4b9ea7a01409020c9aa019eb442"},
@@ -1348,6 +1378,10 @@ bcrypt = [
 binaryornot = [
     {file = "binaryornot-0.4.4-py2.py3-none-any.whl", hash = "sha256:b8b71173c917bddcd2c16070412e369c3ed7f0528926f70cac18a6c97fd563e4"},
     {file = "binaryornot-0.4.4.tar.gz", hash = "sha256:359501dfc9d40632edc9fac890e19542db1a287bbcfa58175b66658392018061"},
+]
+bracex = [
+    {file = "bracex-2.1.1-py3-none-any.whl", hash = "sha256:64e2a6d14de9c8e022cf40539ac8468ba7c4b99550a2b05fc87fd20e392e568f"},
+    {file = "bracex-2.1.1.tar.gz", hash = "sha256:01f715cd0ed7a622ec8b32322e715813f7574de531f09b70f6f3b2c10f682425"},
 ]
 cerberus = [
     {file = "Cerberus-1.3.2.tar.gz", hash = "sha256:302e6694f206dd85cb63f13fd5025b31ab6d38c99c50c6d769f8fa0b0f299589"},
@@ -1427,13 +1461,18 @@ cookiecutter = [
     {file = "cookiecutter-1.7.2.tar.gz", hash = "sha256:efb6b2d4780feda8908a873e38f0e61778c23f6a2ea58215723bcceb5b515dac"},
 ]
 cryptography = [
-    {file = "cryptography-3.4.5-cp36-abi3-macosx_10_10_x86_64.whl", hash = "sha256:18d6f3ac1da14a01c95f4590ee58e96aa6628d231ce738e9eca330b9997127b6"},
-    {file = "cryptography-3.4.5-cp36-abi3-manylinux2010_x86_64.whl", hash = "sha256:c8dc9859c5a046e1ca22da360dfd609c09064a4f974881cb5cba977c581088ec"},
-    {file = "cryptography-3.4.5-cp36-abi3-manylinux2014_aarch64.whl", hash = "sha256:0bf49d5b38e4f3745a0eab0597fa97720dd49b30d65f534b49a82e303f149deb"},
-    {file = "cryptography-3.4.5-cp36-abi3-manylinux2014_x86_64.whl", hash = "sha256:9c6f7552d4f2130542d488b9d9e5b1546204b5d1aa90c823d50cce8eed421363"},
-    {file = "cryptography-3.4.5-cp36-abi3-win32.whl", hash = "sha256:b0873ac0c0e6bc6882cd285930cc382ec4e78786be71bdc113c06246eea61294"},
-    {file = "cryptography-3.4.5-cp36-abi3-win_amd64.whl", hash = "sha256:8b3b79af57e12aabbc3db81e563eaa07870293a1ffdcc891d107035ce9a0dbff"},
-    {file = "cryptography-3.4.5.tar.gz", hash = "sha256:4f6761a82b51fe02cda8f45af1c2f698a10f50003dc9c2572d8a49eda2e6d35b"},
+    {file = "cryptography-3.4.6-cp36-abi3-macosx_10_10_x86_64.whl", hash = "sha256:57ad77d32917bc55299b16d3b996ffa42a1c73c6cfa829b14043c561288d2799"},
+    {file = "cryptography-3.4.6-cp36-abi3-macosx_11_0_arm64.whl", hash = "sha256:4169a27b818de4a1860720108b55a2801f32b6ae79e7f99c00d79f2a2822eeb7"},
+    {file = "cryptography-3.4.6-cp36-abi3-manylinux2010_x86_64.whl", hash = "sha256:93cfe5b7ff006de13e1e89830810ecbd014791b042cbe5eec253be11ac2b28f3"},
+    {file = "cryptography-3.4.6-cp36-abi3-manylinux2014_aarch64.whl", hash = "sha256:5ecf2bcb34d17415e89b546dbb44e73080f747e504273e4d4987630493cded1b"},
+    {file = "cryptography-3.4.6-cp36-abi3-manylinux2014_x86_64.whl", hash = "sha256:fec7fb46b10da10d9e1d078d1ff8ed9e05ae14f431fdbd11145edd0550b9a964"},
+    {file = "cryptography-3.4.6-cp36-abi3-win32.whl", hash = "sha256:df186fcbf86dc1ce56305becb8434e4b6b7504bc724b71ad7a3239e0c9d14ef2"},
+    {file = "cryptography-3.4.6-cp36-abi3-win_amd64.whl", hash = "sha256:66b57a9ca4b3221d51b237094b0303843b914b7d5afd4349970bb26518e350b0"},
+    {file = "cryptography-3.4.6-pp36-pypy36_pp73-manylinux2010_x86_64.whl", hash = "sha256:066bc53f052dfeda2f2d7c195cf16fb3e5ff13e1b6b7415b468514b40b381a5b"},
+    {file = "cryptography-3.4.6-pp36-pypy36_pp73-manylinux2014_x86_64.whl", hash = "sha256:600cf9bfe75e96d965509a4c0b2b183f74a4fa6f5331dcb40fb7b77b7c2484df"},
+    {file = "cryptography-3.4.6-pp37-pypy37_pp73-manylinux2010_x86_64.whl", hash = "sha256:0923ba600d00718d63a3976f23cab19aef10c1765038945628cd9be047ad0336"},
+    {file = "cryptography-3.4.6-pp37-pypy37_pp73-manylinux2014_x86_64.whl", hash = "sha256:9e98b452132963678e3ac6c73f7010fe53adf72209a32854d55690acac3f6724"},
+    {file = "cryptography-3.4.6.tar.gz", hash = "sha256:2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"},
 ]
 dataclasses = [
     {file = "dataclasses-0.6-py3-none-any.whl", hash = "sha256:454a69d788c7fda44efd71e259be79577822f5e3f53f029a22d08004e951dc9f"},
@@ -1761,8 +1800,8 @@ requests = [
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
 ]
 rich = [
-    {file = "rich-9.10.0-py3-none-any.whl", hash = "sha256:3070d53e3a93864de351c1091af1deb25f41e6051b33e485d4626b591c0cfdb3"},
-    {file = "rich-9.10.0.tar.gz", hash = "sha256:e0f2db62a52536ee32f6f584a47536465872cae2b94887cf1f080fb9eaa13eb2"},
+    {file = "rich-9.11.1-py3-none-any.whl", hash = "sha256:1f7c481be658eb27f451c3f714aec5bc1fc2431c28f89848ef589c2392171f2e"},
+    {file = "rich-9.11.1.tar.gz", hash = "sha256:86a157008d17c73ee03da80de91e09fc2f7713109ccd4e90496eeb3702bef638"},
 ]
 "ruamel.yaml" = [
     {file = "ruamel.yaml-0.16.12-py2.py3-none-any.whl", hash = "sha256:012b9470a0ea06e4e44e99e7920277edf6b46eee0232a04487ea73a7386340a5"},
@@ -1805,8 +1844,8 @@ shellingham = [
     {file = "shellingham-1.4.0.tar.gz", hash = "sha256:4855c2458d6904829bd34c299f11fdeed7cfefbf8a2c522e4caea6cd76b3171e"},
 ]
 singledispatch = [
-    {file = "singledispatch-3.4.0.3-py2.py3-none-any.whl", hash = "sha256:833b46966687b3de7f438c761ac475213e53b306740f1abfaa86e1d1aae56aa8"},
-    {file = "singledispatch-3.4.0.3.tar.gz", hash = "sha256:5b06af87df13818d14f08a028e42f566640aef80805c3b50c5056b086e3c2b9c"},
+    {file = "singledispatch-3.6.0-py2.py3-none-any.whl", hash = "sha256:ca602b0a8389aa93e3b183f57f29edc6af202bef718c2ec53a38ef25ccc5867e"},
+    {file = "singledispatch-3.6.0.tar.gz", hash = "sha256:c4ad3947f0cd35d3d99231c37190d2ee7bcbc271c2be6e1e3f4465e73a99511c"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
@@ -1907,6 +1946,10 @@ ujson = [
 urllib3 = [
     {file = "urllib3-1.26.3-py2.py3-none-any.whl", hash = "sha256:1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80"},
     {file = "urllib3-1.26.3.tar.gz", hash = "sha256:de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"},
+]
+wcmatch = [
+    {file = "wcmatch-8.1.1-py3-none-any.whl", hash = "sha256:9b05ec84da6c711d14191d30c19dffba0e31cdbdaec8819e44c75c8ef83cfadc"},
+    {file = "wcmatch-8.1.1.tar.gz", hash = "sha256:7ba09191f9582e82d864829bdfbab02df46e26a46a304e57c7fe5652f07f297a"},
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},

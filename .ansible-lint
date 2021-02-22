@@ -5,7 +5,7 @@ exclude_paths:
   - scripts/playbooks/setup-ec2-host-keys.yaml
 
 skip_list:
-  - "106"  # role-name
-  - "208"  # risky-file-permissions
-  - "401"  # git-latest
-  - "701"  # meta-no-info
+  - role-name
+  - risky-file-permissions
+  - git-latest
+  - meta-no-info
