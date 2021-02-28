@@ -6,6 +6,26 @@
     name: pi-hole-server
     state: present
   tags: packages
+  register: pihole_server_install
+- name: Remove /dev/shm/FTL-* upon install
+  # FIXME: for some reason these files are here upon install which causes
+  # the server to fail to start on the first run
+  file:
+    path: "/dev/shm/{{ item }}"
+    state: absent
+  with_items:
+    - FTL-clients
+    - FTL-counters
+    - FTL-dns-cache
+    - FTL-domains
+    - FTL-lock
+    - FTL-overTime
+    - FTL-per-client-regex
+    - FTL-queries
+    - FTL-settings
+    - FTL-strings
+    - FTL-upstreams
+  when: pihole_server_install.changed
 - name: Setup pihole configuration
   copy:
     src: files/etc/pihole/setupVars.conf
