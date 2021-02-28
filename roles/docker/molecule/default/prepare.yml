@@ -11,15 +11,3 @@
       apt:
         update_cache: true
       when: ansible_distribution == 'Debian'
-
-    - name: Disable systemd-resolved
-      systemd:
-        name: systemd-resolved
-        enabled: false
-        state: stopped
-    - name: Setup /etc/resolv.conf
-      copy:
-        dest: /etc/resolv.conf
-        content: |
-          nameserver 8.8.8.8
-          nameserver 8.8.4.4
