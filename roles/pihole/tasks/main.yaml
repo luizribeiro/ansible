@@ -20,7 +20,7 @@
     src: "files/etc/pihole/{{ item }}"
     dest: "/etc/pihole/{{ item }}"
     owner: pihole
-    mode: u+rw,g-rwx,o-rwx
+    mode: u=rw,g=r,o=r
   with_items:
     - adlists.list
     - regex.list
@@ -31,9 +31,10 @@
   copy:
     src: files/etc/dnsmasq.d/
     dest: /etc/dnsmasq.d/
-    owner: pihole
-    mode: u+rw,g-rwx,o-rwx
-    directory_mode: u+rwx,g-rwx,o-rwx
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+    directory_mode: u=rwx,g=rx,o=rx
   notify: restart pihole-FTL
   tags: configuration
 - name: pihole-FTL is enabled and running
