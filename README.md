@@ -4,8 +4,8 @@
 
 ```
 $ git submodule update --init
-$ pipenv install -d
-$ pipenv shell
+$ poetry install
+$ poetry shell
 $ ansible-galaxy install -r requirements.yml
 $ ansible-playbook site.yaml
 ```
