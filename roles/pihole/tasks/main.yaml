@@ -10,6 +10,7 @@
 - name: Remove /dev/shm/FTL-* upon install
   # FIXME: for some reason these files are here upon install which causes
   # the server to fail to start on the first run
+  # noqa no-handler
   file:
     path: "/dev/shm/{{ item }}"
     state: absent
