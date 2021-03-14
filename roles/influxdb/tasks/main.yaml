@@ -81,13 +81,14 @@
     directory_mode: u+rwx,g-rwx,o-rwx
   notify: reload nginx
   tags: configuration
-- name: Setup influxdb databases
-  influxdb_database:
-    database_name: "{{ item }}"
-    state: present
-  with_items:
-    - telegraf
-    - home-assistant
+# FIXME: this hasn't been working since the influxdb 2.0 upgrade
+# - name: Setup influxdb databases
+#   influxdb_database:
+#     database_name: "{{ item }}"
+#     state: present
+#   with_items:
+#     - telegraf
+#     - home-assistant
 - name: Setup monit config
   when: "'monit' in ansible_role_names"
   copy:
