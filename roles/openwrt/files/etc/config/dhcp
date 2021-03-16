@@ -353,6 +353,12 @@ config host
 	option mac 'B8:27:EB:5E:4E:52'
 	option ip '192.168.2.240'
 
+config host
+	option name 'iot-ttn-gateway'
+	option dns '1'
+	option mac 'DC:4F:22:64:89:F2'
+	option ip '192.168.2.206'
+
 
 ######################################################
 # ESPHome nodes on IoT network
