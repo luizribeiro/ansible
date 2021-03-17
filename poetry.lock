@@ -395,7 +395,7 @@ marshmallow = ">=2.0.0"
 
 [[package]]
 name = "molecule"
-version = "3.2.3"
+version = "3.2.4"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
@@ -416,14 +416,13 @@ PyYAML = ">=5.1,<6"
 rich = ">=9.5.1"
 selinux = {version = "*", markers = "sys_platform == \"linux\" or sys_platform == \"linux2\""}
 subprocess-tee = ">=0.2.0"
-yamllint = ">=1.15.0,<2"
 
 [package.extras]
 ansible = ["ansible (>=2.10)"]
-ansible_base = ["ansible-base (>=2.10)"]
+ansible-base = ["ansible-base (>=2.10)"]
 docker = ["molecule-docker"]
 docs = ["simplejson", "sphinx", "sphinx-ansible-theme (>=0.2.2)"]
-lint = ["ansible-lint (>=4.2.0,<5)", "flake8 (>=3.6.0)", "pre-commit (>=1.21.0)", "yamllint (>=1.15.0)"]
+lint = ["ansible-lint[core,yamllint] (>=5.0.2,<6)", "flake8 (>=3.8.4)", "pre-commit (>=2.10.1)"]
 podman = ["molecule-podman"]
 test = ["ansi2html (>=1.6.0)", "pexpect (>=4.8.0,<5)", "pytest-cov (>=2.10.1)", "pytest-helpers-namespace (>=2019.1.8)", "pytest-html (>=3.0.0)", "pytest-mock (>=3.3.1)", "pytest-plus (>=0.2)", "pytest-testinfra (>=6.1.0)", "pytest-verbose-parametrize (>=1.7.0)", "pytest-xdist (>=2.1.0)", "pytest (>=6.1.2)"]
 windows = ["pywinrm"]
@@ -959,7 +958,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "7389e097c2603eeabf3005c9e26cb63f237fdee518c347779eaaf5fa3d244e90"
+content-hash = "5c7a1a483239003a29bd509667d3790b4892621fce87fa7922dd2b80c4f28bb2"
 
 [metadata.files]
 ansible = [
@@ -1191,8 +1190,8 @@ marshmallow-enum = [
     {file = "marshmallow_enum-1.5.1-py2.py3-none-any.whl", hash = "sha256:57161ab3dbfde4f57adeb12090f39592e992b9c86d206d02f6bd03ebec60f072"},
 ]
 molecule = [
-    {file = "molecule-3.2.3-py3-none-any.whl", hash = "sha256:7ccdd41e9b55a4a903bcf30a0e2e54b273767cbd15795ce9ffce1fa28defffcc"},
-    {file = "molecule-3.2.3.tar.gz", hash = "sha256:1c3d2e1b20ffe70b556923994516d5bc7774f59e89fa877d3d14e25eefb23ece"},
+    {file = "molecule-3.2.4-py3-none-any.whl", hash = "sha256:37ded60bd3e87f6417159a3ebb22e1366438fdd9a24edb8888991c973949a39e"},
+    {file = "molecule-3.2.4.tar.gz", hash = "sha256:48b708fabfb983fbe3c9d6ed6dcb350097d6a6cff297fd7d79ce3d46724c5c7c"},
 ]
 molecule-vagrant = [
     {file = "molecule-vagrant-0.6.1.tar.gz", hash = "sha256:69fb95b06e0fb54687cf2be587adb5ec31b44952c35f1dfc605bc367438dbe5f"},
