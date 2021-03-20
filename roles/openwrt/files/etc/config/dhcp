@@ -222,6 +222,12 @@ config host
 	option mac 'B4:E6:2D:6A:02:11'
 
 config host
+	# no idea why this can't connect to IoT network. leaving it here for now
+	option name 'iot-ttn-gateway'
+	option dns '1'
+	option mac 'DC:4F:22:64:89:F2'
+
+config host
   option name 'peloton'
 	option mac 'AC:04:0B:45:17:76'
 
@@ -352,12 +358,6 @@ config host
 	option dns '1'
 	option mac 'B8:27:EB:5E:4E:52'
 	option ip '192.168.2.240'
-
-config host
-	option name 'iot-ttn-gateway'
-	option dns '1'
-	option mac 'DC:4F:22:64:89:F2'
-	option ip '192.168.2.206'
 
 
 ######################################################
