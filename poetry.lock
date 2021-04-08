@@ -25,7 +25,7 @@ PyYAML = "*"
 
 [[package]]
 name = "ansible-lint"
-version = "5.0.3"
+version = "5.0.7"
 description = "Checks playbooks for practices and behaviour that could potentially be improved"
 category = "dev"
 optional = false
@@ -37,6 +37,7 @@ packaging = "*"
 pyyaml = "*"
 rich = ">=9.5.1"
 "ruamel.yaml" = {version = ">=0.15.37,<1", markers = "python_version >= \"3.7\""}
+tenacity = "*"
 wcmatch = ">=7.0"
 
 [package.extras]
@@ -877,6 +878,20 @@ python-versions = "*"
 widechars = ["wcwidth"]
 
 [[package]]
+name = "tenacity"
+version = "7.0.0"
+description = "Retry code until it succeeds"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = ">=1.9.0"
+
+[package.extras]
+doc = ["reno", "sphinx", "tornado (>=4.5)"]
+
+[[package]]
 name = "text-unidecode"
 version = "1.3"
 description = "The most basic Text::Unidecode port"
@@ -959,7 +974,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "7389e097c2603eeabf3005c9e26cb63f237fdee518c347779eaaf5fa3d244e90"
+content-hash = "12d5d0c563fbfd3963a37863dde8d0515482ca468871be92e6e88c35ca8afef6"
 
 [metadata.files]
 ansible = [
@@ -969,8 +984,8 @@ ansible-base = [
     {file = "ansible-base-2.10.6.tar.gz", hash = "sha256:c6b3bc3dc83ee510357cb7afc8c557c05ce38f6b40e9bc9dab13551b2944dfd4"},
 ]
 ansible-lint = [
-    {file = "ansible-lint-5.0.3.tar.gz", hash = "sha256:9416eaa3080f4fa38228a3a8931a5481fe3bc5e1e3d074033a9b756325b920bd"},
-    {file = "ansible_lint-5.0.3-py3-none-any.whl", hash = "sha256:b75163d290acfaef1e5d930ec68aebd383ccc2efafe4c5f0a8d65e8900aedfc2"},
+    {file = "ansible-lint-5.0.7.tar.gz", hash = "sha256:d63b72df37000c72378cb1ae0f48a5ba6410ce650717d81d818e528208eecf91"},
+    {file = "ansible_lint-5.0.7-py3-none-any.whl", hash = "sha256:5138c460eb4590e5d0d0a931bb4353e22f24921a6fdc275b2c0dc8708a7da3bc"},
 ]
 arrow = [
     {file = "arrow-1.0.1-py3-none-any.whl", hash = "sha256:b1e106a0ab754e540f4aeb08747900830b688adef02d81240e65afc0e781a870"},
@@ -1436,6 +1451,10 @@ subprocess-tee = [
 tabulate = [
     {file = "tabulate-0.8.9-py3-none-any.whl", hash = "sha256:d7c013fe7abbc5e491394e10fa845f8f32fe54f8dc60c6622c6cf482d25d47e4"},
     {file = "tabulate-0.8.9.tar.gz", hash = "sha256:eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"},
+]
+tenacity = [
+    {file = "tenacity-7.0.0-py2.py3-none-any.whl", hash = "sha256:a0ce48587271515db7d3a5e700df9ae69cce98c4b57c23a4886da15243603dd8"},
+    {file = "tenacity-7.0.0.tar.gz", hash = "sha256:5bd16ef5d3b985647fe28dfa6f695d343aa26479a04e8792b9d3c8f49e361ae1"},
 ]
 text-unidecode = [
     {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
