@@ -3,7 +3,7 @@
   pacman:
     name:
       - grafana
-      - influxdb
+      - influxdb-bin
       # required for ansible
       - python-influxdb
     state: present
