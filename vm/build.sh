@@ -3,7 +3,7 @@
 cd "$(dirname "$0")" || exit 1
 
 VM="$1"
-AVAILABLE_VMS=$(ls -d */ | sed -E 's#/##g')
+AVAILABLE_VMS=$(ls -d */ | sed -E 's#/##g' | grep -v boxes)
 
 usage() {
   echo "Usage: $0 <vm>"

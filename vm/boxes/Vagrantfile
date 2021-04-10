@@ -1,0 +1,16 @@
+# vim: set ft=ruby:
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "luizribeiro/arch-base"
+
+  config.vm.provision "ansible" do |ansible|
+    vagrant_root = File.dirname(__FILE__)
+
+    ansible.playbook = "#{vagrant_root}/../../devvm.yaml"
+    ansible.config_file = "#{vagrant_root}/../../ansible.cfg"
+
+    ansible.groups = {
+      "secrets" => ["default"],
+    }
+  end
+end
