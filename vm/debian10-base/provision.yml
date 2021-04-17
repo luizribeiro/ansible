@@ -11,9 +11,23 @@
         question: grub-pc/install_devices
         value: /dev/sda
         vtype: string
+    - name: "Add Lucas Nussbaum <lucas@debian.org> GPG key"
+      apt_key:
+        url: >-
+          https://db.debian.org/fetchkey.cgi?fingerprint=FEDEC1CB337BCF509F43C2243914B532F4DFBE99
+        state: present
+    - name: "Enable VirtualBox backport apt repo"
+      apt_repository:
+        repo: "deb https://people.debian.org/~lucas/virtualbox-buster/ ./"
+        update_cache: false
+        state: present
     - name: "Upgrade apt packages"
       apt:
         update_cache: true
         upgrade: full
+    - name: "Install VirtualBox guest additions"
+      apt:
+        name: virtualbox-guest-utils
+        state: present
     - name: "Reboot machine after upgrade"
       reboot:
