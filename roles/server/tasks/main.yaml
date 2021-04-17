@@ -1,6 +1,10 @@
 ---
 - include: base.yaml
 
+- name: Ensure wheel group exists
+  group:
+    name: wheel
+    state: present
 - name: Install networking tools
   package:
     name:
