@@ -53,7 +53,7 @@ network={
 Unmount the SD card, connect the Pi to the network and run this to bootstrap it:
 
 ```
-$ ./scripts/bootstrap-pi -l iot-mariner -e playbook=iot-mariner.yaml
+$ ./scripts/pi-bootstrap -l iot-mariner -e playbook=iot-mariner.yaml
 ```
 
 ## TODOs

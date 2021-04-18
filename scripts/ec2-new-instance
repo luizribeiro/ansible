@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage: ./scripts/new-ec2-instance -e instance_type=t2.micro -e count=5
+# usage: ./scripts/ec2-new-instance -e instance_type=t2.micro -e count=5
 
 set -eo pipefail
 OLD_DIR="$(pwd)"

@@ -1,6 +1,6 @@
 ---
 - name: Get host fingerprints
-  command: ../fetch-ec2-host-key {{ item.id }}
+  command: ../ec2-fetch-host-key {{ item.id }}
   changed_when: true
   delegate_to: localhost
   register: host_key
