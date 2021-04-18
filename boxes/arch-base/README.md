@@ -1,4 +1,4 @@
-# vm/arch-base
+# boxes/arch-base
 
 This provisions a basic Arch Linux virtual machine based on the
 [`archlinux/archlinux`](https://app.vagrantup.com/archlinux/boxes/archlinux)

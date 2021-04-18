@@ -1,4 +1,4 @@
-# vm/debian10-base
+# boxes/debian10-base
 
 This provisions a basic Debian Buster virtual machine based on the
 [`generic/debian10`](https://app.vagrantup.com/generic/boxes/debian10)
