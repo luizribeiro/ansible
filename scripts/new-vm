@@ -1,0 +1,60 @@
+#!/bin/sh
+
+PROJECT_ROOT=$(dirname $(dirname $(realpath $0)))
+
+. $PROJECT_ROOT/scripts/lib/getoptions.sh
+. $PROJECT_ROOT/scripts/lib/getoptions_help.sh
+
+parser_definition() {
+  setup REST help:usage -- \
+    "Usage: ${2##*/} [options] [arguments]"
+  param NAME -n --name init:="devvm" -- \
+    "name of the virtual machine" \
+    "(default: devvm)"
+  param BOX -b --box init:="luizribeiro/arch-base" -- \
+    "vagrant box to be used" \
+    "(default: luizribeiro/arch-base)"
+  param PLAYBOOK -p --playbook init:="devvm.yaml" -- \
+    "ansible playbook to use for provisioning" \
+    "(default: devvm.yaml)"
+  disp :usage -h --help
+}
+
+eval "$(getoptions parser_definition parse "$0")"
+parse "$@"
+
+read -r -d '' VAGRANTFILE <<'EOF'
+# vim: set ft=ruby:
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "<<BOX>>"
+  config.ssh.keys_only = false
+  config.ssh.forward_agent = true
+
+  config.vm.define "<<NAME>>"
+  config.vm.hostname = "<<NAME>>"
+
+  config.vm.provision "ansible" do |ansible|
+    vagrant_root = File.dirname(__FILE__)
+
+    ansible.playbook = "#{vagrant_root}/../../<<PLAYBOOK>>"
+    ansible.config_file = "#{vagrant_root}/../../ansible.cfg"
+
+    ansible.groups = {
+      "secrets" => ["<<NAME>>"],
+    }
+  end
+end
+EOF
+VAGRANTFILE=$(echo "$VAGRANTFILE" | sed "s#<<BOX>>#$BOX#g")
+VAGRANTFILE=$(echo "$VAGRANTFILE" | sed "s#<<NAME>>#$NAME#g")
+VAGRANTFILE=$(echo "$VAGRANTFILE" | sed "s#<<PLAYBOOK>>#$PLAYBOOK#g")
+
+mkdir -p "$PROJECT_ROOT/vms/$NAME"
+echo "$VAGRANTFILE" > "$PROJECT_ROOT/vms/$NAME/Vagrantfile"
+
+cd "$PROJECT_ROOT/vms/$NAME"
+vagrant destroy
+vagrant box update
+vagrant up
+vagrant ssh -p "$NAME"

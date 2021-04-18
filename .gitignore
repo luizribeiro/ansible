@@ -8,3 +8,4 @@ package.box
 __pycache__
 .cache
 .DS_Store
+vms/
