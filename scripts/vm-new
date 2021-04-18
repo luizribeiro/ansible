@@ -28,15 +28,15 @@ read -r -d '' VAGRANTFILE <<'EOF'
 
 Vagrant.configure("2") do |config|
   config.vm.box = "<<BOX>>"
+  config.vm.define "<<NAME>>"
+  config.vm.hostname = "<<NAME>>"
+
   config.ssh.keys_only = false
   config.ssh.forward_agent = true
   config.ssh.extra_args = [
     "-o",
     "RemoteForward /run/user/1001/gnupg/S.gpg-agent /Users/luiz/.gnupg/S.gpg-agent.extra",
   ]
-
-  config.vm.define "<<NAME>>"
-  config.vm.hostname = "<<NAME>>"
 
   config.vm.provision "ansible" do |ansible|
     vagrant_root = File.dirname(__FILE__)
