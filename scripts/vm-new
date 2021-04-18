@@ -17,6 +17,12 @@ parser_definition() {
   param PLAYBOOK -p --playbook init:="devvm.yaml" -- \
     "ansible playbook to use for provisioning" \
     "(default: devvm.yaml)"
+  param MEMORY -m --memory init:="1024" -- \
+    "RAM size for the virtual machine (in MB)" \
+    "(default: 1024)"
+  param CPUS -c --cpus init:="2" -- \
+    "number of CPUs available to the VM" \
+    "(default: 2)"
   disp :usage -h --help
 }
 
@@ -38,6 +44,11 @@ Vagrant.configure("2") do |config|
     "RemoteForward /run/user/1001/gnupg/S.gpg-agent /Users/luiz/.gnupg/S.gpg-agent.extra",
   ]
 
+  config.vm.provider "virtualbox" do |v|
+    v.memory = <<MEMORY>>
+    v.cpus = <<CPUS>>
+  end
+
   config.vm.provision "ansible" do |ansible|
     vagrant_root = File.dirname(__FILE__)
 
@@ -53,6 +64,8 @@ EOF
 VAGRANTFILE=$(echo "$VAGRANTFILE" | sed "s#<<BOX>>#$BOX#g")
 VAGRANTFILE=$(echo "$VAGRANTFILE" | sed "s#<<NAME>>#$NAME#g")
 VAGRANTFILE=$(echo "$VAGRANTFILE" | sed "s#<<PLAYBOOK>>#$PLAYBOOK#g")
+VAGRANTFILE=$(echo "$VAGRANTFILE" | sed "s#<<MEMORY>>#$MEMORY#g")
+VAGRANTFILE=$(echo "$VAGRANTFILE" | sed "s#<<CPUS>>#$CPUS#g")
 
 mkdir -p "$PROJECT_ROOT/vms/$NAME"
 echo "$VAGRANTFILE" > "$PROJECT_ROOT/vms/$NAME/Vagrantfile"
