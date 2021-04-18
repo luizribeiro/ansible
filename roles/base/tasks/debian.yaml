@@ -8,7 +8,7 @@
     mode: u=rw,g=r,o=r
 - name: Add luizribeiro's GPG key to apt keys
   apt_key:
-    url: gpg.l9o.dev
+    url: http://gpg.l9o.dev
     state: present
 - name: Setup Debian apt repositories
   apt_repository:
