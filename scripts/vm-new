@@ -58,7 +58,7 @@ mkdir -p "$PROJECT_ROOT/vms/$NAME"
 echo "$VAGRANTFILE" > "$PROJECT_ROOT/vms/$NAME/Vagrantfile"
 
 cd "$PROJECT_ROOT/vms/$NAME"
-vagrant destroy
+vagrant destroy || exit 1
 vagrant box update
 vagrant up
 vagrant ssh -p "$NAME"
