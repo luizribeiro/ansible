@@ -10,12 +10,18 @@
       - nmap
       - ripgrep
       - rsync
-      - tldr
       - tmux
       - wget
       - zsh
     state: present
   tags: packages
+- name: Install not as essential user packages
+  package:
+    name:
+      - tldr
+    state: present
+  tags: packages
+  when: ansible_distribution != 'Alpine'
 
 - name: Setup neovim
   include_tasks: "neovim-{{ ansible_distribution | lower }}.yaml"

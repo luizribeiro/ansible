@@ -1,0 +1,9 @@
+---
+- name: Install basic development tools
+  package:
+    name:
+      - git
+      - shellcheck
+      - yamllint
+    state: present
+  tags: packages

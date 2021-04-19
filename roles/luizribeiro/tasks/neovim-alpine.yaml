@@ -1,0 +1,8 @@
+---
+- name: Install neovim
+  apk:
+    name:
+      - neovim
+      - py3-pynvim
+    state: present
+  tags: packages

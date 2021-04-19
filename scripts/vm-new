@@ -11,9 +11,9 @@ parser_definition() {
   param NAME -n --name init:="devvm" -- \
     "name of the virtual machine" \
     "(default: devvm)"
-  param BOX -b --box init:="luizribeiro/arch-base" -- \
+  param BOX -b --box init:="luizribeiro/alpine-base" -- \
     "vagrant box to be used" \
-    "(default: luizribeiro/arch-base)"
+    "(default: luizribeiro/alpine-base)"
   param PLAYBOOK -p --playbook init:="devvm.yaml" -- \
     "ansible playbook to use for provisioning" \
     "(default: devvm.yaml)"

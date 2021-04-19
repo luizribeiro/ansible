@@ -1,0 +1,11 @@
+---
+- name: GNU core utilities are installed
+  apk:
+    name: coreutils
+    state: present
+- name: Allow users in wheel group to use sudo
+  lineinfile:
+    path: /etc/sudoers.d/00-wheel
+    line: "%wheel ALL=(ALL) ALL"
+    create: true
+    validate: "visudo -cf %s"
