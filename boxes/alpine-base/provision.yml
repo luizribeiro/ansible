@@ -1,0 +1,16 @@
+---
+- name: Provision alpine-base VM
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Install Python 3
+      raw: test -e /usr/bin/python3 || apk add python3
+    - name: Gather facts
+      setup:
+    - name: Upgrade system
+      apk:
+        update_cache: true
+        upgrade: true
+    - name: Reboot machine after upgrade
+      reboot:

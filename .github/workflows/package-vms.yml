@@ -31,7 +31,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        vm: [arch-base, debian10-base]
+        vm: [arch-base, debian10-base, alpine-base]
     steps:
       - uses: actions/checkout@v2
         with:
