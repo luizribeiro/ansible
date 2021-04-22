@@ -16,14 +16,6 @@ $ ansible-playbook site.yaml
 2. `ansible-vault create group_vars/secrets.yaml`
 3. Setup `group_vars/secrets.yaml` according to `group_vars/secrets.yaml.example`
 
-## Upgrading all packages
-
-```
-$ ansible-playbook site.yaml --tags upgrade
-```
-
-Note that this does not restart all upgraded services yet.
-
 ## OSX
 
 ```
