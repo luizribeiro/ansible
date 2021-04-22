@@ -10,6 +10,7 @@
       setup:
     - name: Upgrade system
       apk:
+        no_cache: true
         update_cache: true
         upgrade: true
     - name: Reboot machine after upgrade
