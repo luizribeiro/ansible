@@ -27,10 +27,19 @@
     - FTL-strings
     - FTL-upstreams
   when: pihole_server_install.changed
-- name: Setup pihole configuration
+- name: Setup pihole setupVars.conf
   copy:
     src: files/etc/pihole/setupVars.conf
     dest: /etc/pihole/setupVars.conf
+    owner: pihole
+    mode: u=rw,g=r,o=r
+    directory_mode: u=rwx,g=rx,o=rx
+  notify: restart pihole-FTL
+  tags: configuration
+- name: Setup pihole-FTL configuration
+  copy:
+    src: files/etc/pihole/pihole-FTL.conf
+    dest: /etc/pihole/pihole-FTL.conf
     owner: pihole
     mode: u=rw,g=r,o=r
     directory_mode: u=rwx,g=rx,o=rx
