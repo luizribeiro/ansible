@@ -231,6 +231,10 @@ config host
   option name 'peloton'
 	option mac 'AC:04:0B:45:17:76'
 
+config host
+  option name 'printer'
+	option mac '80:D2:1D:CD:8B:D5'
+
 
 ######################################################
 # Hosts for LAN entertainment devices
