@@ -431,7 +431,7 @@ windows = ["pywinrm"]
 
 [[package]]
 name = "molecule-vagrant"
-version = "0.6.1"
+version = "0.6.3"
 description = "Vagrant Molecule Plugin :: run molecule tests using Vagrant"
 category = "dev"
 optional = false
@@ -974,7 +974,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "2fd32b5f77e66972b47c6102c5482839bd4b1381c18dd2f0c98052726ccde5c0"
+content-hash = "e13204cf9db9d5fd1e5a75c2b3f7d38e3ffc4e36ddf6fdd51165bd703e6e3202"
 
 [metadata.files]
 ansible = [
@@ -1211,8 +1211,8 @@ molecule = [
     {file = "molecule-3.3.0.tar.gz", hash = "sha256:e09cee3f1cc6d8321a074b751dc7bd85c7118dffde6d0016941e1a3c6090fef2"},
 ]
 molecule-vagrant = [
-    {file = "molecule-vagrant-0.6.1.tar.gz", hash = "sha256:69fb95b06e0fb54687cf2be587adb5ec31b44952c35f1dfc605bc367438dbe5f"},
-    {file = "molecule_vagrant-0.6.1-py3-none-any.whl", hash = "sha256:eb32d0e8b8d1def6af2589fbdadc2d982a3cba306cdd0a5ed06506ed8c2a3125"},
+    {file = "molecule-vagrant-0.6.3.tar.gz", hash = "sha256:c1d7f8def1cf8878f52e40de50bbe93d804e87859e01d27dcf81c1e84c164782"},
+    {file = "molecule_vagrant-0.6.3-py3-none-any.whl", hash = "sha256:d431094d735c03356e492e95df8665abe4e68999e3759b672f7201628bb123c4"},
 ]
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
