@@ -1,17 +1,17 @@
 [[package]]
 name = "ansible"
-version = "3.3.0"
+version = "3.4.0"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
 
 [package.dependencies]
-ansible-base = ">=2.10.8,<2.11"
+ansible-base = ">=2.10.9,<2.11"
 
 [[package]]
 name = "ansible-base"
-version = "2.10.8"
+version = "2.10.9"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
@@ -213,7 +213,7 @@ test = ["flake8 (==3.7.8)", "hypothesis (==3.55.3)"]
 
 [[package]]
 name = "cookiecutter"
-version = "1.7.2"
+version = "1.7.3"
 description = "A command-line utility that creates projects from project templates, e.g. creating a Python package project from a Python package project template."
 category = "dev"
 optional = false
@@ -222,9 +222,8 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 [package.dependencies]
 binaryornot = ">=0.4.4"
 click = ">=7.0"
-Jinja2 = "<3.0.0"
+Jinja2 = ">=2.7,<4.0.0"
 jinja2-time = ">=0.2.0"
-MarkupSafe = "<2.0.0"
 poyo = ">=0.5.0"
 python-slugify = ">=4.0.0"
 requests = ">=2.23.0"
@@ -396,7 +395,7 @@ marshmallow = ">=2.0.0"
 
 [[package]]
 name = "molecule"
-version = "3.3.0"
+version = "3.3.1"
 description = "Molecule aids in the development and testing of Ansible roles"
 category = "dev"
 optional = false
@@ -405,10 +404,10 @@ python-versions = ">=3.6"
 [package.dependencies]
 ansible-lint = ">=5.0.5"
 cerberus = ">=1.3.1"
-click = ">=7.0,<8.0"
+click = ">=7.0"
 click-completion = ">=0.5.1"
-click-help-colors = ">=0.6"
-cookiecutter = ">=1.6.0,<1.7.1 || >1.7.1"
+click-help-colors = ">=0.9"
+cookiecutter = ">=1.7.3"
 enrich = ">=1.2.5"
 Jinja2 = ">=2.10.1"
 packaging = "*"
@@ -605,7 +604,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "pyre-check"
-version = "0.9.1"
+version = "0.9.3"
 description = "A performant type checker for Python"
 category = "dev"
 optional = false
@@ -974,14 +973,14 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "e13204cf9db9d5fd1e5a75c2b3f7d38e3ffc4e36ddf6fdd51165bd703e6e3202"
+content-hash = "eb577f13f5d3172ac3b7f622d113145e3bd4b6891f6bf16570b4c1a5672cd496"
 
 [metadata.files]
 ansible = [
-    {file = "ansible-3.3.0.tar.gz", hash = "sha256:2de5385c48a2a24a19f6cbaccc7d7684c64b6194f9a9b175aba7949d53b07bc9"},
+    {file = "ansible-3.4.0.tar.gz", hash = "sha256:ca34e2c0c3f92cad5e528c94c133e620845feb11cc62f42e98d28271fe5bd924"},
 ]
 ansible-base = [
-    {file = "ansible-base-2.10.8.tar.gz", hash = "sha256:f45df824051339d8bec32d7ab4e9e676498c05e2d9cfce6d54c9698a577e15e2"},
+    {file = "ansible-base-2.10.9.tar.gz", hash = "sha256:04635d3e08fc29358c76b8e7f1e9db0ce443fb09ce30b2acc6cacaad165f2151"},
 ]
 ansible-lint = [
     {file = "ansible-lint-5.0.8.tar.gz", hash = "sha256:b67b9628407ae9bc15bb0bb71f79871bdf593fefe6b0684c0cc44be5fc90803f"},
@@ -1091,8 +1090,8 @@ commonmark = [
     {file = "commonmark-0.9.1.tar.gz", hash = "sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"},
 ]
 cookiecutter = [
-    {file = "cookiecutter-1.7.2-py2.py3-none-any.whl", hash = "sha256:430eb882d028afb6102c084bab6cf41f6559a77ce9b18dc6802e3bc0cc5f4a30"},
-    {file = "cookiecutter-1.7.2.tar.gz", hash = "sha256:efb6b2d4780feda8908a873e38f0e61778c23f6a2ea58215723bcceb5b515dac"},
+    {file = "cookiecutter-1.7.3-py2.py3-none-any.whl", hash = "sha256:f8671531fa96ab14339d0c59b4f662a4f12a2ecacd94a0f70a3500843da588e2"},
+    {file = "cookiecutter-1.7.3.tar.gz", hash = "sha256:6b9a4d72882e243be077a7397d0f1f76fe66cf3df91f3115dbb5330e214fa457"},
 ]
 cryptography = [
     {file = "cryptography-3.4.7-cp36-abi3-macosx_10_10_x86_64.whl", hash = "sha256:3d8427734c781ea5f1b41d6589c293089704d4759e34597dce91014ac125aad1"},
@@ -1207,8 +1206,8 @@ marshmallow-enum = [
     {file = "marshmallow_enum-1.5.1-py2.py3-none-any.whl", hash = "sha256:57161ab3dbfde4f57adeb12090f39592e992b9c86d206d02f6bd03ebec60f072"},
 ]
 molecule = [
-    {file = "molecule-3.3.0-py3-none-any.whl", hash = "sha256:8ac7169f81a848dd04558800de7ef93c0a79780271ac2d37914cb01c334bcbb6"},
-    {file = "molecule-3.3.0.tar.gz", hash = "sha256:e09cee3f1cc6d8321a074b751dc7bd85c7118dffde6d0016941e1a3c6090fef2"},
+    {file = "molecule-3.3.1-py3-none-any.whl", hash = "sha256:2c3e507c7f568cac3509df1e44bece4a1ff78d6d6700f9c4070ca2fec1b7eb1c"},
+    {file = "molecule-3.3.1.tar.gz", hash = "sha256:9ac0fde11f895bbc6727de26e2ab0bd0316964f4e4facfd821240959814f9572"},
 ]
 molecule-vagrant = [
     {file = "molecule-vagrant-0.6.3.tar.gz", hash = "sha256:c1d7f8def1cf8878f52e40de50bbe93d804e87859e01d27dcf81c1e84c164782"},
@@ -1317,9 +1316,9 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 pyre-check = [
-    {file = "pyre-check-0.9.1.tar.gz", hash = "sha256:e5118a683618232b26c475aa782c9d03854fbd7460fd119002f472553187c941"},
-    {file = "pyre_check-0.9.1-py3-none-macosx_10_11_x86_64.whl", hash = "sha256:7e1647f3e7540e971562771fc26e16073449dd8929acf98187033c5136220996"},
-    {file = "pyre_check-0.9.1-py3-none-manylinux1_x86_64.whl", hash = "sha256:4fe4db2baeb04cf22962df7df2305c1d00f9540811ed78ff419e0151afa010eb"},
+    {file = "pyre-check-0.9.3.tar.gz", hash = "sha256:d5c03de101610d534eaf3d7b654702d91b95505209886feed211a30ded789daa"},
+    {file = "pyre_check-0.9.3-py3-none-macosx_10_11_x86_64.whl", hash = "sha256:989a82f1f76dd572da46e33bde34e56e7949f272df32f96d1f397241f42ebb13"},
+    {file = "pyre_check-0.9.3-py3-none-manylinux1_x86_64.whl", hash = "sha256:ed000307bcc7999b6e651bd8fa3d7716d6b3cc272855bf677643438f77ff54c1"},
 ]
 pyre-extensions = [
     {file = "pyre-extensions-0.0.21.tar.gz", hash = "sha256:585f630fc4e36019551c2ac50805d8d777d739b2d7f5bfe30d9b4daa0c95e66d"},
