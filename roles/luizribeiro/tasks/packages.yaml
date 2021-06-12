@@ -23,5 +23,14 @@
   tags: packages
   when: ansible_distribution != 'Alpine'
 
+- name: Install email software
+  package:
+    name:
+      - mutt
+      - w3m
+    state: present
+  tags: packages
+  when: ansible_distribution == 'MacOSX'
+
 - name: Setup neovim
   include_tasks: "neovim-{{ ansible_distribution | lower }}.yaml"
