@@ -1,17 +1,17 @@
 [[package]]
 name = "ansible"
-version = "3.4.0"
+version = "4.1.0"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
 
 [package.dependencies]
-ansible-base = ">=2.10.9,<2.11"
+ansible-core = ">=2.11.1,<2.12"
 
 [[package]]
-name = "ansible-base"
-version = "2.10.9"
+name = "ansible-core"
+version = "2.11.1"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
@@ -22,6 +22,7 @@ cryptography = "*"
 jinja2 = "*"
 packaging = "*"
 PyYAML = "*"
+resolvelib = ">=0.5.3,<0.6.0"
 
 [[package]]
 name = "ansible-lint"
@@ -768,6 +769,20 @@ security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
+name = "resolvelib"
+version = "0.5.5"
+description = "Resolve abstract dependencies into concrete ones"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+examples = ["html5lib", "packaging", "pygraphviz", "requests"]
+lint = ["black", "flake8"]
+release = ["setl", "towncrier"]
+test = ["commentjson", "packaging", "pytest"]
+
+[[package]]
 name = "rich"
 version = "10.1.0"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
@@ -950,14 +965,14 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "6df951011cf36bd25c4629fc2a139ee4b8cefe0360694825ec03f20d7f021e6e"
+content-hash = "42d7d2be0cf2288896878ceaa57aaf9e67fa84d23fddfb27dc45d03d61a3425f"
 
 [metadata.files]
 ansible = [
-    {file = "ansible-3.4.0.tar.gz", hash = "sha256:ca34e2c0c3f92cad5e528c94c133e620845feb11cc62f42e98d28271fe5bd924"},
+    {file = "ansible-4.1.0.tar.gz", hash = "sha256:f561cca7fbc4daa14d98e18cd0cb74bd8b173f1501b8fa11543f6ef002de3167"},
 ]
-ansible-base = [
-    {file = "ansible-base-2.10.9.tar.gz", hash = "sha256:04635d3e08fc29358c76b8e7f1e9db0ce443fb09ce30b2acc6cacaad165f2151"},
+ansible-core = [
+    {file = "ansible-core-2.11.1.tar.gz", hash = "sha256:7e75827a94d47d1c3e1930d708f0ef637a3ab9a21f757aaf55deab6e9f47c682"},
 ]
 ansible-lint = [
     {file = "ansible-lint-5.0.12.tar.gz", hash = "sha256:f2b0b74bd05cf55f0bb45304767e1862ed62c05def06e1f03aa2c2d39c67907c"},
@@ -1372,6 +1387,10 @@ pyyaml = [
 requests = [
     {file = "requests-2.25.1-py2.py3-none-any.whl", hash = "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"},
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
+]
+resolvelib = [
+    {file = "resolvelib-0.5.5-py2.py3-none-any.whl", hash = "sha256:b0143b9d074550a6c5163a0f587e49c49017434e3cdfe853941725f5455dd29c"},
+    {file = "resolvelib-0.5.5.tar.gz", hash = "sha256:123de56548c90df85137425a3f51eb93df89e2ba719aeb6a8023c032758be950"},
 ]
 rich = [
     {file = "rich-10.1.0-py3-none-any.whl", hash = "sha256:60cd6d6ea697a1704f2057e791e3062b506b5c74a6e2ad2ced71eccb37557259"},
