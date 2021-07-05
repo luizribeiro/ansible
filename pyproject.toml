@@ -8,7 +8,7 @@ authors = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-ansible = "4.1.0"
+ansible = "4.2.0"
 passlib = "1.7.4"
 
 [tool.poetry.dev-dependencies]
@@ -20,7 +20,7 @@ pyexpect = "1.0.21"
 pyre-check = "0.9.3"
 pytest = "6.2.4"
 python-language-server = "0.36.2"
-pytest-testinfra = "6.3.0"
+pytest-testinfra = "6.4.0"
 yamllint = "1.26.1"
 
 [build-system]
