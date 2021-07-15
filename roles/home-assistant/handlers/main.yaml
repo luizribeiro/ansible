@@ -1,5 +1,5 @@
 ---
 - name: restart home-assistant
   community.docker.docker_compose:
-    project_src: files/docker/
+    project_src: /etc/docker/homeassistant/
     restarted: true

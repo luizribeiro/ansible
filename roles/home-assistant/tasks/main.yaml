@@ -1,9 +1,14 @@
 ---
-- name: Setup home-assistant Docker container
-  community.docker.docker_compose:
-    project_src: files/docker/
-    state: present
-  tags: packages
+- name: Setup home-assistant Docker compose
+  copy:
+    src: files/etc/docker/
+    dest: /etc/docker/
+    owner: root
+    group: root
+    mode: u=rw,g-rwx,o-rwx
+    directory_mode: u+rwx,g-rwx,o-rwx
+  notify: restart home-assistant
+  tags: configuration
 - name: Setup secrets.yaml for home-assistant
   copy:
     content: "{{ secret_home_assistant_secrets_yaml }}"
@@ -108,3 +113,8 @@
       - uucp
     append: true
   tags: configuration
+- name: home-assistant Docker container is present
+  community.docker.docker_compose:
+    project_src: /etc/docker/homeassistant/
+    state: present
+  tags: packages
