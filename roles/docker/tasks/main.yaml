@@ -3,6 +3,7 @@
   pacman:
     name:
       - docker
+      - docker-compose
       - python-docker
     state: present
 - name: Docker is enabled and running
