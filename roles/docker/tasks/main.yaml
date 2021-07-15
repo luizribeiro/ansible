@@ -1,7 +1,9 @@
 ---
 - name: Install Docker
   pacman:
-    name: docker
+    name:
+      - docker
+      - python-docker
     state: present
 - name: Docker is enabled and running
   systemd:
