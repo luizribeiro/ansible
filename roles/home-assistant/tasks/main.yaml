@@ -1,16 +1,7 @@
 ---
-- name: Install home-assistant
-  pacman:
-    state: present
-    name:
-      - home-assistant
-      - python-bluepy
-  tags: packages
-- name: Install home-assistant dependencies from AUR
-  become: true
-  become_user: aur_builder
-  aur:
-    name: python-pychromecast
+- name: Setup home-assistant Docker container
+  community.docker.docker_compose:
+    project_src: files/docker/
     state: present
   tags: packages
 - name: Setup secrets.yaml for home-assistant
@@ -84,7 +75,6 @@
     mode: u=rw,g=r,o=r
     directory_mode: u=rwx,g=rx,o=rx
   notify:
-    - reload home-assistant.service
     - restart home-assistant
   tags: configuration
 - name: home-assistant is enabled and running

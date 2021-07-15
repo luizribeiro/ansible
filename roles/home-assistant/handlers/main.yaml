@@ -1,8 +1,5 @@
 ---
-- name: reload home-assistant.service
-  systemd:
-    daemon_reload: true
 - name: restart home-assistant
-  systemd:
-    name: home-assistant
-    state: restarted
+  community.docker.docker_compose:
+    project_src: files/docker/
+    restarted: true

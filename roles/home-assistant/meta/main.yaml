@@ -10,6 +10,7 @@ galaxy_info:
 
 dependencies:
   - bluetooth
+  - docker
   - kewlfft.aur
   - lm_sensors
   - webserver
