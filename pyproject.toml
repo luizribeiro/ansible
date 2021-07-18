@@ -12,7 +12,7 @@ ansible = "4.2.0"
 passlib = "1.7.4"
 
 [tool.poetry.dev-dependencies]
-ansible-lint = "5.0.12"
+ansible-lint = "5.1.2"
 molecule = "3.3.4"
 molecule-vagrant = "0.6.3"
 python-vagrant = "0.5.15"
