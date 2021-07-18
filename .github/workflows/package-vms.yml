@@ -30,6 +30,7 @@ jobs:
     needs: setup-venv
     strategy:
       max-parallel: 4
+      fail-fast: false
       matrix:
         vm: [arch-base, debian10-base, alpine-base]
     steps:
